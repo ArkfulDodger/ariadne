@@ -1,6 +1,6 @@
 import Home from './Home';
-import Game from './Game';
-import Memories from './Memories';
+import Game from './Game/Game';
+import Memories from './Memories/Memories';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
