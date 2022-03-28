@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import MemoryList from "./MemoryList";
 
 function Memories (props) {
     return (
