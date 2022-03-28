@@ -3,9 +3,10 @@ import MemoryListItem from "./MemoryListItem";
 
 function MemoryList (props) {
     return (
-        <h2>
-            Memory List!
-        </h2>
+        <div>
+            <h2>Memory List!</h2>
+            <MemoryListItem />
+        </div>
     );
 }
 
