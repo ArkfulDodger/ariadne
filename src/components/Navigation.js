@@ -1,3 +1,5 @@
+import OptionBox from "./OptionBox"
+
 function Navigation(props) {
     
     return (

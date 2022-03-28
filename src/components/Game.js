@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import Minotaur from "./Minotaur";
 import Actions from "./Actions";
 import Navigation from "./Navigation";
-import Menu from "./Menu";
-import ItemsWindow from "./ItemsWindow"
+// import Menu from "./Menu";
+// import ItemsWindow from "./ItemsWindow"
 
-function Game (props) {
+function Game ({props}) {
     return (
         <div>
             <h1>
@@ -14,8 +14,8 @@ function Game (props) {
             <Minotaur />
             <Actions />
             <Navigation />
-            <Menu />
-            <ItemsWindow />
+            {/* <Menu />
+            <ItemsWindow /> */}
         </div>
     );
 }
