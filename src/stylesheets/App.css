@@ -4,6 +4,7 @@ div {
 }
 
 div div {
+  background-color: white;
 }
 
 div div div {
@@ -35,6 +36,14 @@ div div div div div div div {
   visibility: hidden;
 }
 
+.option{
+  width: 50%;
+  /* float: left; */
+}
+
+/* .optionBox{
+  float: left;
+} */
 
 
 

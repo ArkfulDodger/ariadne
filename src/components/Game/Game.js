@@ -6,6 +6,16 @@ import Menu from "./Menu/Menu";
 import ItemsWindow from "./Items/ItemsWindow";
 
 function Game ({props}) {
+    //TEMP - waiting to refactor the map logic into Game
+    const curRoomNavOptions={
+        choice0: "go left",
+        //choice0Flavor: {curRoom.leftPassageType}
+        choice0Flavor: "a dark hallway",
+        choice1: "go right",
+        //choice1Flavor: {curRoom.rightPassageType}
+        choice1Flavor: "a shadowy corridor"
+    }
+    
     return (
         <div>
             <h1>
@@ -13,7 +23,7 @@ function Game ({props}) {
             </h1>
             {/* <Minotaur />
             <Actions /> */}
-            <Navigation />
+            <Navigation options={curRoomNavOptions}/>
             <Menu />
             <ItemsWindow />
         </div>
