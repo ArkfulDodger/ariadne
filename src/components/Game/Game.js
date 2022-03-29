@@ -11,7 +11,7 @@ import ItemsWindow from "./Items/ItemsWindow";
 //instantly post to memories and take you to memories
 //memories does a new fetch and renders (added fetch language)
 //then backwards in game navigation
-//then make her pretty
+//then add a bit of styling
 
 
 //move app to game - done
@@ -21,24 +21,45 @@ import ItemsWindow from "./Items/ItemsWindow";
 //site navigation buttons done
 //menu and memories should conditional render nav buttons done
 
+
+//add't notes:
+//state - currentGame should persist/update (ie post/patch for each option select (?) or plot point)
+//for mems: push full current game + end result to db, mem page will pull from there and take what it wants
 function Game ({props}) {
 
     const [curGameInfo, setCurGameInfo] = useState({
-        curLocation: ['0', undefined],
+        //curLocation: ['0', 'prevRoom'],
+        curRoom: {},
         map: [],
+        stringPath: '0',
         minoLocation: "00",
         itemsArray: [],
-        goalPath: '0101',
+        //goalPath: '',
         playerInfo: {
             hasTheseus: false,
-            statusEffects: null
+            statusEffects: {}
         }
     })
 
+    const [goalPath, setGoalPath] = useState('')
     const [menuOpen, setMenuOpen] = useState(false)
     const [itemsOpen, setItemsOpen] = useState(false)
     const [passageTypeArray, setPassageTypeArray] = useState([])
+    
+    //fetch to set up passage types, then also generate the goal path and the game map on load
+    //eventually this will pull both passage types and currGame if there is one...
+    useEffect(() => {
+        fetch('http://localhost:3000/passage-types')
+        .then(resp => resp.json())
+        .then(data => {
+            setPassageTypeArray(data)
+        })
+        .then ( () => {
+            generateGoalPath()})
+        //.then ( () => generateMap(curGameInfo.goalPath))
+    }, [])
 
+    useEffect (() => generateMap(goalPath), [goalPath])
 
     function handleToggleMenu(){
         setMenuOpen(!menuOpen)
@@ -46,29 +67,14 @@ function Game ({props}) {
     function handleToggleItems(){
         setItemsOpen(!itemsOpen)
     }
-    useEffect(() => {
-        fetch('http://localhost:3000/passage-types')
-        .then(resp => resp.json())
-        .then(data => setPassageTypeArray(data))
-        generateGoalPath()
-    }, [])
+
 
     function updateGameInfo(newInfoObj){
         setCurGameInfo({
-            ...setCurGameInfo,
+            ...curGameInfo,
             [newInfoObj.key] : newInfoObj.value
         })
     }
-
-    //state - curLocation is the [curIndex and prevIndex] and where you came from, map(has chamber info), minotaur location, itemsArray, 
-    //state cont - playerInfo - is theseus, aid objects, injuries etc
-    //state - currentGame that persists/updates, goalPath
-    //state curGame cont - string path, map 
-    //for mems: items collected, rooms visited (action taken there/result), found theseus?, minotaurencountersarray
-    //for mems: success? (theseus)
-    //currgame needs basically anything in state other than isItemWindow 
-    //post to json like all the time
-    
 
     const goalPathLength = 5;
 
@@ -77,15 +83,12 @@ function Game ({props}) {
         // for (let i = 0; i < goalPathLength; i++) {
         //   path += Math.round(Math.random());
         // }
-        // return path;
 
-        const goalPathObj ={
-            key: "goalPath",
-            value: "0101" //path
-        }
-
-        updateGameInfo(goalPathObj)
-        //return "0101";
+        // const goalPathObj ={
+        //     key: "goalPath",
+        //     value: "0101" //path
+        // }
+        setGoalPath("0101")
     }
 
     function printAsTurns(binaryPath) {
@@ -97,12 +100,15 @@ function Game ({props}) {
         return turnPath;
     }
 
-    generateMap(curGameInfo.goalPath);
+    //generateMap(curGameInfo.goalPath);
 
-    function generateMap(goalPath) {
+    function handleMap(){
+        generateMap(curGameInfo.goalPath)
+    }
+
+    function generateMap() {
         //TODO: account for goal path end.
         // if path to room is goal path, make dead end and set type 
-        console.log(goalPath);
 
         const mapRooms = [];
 
@@ -115,9 +121,17 @@ function Game ({props}) {
         onGoalPath: true
         }
 
+        // console.log(goalPath)
+        // console.log("in generate", entranceRoom.rightPassageType)
+
+        updateGameInfo({
+            key: "curRoom",
+            value: entranceRoom
+        })
+
         mapRooms.push(entranceRoom);
         addRoomsTo(entranceRoom);
-        console.log(mapRooms);
+        console.log("generating map", mapRooms);
 
         function addRoomsTo(fromRoom) {
         if (fromRoom.leftPassageType) {
@@ -126,6 +140,7 @@ function Game ({props}) {
         if (fromRoom.rightPassageType) {
             addNewRoomToMap('1');
         }
+
 
         function addNewRoomToMap(turn) {
             const path = fromRoom.path + turn;
@@ -166,18 +181,6 @@ function Game ({props}) {
 
         
         function getRandomPassageType() {
-        //TEMP - my db was acting funky so this is here an in db.json
-        // const passageTypeArray = [
-        //     "a torchlit path",
-        //     "a dark stairwell",
-        //     "a dusty hallway",
-        //     "a heavy wooden door",
-        //     "a smooth stone cavern",
-        //     "a twisting corridor",
-        //     "a mossy, but climbable wall",
-        //     "an eerie open room"
-        // ]
-        //console.log(passageTypeArray)
         const passageType = passageTypeArray[Math.floor(Math.random()*passageTypeArray.length)]
         return passageType
         }
@@ -187,11 +190,15 @@ function Game ({props}) {
     const curRoomNavOptions= [
         {
             choiceText : "go left",
-            flavorText : "a dark hallway"
+            flavorText : curGameInfo.curRoom.leftPassageType
         },
         {
             choiceText: "go right",
-            flavorText: "a shadowy corridor"
+            flavorText: curGameInfo.curRoom.rightPassageType
+        },
+        {
+            choiceText: "go back to last room",
+            flavorText: "🧶"
         }
     ]
 

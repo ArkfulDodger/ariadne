@@ -2,15 +2,12 @@ import OptionBox from "./OptionBox"
 
 function Navigation({curGameInfo, options}) {
 
-    console.log(curGameInfo)
-
-    //options.choice0 = "go left"
-    //options.choice1 = "go right"
-    //go back
+    const {curRoom, map, stringPath} = curGameInfo
+    console.log("in Nav: ", curGameInfo)
 
     return (
         <div>
-            <h2>navigation page</h2>
+            <h2>{stringPath}</h2>
             <OptionBox options={options}/>
         </div>
     )
