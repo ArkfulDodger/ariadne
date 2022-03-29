@@ -71,6 +71,27 @@ function Game ({props}) {
         setItemsOpen(!itemsOpen)
     }
 
+    function patchCurGameStatus(){
+        const patchGameObj = {
+            ...curGameInfo,
+            goalPath: goalPath,
+            map: map
+        }
+        fetch(`http://localhost:3000/current-game`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: JSON.stringify({
+                patchGameObj 
+            })
+        })
+        .then( res => res.json())
+        .then( data => console.log(data))
+        .catch( error => console.log(error.message));
+    }
+
     function updateGameInfo(newInfoObj){
         setCurGameInfo({
             ...curGameInfo,
