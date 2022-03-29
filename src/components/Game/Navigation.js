@@ -4,6 +4,7 @@ function Navigation({options}) {
 
     //options.choice0 = "go left"
     //options.choice1 = "go right"
+    //go back
 
     return (
         <div>

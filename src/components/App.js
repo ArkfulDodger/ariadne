@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 
 
 function App() {
+  //state for if there is a current game, tell mems and home
   const goalPathLength = 5;
 
   function generateGoalPath() {
