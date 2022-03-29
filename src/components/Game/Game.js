@@ -54,10 +54,11 @@ function Game ({props}) {
     //fetch to set up passage types, then also generate the goal path and the game map on load
     //eventually this will pull both passage types and currGame if there is one...
     useEffect(() => {
-        fetch('http://localhost:3000/passage-types')
+        fetch('http://localhost:3001/passages')
         .then(resp => resp.json())
         .then(data => {
-            setPassageTypeArray(data)
+            console.log(data);
+            setPassageTypeArray(data.map(passObj => passObj['nav-text']))
         })
         .then ( () => {
             generateGoalPath()})
@@ -78,7 +79,7 @@ function Game ({props}) {
             goalPath: goalPath,
             map: map
         }
-        fetch(`http://localhost:3000/current-game`, {
+        fetch(`http://localhost:3001/current-game`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

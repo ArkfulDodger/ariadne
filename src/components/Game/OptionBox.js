@@ -3,6 +3,7 @@ import Option from "./Option"
 function OptionBox({options, handleClick}) {
     let renderCount = 0;
     const renderedOptions = options.map(option => {
+        console.log(option.flavorText);
         if (option.flavorText){
             ++ renderCount
         return (

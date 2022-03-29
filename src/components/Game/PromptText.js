@@ -248,11 +248,11 @@ function PromptText() {
         ? travelTextData.text[0]
         : travelTextData.text[1] || travelTextData.text[0]
 
-    console.log('passage text:', passageText);
-    console.log('tText options:', isPassageVisited ? passageData['return-travel-text'] : passageData['initial-travel-text']);
-    console.log('tText ID:', travelTextId);
-    console.log('tText Data:', travelTextData);
-    console.log('tText:', travelText);
+    // console.log('passage text:', passageText);
+    // console.log('tText options:', isPassageVisited ? passageData['return-travel-text'] : passageData['initial-travel-text']);
+    // console.log('tText ID:', travelTextId);
+    // console.log('tText Data:', travelTextData);
+    // console.log('tText:', travelText);
     
 
     // text options
@@ -260,13 +260,13 @@ function PromptText() {
 
     // assemble narrative text
     const entryText = `${travelText} ${passageText}`;
-    console.log(entryText);
+    // console.log(entryText);
     const lowlightText = isVisibility ? "until you reach" : "where you can barely make out";
     const chamberText = "what appears to be some manner of storeroom, lumpy shapes looming on every side in the stillness"
     const clueText = "Placing the listening horn to your ear, you believe you can faintly hear the heavy plodding of hooves from the passage beyond to the right."
 
     const narrationText = `${entryText} ${lowlightText} ${chamberText}. ${clueText}`
-    console.log(narrationText);
+    // console.log(narrationText);
 
     function randomFromArray(array) {
         return array[Math.floor(Math.random()*array.length)]
