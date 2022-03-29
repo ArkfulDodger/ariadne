@@ -93,6 +93,8 @@ function App() {
       }
     }
 
+    //TEMP - 
+
     function getRandomPassageType() {
       //TODO: do it
       return "dark passage"
