@@ -1,13 +1,15 @@
 import Option from "./Option"
 
-function OptionBox({options}) {
+function OptionBox({options, handleClick}) {
     const renderedOptions = options.map(option => {
+        if (option.flavorText){
         return (
             <div className="option">
                 <h4> {option.flavorText} </h4>
-                <Option choice = {option.choiceText} />
+                <Option handleClick={handleClick} choice = {option.choiceText} />
             </div>
-        )
+        )}
+        else {return null}
     })
 
     return (

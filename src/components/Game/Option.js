@@ -1,9 +1,6 @@
 
-function Option({choice}) {
-
-    function handleClick(){
-        console.log(`player chose ${choice}`)
-    }
+function Option({choice, handleClick}) {
+    
     return (
         <>
             <button onClick={handleClick}>{choice}</button>

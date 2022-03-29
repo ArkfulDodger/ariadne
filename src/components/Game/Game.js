@@ -28,13 +28,13 @@ import ItemsWindow from "./Items/ItemsWindow";
 function Game ({props}) {
 
     const [curGameInfo, setCurGameInfo] = useState({
-        //curLocation: ['0', 'prevRoom'],
-        curRoom: {},
+        curLocation: ['0', 'prevRoom'],
+        curRoom: {}, //need room obj to access passagetypes
         map: [],
-        stringPath: '0',
+        stringPath: '0', 
         minoLocation: "00",
         itemsArray: [],
-        //goalPath: '',
+        //goalPath: '', //need separate from rest so we can generate map 
         playerInfo: {
             hasTheseus: false,
             statusEffects: {}
@@ -56,7 +56,6 @@ function Game ({props}) {
         })
         .then ( () => {
             generateGoalPath()})
-        //.then ( () => generateMap(curGameInfo.goalPath))
     }, [])
 
     useEffect (() => generateMap(goalPath), [goalPath])
@@ -67,7 +66,6 @@ function Game ({props}) {
     function handleToggleItems(){
         setItemsOpen(!itemsOpen)
     }
-
 
     function updateGameInfo(newInfoObj){
         setCurGameInfo({
@@ -100,12 +98,6 @@ function Game ({props}) {
         return turnPath;
     }
 
-    //generateMap(curGameInfo.goalPath);
-
-    function handleMap(){
-        generateMap(curGameInfo.goalPath)
-    }
-
     function generateMap() {
         //TODO: account for goal path end.
         // if path to room is goal path, make dead end and set type 
@@ -113,12 +105,12 @@ function Game ({props}) {
         const mapRooms = [];
 
         const entranceRoom = {
-        path: '0',
-        type: 'entrance',
-        leftPassageType: getRandomPassageType(),
-        rightPassageType: getRandomPassageType(),
-        returnPassageType: "exit",
-        onGoalPath: true
+            path: '0',
+            type: 'entrance',
+            leftPassageType: getRandomPassageType(),
+            rightPassageType: getRandomPassageType(),
+            returnPassageType: "exit",
+            onGoalPath: true
         }
 
         // console.log(goalPath)
@@ -187,21 +179,6 @@ function Game ({props}) {
 
     }
 
-    const curRoomNavOptions= [
-        {
-            choiceText : "go left",
-            flavorText : curGameInfo.curRoom.leftPassageType
-        },
-        {
-            choiceText: "go right",
-            flavorText: curGameInfo.curRoom.rightPassageType
-        },
-        {
-            choiceText: "go back to last room",
-            flavorText: "🧶"
-        }
-    ]
-
     return (
         <div>
             <h1>
@@ -209,7 +186,7 @@ function Game ({props}) {
             </h1>
             {/* <Minotaur />
             <Actions /> */}
-            <Navigation curGameInfo={curGameInfo} options={curRoomNavOptions}/>
+            <Navigation curGameInfo={curGameInfo} />
             <Menu menuOpen={menuOpen} handleToggleMenu={handleToggleMenu}/>
             {/* <ItemsWindow itemsOpen={itemsOpen} handleToggleItems={handleToggleItems} /> */}
         </div>
