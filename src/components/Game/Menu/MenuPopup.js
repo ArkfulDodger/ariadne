@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function MenuPopup (props) {
+function MenuPopup () {
     return (
         <div>
             <h4>I'm a lil menu popup!</h4>

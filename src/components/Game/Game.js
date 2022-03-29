@@ -36,6 +36,12 @@ function Game ({props}) {
     const [passageTypeArray, setPassageTypeArray] = useState([])
 
 
+    function handleToggleMenu(){
+        setMenuOpen(!menuOpen)
+    }
+    function handleToggleItems(){
+        setItemsOpen(!itemsOpen)
+    }
     useEffect(() => {
         fetch('http://localhost:3000/passage-types')
         .then(resp => resp.json())
@@ -196,8 +202,8 @@ function Game ({props}) {
             {/* <Minotaur />
             <Actions /> */}
             <Navigation options={curRoomNavOptions}/>
-            <Menu />
-            <ItemsWindow />
+            <Menu menuOpen={menuOpen} handleToggleMenu={handleToggleMenu}/>
+            <ItemsWindow itemsOpen={itemsOpen} handleToggleItems={handleToggleItems} />
         </div>
     );
 }
