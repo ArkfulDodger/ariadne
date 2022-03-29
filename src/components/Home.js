@@ -8,9 +8,10 @@ function Home ({isCurGame}) {
         <div>
             <h1>Home Page</h1>
             <ScrollTextContainer />
+            <div>
             <Link to="/play">{isCurGame ? "Return to the Labyrinth" : "Enter the Labyrinth"}</Link>  
             <Link to="/memories">Reflect on your Memories</Link>  
-
+            </div>
         </div>
     );
 }
