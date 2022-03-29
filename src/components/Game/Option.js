@@ -1,11 +1,9 @@
 
-function Option({props}) {
-    // const {choice} = props
-    
+function Option({choice}) {
     return (
         <div>
-            <h4> a choice component</h4>
-            {/* <button>{choice}</button> */}
+            {/* <h4> a choice component</h4> */}
+            <button>{choice}</button>
         </div>
     )
 }

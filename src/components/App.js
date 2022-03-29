@@ -93,11 +93,27 @@ function App() {
       }
     }
 
-    //TEMP - 
-
+    
     function getRandomPassageType() {
+      //TEMP - my db was acting funky so this is here an in db.json
+      const passageTypeArray = [
+        "a torchlit path",
+        "a dark stairwell",
+        "a dusty hallway",
+        "a heavy wooden door",
+        "a smooth stone cavern",
+        "a twisting corridor",
+        "a mossy, but climbable wall",
+        "an eerie open room"
+    ]
+      // let passageTypeArray = []
+      // fetch(` http://localhost:3000/passage-types`)
+      // .then( res => res.json())
+      // .then( data => passageTypeArray = data)
+      // .catch( error => console.log(error.message));
       //TODO: do it
-      return "dark passage"
+      const passageType = passageTypeArray[Math.floor(Math.random()*passageTypeArray.length)]
+      return passageType
     }
 
 

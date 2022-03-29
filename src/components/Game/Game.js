@@ -11,8 +11,8 @@ function Game ({props}) {
             <h1>
                 This is the game
             </h1>
-            <Minotaur />
-            <Actions />
+            {/* <Minotaur />
+            <Actions /> */}
             <Navigation />
             <Menu />
             <ItemsWindow />
