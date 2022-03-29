@@ -1,6 +1,8 @@
 import OptionBox from "./OptionBox"
 
-function Navigation({options}) {
+function Navigation({curGameInfo, options}) {
+
+    console.log(curGameInfo)
 
     //options.choice0 = "go left"
     //options.choice1 = "go right"

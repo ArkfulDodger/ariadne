@@ -53,13 +53,10 @@ function Game ({props}) {
         generateGoalPath()
     }, [])
 
-    //getPassageTypeArray()
-
-    function updateGoalPath(newGoal){
-        console.log("hi")
+    function updateGameInfo(newInfoObj){
         setCurGameInfo({
-            ...curGameInfo,
-            goalPath : newGoal
+            ...setCurGameInfo,
+            [newInfoObj.key] : newInfoObj.value
         })
     }
 
@@ -82,12 +79,12 @@ function Game ({props}) {
         // }
         // return path;
 
-        // const goalPathObj ={
-        //     key: "goalPath",
-        //     value: "0101" //path
-        // }
-        updateGoalPath("0101")
+        const goalPathObj ={
+            key: "goalPath",
+            value: "0101" //path
+        }
 
+        updateGameInfo(goalPathObj)
         //return "0101";
     }
 
@@ -205,7 +202,7 @@ function Game ({props}) {
             </h1>
             {/* <Minotaur />
             <Actions /> */}
-            <Navigation options={curRoomNavOptions}/>
+            <Navigation curGameInfo={curGameInfo} options={curRoomNavOptions}/>
             <Menu menuOpen={menuOpen} handleToggleMenu={handleToggleMenu}/>
             {/* <ItemsWindow itemsOpen={itemsOpen} handleToggleItems={handleToggleItems} /> */}
         </div>
