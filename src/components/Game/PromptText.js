@@ -260,11 +260,13 @@ function PromptText() {
 
     // assemble narrative text
     const entryText = `${travelText} ${passageText}`;
+    console.log(entryText);
     const lowlightText = isVisibility ? "until you reach" : "where you can barely make out";
     const chamberText = "what appears to be some manner of storeroom, lumpy shapes looming on every side in the stillness"
     const clueText = "Placing the listening horn to your ear, you believe you can faintly hear the heavy plodding of hooves from the passage beyond to the right."
 
     const narrationText = `${entryText} ${lowlightText} ${chamberText}. ${clueText}`
+    console.log(narrationText);
 
     function randomFromArray(array) {
         return array[Math.floor(Math.random()*array.length)]
