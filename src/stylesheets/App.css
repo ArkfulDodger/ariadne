@@ -31,22 +31,10 @@ div div div div div div div {
   background-color: rgb(229, 192, 255);
 }
 
-
-.hidden{
-  visibility: hidden;
-}
-
 .option{
   width: 50%;
   /* float: left; */
 }
-
-/* .optionBox{
-  float: left;
-} */
-
-
-
 
 .App {
   text-align: center;

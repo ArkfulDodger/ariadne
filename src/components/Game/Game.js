@@ -5,18 +5,22 @@ import Navigation from "./Navigation";
 import Menu from "./Menu/Menu";
 import ItemsWindow from "./Items/ItemsWindow";
 //TODO for 3/29:
-//move app to game - done
-//setup game state -done?
 //get navigation buttons going
-//(set up options as taking an array that you iterate over)
-//comment out items, mino, etc
-//site navigation buttons
 //have current game post whenever curGame updates
 //win conditions (new component?) - get to end point
 //instantly post to memories and take you to memories
-//memories does a new fetch
-//menu and memories should conditional render nav buttons
+//memories does a new fetch and renders (added fetch language)
 //then backwards in game navigation
+//then make her pretty
+
+
+//move app to game - done
+//setup game state -done?
+//(set up options as taking an array that you iterate over) done
+//comment out items, mino, etc done
+//site navigation buttons done
+//menu and memories should conditional render nav buttons done
+
 function Game ({props}) {
 
     const [curGameInfo, setCurGameInfo] = useState({
@@ -203,7 +207,7 @@ function Game ({props}) {
             <Actions /> */}
             <Navigation options={curRoomNavOptions}/>
             <Menu menuOpen={menuOpen} handleToggleMenu={handleToggleMenu}/>
-            <ItemsWindow itemsOpen={itemsOpen} handleToggleItems={handleToggleItems} />
+            {/* <ItemsWindow itemsOpen={itemsOpen} handleToggleItems={handleToggleItems} /> */}
         </div>
     );
 }
