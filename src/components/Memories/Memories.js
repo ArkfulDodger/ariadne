@@ -11,11 +11,13 @@ function Memories ({isCurGame}) {
     const [memories, setMemories] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:3000/memories')
+        fetch('http://localhost:3001/memories')
         .then(resp => resp.json())
         .then(data => setMemories(data))
     }, [])
 
+    console.log(memories);
+    
     return (
         <div>
             <h1>Memories!!!</h1>

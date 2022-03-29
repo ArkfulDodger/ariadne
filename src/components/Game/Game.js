@@ -6,7 +6,7 @@ import Menu from "./Menu/Menu";
 import ItemsWindow from "./Items/ItemsWindow";
 import PromptText from "./PromptText";
 
-//TODO for 3/29:
+//TODO: for 3/29:
 //have current game post whenever curGame updates
 //win conditions (new component?) - get to end point - kinda done (game tells you if theseus is there, and he is in a dead end but does not trigger end game)
 //instantly post to memories and take you to memories

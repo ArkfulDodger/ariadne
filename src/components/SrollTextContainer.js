@@ -5,7 +5,6 @@ function SrollTextContainer (props) {
         console.log("scrolling")
     }
 
-    //TODO: convert textarea component 
     return (
         <div className="scroll-box" onScroll={handleScroll}>
             <p>You have always lived in your father's palace, another jewel in King Minos' shining court. As a child, you loved to wander your father's island, watching the farmers and shepherds at their work. You have many siblings, bright with your father's royal lineage might, and your mother Pasiphae's immortal blood. You saw your mother pregnant many times during your childhood, so you could not understand the dark mood that suffused the court and your family when her stomach grew round again, the summer after Poseiden blessed Crete with a beautiful white bull.</p> 

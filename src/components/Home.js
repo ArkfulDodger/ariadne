@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import ScrollTextContainer from "./SrollTextContainer"
 
 function Home ({isCurGame}) {
+    //TODO: "Enter Labyrith" should trigger start of a new game, whereas "Return to" only navigates to the Game page
+        // among other things "Enter" will set isCurGame from false to true
+    //TODO: create Start Over/New Game button which only appears if isCurGame
+        // this button should send the current game to memories and start a new game
 
     return (
         <div className="home">
