@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import MenuButton from "./MenuButton";
 
-function Menu (props) {
+function Menu ({handleToggleMenu, menuOpen}) {
     return (
-        <div>
-            <h2>Menu</h2>
-            <MenuButton />
+        <div className="menu">
+            {/* <h2>Menu</h2> */}
+            <MenuButton menuOpen={menuOpen} handleToggleMenu={handleToggleMenu} />
         </div>
     );
 }

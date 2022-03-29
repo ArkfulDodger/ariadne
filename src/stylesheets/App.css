@@ -1,3 +1,6 @@
+*{
+  font-family: 'Cinzel'
+}
 div {
   border: 1px solid black;
   padding: 5px;
@@ -31,22 +34,65 @@ div div div div div div div {
   background-color: rgb(229, 192, 255);
 }
 
-
-.hidden{
-  visibility: hidden;
-}
-
 .option{
   width: 50%;
+  margin: 2em;
   /* float: left; */
 }
 
-/* .optionBox{
-  float: left;
-} */
+.optionBox {
+  display: flex;
+}
 
+.optionBox h3 {
+  display: block;
+}
 
+a {
+  background-color: darkblue;
+  color: wheat;
+  border: 2px solid wheat;
+  text-decoration: none;
+  margin: 1em;
+  display: inline-block;
+  padding: 14px;
+  font-size: 25px;
+  font-family: 'Genos';
+}
+.buttons {
+  display: flex;
+  margin: 1em
+}
+.menu {
+  width: 20%;
+  display: flex;
+}
 
+button {
+  background-color: #282c34;
+  color: wheat;
+  font-family: 'Genos';
+}
+.menu a {
+  font-size: small;
+  padding: 5px;
+  margin: 1em;
+}
+
+h1, h2 {
+  font-family: 'Cinzel';
+}
+
+textarea {
+  width: 70%;
+  height: 200px;
+  background-color: #282c34;
+  color:rgb(255, 255, 205);
+  font-size: large;
+  font-family: 'Gabriela';
+  padding: 20px 20px;
+  box-sizing: border-box;
+}
 
 .App {
   text-align: center;

@@ -1,21 +1,28 @@
 import Option from "./Option"
 
-function OptionBox({options}) {
-    const {choice0, choice0Flavor, choice1, choice1Flavor} = options
-    // console.log(options)
-    // const choice1 = "go left"
-    // const choice2 = "go right"
+function OptionBox({options, handleClick}) {
+    let renderCount = 0;
+    const renderedOptions = options.map(option => {
+        if (option.flavorText){
+            ++ renderCount
+        return (
+            <div className="option">
+                <h4> {option.flavorText} </h4>
+                <Option handleClick={handleClick} choice = {option.choiceText} />
+            </div>
+        )}
+        else {return null}
+    })
+
+    let roomFlavor = ''
+
+    if (renderCount === 1) {roomFlavor = 'You have reached a dead end'}
+    else {roomFlavor = `You see ${renderCount} ways to leave the room:`}
+
     return (
         <div className="optionBox">
-            <h3>OPTIONS</h3>
-            <div className="option">
-                <h4> {choice0Flavor}</h4>
-                <Option choice={choice0} />
-            </div>
-            <div className="option">
-                <h4>{choice1Flavor}</h4>
-                <Option choice={choice1} />
-            </div>
+            <h3>{roomFlavor}</h3>
+            {renderedOptions}
         </div>
     )
 }

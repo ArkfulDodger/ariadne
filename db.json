@@ -101,6 +101,20 @@
             "narration-text": "ladder",
             "initial-travel-text": [9, 11],
             "return-travel-text": [8, 9]
+        },
+        {
+            "id": 9,
+            "nav-text": "a rickety bridge over a pit",
+            "narration-text": "bridge",
+            "initial-travel-text": [],
+            "return-travel-text": []
+        },
+        {
+            "id": 10,
+            "nav-text": "a misty path",
+            "narration-text": "misty path",
+            "initial-travel-text": [],
+            "return-travel-text": []
         }
     ],
     "travel-text-initial": [
