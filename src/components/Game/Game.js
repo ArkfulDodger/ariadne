@@ -41,6 +41,8 @@ function Game ({props}) {
         }
     })
 
+    const {curLocation} = curGameInfo
+
     const [goalPath, setGoalPath] = useState('')
     const [menuOpen, setMenuOpen] = useState(false)
     const [itemsOpen, setItemsOpen] = useState(false)
@@ -180,6 +182,17 @@ function Game ({props}) {
 
     }
 
+    function updateCurRoom(newRoom){
+        setCurGameInfo({
+            ...curGameInfo,
+            curLocation : [
+                newRoom.path,
+                curLocation[1]
+            ],
+            curRoom : newRoom,
+        })
+    }
+
     return (
         <div>
             <h1>
@@ -187,7 +200,7 @@ function Game ({props}) {
             </h1>
             {/* <Minotaur />
             <Actions /> */}
-            <Navigation curGameInfo={curGameInfo} map={map}/>
+            <Navigation updateCurRoom={updateCurRoom} curGameInfo={curGameInfo} map={map}/>
             <Menu menuOpen={menuOpen} handleToggleMenu={handleToggleMenu}/>
             {/* <ItemsWindow itemsOpen={itemsOpen} handleToggleItems={handleToggleItems} /> */}
         </div>
