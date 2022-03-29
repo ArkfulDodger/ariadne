@@ -18,7 +18,7 @@ function Navigation({curGameInfo, map, updateCurRoom}) {
         }
     ]
 
-    function searchForRoomByPath(newRoomPath){
+    function updateRoomByPath(newRoomPath){
         const newRoom = map.find(room => {
             return room.path === newRoomPath
         })
@@ -29,11 +29,13 @@ function Navigation({curGameInfo, map, updateCurRoom}) {
 
     function handleClick(event){
         switch (event.target.innerText) {
-            case "go left": searchForRoomByPath(curRoom.path + "0");
+            case "go left": updateRoomByPath(curRoom.path + "0");
             break;
-            case "go right": searchForRoomByPath(curRoom.path + "1");
+            case "go right": updateRoomByPath(curRoom.path + "1");
             break;
-            case "go back to last room": console.log("go back")
+            case "go back to last room": 
+            if (curRoom.path === "0"){updateRoomByPath("0")}
+            else {updateRoomByPath(curRoom.path.slice(0, curRoom.path.length - 1))}
             break;
         }
     }
