@@ -12,6 +12,12 @@
 
     ],
     "passage-types": [
-        
+        "a torchlit path",
+        "a dark stairwell",
+        "a dusty hallway",
+        "a heavy wooden door",
+        "a smooth stone cavern",
+        "a twisting corridor",
+        "a mossy wall, you think you can climb over it"
     ]
 }
