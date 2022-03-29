@@ -4,13 +4,14 @@ import Actions from "./Actions";
 import Navigation from "./Navigation";
 import Menu from "./Menu/Menu";
 import ItemsWindow from "./Items/ItemsWindow";
+
 //TODO for 3/29:
 //have current game post whenever curGame updates
-//win conditions (new component?) - get to end point
+//win conditions (new component?) - get to end point - kinda done (game tells you if theseus is there, and he is in a dead end but does not trigger end game)
 //instantly post to memories and take you to memories
 //memories does a new fetch and renders (added fetch language)
 //then backwards in game navigation - kind of working: can go back but turn direction not dynamic
-//then add a bit of styling
+//then add a bit of styling - an ongoing process
 
 
 //get navigation buttons going - DONE
@@ -89,6 +90,7 @@ function Game ({props}) {
         //     key: "goalPath",
         //     value: "0101" //path
         // }
+        console.log(path)
         setGoalPath(path)
     }
 
@@ -102,8 +104,6 @@ function Game ({props}) {
     }
 
     function generateMap() {
-        //TODO: account for goal path end.
-        // if path to room is goal path, make dead end and set type 
 
         const mapRooms = [];
 
@@ -115,9 +115,6 @@ function Game ({props}) {
             returnPassageType: "exit",
             onGoalPath: true
         }
-
-        // console.log(goalPath)
-        // console.log("in generate", entranceRoom.rightPassageType)
 
         updateGameInfo({
             key: "curRoom",
@@ -141,12 +138,24 @@ function Game ({props}) {
 
             function addNewRoomToMap(turn) {
                 const path = fromRoom.path + turn;
-                const leftPassage = getPassageType(path, path+'0');
-                const rightPassage = getPassageType(path, path+'1');
+                let leftPassage
+                let rightPassage
+
+                let roomType = ''
+                if (path===goalPath) {
+                    roomType = 'theseus'
+                    leftPassage = null
+                    rightPassage = null
+                }
+                else {
+                    leftPassage = getPassageType(path, path+'0');
+                    rightPassage = getPassageType(path, path+'1');
+                    roomType="random"
+                }
 
                 const newRoom = {
                 path: path,
-                type: 'random',
+                type: roomType,
                 leftPassageType: leftPassage,
                 rightPassageType: rightPassage,
                 returnPassageType: turn === "0" ? fromRoom.leftPassageType : fromRoom.rightPassageType,

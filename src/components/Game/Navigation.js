@@ -14,7 +14,7 @@ function Navigation({curGameInfo, map, updateCurRoom}) {
         },
         {
             choiceText: "go back to last room",
-            flavorText: "🧶"
+            flavorText: curRoom.returnPassageType + "🧶"
         }
     ]
 
@@ -40,9 +40,12 @@ function Navigation({curGameInfo, map, updateCurRoom}) {
         }
     }
 
+    let roomFlavor = ''
+    if (curRoom.type === 'theseus') {roomFlavor = 'You found Theseus!'}
+    else {roomFlavor = `You find yourself in room ${curLocation[0]}`}
     return (
         <div>
-            <h2>You find yourself in room {curLocation[0]}</h2>
+            <h2>{roomFlavor}</h2>
             <OptionBox handleClick={handleClick} options={curRoomNavOptions}/>
         </div>
     )
