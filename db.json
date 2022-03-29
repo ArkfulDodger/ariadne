@@ -142,8 +142,8 @@
         {
             "id": 8,
             "text": [
-                "Steading yourself, you descend along the",
-                "Steading yourself, you ascend along the"],
+                "Steading yourself, you descend the",
+                "Steading yourself, you ascend the"],
             "passages": [2]
         },        {
             "id": 9,
@@ -167,7 +167,7 @@
             "passages": [7, 8]
         }
     ],
-    "tavel-text-return": [
+    "travel-text-return": [
         {
             "id": 1,
             "text": ["You return through the"],

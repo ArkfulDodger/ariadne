@@ -4,6 +4,7 @@ import Actions from "./Actions";
 import Navigation from "./Navigation";
 import Menu from "./Menu/Menu";
 import ItemsWindow from "./Items/ItemsWindow";
+import PromptText from "./PromptText";
 
 function Game ({props}) {
     
@@ -22,6 +23,7 @@ function Game ({props}) {
             <h1>
                 This is the game
             </h1>
+            <PromptText />
             {/* <Minotaur />
             <Actions /> */}
             <Navigation options={curRoomNavOptions}/>
