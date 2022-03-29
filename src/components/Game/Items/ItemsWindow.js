@@ -3,13 +3,17 @@ import IconList from "./IconList";
 import FocusImage from "./FocusImage";
 import ItemDetail from "./ItemDetail";
 
-function ItemsWindow (props) {
+function ItemsWindow ({itemsOpen, handleToggleItems}) {
     return (
         <div>
-            <h2>Items Window!</h2>
-            <IconList />
-            <FocusImage />
-            <ItemDetail />
+            {/* <h2>Items Window!</h2> */}
+            <button onClick={handleToggleItems}>🎒</button>
+            {itemsOpen ? 
+                <><IconList />
+                <FocusImage />
+                <ItemDetail /> </>
+                : null
+            }
         </div>
     );
 }

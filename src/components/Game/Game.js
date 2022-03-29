@@ -210,8 +210,10 @@ function Game ({props}) {
             {/* <Minotaur />
             <Actions /> */}
             <Navigation updateCurRoom={updateCurRoom} curGameInfo={curGameInfo} map={map}/>
-            <Menu menuOpen={menuOpen} handleToggleMenu={handleToggleMenu}/>
-            {/* <ItemsWindow itemsOpen={itemsOpen} handleToggleItems={handleToggleItems} /> */}
+            <div className="buttons">
+                <Menu menuOpen={menuOpen} handleToggleMenu={handleToggleMenu}/>
+                <ItemsWindow itemsOpen={itemsOpen} handleToggleItems={handleToggleItems} />
+            </div>
         </div>
     );
 }

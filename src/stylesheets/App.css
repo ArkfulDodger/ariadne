@@ -59,7 +59,10 @@ a {
   font-size: 25px;
   font-family: 'Genos';
 }
-
+.buttons {
+  display: flex;
+  margin: 1em
+}
 .menu {
   width: 20%;
   display: flex;
