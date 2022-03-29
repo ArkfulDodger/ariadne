@@ -6,6 +6,8 @@ import { useState } from 'react';
 
 
 function App() {
+  // whether there is a game currently in progress
+  // TODO: pass set method to component(s) which start or stop the current game
   const [isCurGame, setIsCurGame] = useState(false)
 
 
