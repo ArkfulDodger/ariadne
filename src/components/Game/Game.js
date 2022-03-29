@@ -5,15 +5,15 @@ import Navigation from "./Navigation";
 import Menu from "./Menu/Menu";
 import ItemsWindow from "./Items/ItemsWindow";
 //TODO for 3/29:
-//get navigation buttons going
 //have current game post whenever curGame updates
 //win conditions (new component?) - get to end point
 //instantly post to memories and take you to memories
 //memories does a new fetch and renders (added fetch language)
-//then backwards in game navigation
+//then backwards in game navigation - kind of working: can go back but turn direction not dynamic
 //then add a bit of styling
 
 
+//get navigation buttons going - DONE
 //move app to game - done
 //setup game state -done?
 //(set up options as taking an array that you iterate over) done
@@ -80,16 +80,16 @@ function Game ({props}) {
     const goalPathLength = 5;
 
     function generateGoalPath() {
-        // let path = "0";
-        // for (let i = 0; i < goalPathLength; i++) {
-        //   path += Math.round(Math.random());
-        // }
+        let path = "0";
+        for (let i = 0; i < goalPathLength; i++) {
+            path += Math.round(Math.random());
+        }
 
         // const goalPathObj ={
         //     key: "goalPath",
         //     value: "0101" //path
         // }
-        setGoalPath("0101")
+        setGoalPath(path)
     }
 
     function printAsTurns(binaryPath) {

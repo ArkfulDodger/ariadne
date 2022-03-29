@@ -14,7 +14,7 @@ function OptionBox({options, handleClick}) {
 
     return (
         <div className="optionBox">
-            <h3>OPTIONS</h3>
+            <h3>You see these exits from this room...</h3>
             {renderedOptions}
         </div>
     )

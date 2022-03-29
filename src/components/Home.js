@@ -5,8 +5,8 @@ import ScrollTextContainer from "./SrollTextContainer"
 function Home ({isCurGame}) {
 
     return (
-        <div>
-            <h1>Home Page</h1>
+        <div className="home">
+            <h1>Ariadne</h1>
             <ScrollTextContainer />
             <div>
             <Link to="/play">{isCurGame ? "Return to the Labyrinth" : "Enter the Labyrinth"}</Link>  

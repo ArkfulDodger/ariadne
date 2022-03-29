@@ -42,7 +42,7 @@ function Navigation({curGameInfo, map, updateCurRoom}) {
 
     return (
         <div>
-            <h2>{curLocation[0]}</h2>
+            <h2>You find yourself in room {curLocation[0]}</h2>
             <OptionBox handleClick={handleClick} options={curRoomNavOptions}/>
         </div>
     )
