@@ -6,6 +6,7 @@ import Menu from "./Menu/Menu";
 import ItemsWindow from "./Items/ItemsWindow";
 
 function Game ({props}) {
+    
     //TEMP - waiting to refactor the map logic into Game
     const curRoomNavOptions={
         choice0: "go left",
@@ -15,7 +16,7 @@ function Game ({props}) {
         //choice1Flavor: {curRoom.rightPassageType}
         choice1Flavor: "a shadowy corridor"
     }
-    
+
     return (
         <div>
             <h1>
