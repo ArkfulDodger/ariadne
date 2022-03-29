@@ -30,7 +30,7 @@ function Game ({props}) {
     const [curGameInfo, setCurGameInfo] = useState({
         curLocation: ['0', 'prevRoom'],
         curRoom: {}, //need room obj to access passagetypes
-        map: [],
+        //map: [], //also taking this out cause rendering loops
         stringPath: '0', 
         minoLocation: "00",
         itemsArray: [],
@@ -45,6 +45,7 @@ function Game ({props}) {
     const [menuOpen, setMenuOpen] = useState(false)
     const [itemsOpen, setItemsOpen] = useState(false)
     const [passageTypeArray, setPassageTypeArray] = useState([])
+    const [map, setMap] = useState([])
     
     //fetch to set up passage types, then also generate the goal path and the game map on load
     //eventually this will pull both passage types and currGame if there is one...
@@ -123,7 +124,9 @@ function Game ({props}) {
 
         mapRooms.push(entranceRoom);
         addRoomsTo(entranceRoom);
+
         console.log("generating map", mapRooms);
+        setMap(mapRooms)
 
         function addRoomsTo(fromRoom) {
         if (fromRoom.leftPassageType) {
@@ -134,23 +137,23 @@ function Game ({props}) {
         }
 
 
-        function addNewRoomToMap(turn) {
-            const path = fromRoom.path + turn;
-            const leftPassage = getPassageType(path, path+'0');
-            const rightPassage = getPassageType(path, path+'1');
+            function addNewRoomToMap(turn) {
+                const path = fromRoom.path + turn;
+                const leftPassage = getPassageType(path, path+'0');
+                const rightPassage = getPassageType(path, path+'1');
 
-            const newRoom = {
-            path: path,
-            type: 'random',
-            leftPassageType: leftPassage,
-            rightPassageType: rightPassage,
-            returnPassageType: turn === "0" ? fromRoom.leftPassageType : fromRoom.rightPassageType,
-            onGoalPath: isOnGoalPath(path)
+                const newRoom = {
+                path: path,
+                type: 'random',
+                leftPassageType: leftPassage,
+                rightPassageType: rightPassage,
+                returnPassageType: turn === "0" ? fromRoom.leftPassageType : fromRoom.rightPassageType,
+                onGoalPath: isOnGoalPath(path)
+                }
+
+                mapRooms.push(newRoom);
+                addRoomsTo(newRoom)
             }
-
-            mapRooms.push(newRoom);
-            addRoomsTo(newRoom)
-        }
         }
 
         function isOnGoalPath(path) {
@@ -158,18 +161,16 @@ function Game ({props}) {
         }
 
         function getPassageType(currentPath, destinationPath) {
-        if (isOnGoalPath(destinationPath)) {
-            return getRandomPassageType();
-        } else {
-            if (isOnGoalPath(currentPath)) {
-            return getRandomPassageType();
+            if (isOnGoalPath(destinationPath)) {
+                return getRandomPassageType();
             } else {
-            return "";
+                if (isOnGoalPath(currentPath)) {
+                return getRandomPassageType();
+                } else {
+                return "";
+                }
             }
         }
-        }
-
-
 
         
         function getRandomPassageType() {
@@ -186,7 +187,7 @@ function Game ({props}) {
             </h1>
             {/* <Minotaur />
             <Actions /> */}
-            <Navigation curGameInfo={curGameInfo} />
+            <Navigation curGameInfo={curGameInfo} map={map}/>
             <Menu menuOpen={menuOpen} handleToggleMenu={handleToggleMenu}/>
             {/* <ItemsWindow itemsOpen={itemsOpen} handleToggleItems={handleToggleItems} /> */}
         </div>

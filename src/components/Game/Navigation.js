@@ -1,6 +1,6 @@
 import OptionBox from "./OptionBox"
 
-function Navigation({curGameInfo}) {
+function Navigation({curGameInfo, map}) {
 
     const {curRoom, curLocation, stringPath} = curGameInfo
     const curRoomNavOptions= [
@@ -18,12 +18,21 @@ function Navigation({curGameInfo}) {
         }
     ]
 
+    function searchForRoomByPath(newRoomPath){
+        const newRoom = map.filter(room => {
+            console.log(room)
+            return room.path === newRoomPath
+        })
+        console.log(newRoom)
+    }
+    //so now, we need to update the current room to the room
+    //with the consolelogged path
+
     function handleClick(event){
-        //console.log(event.target.innerText)
         switch (event.target.innerText) {
-            case "go left": console.log(curRoom.path + "0");
+            case "go left": searchForRoomByPath(curRoom.path + "0");
             break;
-            case "go right": console.log(curRoom.path + "1");
+            case "go right": searchForRoomByPath(curRoom.path + "1");
             break;
             case "go back to last room": console.log("go back")
             break;
