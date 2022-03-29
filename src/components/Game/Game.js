@@ -57,7 +57,6 @@ function Game ({props}) {
         fetch('http://localhost:3001/passages')
         .then(resp => resp.json())
         .then(data => {
-            console.log(data);
             setPassageTypeArray(data.map(passObj => passObj['nav-text']))
         })
         .then ( () => {

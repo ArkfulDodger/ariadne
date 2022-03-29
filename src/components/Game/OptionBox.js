@@ -1,13 +1,13 @@
 import Option from "./Option"
+import { v4 as uuid } from "uuid";
 
 function OptionBox({options, handleClick}) {
     let renderCount = 0;
     const renderedOptions = options.map(option => {
-        console.log(option.flavorText);
         if (option.flavorText){
             ++ renderCount
         return (
-            <div className="option">
+            <div key={uuid()} className="option">
                 <h4> {option.flavorText} </h4>
                 <Option handleClick={handleClick} choice = {option.choiceText} />
             </div>
