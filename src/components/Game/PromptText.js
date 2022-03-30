@@ -38,9 +38,22 @@ const defaultConText = [
     }
 ]
 
+const defaultRoom = {
+    "path": "0",
+    "type": "entrance",
+    "roomVisited": true,
+    "westPassageType": "a rickety bridge over a pit",
+    "eastPassageType": "a mossy, but climbable wall",
+    "southPassageType": "exit",
+    "westPassageVisited": true,
+    "eastPassageVisited": true,
+    "southPassageVisited": true,
+    "onGoalPath": true
+    }
+
 function PromptText({ map, curGameInfo, passages }) {
 
-    const {curLocation, entryDirection, minoLocation, itemsArray, playerInfo} = curGameInfo;
+    const {curLocation = ["0", ""], entryDirection = "south", minoLocation, itemsArray, playerInfo} = curGameInfo;
 
     // TODO: comment back in when ready to integrate db.json/state
     //#region fetching data from db.json
@@ -268,10 +281,10 @@ function PromptText({ map, curGameInfo, passages }) {
     //#endregion
 
 
-    const curRoom = map.find(room => room.path === curLocation[0])
+    const curRoom = map.length > 1 ? map.find(room => room.path === curLocation[0]) : defaultRoom;
     const { type: chamberType, roomVisited, onGoalPath } = curRoom;
     const chamberData = chambers.length > 1 ? chambers.find(chamber => chamber.type === chamberType) : defaultChamberData;
-    // console.log(curRoom);
+    console.log('curRoom',curRoom);
 
     // conditions from currentGame
     const isPassageVisited = getIsPassageVisited();
@@ -287,8 +300,8 @@ function PromptText({ map, curGameInfo, passages }) {
     // passage info
     const passageType = getPassageType();
     // console.log('passages', passages);
-    // console.log('passageType', passageType);
-    const passageData = passages.length > 0 ? passages.filter(passage => passage['nav-text'] === passageType)[0] : defaultPassage;
+    console.log('passageType', passageType);
+    const passageData = passages.length > 1 ? passages.filter(passage => passage['nav-text'] === passageType)[0] : defaultPassage;
     // console.log('passageData:', passageData);
     const passageText = isPassageVisited
         ? (passageData['return-narration-text'] || passageData['narration-text'])
@@ -336,7 +349,7 @@ function PromptText({ map, curGameInfo, passages }) {
     }
 
     function getIsPassageVisited() {
-        switch (entryDirection) {
+        switch (entryDirection || 'south') {
             case 'south':
                 return curRoom.southPassageVisited;
             case 'west':
@@ -350,7 +363,8 @@ function PromptText({ map, curGameInfo, passages }) {
     }
 
     function getPassageType() {
-        switch (entryDirection) {
+        console.log('entryDirection', entryDirection);
+        switch (entryDirection || 'south') {
             case 'south':
                 return curRoom.southPassageType;
             case 'west':
