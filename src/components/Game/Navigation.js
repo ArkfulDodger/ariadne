@@ -1,6 +1,6 @@
 import OptionBox from "./OptionBox"
 
-function Navigation({curGameInfo, map, updateCurRoom, patchCurGameStatus}) {
+function Navigation({curGameInfo, map, updateCurRoom, setEndType}) {
 
     const {curLocation, stringPath} = curGameInfo
     const curRoom = map.find(room => room.path === curLocation[0]);
@@ -40,11 +40,13 @@ function Navigation({curGameInfo, map, updateCurRoom, patchCurGameStatus}) {
                 // else {updateRoomByPath(curRoom.path.slice(0, curRoom.path.length - 1))}
                 break;
         }
-        // patchCurGameStatus() //always one room behind
     }
 
     let roomFlavor = ''
-    if (curRoom.type === 'theseus') {roomFlavor = 'You found Theseus!'}
+    if (curRoom.type === 'theseus') {
+        roomFlavor = 'You found Theseus!'
+        setEndType('win')
+    }
     else {roomFlavor = `You find yourself in room ${curLocation[0]}`}
     return (
         <div>

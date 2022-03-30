@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import Minotaur from "./Minotaur";
 import Actions from "./Actions";
 import Navigation from "./Navigation";
 import Menu from "./Menu/Menu";
 import ItemsWindow from "./Items/ItemsWindow";
 import PromptText from "./PromptText";
+import GameEnd from "./GameEnd";
 
 //TODO: for 3/29:
 //have current game post whenever curGame updates
@@ -95,8 +97,12 @@ function Game ({ isCurGame, setIsCurGame }) {
     const [passageTypeArray, setPassageTypeArray] = useState([])
     const [map, setMap] = useState(defaultMap)
     const [passages, setPassages] = useState([]);
+    const [endType, setEndType] = useState('');
     
+    //let endGameMessage = 'H'
     const goalPathLength = 5;
+
+
 
     //fetch to set up passages and passage types, then also generate the goal path and the game map on load
     //eventually this will pull both passage types and currGame if there is one...
@@ -121,6 +127,10 @@ function Game ({ isCurGame, setIsCurGame }) {
     useEffect(() => {
         patchCurGameStatus();
     }, [curGameInfo, map, goalPath])
+
+    useEffect(() =>{
+        if(endType){endGame()}
+    }, [endType])
     
     //#endregion
 
@@ -242,6 +252,47 @@ function Game ({ isCurGame, setIsCurGame }) {
 
     //#region Helper Functions
 
+        //ENDGAME 
+    //Display info to player
+    //send game data to mems
+    //reset game data (optional)
+    //send player to memories
+    //change iscurgame to false
+
+
+    function endGame(){
+
+        let endGameMessage = ''
+
+        switch (endType) {
+            case 'win' : endGameMessage = "YOU FOUND YOUR HIMBO, good job"
+            break;
+            default: endGameMessage = "ok how did you get here?" 
+        }
+        console.log(endGameMessage)
+        //render a new endGame
+        //(endGameMessage)
+
+        if (endType){
+            //setIsGameEnd(true)
+
+            fetch(`http://localhost:3001/memories`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                body: JSON.stringify({
+                    ...curGameInfo,
+                    endType: endType
+                })
+            })
+            .catch( error => console.log(error.message));
+        }
+        
+
+    }
+
     function clearCurrentGameInDb() {
         fetch(`http://localhost:3001/current-game/1`, {
             method: "PATCH",
@@ -358,14 +409,19 @@ function Game ({ isCurGame, setIsCurGame }) {
                 Ariadne
             </h1>
             <PromptText passages={passages}/>
+            {endType ? <GameEnd endType={endType}/> : 
+            <>
             {/* <Minotaur />
             <Actions /> */}
             <Navigation 
                 patchCurGameStatus={patchCurGameStatus}
+                endGame = {endGame}
                 updateCurRoom={updateCurRoom} 
                 curGameInfo={curGameInfo} 
                 map={map}
-            />
+                setEndType={setEndType}
+            /></>
+        }
             <div className="game-buttons">
                 <Menu menuOpen={menuOpen} handleToggleMenu={handleToggleMenu}/>
                 <ItemsWindow itemsOpen={itemsOpen} handleToggleItems={handleToggleItems} />
