@@ -75,6 +75,16 @@ const defaultGameObject = {
     map: defaultMap
 }
 
+// const defaultPassages = [
+//     {
+//         "id": 1,
+//         "nav-text": "a torchlit path",
+//         "narration-text": "torchlit path",
+//         "initial-travel-text": [1, 3, 4, 5],
+//         "return-travel-text": [1, 2, 3, 4, 5]
+//     }
+// ]
+
 function Game ({ isCurGame, setIsCurGame }) {
     // if there is no current game, start one
     useEffect(() => {

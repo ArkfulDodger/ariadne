@@ -4,125 +4,77 @@
       "id": 1,
       "curLocation": [
         "0",
-        "00"
+        ""
       ],
-      "entryDirection": "west",
+      "entryDirection": "south",
       "stringPath": "0",
       "minoLocation": "",
       "itemsArray": [],
       "playerInfo": {},
-      "goalPath": "000111",
+      "goalPath": "011100",
       "map": [
         {
           "path": "0",
           "type": "entrance",
-          "roomVisited": true,
-          "westPassageType": "a winding corridor",
-          "eastPassageType": "a winding corridor",
+          "roomVisited": false,
+          "westPassageType": "a heavy wooden door",
+          "eastPassageType": "a precarious ladder",
           "southPassageType": "exit",
-          "westPassageVisited": true,
-          "eastPassageVisited": true,
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
           "southPassageVisited": true,
           "onGoalPath": true
         },
         {
           "path": "00",
           "type": "random",
-          "roomVisited": true,
-          "westPassageType": "a winding corridor",
-          "eastPassageType": "a smooth stone cavern",
-          "southPassageType": "a winding corridor",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": true,
-          "onGoalPath": true
-        },
-        {
-          "path": "000",
-          "type": "random",
-          "roomVisited": false,
-          "westPassageType": "a dusty hallway",
-          "eastPassageType": "a rickety bridge over a pit",
-          "southPassageType": "a winding corridor",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": true
-        },
-        {
-          "path": "0000",
-          "type": "random",
           "roomVisited": false,
           "westPassageType": "",
           "eastPassageType": "",
-          "southPassageType": "a dusty hallway",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": false
-        },
-        {
-          "path": "0001",
-          "type": "random",
-          "roomVisited": false,
-          "westPassageType": "a torchlit path",
-          "eastPassageType": "a mossy, but climbable wall",
-          "southPassageType": "a rickety bridge over a pit",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": true
-        },
-        {
-          "path": "00010",
-          "type": "random",
-          "roomVisited": false,
-          "westPassageType": "",
-          "eastPassageType": "",
-          "southPassageType": "a torchlit path",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": false
-        },
-        {
-          "path": "00011",
-          "type": "random",
-          "roomVisited": false,
-          "westPassageType": "a winding corridor",
-          "eastPassageType": "a heavy wooden door",
-          "southPassageType": "a mossy, but climbable wall",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": true
-        },
-        {
-          "path": "000110",
-          "type": "random",
-          "roomVisited": false,
-          "westPassageType": "",
-          "eastPassageType": "",
-          "southPassageType": "a winding corridor",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": false
-        },
-        {
-          "path": "000111",
-          "type": "theseus",
-          "roomVisited": false,
-          "westPassageType": null,
-          "eastPassageType": null,
           "southPassageType": "a heavy wooden door",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
+          "onGoalPath": false
+        },
+        {
+          "path": "01",
+          "type": "random",
+          "roomVisited": false,
+          "westPassageType": "a dark stairwell",
+          "eastPassageType": "a dusty hallway",
+          "southPassageType": "a precarious ladder",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
           "onGoalPath": true
         },
         {
-          "path": "001",
+          "path": "010",
+          "type": "random",
+          "roomVisited": false,
+          "westPassageType": "",
+          "eastPassageType": "",
+          "southPassageType": "a dark stairwell",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": false
+        },
+        {
+          "path": "011",
+          "type": "random",
+          "roomVisited": false,
+          "westPassageType": "a smooth stone cavern",
+          "eastPassageType": "a torchlit path",
+          "southPassageType": "a dusty hallway",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": true
+        },
+        {
+          "path": "0110",
           "type": "random",
           "roomVisited": false,
           "westPassageType": "",
@@ -134,15 +86,63 @@
           "onGoalPath": false
         },
         {
-          "path": "01",
+          "path": "0111",
           "type": "random",
-          "roomVisited": true,
-          "westPassageType": "",
-          "eastPassageType": "",
-          "southPassageType": "a winding corridor",
+          "roomVisited": false,
+          "westPassageType": "a dark stairwell",
+          "eastPassageType": "a dark stairwell",
+          "southPassageType": "a torchlit path",
           "westPassageVisited": false,
           "eastPassageVisited": false,
-          "southPassageVisited": true,
+          "southPassageVisited": false,
+          "onGoalPath": true
+        },
+        {
+          "path": "01110",
+          "type": "random",
+          "roomVisited": false,
+          "westPassageType": "a dusty hallway",
+          "eastPassageType": "a dusty hallway",
+          "southPassageType": "a dark stairwell",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": true
+        },
+        {
+          "path": "011100",
+          "type": "theseus",
+          "roomVisited": false,
+          "westPassageType": null,
+          "eastPassageType": null,
+          "southPassageType": "a dusty hallway",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": true
+        },
+        {
+          "path": "011101",
+          "type": "random",
+          "roomVisited": false,
+          "westPassageType": "",
+          "eastPassageType": "",
+          "southPassageType": "a dusty hallway",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": false
+        },
+        {
+          "path": "01111",
+          "type": "random",
+          "roomVisited": false,
+          "westPassageType": "",
+          "eastPassageType": "",
+          "southPassageType": "a dark stairwell",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
           "onGoalPath": false
         }
       ]
@@ -334,6 +334,17 @@
       "narration-text": "misty path",
       "initial-travel-text": [],
       "return-travel-text": []
+    },
+    {
+      "id": 11,
+      "nav-text": "exit",
+      "narration-text": "labyrinth entrance",
+      "initial-travel-text": [
+        12
+      ],
+      "return-travel-text": [
+        11
+      ]
     }
   ],
   "travel-text-initial": [
@@ -460,6 +471,15 @@
         7,
         8
       ]
+    },
+    {
+      "id": 12,
+      "text": [
+        "A chill runs down your spine as you cross the threshhold of the"
+      ],
+      "passages": [
+        11
+      ]
     }
   ],
   "travel-text-return": [
@@ -577,6 +597,15 @@
       ],
       "passages": [
         7
+      ]
+    },
+    {
+      "id": 11,
+      "text": [
+        "A chill runs down your spine as you cross the threshhold of the"
+      ],
+      "passages": [
+        11
       ]
     }
   ]
