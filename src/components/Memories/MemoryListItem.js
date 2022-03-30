@@ -8,10 +8,14 @@ function MemoryListItem ({memory}) {
         setDetailOpen(!detailOpen)
     }
 
+    let memoryResult
+    if (memory.endType === "win"){
+        memoryResult = "You rescued Thesues from the Labyrinth"
+    }
     return (
         <div className="memoryItem">
             <h3 onClick={toggleDetail}>Journey number {memory.id}</h3>
-            <h4>{memory.endType}</h4>
+            <h4>{memoryResult}</h4>
             {detailOpen ? <MemoryDetail /> : null}
         </div>
     );

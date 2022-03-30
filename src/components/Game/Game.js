@@ -59,8 +59,8 @@ const defaultGameObject = {
     map: defaultMap
 }
 
-function Game ({ isCurGame, setIsCurGame }) {
-
+function Game ({ isCurGame, updateIsCurGameInDb }) {
+    console.log("in game iscurgame", isCurGame)
     
 
     //#region State and Variable Declarations
@@ -125,7 +125,7 @@ function Game ({ isCurGame, setIsCurGame }) {
         console.log("New Game Started!");
         clearCurrentGameInDb()
         .then(() => generateGoalPath())
-        setIsCurGame(true);
+        updateIsCurGameInDb(true);
         setPatchAllowed(true)
         //TODO: put logic here for starting a new game
     }
@@ -292,7 +292,7 @@ function Game ({ isCurGame, setIsCurGame }) {
             .catch( error => console.log(error.message));
         }
         
-        setIsCurGame(false)
+        updateIsCurGameInDb(false)
     }
 
     function clearCurrentGameInDb() {
