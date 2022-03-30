@@ -45,6 +45,7 @@ import PromptText from "./PromptText";
 
 const defaultGameInfo = {
     curLocation: ["0", "prevRoom"],
+    entryDirection: 'south',
     stringPath: '0',
     minoLocation: '',
     itemsArray: [],
@@ -305,7 +306,16 @@ function Game ({ isCurGame, setIsCurGame }) {
             return room.path === path
         })
     }
-    
+
+    function getEntryDirection(curLocation) {
+        if (curLocation[0].length > curLocation[1].length) {
+            return 'south';
+        } else if (curLocation[1].endsWith('0')) {
+            return 'west';
+        } else {
+            return 'east';
+        }
+    }
 
     function updateCurRoom(newRoom){
         // update path visited status in origin and destination rooms in map state
@@ -338,13 +348,17 @@ function Game ({ isCurGame, setIsCurGame }) {
         // const updatedNewRoom = {...newRoom, roomVisited: true};
         // console.log(updatedNewRoom);
 
+        const newLocation = [
+            newRoom.path,
+            curLocation[0]
+        ]
+
+        const newEntryDirection = getEntryDirection(newLocation);
 
         setCurGameInfo(curGameInfo => ({
             ...curGameInfo,
-            curLocation : [
-                newRoom.path,
-                curLocation[0]
-            ]
+            curLocation : newLocation,
+            entryDirection : newEntryDirection
         }))
     }
 
