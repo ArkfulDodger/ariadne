@@ -4,7 +4,7 @@ import MenuPopup from "./MenuPopup";
 function MenuButton ({handleToggleMenu, menuOpen}) {
     return (
         <div>
-            <button onClick={handleToggleMenu}>Menu Button</button>
+            <button onClick={handleToggleMenu}>≡</button>
             {menuOpen ? <MenuPopup /> : null}
         </div>
     );

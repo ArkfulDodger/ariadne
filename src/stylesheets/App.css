@@ -1,13 +1,34 @@
 *{
-  font-family: 'Cinzel'
-}
-div {
-  border: 1px solid black;
-  padding: 5px;
+  font-family: 'Cinzel';
 }
 
-div div {
+
+.game div {
+  /* border: 1px solid black; */
+  border-radius: 5px;
+  padding: 0px;
+  align-items: center;
+}
+
+.game {
+  background-color: rgb(161, 30, 30);
+  text-align: center;
+}
+
+.game h1{
+  text-shadow: 2px 1px wheat ;
+}
+.prompText {
+  width: 80%;
+  margin: auto;
+  background-color: wheat;
+  border: 2px solid ;
+}
+
+
+/* div div {
   background-color: white;
+  padding: 0px;
 }
 
 div div div {
@@ -32,55 +53,35 @@ div div div div div div div {
 
 div div div div div div div {
   background-color: rgb(229, 192, 255);
-}
+} */
 
 .option{
   width: 50%;
-  margin: 2em;
+  margin: .5em;
+  background-color: rgb(173, 115, 27);
+  color:#282c34
   /* float: left; */
+}
+.option button {
+  width: 80%;
+  margin-bottom: 10px;
 }
 
 .optionBox {
+  width: 80%;
+  margin: auto;
   display: flex;
+  background-color: rgb(46, 32, 126);
+  color: wheat;
 }
 
 .optionBox h3 {
   display: block;
 }
 
-a {
-  background-color: darkblue;
-  color: wheat;
-  border: 2px solid wheat;
-  text-decoration: none;
-  margin: 1em;
-  display: inline-block;
-  padding: 14px;
-  font-size: 25px;
-  font-family: 'Genos';
-}
-.buttons {
-  display: flex;
-  margin: 1em
-}
-.menu {
-  width: 20%;
-  display: flex;
-}
-
-button {
-  background-color: #282c34;
-  color: wheat;
-  font-family: 'Genos';
-}
-.menu a {
-  font-size: small;
-  padding: 5px;
-  margin: 1em;
-}
-
-h1, h2 {
-  font-family: 'Cinzel';
+.home{
+  background-color: rgb(161, 30, 30);
+  height: auto;
 }
 
 .scroll-box {
@@ -98,43 +99,54 @@ h1, h2 {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1em;
+  border: 3px solid black
+}
+
+
+a {
+  background-color: rgb(173, 115, 27);
+  color:  #282c34;
+  border: 4px solid rgb(46, 32, 126);
+  border-radius: 6px;
+  text-decoration: none;
+  margin: 1em;
+  display: inline-block;
+  padding: 14px;
+  font-size: 25px;
+  font-family: 'Genos';
+}
+.game-buttons {
+  display: flex;
+  margin: 1em;
+}
+.game-buttons button {
+  margin-bottom: 1em;
+}
+
+.menu {
+  width: 25%;
+  display: flex;
+}
+
+button {
+  background-color: #282c34;
+  color: wheat;
+  font-family: 'Genos';
+  border-radius: 8px;
+}
+
+.menu a {
+  font-size: small;
+  padding: 5px;
+  margin: 1em;
+  border: 3px solid ;
+}
+
+h1, h2 {
+  font-family: 'Cinzel';
 }
 
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

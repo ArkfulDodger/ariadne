@@ -267,7 +267,7 @@ function PromptText() {
     }
 
     return (
-        <div>
+        <div className="prompText">
             <p>{narrationText}</p>
         </div>
     )

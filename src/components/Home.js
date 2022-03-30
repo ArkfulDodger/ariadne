@@ -21,6 +21,7 @@ function Home ({isCurGame, setIsCurGame }) {
         <div className="home">
             <h1>Ariadne</h1>
             <ScrollTextContainer />
+            <img src="https://www.3ammagazine.com/3am/wp-content/uploads/2020/12/Minotaur-mosaic-e1607071119551.jpg" alt="minoan mosiac" />
             <div>
                 {isCurGame
                     ? <Link to="/play" >Return to the Labyrinth</Link>  

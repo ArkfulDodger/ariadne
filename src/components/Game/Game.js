@@ -225,7 +225,7 @@ function Game ({ isCurGame, setIsCurGame }) {
             body: JSON.stringify( patchGameObj  )
         })
         .then( res => res.json())
-        .then( data => console.log(data))
+        //.then( data => console.log(data))
         .catch( error => console.log(error.message));
     }
 
@@ -263,7 +263,7 @@ function Game ({ isCurGame, setIsCurGame }) {
 
 
     return (
-        <div>
+        <div className="game">
             <h1>
                 Ariadne
             </h1>
@@ -276,7 +276,7 @@ function Game ({ isCurGame, setIsCurGame }) {
                 curGameInfo={curGameInfo} 
                 map={map}
             />
-            <div className="buttons">
+            <div className="game-buttons">
                 <Menu menuOpen={menuOpen} handleToggleMenu={handleToggleMenu}/>
                 <ItemsWindow itemsOpen={itemsOpen} handleToggleItems={handleToggleItems} />
             </div>
