@@ -3,125 +3,65 @@
     {
       "id": 1,
       "curLocation": [
-        "010001",
-        "01000"
+        "001110",
+        "00111"
       ],
       "stringPath": "0",
       "minoLocation": "",
       "itemsArray": [],
       "playerInfo": {},
-      "goalPath": "010001",
+      "goalPath": "001110",
       "map": [
         {
           "path": "0",
           "type": "entrance",
           "roomVisited": true,
-          "westPassageType": "a mossy, but climbable wall",
+          "westPassageType": "a misty path",
           "eastPassageType": "a misty path",
           "southPassageType": "exit",
-          "westPassageVisited": false,
-          "eastPassageVisited": true,
+          "westPassageVisited": true,
+          "eastPassageVisited": false,
           "southPassageVisited": true,
           "onGoalPath": true
         },
         {
           "path": "00",
           "type": "random",
-          "roomVisited": false,
-          "westPassageType": "",
-          "eastPassageType": "",
-          "southPassageType": "a mossy, but climbable wall",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": false
-        },
-        {
-          "path": "01",
-          "type": "random",
           "roomVisited": true,
-          "westPassageType": "a misty path",
+          "westPassageType": "a heavy wooden door",
           "eastPassageType": "a rickety bridge over a pit",
           "southPassageType": "a misty path",
-          "westPassageVisited": true,
-          "eastPassageVisited": false,
-          "southPassageVisited": true,
-          "onGoalPath": true
-        },
-        {
-          "path": "010",
-          "type": "random",
-          "roomVisited": true,
-          "westPassageType": "a rickety bridge over a pit",
-          "eastPassageType": "a winding corridor",
-          "southPassageType": "a misty path",
-          "westPassageVisited": true,
-          "eastPassageVisited": false,
-          "southPassageVisited": true,
-          "onGoalPath": true
-        },
-        {
-          "path": "0100",
-          "type": "random",
-          "roomVisited": true,
-          "westPassageType": "a mossy, but climbable wall",
-          "eastPassageType": "a misty path",
-          "southPassageType": "a rickety bridge over a pit",
-          "westPassageVisited": true,
-          "eastPassageVisited": false,
-          "southPassageVisited": true,
-          "onGoalPath": true
-        },
-        {
-          "path": "01000",
-          "type": "random",
-          "roomVisited": true,
-          "westPassageType": "a precarious ladder",
-          "eastPassageType": "a dark stairwell",
-          "southPassageType": "a mossy, but climbable wall",
           "westPassageVisited": false,
           "eastPassageVisited": true,
           "southPassageVisited": true,
           "onGoalPath": true
         },
         {
-          "path": "010000",
+          "path": "000",
           "type": "random",
           "roomVisited": false,
           "westPassageType": "",
           "eastPassageType": "",
-          "southPassageType": "a precarious ladder",
+          "southPassageType": "a heavy wooden door",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
           "onGoalPath": false
         },
         {
-          "path": "010001",
-          "type": "theseus",
+          "path": "001",
+          "type": "random",
           "roomVisited": true,
-          "westPassageType": null,
-          "eastPassageType": null,
-          "southPassageType": "a dark stairwell",
+          "westPassageType": "a winding corridor",
+          "eastPassageType": "a misty path",
+          "southPassageType": "a rickety bridge over a pit",
           "westPassageVisited": false,
-          "eastPassageVisited": false,
+          "eastPassageVisited": true,
           "southPassageVisited": true,
           "onGoalPath": true
         },
         {
-          "path": "01001",
-          "type": "random",
-          "roomVisited": false,
-          "westPassageType": "",
-          "eastPassageType": "",
-          "southPassageType": "a misty path",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": false
-        },
-        {
-          "path": "0101",
+          "path": "0010",
           "type": "random",
           "roomVisited": false,
           "westPassageType": "",
@@ -133,12 +73,72 @@
           "onGoalPath": false
         },
         {
-          "path": "011",
+          "path": "0011",
+          "type": "random",
+          "roomVisited": true,
+          "westPassageType": "a rickety bridge over a pit",
+          "eastPassageType": "a dusty hallway",
+          "southPassageType": "a misty path",
+          "westPassageVisited": false,
+          "eastPassageVisited": true,
+          "southPassageVisited": true,
+          "onGoalPath": true
+        },
+        {
+          "path": "00110",
           "type": "random",
           "roomVisited": false,
           "westPassageType": "",
           "eastPassageType": "",
           "southPassageType": "a rickety bridge over a pit",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": false
+        },
+        {
+          "path": "00111",
+          "type": "random",
+          "roomVisited": true,
+          "westPassageType": "a misty path",
+          "eastPassageType": "a misty path",
+          "southPassageType": "a dusty hallway",
+          "westPassageVisited": true,
+          "eastPassageVisited": false,
+          "southPassageVisited": true,
+          "onGoalPath": true
+        },
+        {
+          "path": "001110",
+          "type": "theseus",
+          "roomVisited": true,
+          "westPassageType": null,
+          "eastPassageType": null,
+          "southPassageType": "a misty path",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": true,
+          "onGoalPath": true
+        },
+        {
+          "path": "001111",
+          "type": "random",
+          "roomVisited": false,
+          "westPassageType": "",
+          "eastPassageType": "",
+          "southPassageType": "a misty path",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": false
+        },
+        {
+          "path": "01",
+          "type": "random",
+          "roomVisited": false,
+          "westPassageType": "",
+          "eastPassageType": "",
+          "southPassageType": "a misty path",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
@@ -183,6 +183,42 @@
       "playerInfo": {},
       "endType": "win",
       "id": 3
+    },
+    {
+      "curLocation": [
+        "010011",
+        "01001"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 4
+    },
+    {
+      "curLocation": [
+        "001111",
+        "00111"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 5
+    },
+    {
+      "curLocation": [
+        "001110",
+        "00111"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 6
     }
   ],
   "items": [],

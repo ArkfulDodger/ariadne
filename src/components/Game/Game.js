@@ -36,7 +36,7 @@ import GameEnd from "./GameEnd";
 // game should load from game object if it exists
     // implement end game (resets game obj)
     // implement new game (resets game obj)
-// game obj posted to memories before reset
+// DONE: game obj posted to memories before reset
 // have narration pull from game obj
 // persist narration to game obj
 
