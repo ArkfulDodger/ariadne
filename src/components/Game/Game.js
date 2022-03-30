@@ -76,11 +76,12 @@ function Game ({ isCurGame, setIsCurGame }) {
             setPassageTypeArray(data.map(passObj => passObj['nav-text']));
         })
         .then ( () => {
-            if(!isCurGame){generateGoalPath()}})
+            generateGoalPath()})
     }, [])
 
     useEffect (() => {
-        generateMap(goalPath);
+        if (goalPath.length > 1)
+        {generateMap(goalPath);}
         //patchCurGameStatus()
 
     }, [goalPath])

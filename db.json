@@ -4,16 +4,16 @@
       "id": 1,
       "isCurGame": false,
       "curLocation": [
-        "0",
+        "00",
         "prevRoom"
       ],
       "curRoom": {
-        "path": "0",
-        "type": "entrance",
-        "leftPassageType": "a winding corridor",
-        "rightPassageType": "a mossy, but climbable wall",
-        "returnPassageType": "exit",
-        "onGoalPath": true
+        "path": "00",
+        "type": "random",
+        "leftPassageType": "",
+        "rightPassageType": "",
+        "returnPassageType": "a heavy wooden door",
+        "onGoalPath": false
       },
       "stringPath": "0",
       "minoLocation": "00",
@@ -22,26 +22,66 @@
         "hasTheseus": false,
         "statusEffects": {}
       },
-      "goalPath": "001011",
+      "goalPath": "010000",
       "map": [
         {
           "path": "0",
           "type": "entrance",
-          "leftPassageType": "a winding corridor",
-          "rightPassageType": "a mossy, but climbable wall",
+          "leftPassageType": "a heavy wooden door",
+          "rightPassageType": "a precarious ladder",
           "returnPassageType": "exit",
           "onGoalPath": true
         },
         {
           "path": "00",
           "type": "random",
+          "leftPassageType": "",
+          "rightPassageType": "",
+          "returnPassageType": "a heavy wooden door",
+          "onGoalPath": false
+        },
+        {
+          "path": "01",
+          "type": "random",
           "leftPassageType": "a mossy, but climbable wall",
-          "rightPassageType": "a winding corridor",
-          "returnPassageType": "a winding corridor",
+          "rightPassageType": "a smooth stone cavern",
+          "returnPassageType": "a precarious ladder",
           "onGoalPath": true
         },
         {
-          "path": "000",
+          "path": "010",
+          "type": "random",
+          "leftPassageType": "a smooth stone cavern",
+          "rightPassageType": "a winding corridor",
+          "returnPassageType": "a mossy, but climbable wall",
+          "onGoalPath": true
+        },
+        {
+          "path": "0100",
+          "type": "random",
+          "leftPassageType": "a heavy wooden door",
+          "rightPassageType": "a misty path",
+          "returnPassageType": "a smooth stone cavern",
+          "onGoalPath": true
+        },
+        {
+          "path": "01000",
+          "type": "random",
+          "leftPassageType": "a dark stairwell",
+          "rightPassageType": "a mossy, but climbable wall",
+          "returnPassageType": "a heavy wooden door",
+          "onGoalPath": true
+        },
+        {
+          "path": "010000",
+          "type": "theseus",
+          "leftPassageType": null,
+          "rightPassageType": null,
+          "returnPassageType": "a dark stairwell",
+          "onGoalPath": true
+        },
+        {
+          "path": "010001",
           "type": "random",
           "leftPassageType": "",
           "rightPassageType": "",
@@ -49,39 +89,7 @@
           "onGoalPath": false
         },
         {
-          "path": "001",
-          "type": "random",
-          "leftPassageType": "a heavy wooden door",
-          "rightPassageType": "a mossy, but climbable wall",
-          "returnPassageType": "a winding corridor",
-          "onGoalPath": true
-        },
-        {
-          "path": "0010",
-          "type": "random",
-          "leftPassageType": "a rickety bridge over a pit",
-          "rightPassageType": "a precarious ladder",
-          "returnPassageType": "a heavy wooden door",
-          "onGoalPath": true
-        },
-        {
-          "path": "00100",
-          "type": "random",
-          "leftPassageType": "",
-          "rightPassageType": "",
-          "returnPassageType": "a rickety bridge over a pit",
-          "onGoalPath": false
-        },
-        {
-          "path": "00101",
-          "type": "random",
-          "leftPassageType": "a misty path",
-          "rightPassageType": "a smooth stone cavern",
-          "returnPassageType": "a precarious ladder",
-          "onGoalPath": true
-        },
-        {
-          "path": "001010",
+          "path": "01001",
           "type": "random",
           "leftPassageType": "",
           "rightPassageType": "",
@@ -89,27 +97,19 @@
           "onGoalPath": false
         },
         {
-          "path": "001011",
-          "type": "theseus",
-          "leftPassageType": null,
-          "rightPassageType": null,
-          "returnPassageType": "a smooth stone cavern",
-          "onGoalPath": true
-        },
-        {
-          "path": "0011",
+          "path": "0101",
           "type": "random",
           "leftPassageType": "",
           "rightPassageType": "",
-          "returnPassageType": "a mossy, but climbable wall",
+          "returnPassageType": "a winding corridor",
           "onGoalPath": false
         },
         {
-          "path": "01",
+          "path": "011",
           "type": "random",
           "leftPassageType": "",
           "rightPassageType": "",
-          "returnPassageType": "a mossy, but climbable wall",
+          "returnPassageType": "a smooth stone cavern",
           "onGoalPath": false
         }
       ]
