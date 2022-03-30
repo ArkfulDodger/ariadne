@@ -29,8 +29,8 @@ import PromptText from "./PromptText";
 //for mems: push full current game + end result to db, mem page will pull from there and take what it wants
 
 //TODO: 3-30
-// update in current-game object:
- // curLocation.prevRoom
+// DONE: update in current-game object:
+ // DONE: curLocation.prevRoom
 // game should load from game object if it exists
     // implement end game (resets game obj)
     // implement new game (resets game obj)
@@ -45,14 +45,26 @@ import PromptText from "./PromptText";
 
 const defaultGameInfo = {
     curLocation: ["0", "prevRoom"],
-    curRoom: {}, //need room obj to access passagetypes
     stringPath: '0',
     minoLocation: '',
     itemsArray: [],
     playerInfo: {}
 };
 
-const defaultMap = [];
+const defaultMap = [
+    {
+        path: '0',
+        type: 'entrance',
+        roomVisited: true,
+        westPassageType: "",
+        eastPassageType: "",
+        southPassageType: "exit",
+        westPassageVisited: false,
+        eastPassageVisited: false,
+        southPassageVisited: true,
+        onGoalPath: true
+    }
+];
 
 const defaultGoalPath = "";
 
@@ -134,7 +146,7 @@ function Game ({ isCurGame, setIsCurGame }) {
             path += Math.round(Math.random());
         }
 
-        console.log(path)
+        console.log('goal path:', path)
         setGoalPath(path)
     }
 
@@ -155,15 +167,9 @@ function Game ({ isCurGame, setIsCurGame }) {
             onGoalPath: true
         }
 
-        updateGameInfo({
-            key: "curRoom",
-            value: entranceRoom
-        })
-
         mapRooms.push(entranceRoom);
         addRoomsTo(entranceRoom);
 
-        console.log("generating map", mapRooms);
         setMap(mapRooms)
 
         function addRoomsTo(fromRoom) {
@@ -246,7 +252,7 @@ function Game ({ isCurGame, setIsCurGame }) {
             body: JSON.stringify(defaultGameObject)
         })
             .then( res => res.json())
-            .then( data => console.log('defaulted obj', data))
+            .then( data => console.log('reset game obj in database'))
             .catch( error => console.log(error.message));
     }
 
@@ -264,7 +270,6 @@ function Game ({ isCurGame, setIsCurGame }) {
             goalPath: goalPath,
             map: map
         }
-        console.log("game update!", patchGameObj)
         fetch(`http://localhost:3001/current-game/1`, {
             method: "PATCH",
             headers: {
@@ -314,9 +319,14 @@ function Game ({ isCurGame, setIsCurGame }) {
         // if travelling southily
         } else {
             setMap(map => map
-                .map( room => room.path === newRoom.path
+                .map( room => 
+                    { console.log('map test:', map)
+                    console.log('room test:', room)
+                    console.log('curLoc test:', curLocation)
+                    console.log('newRoom test:', newRoom);
+                    return room.path === newRoom.path
                     ? curLocation[0].endsWith("0") ? {...room, westPassageVisited: true} : {...room, eastPassageVisited: true}
-                    : room))
+                    : room}))
                 .map( room => room.path === curLocation[0] ? {...room, southPassageVisited: true} : room);
         }
         
@@ -324,8 +334,8 @@ function Game ({ isCurGame, setIsCurGame }) {
         setMap(mapInState => mapInState.map(room => room.path === newRoom.path ? {...room, roomVisited: true} : room))
         
 
-        const updatedNewRoom = {...newRoom, roomVisited: true};
-        console.log(updatedNewRoom);
+        // const updatedNewRoom = {...newRoom, roomVisited: true};
+        // console.log(updatedNewRoom);
 
 
         setCurGameInfo(curGameInfo => ({
@@ -333,9 +343,7 @@ function Game ({ isCurGame, setIsCurGame }) {
             curLocation : [
                 newRoom.path,
                 curLocation[0]
-            ],
-            curRoom : updatedNewRoom,
-
+            ]
         }))
     }
 

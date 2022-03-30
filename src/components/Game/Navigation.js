@@ -2,7 +2,8 @@ import OptionBox from "./OptionBox"
 
 function Navigation({curGameInfo, map, updateCurRoom, patchCurGameStatus}) {
 
-    const {curRoom, curLocation, stringPath} = curGameInfo
+    const {curLocation, stringPath} = curGameInfo
+    const curRoom = map.find(room => room.path === curLocation[0]);
     const curRoomNavOptions= [
         {
             choiceText : "go left",
@@ -30,13 +31,14 @@ function Navigation({curGameInfo, map, updateCurRoom, patchCurGameStatus}) {
     function handleClick(event){
         switch (event.target.innerText) {
             case "go left": updateRoomByPath(curRoom.path + "0");
-            break;
+                break;
             case "go right": updateRoomByPath(curRoom.path + "1");
-            break;
+                break;
             case "go back to last room": 
-            if (curRoom.path === "0"){updateRoomByPath("0")}
-            else {updateRoomByPath(curRoom.path.slice(0, curRoom.path.length - 1))}
-            break;
+                if (curRoom.path === "0"){updateRoomByPath("0")}
+                else {updateRoomByPath(curLocation[1])}
+                // else {updateRoomByPath(curRoom.path.slice(0, curRoom.path.length - 1))}
+                break;
         }
         // patchCurGameStatus() //always one room behind
     }
