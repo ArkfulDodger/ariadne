@@ -7,28 +7,11 @@ import Menu from "./Menu/Menu";
 import ItemsWindow from "./Items/ItemsWindow";
 import PromptText from "./PromptText";
 import GameEnd from "./GameEnd";
+import { act } from "react-dom/test-utils";
 
 //TODO: for 3/29:
-//have current game post whenever curGame updates
-//win conditions (new component?) - get to end point - kinda done (game tells you if theseus is there, and he is in a dead end but does not trigger end game)
-//instantly post to memories and take you to memories
-//memories does a new fetch and renders (added fetch language)
 //then backwards in game navigation - kind of working: can go back but turn direction not dynamic
 //then add a bit of styling - an ongoing process
-
-
-//get navigation buttons going - DONE
-//move app to game - done
-//setup game state -done?
-//(set up options as taking an array that you iterate over) done
-//comment out items, mino, etc done
-//site navigation buttons done
-//menu and memories should conditional render nav buttons done
-
-
-//add't notes:
-//state - currentGame should persist/update (ie post/patch for each option select (?) or plot point)
-//for mems: push full current game + end result to db, mem page will pull from there and take what it wants
 
 //TODO: 3-30
 // DONE: update in current-game object:
@@ -77,29 +60,24 @@ const defaultGameObject = {
 }
 
 function Game ({ isCurGame, setIsCurGame }) {
-    // if there is no current game, start one
-    useEffect(() => {
-        if (!isCurGame) {
-            startNewGame()
-        }
-    }, [])
+
     
 
     //#region State and Variable Declarations
 
     const [curGameInfo, setCurGameInfo] = useState(defaultGameInfo)
+    const [map, setMap] = useState(defaultMap)
+    const [goalPath, setGoalPath] = useState(defaultGoalPath)
 
     const {curLocation} = curGameInfo
 
-    const [goalPath, setGoalPath] = useState(defaultGoalPath)
+    const [patchAllowed, setPatchAllowed] = useState(false)
     const [menuOpen, setMenuOpen] = useState(false)
     const [itemsOpen, setItemsOpen] = useState(false)
     const [passageTypeArray, setPassageTypeArray] = useState([])
-    const [map, setMap] = useState(defaultMap)
     const [passages, setPassages] = useState([]);
     const [endType, setEndType] = useState('');
     
-    //let endGameMessage = 'H'
     const goalPathLength = 5;
 
 
@@ -113,21 +91,27 @@ function Game ({ isCurGame, setIsCurGame }) {
             setPassages(data);
             setPassageTypeArray(data.map(passObj => passObj['nav-text']));
         })
-        .then ( () => {
-            generateGoalPath()})
     }, [])
 
+    // if there is no current game, start one
+    useEffect(() => {
+        if (!isCurGame) {
+            //console.log()
+            startNewGame()
+        } else {
+            loadCurGame()
+        }
+    }, [])
+    
     useEffect (() => {
         if (goalPath.length > 1)
         {generateMap(goalPath);}
-        //patchCurGameStatus()
-
     }, [goalPath])
-
+    
     useEffect(() => {
         patchCurGameStatus();
     }, [curGameInfo, map, goalPath])
-
+    
     useEffect(() =>{
         if(endType){endGame()}
     }, [endType])
@@ -140,14 +124,32 @@ function Game ({ isCurGame, setIsCurGame }) {
     function startNewGame() {
         console.log("New Game Started!");
         clearCurrentGameInDb()
+        .then(() => generateGoalPath())
         setIsCurGame(true);
-        // generateGoalPath();
-        // generateMap();
+        setPatchAllowed(true)
         //TODO: put logic here for starting a new game
     }
 
     function loadCurGame(){
         console.log("loading old game!")
+        fetch(`http://localhost:3001/current-game`)
+        .then( res => res.json())
+        .then( data => {
+            const actualData = data[0]
+            //console.log(data[0])
+            setMap(actualData.map)
+            setGoalPath(actualData.goalPath)
+            setCurGameInfo({
+                curLocation: actualData.curLocation,
+                stringPath: actualData.stringPath,
+                minoLocation: actualData.minoLocation,
+                itemsArray: actualData.itemsArray,
+                playerInfo: actualData.playerInfo,
+            })
+            //console.log(data)
+            setPatchAllowed(true)
+        })
+        .catch( error => console.log(error.message));
     }
     
     function generateGoalPath() {
@@ -256,7 +258,7 @@ function Game ({ isCurGame, setIsCurGame }) {
     //Display info to player
     //send game data to mems
     //reset game data (optional)
-    //send player to memories
+    //send player to memories (give choice)
     //change iscurgame to false
 
 
@@ -290,10 +292,11 @@ function Game ({ isCurGame, setIsCurGame }) {
             .catch( error => console.log(error.message));
         }
         
-
+        setIsCurGame(false)
     }
 
     function clearCurrentGameInDb() {
+        return (
         fetch(`http://localhost:3001/current-game/1`, {
             method: "PATCH",
             headers: {
@@ -303,8 +306,8 @@ function Game ({ isCurGame, setIsCurGame }) {
             body: JSON.stringify(defaultGameObject)
         })
             .then( res => res.json())
-            .then( data => console.log('reset game obj in database'))
-            .catch( error => console.log(error.message));
+            .then( data => {console.log('reset game obj in database')})
+            .catch( error => console.log(error.message)) )
     }
 
     function handleToggleMenu(){
@@ -316,6 +319,9 @@ function Game ({ isCurGame, setIsCurGame }) {
     }
 
     function patchCurGameStatus(){
+        if (patchAllowed)
+        {
+        console.log('patching')
         const patchGameObj = {
             ...curGameInfo,
             goalPath: goalPath,
@@ -331,7 +337,7 @@ function Game ({ isCurGame, setIsCurGame }) {
         })
         .then( res => res.json())
         //.then( data => console.log(data))
-        .catch( error => console.log(error.message));
+        .catch( error => console.log(error.message));}
     }
 
     function updateGameInfo(newInfoObj){
