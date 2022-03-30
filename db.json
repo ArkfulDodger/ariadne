@@ -2,28 +2,28 @@
   "loadStatus": [
     {
       "id": 1,
-      "isCurGame": false
+      "isCurGame": true
     }
   ],
   "current-game": [
     {
       "id": 1,
       "curLocation": [
-        "000101",
-        "00010"
+        "0",
+        "prevRoom"
       ],
       "stringPath": "0",
       "minoLocation": "",
       "itemsArray": [],
       "playerInfo": {},
-      "goalPath": "000101",
+      "goalPath": "010111",
       "map": [
         {
           "path": "0",
           "type": "entrance",
           "roomVisited": true,
-          "westPassageType": "a winding corridor",
-          "eastPassageType": "a heavy wooden door",
+          "westPassageType": "a dark stairwell",
+          "eastPassageType": "a precarious ladder",
           "southPassageType": "exit",
           "westPassageVisited": false,
           "eastPassageVisited": false,
@@ -34,28 +34,64 @@
           "path": "00",
           "type": "random",
           "roomVisited": false,
-          "westPassageType": "a smooth stone cavern",
+          "westPassageType": "",
+          "eastPassageType": "",
+          "southPassageType": "a dark stairwell",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": false
+        },
+        {
+          "path": "01",
+          "type": "random",
+          "roomVisited": false,
+          "westPassageType": "a heavy wooden door",
           "eastPassageType": "a torchlit path",
-          "southPassageType": "a winding corridor",
+          "southPassageType": "a precarious ladder",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
           "onGoalPath": true
         },
         {
-          "path": "000",
+          "path": "010",
+          "type": "random",
+          "roomVisited": false,
+          "westPassageType": "a dusty hallway",
+          "eastPassageType": "a torchlit path",
+          "southPassageType": "a heavy wooden door",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": true
+        },
+        {
+          "path": "0100",
+          "type": "random",
+          "roomVisited": false,
+          "westPassageType": "",
+          "eastPassageType": "",
+          "southPassageType": "a dusty hallway",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": false
+        },
+        {
+          "path": "0101",
           "type": "random",
           "roomVisited": false,
           "westPassageType": "a rickety bridge over a pit",
           "eastPassageType": "a dusty hallway",
-          "southPassageType": "a smooth stone cavern",
+          "southPassageType": "a torchlit path",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
           "onGoalPath": true
         },
         {
-          "path": "0000",
+          "path": "01010",
           "type": "random",
           "roomVisited": false,
           "westPassageType": "",
@@ -67,31 +103,19 @@
           "onGoalPath": false
         },
         {
-          "path": "0001",
+          "path": "01011",
           "type": "random",
-          "roomVisited": true,
-          "westPassageType": "a heavy wooden door",
-          "eastPassageType": "a misty path",
+          "roomVisited": false,
+          "westPassageType": "a mossy, but climbable wall",
+          "eastPassageType": "a dusty hallway",
           "southPassageType": "a dusty hallway",
-          "westPassageVisited": true,
+          "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
           "onGoalPath": true
         },
         {
-          "path": "00010",
-          "type": "random",
-          "roomVisited": true,
-          "westPassageType": "a mossy, but climbable wall",
-          "eastPassageType": "a dusty hallway",
-          "southPassageType": "a heavy wooden door",
-          "westPassageVisited": false,
-          "eastPassageVisited": true,
-          "southPassageVisited": true,
-          "onGoalPath": true
-        },
-        {
-          "path": "000100",
+          "path": "010110",
           "type": "random",
           "roomVisited": false,
           "westPassageType": "",
@@ -103,48 +127,24 @@
           "onGoalPath": false
         },
         {
-          "path": "000101",
+          "path": "010111",
           "type": "theseus",
-          "roomVisited": true,
+          "roomVisited": false,
           "westPassageType": null,
           "eastPassageType": null,
           "southPassageType": "a dusty hallway",
           "westPassageVisited": false,
           "eastPassageVisited": false,
-          "southPassageVisited": true,
+          "southPassageVisited": false,
           "onGoalPath": true
         },
         {
-          "path": "00011",
-          "type": "random",
-          "roomVisited": false,
-          "westPassageType": "",
-          "eastPassageType": "",
-          "southPassageType": "a misty path",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": false
-        },
-        {
-          "path": "001",
+          "path": "011",
           "type": "random",
           "roomVisited": false,
           "westPassageType": "",
           "eastPassageType": "",
           "southPassageType": "a torchlit path",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": false
-        },
-        {
-          "path": "01",
-          "type": "random",
-          "roomVisited": false,
-          "westPassageType": "",
-          "eastPassageType": "",
-          "southPassageType": "a heavy wooden door",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
@@ -513,6 +513,294 @@
       "playerInfo": {},
       "endType": "win",
       "id": 30
+    },
+    {
+      "curLocation": [
+        "000111",
+        "00011"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 31
+    },
+    {
+      "curLocation": [
+        "000111",
+        "00011"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 32
+    },
+    {
+      "curLocation": [
+        "000111",
+        "00011"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 33
+    },
+    {
+      "curLocation": [
+        "010011",
+        "01001"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 34
+    },
+    {
+      "curLocation": [
+        "010110",
+        "01011"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 35
+    },
+    {
+      "curLocation": [
+        "000100",
+        "00010"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 36
+    },
+    {
+      "curLocation": [
+        "000100",
+        "00010"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 37
+    },
+    {
+      "curLocation": [
+        "000100",
+        "00010"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 38
+    },
+    {
+      "curLocation": [
+        "000100",
+        "00010"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 39
+    },
+    {
+      "curLocation": [
+        "000100",
+        "00010"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 40
+    },
+    {
+      "curLocation": [
+        "000100",
+        "00010"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 41
+    },
+    {
+      "curLocation": [
+        "000100",
+        "00010"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 42
+    },
+    {
+      "curLocation": [
+        "000100",
+        "00010"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 43
+    },
+    {
+      "curLocation": [
+        "000100",
+        "00010"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 44
+    },
+    {
+      "curLocation": [
+        "000100",
+        "00010"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 45
+    },
+    {
+      "curLocation": [
+        "000100",
+        "00010"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 46
+    },
+    {
+      "curLocation": [
+        "000100",
+        "00010"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 47
+    },
+    {
+      "curLocation": [
+        "000100",
+        "00010"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 48
+    },
+    {
+      "curLocation": [
+        "000100",
+        "00010"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 49
+    },
+    {
+      "curLocation": [
+        "000100",
+        "00010"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 50
+    },
+    {
+      "curLocation": [
+        "000100",
+        "00010"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 51
+    },
+    {
+      "curLocation": [
+        "000100",
+        "00010"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 52
+    },
+    {
+      "curLocation": [
+        "000100",
+        "00010"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 53
+    },
+    {
+      "curLocation": [
+        "000100",
+        "00010"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 54
     }
   ],
   "items": [],

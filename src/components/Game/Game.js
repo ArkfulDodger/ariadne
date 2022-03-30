@@ -7,19 +7,12 @@ import Menu from "./Menu/Menu";
 import ItemsWindow from "./Items/ItemsWindow";
 import PromptText from "./PromptText";
 import GameEnd from "./GameEnd";
-import { act } from "react-dom/test-utils";
 
-//TODO: for 3/29:
-//then backwards in game navigation - kind of working: can go back but turn direction not dynamic
-//then add a bit of styling - an ongoing process
-
-//TODO: 3-30
-// DONE: update in current-game object:
- // DONE: curLocation.prevRoom
+//TODO: 
+//fix backwards in game navigation - kind of working: can go back but turn direction not dynamic
+// styling - an ongoing process
 // game should load from game object if it exists
-    // implement end game (resets game obj)
     // implement new game (resets game obj)
-// DONE: game obj posted to memories before reset
 // have narration pull from game obj
 // persist narration to game obj
 
@@ -60,7 +53,6 @@ const defaultGameObject = {
 }
 
 function Game ({ isCurGame, updateIsCurGameInDb }) {
-    console.log("in game iscurgame", isCurGame)
     
 
     //#region State and Variable Declarations

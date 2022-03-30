@@ -9,9 +9,10 @@ function Home ({isCurGame, updateIsCurGameInDb }) {
         // this button should send the current game to memories and start a new game
 
     function newGameClick(e) {
+        console.log(isCurGame)
         if (isCurGame) {
             // TODO: find a way to ensure current game is false without reloading page
-            updateIsCurGameInDb(false);
+            //updateIsCurGameInDb(false);
         }
         console.log('newGameClicked');
     }
