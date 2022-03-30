@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-function MemoryDetail (props) {
+function MemoryDetail () {
     return (
         <div>
-            <h4>Memory Detail!</h4>
+            <h5>More detail</h5>
         </div>
     );
 }

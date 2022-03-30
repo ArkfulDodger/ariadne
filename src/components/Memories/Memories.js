@@ -16,12 +16,12 @@ function Memories ({isCurGame}) {
         .then(data => setMemories(data))
     }, [])
 
-    console.log(memories);
+    //console.log(memories);
     
     return (
-        <div>
+        <div className="memoryPage">
             <h1>Memories!!!</h1>
-            <MemoryList />
+            <MemoryList memories={memories}/>
             <Link to="/play">{isCurGame ? "Return to the Labyrinth" : "Enter the Labyrinth"}</Link>             
             <Link to="/home">Return to Main Menu</Link>  
         </div>
