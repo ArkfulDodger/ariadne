@@ -310,7 +310,7 @@ function Game ({ isCurGame, setIsCurGame }) {
     function updateCurRoom(newRoom){
         // update path visited status in origin and destination rooms in map state
         // if travelling northerly
-        if (newRoom.path.length > curLocation[0]) {
+        if (newRoom.path.length > curLocation[0].length) {
             setMap(map => map
                 .map( room => room.path === newRoom.path ? {...room, southPassageVisited: true} : room)
                 .map( room => room.path === curLocation[0]
@@ -318,16 +318,17 @@ function Game ({ isCurGame, setIsCurGame }) {
                     : room));
         // if travelling southily
         } else {
-            setMap(map => map
-                .map( room => 
-                    { console.log('map test:', map)
-                    console.log('room test:', room)
-                    console.log('curLoc test:', curLocation)
-                    console.log('newRoom test:', newRoom);
-                    return room.path === newRoom.path
-                    ? curLocation[0].endsWith("0") ? {...room, westPassageVisited: true} : {...room, eastPassageVisited: true}
-                    : room}))
-                .map( room => room.path === curLocation[0] ? {...room, southPassageVisited: true} : room);
+            // TODO: fix bug here once non-linear progression is possible
+            // setMap(map => map
+            //     .map( room => 
+            //         { console.log('map test:', map)
+            //         console.log('room test:', room)
+            //         console.log('curLoc test:', curLocation)
+            //         console.log('newRoom test:', newRoom);
+            //         return room.path === newRoom.path
+            //         ? curLocation[0].endsWith("0") ? {...room, westPassageVisited: true} : {...room, eastPassageVisited: true}
+            //         : room}))
+            //     .map( room => room.path === curLocation[0] ? {...room, southPassageVisited: true} : room);
         }
         
         // set destination room to visited in state
