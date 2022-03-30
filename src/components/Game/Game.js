@@ -22,7 +22,8 @@ import GameEnd from "./GameEnd";
     // travel orientation/direction (persist to game object)
 
 const defaultGameInfo = {
-    curLocation: ["0", "prevRoom"],
+    curLocation: ["0", ""],
+    entryDirection: 'south',
     stringPath: '0',
     minoLocation: '',
     itemsArray: [],
@@ -33,7 +34,7 @@ const defaultMap = [
     {
         path: '0',
         type: 'entrance',
-        roomVisited: true,
+        roomVisited: false,
         westPassageType: "",
         eastPassageType: "",
         southPassageType: "exit",
@@ -51,6 +52,16 @@ const defaultGameObject = {
     goalPath: defaultGoalPath,
     map: defaultMap
 }
+
+// const defaultPassages = [
+//     {
+//         "id": 1,
+//         "nav-text": "a torchlit path",
+//         "narration-text": "torchlit path",
+//         "initial-travel-text": [1, 3, 4, 5],
+//         "return-travel-text": [1, 2, 3, 4, 5]
+//     }
+// ]
 
 function Game ({ isCurGame, updateIsCurGameInDb }) {
     
@@ -161,7 +172,7 @@ function Game ({ isCurGame, updateIsCurGameInDb }) {
         const entranceRoom = {
             path: '0',
             type: 'entrance',
-            roomVisited: true,
+            roomVisited: false,
             westPassageType: getRandomPassageType(),
             eastPassageType: getRandomPassageType(),
             southPassageType: "exit",
@@ -237,7 +248,12 @@ function Game ({ isCurGame, updateIsCurGameInDb }) {
         }
         
         function getRandomPassageType() {
-            const passageType = passageTypeArray[Math.floor(Math.random()*passageTypeArray.length)]
+            let passageType = passageTypeArray[Math.floor(Math.random()*passageTypeArray.length)];
+            if (passageType === "exit") {
+                // console.log('----passage was an exit');
+                passageType = getRandomPassageType();
+                // console.log('----passage was changed to', passageType);
+            }
             return passageType
         }
     }
@@ -354,20 +370,38 @@ function Game ({ isCurGame, updateIsCurGameInDb }) {
             return room.path === path
         })
     }
-    
+
+    function getEntryDirection(curLocation) {
+        if (curLocation[0].length > curLocation[1].length) {
+            return 'south';
+        } else if (curLocation[1].endsWith('0')) {
+            return 'west';
+        } else {
+            return 'east';
+        }
+    }
 
     function updateCurRoom(newRoom){
+        console.log("------------update room called-----------");
+
         // update path visited status in origin and destination rooms in map state
         // if travelling northerly
+
+        
         if (newRoom.path.length > curLocation[0].length) {
             setMap(map => map
-                .map( room => room.path === newRoom.path ? {...room, southPassageVisited: true} : room)
+                // .map( room => room.path === newRoom.path ? {...room, southPassageVisited: room.southPassageVisited + 1} : room)
                 .map( room => room.path === curLocation[0]
                     ? newRoom.path.endsWith("0") ? {...room, westPassageVisited: true} : {...room, eastPassageVisited: true}
                     : room));
         // if travelling southily
         } else {
+            setMap(map => map
+                .map(room => room.path === curLocation[0]
+                    ? {...room, southPassageVisited: true}
+                    : room))
             // TODO: fix bug here once non-linear progression is possible
+            // TODO: will need to rework to increment instead of setting to true
             // setMap(map => map
             //     .map( room => 
             //         { console.log('map test:', map)
@@ -380,20 +414,26 @@ function Game ({ isCurGame, updateIsCurGameInDb }) {
             //     .map( room => room.path === curLocation[0] ? {...room, southPassageVisited: true} : room);
         }
         
+        
+
         // set destination room to visited in state
-        setMap(mapInState => mapInState.map(room => room.path === newRoom.path ? {...room, roomVisited: true} : room))
+        setMap(mapInState => mapInState.map(room => room.path === curLocation[0] ? {...room, roomVisited: true} : room))
         
 
         // const updatedNewRoom = {...newRoom, roomVisited: true};
         // console.log(updatedNewRoom);
 
+        const newLocation = [
+            newRoom.path,
+            curLocation[0]
+        ]
+
+        const newEntryDirection = getEntryDirection(newLocation);
 
         setCurGameInfo(curGameInfo => ({
             ...curGameInfo,
-            curLocation : [
-                newRoom.path,
-                curLocation[0]
-            ]
+            curLocation : newLocation,
+            entryDirection : newEntryDirection
         }))
     }
 
@@ -406,7 +446,7 @@ function Game ({ isCurGame, updateIsCurGameInDb }) {
             <h1>
                 Ariadne
             </h1>
-            <PromptText passages={passages}/>
+            <PromptText map={map} curGameInfo={curGameInfo} passages={passages}/>
             {endType ? <GameEnd endType={endType}/> : 
             <>
             {/* <Minotaur />
