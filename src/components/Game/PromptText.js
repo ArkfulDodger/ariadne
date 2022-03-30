@@ -5,16 +5,10 @@ const URL ='http://localhost:3001'
 function PromptText() {
     // TODO: comment back in when ready to integrate db.json/state
     //#region fetching data from db.json
-    // const [passages, setPassages] = useState([]);
     // const [travelTextInitial, setTravelTextInitial] = useState([]);
     // const [travelTextReturn, setTravelTextReturn] = useState([]);
 
     // useEffect(() => {
-    //     fetch(`${URL}/passages`)
-    //         .then( res => res.json())
-    //         .then( passages => setPassages(passages))
-    //         .catch( error => alert(error.message));
-
     //     fetch(`${URL}/travel-text-initial`)
     //         .then( res => res.json())
     //         .then( passages => setTravelTextInitial(passages))

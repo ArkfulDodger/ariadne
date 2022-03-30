@@ -27,7 +27,19 @@ import PromptText from "./PromptText";
 //add't notes:
 //state - currentGame should persist/update (ie post/patch for each option select (?) or plot point)
 //for mems: push full current game + end result to db, mem page will pull from there and take what it wants
-function Game ({props}) {
+
+
+
+function Game ({ isCurGame, setIsCurGame }) {
+    // if there is no current game, start one
+    useEffect(() => {
+        if (!isCurGame) {
+            startNewGame()
+        }
+    })
+    
+
+    //#region State and Variable Declarations
 
     const [curGameInfo, setCurGameInfo] = useState({
         curLocation: ['0', 'prevRoom'],
@@ -50,20 +62,37 @@ function Game ({props}) {
     const [itemsOpen, setItemsOpen] = useState(false)
     const [passageTypeArray, setPassageTypeArray] = useState([])
     const [map, setMap] = useState([])
+    const [passages, setPassages] = useState([]);
     
-    //fetch to set up passage types, then also generate the goal path and the game map on load
+    const goalPathLength = 5;
+
+    //fetch to set up passages and passage types, then also generate the goal path and the game map on load
     //eventually this will pull both passage types and currGame if there is one...
     useEffect(() => {
         fetch('http://localhost:3001/passages')
         .then(resp => resp.json())
         .then(data => {
-            setPassageTypeArray(data.map(passObj => passObj['nav-text']))
+            setPassages(data);
+            setPassageTypeArray(data.map(passObj => passObj['nav-text']));
         })
         .then ( () => {
             generateGoalPath()})
     }, [])
 
-    useEffect (() => generateMap(goalPath), [goalPath])
+    useEffect (() => {
+        generateMap(goalPath);
+    }, [goalPath])
+    
+    //#endregion
+
+
+    //#region Helper Functions
+    
+    function startNewGame() {
+        console.log("New Game Started!");
+        setIsCurGame(true);
+        //TODO: put logic here for starting a new game
+    }
 
     function handleToggleMenu(){
         setMenuOpen(!menuOpen)
@@ -100,7 +129,64 @@ function Game ({props}) {
         })
     }
 
-    const goalPathLength = 5;
+    function generateGoalPath() {
+        let path = "0";
+        for (let i = 0; i < goalPathLength; i++) {
+            path += Math.round(Math.random());
+        }
+
+        // const goalPathObj ={
+        //     key: "goalPath",
+        //     value: "0101" //path
+        // }
+        console.log(path)
+        setGoalPath(path)
+    }
+
+    function printAsTurns(binaryPath) {
+        let turnPath = "entrance";
+        for (let i = 1; i < binaryPath.length; i++) {
+        console.log(binaryPath[i]);
+        turnPath += binaryPath[i] === '0' ? " left" : " right";
+        }
+        return turnPath;
+    }    
+    
+    function handleToggleMenu(){
+        setMenuOpen(!menuOpen)
+    }
+
+    function handleToggleItems(){
+        setItemsOpen(!itemsOpen)
+    }
+
+    function patchCurGameStatus(){
+        const patchGameObj = {
+            ...curGameInfo,
+            goalPath: goalPath,
+            map: map
+        }
+        fetch(`http://localhost:3001/current-game`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: JSON.stringify({
+                patchGameObj 
+            })
+        })
+        .then( res => res.json())
+        .then( data => console.log(data))
+        .catch( error => console.log(error.message));
+    }
+
+    function updateGameInfo(newInfoObj){
+        setCurGameInfo({
+            ...curGameInfo,
+            [newInfoObj.key] : newInfoObj.value
+        })
+    }
 
     function generateGoalPath() {
         let path = "0";
@@ -124,7 +210,7 @@ function Game ({props}) {
         }
         return turnPath;
     }
-
+    
     function generateMap() {
 
         const mapRooms = [];
@@ -224,12 +310,16 @@ function Game ({props}) {
         })
     }
 
+    //#endregion
+
+
+
     return (
         <div>
             <h1>
-                This is the game
+                Ariadne
             </h1>
-            <PromptText />
+            <PromptText passages={passages}/>
             {/* <Minotaur />
             <Actions /> */}
             <Navigation updateCurRoom={updateCurRoom} curGameInfo={curGameInfo} map={map}/>
