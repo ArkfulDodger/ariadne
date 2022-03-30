@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
+import Minotaur from "./Minotaur";
 
 const URL ='http://localhost:3001'
 
-function PromptText() {
+function PromptText({ map, curGameInfo }) {
+
+    const {curLocation, minoLocation, itemsArray, playerInfo} = curGameInfo;
+
     // TODO: comment back in when ready to integrate db.json/state
     //#region fetching data from db.json
     // const [travelTextInitial, setTravelTextInitial] = useState([]);
@@ -217,9 +221,11 @@ function PromptText() {
     //#endregion
 
 
+    const curRoom = map.find(room => room.path === curLocation[0])
+
     // TODO: derive from currentGame state
     // conditions from currentGame
-    const isRoomVisited = false;
+    const isRoomVisited = curLocation.roomVisited;
     const isPassageVisited = false;
     const isForwardTravel = true;
     const isVisibility = true;
@@ -262,9 +268,15 @@ function PromptText() {
     const narrationText = `${entryText} ${lowlightText} ${chamberText}. ${clueText}`
     // console.log(narrationText);
 
+
+    //#region HELPER FUNCTIONS
     function randomFromArray(array) {
         return array[Math.floor(Math.random()*array.length)]
     }
+    
+    
+    //#endregion
+
 
     return (
         <div className="prompText">

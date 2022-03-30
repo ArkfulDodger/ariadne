@@ -357,7 +357,7 @@ function Game ({ isCurGame, setIsCurGame }) {
             <h1>
                 Ariadne
             </h1>
-            <PromptText passages={passages}/>
+            <PromptText map={map} curGameInfo={curGameInfo} passages={passages}/>
             {/* <Minotaur />
             <Actions /> */}
             <Navigation 
