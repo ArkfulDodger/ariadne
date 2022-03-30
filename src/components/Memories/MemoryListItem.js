@@ -14,7 +14,7 @@ function MemoryListItem ({memory}) {
     }
     return (
         <div className="memoryItem">
-            <h3 onClick={toggleDetail}>Journey number {memory.id}</h3>
+            <h3 onClick={toggleDetail}>Journey {memory.id}</h3>
             <h4>{memoryResult}</h4>
             {detailOpen ? <MemoryDetail /> : null}
         </div>

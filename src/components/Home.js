@@ -11,7 +11,7 @@ function Home ({isCurGame, updateIsCurGameInDb }) {
     function newGameClick(e) {
         if (isCurGame) {
             // TODO: find a way to ensure current game is false without reloading page
-            // setIsCurGame(false);
+            updateIsCurGameInDb(false);
         }
         console.log('newGameClicked');
     }

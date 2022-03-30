@@ -8,7 +8,7 @@ function MemoryList ({memories}) {
     })
     return (
         <div className="memoryList">
-            <h2>Memory List!</h2>
+            <p>You think back to the many times you have traversed the Labyrinth in past lives</p>
             {renderedMemories}
         </div>
     );

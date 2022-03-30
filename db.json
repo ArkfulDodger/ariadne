@@ -2,15 +2,15 @@
   "loadStatus": [
     {
       "id": 1,
-      "isCurGame": true
+      "isCurGame": false
     }
   ],
   "current-game": [
     {
       "id": 1,
       "curLocation": [
-        "0",
-        "prevRoom"
+        "000101",
+        "00010"
       ],
       "stringPath": "0",
       "minoLocation": "",
@@ -22,8 +22,8 @@
           "path": "0",
           "type": "entrance",
           "roomVisited": true,
-          "westPassageType": "a heavy wooden door",
-          "eastPassageType": "a mossy, but climbable wall",
+          "westPassageType": "a winding corridor",
+          "eastPassageType": "a heavy wooden door",
           "southPassageType": "exit",
           "westPassageVisited": false,
           "eastPassageVisited": false,
@@ -34,9 +34,9 @@
           "path": "00",
           "type": "random",
           "roomVisited": false,
-          "westPassageType": "a misty path",
-          "eastPassageType": "a precarious ladder",
-          "southPassageType": "a heavy wooden door",
+          "westPassageType": "a smooth stone cavern",
+          "eastPassageType": "a torchlit path",
+          "southPassageType": "a winding corridor",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
@@ -46,9 +46,9 @@
           "path": "000",
           "type": "random",
           "roomVisited": false,
-          "westPassageType": "a torchlit path",
-          "eastPassageType": "a winding corridor",
-          "southPassageType": "a misty path",
+          "westPassageType": "a rickety bridge over a pit",
+          "eastPassageType": "a dusty hallway",
+          "southPassageType": "a smooth stone cavern",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
@@ -60,7 +60,7 @@
           "roomVisited": false,
           "westPassageType": "",
           "eastPassageType": "",
-          "southPassageType": "a torchlit path",
+          "southPassageType": "a rickety bridge over a pit",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
@@ -69,11 +69,11 @@
         {
           "path": "0001",
           "type": "random",
-          "roomVisited": false,
-          "westPassageType": "a dusty hallway",
-          "eastPassageType": "a torchlit path",
-          "southPassageType": "a winding corridor",
-          "westPassageVisited": false,
+          "roomVisited": true,
+          "westPassageType": "a heavy wooden door",
+          "eastPassageType": "a misty path",
+          "southPassageType": "a dusty hallway",
+          "westPassageVisited": true,
           "eastPassageVisited": false,
           "southPassageVisited": false,
           "onGoalPath": true
@@ -81,13 +81,13 @@
         {
           "path": "00010",
           "type": "random",
-          "roomVisited": false,
-          "westPassageType": "a rickety bridge over a pit",
-          "eastPassageType": "a misty path",
-          "southPassageType": "a dusty hallway",
+          "roomVisited": true,
+          "westPassageType": "a mossy, but climbable wall",
+          "eastPassageType": "a dusty hallway",
+          "southPassageType": "a heavy wooden door",
           "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
+          "eastPassageVisited": true,
+          "southPassageVisited": true,
           "onGoalPath": true
         },
         {
@@ -96,7 +96,7 @@
           "roomVisited": false,
           "westPassageType": "",
           "eastPassageType": "",
-          "southPassageType": "a rickety bridge over a pit",
+          "southPassageType": "a mossy, but climbable wall",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
@@ -105,13 +105,13 @@
         {
           "path": "000101",
           "type": "theseus",
-          "roomVisited": false,
+          "roomVisited": true,
           "westPassageType": null,
           "eastPassageType": null,
-          "southPassageType": "a misty path",
+          "southPassageType": "a dusty hallway",
           "westPassageVisited": false,
           "eastPassageVisited": false,
-          "southPassageVisited": false,
+          "southPassageVisited": true,
           "onGoalPath": true
         },
         {
@@ -120,7 +120,7 @@
           "roomVisited": false,
           "westPassageType": "",
           "eastPassageType": "",
-          "southPassageType": "a torchlit path",
+          "southPassageType": "a misty path",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
@@ -132,7 +132,7 @@
           "roomVisited": false,
           "westPassageType": "",
           "eastPassageType": "",
-          "southPassageType": "a precarious ladder",
+          "southPassageType": "a torchlit path",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
@@ -144,7 +144,7 @@
           "roomVisited": false,
           "westPassageType": "",
           "eastPassageType": "",
-          "southPassageType": "a mossy, but climbable wall",
+          "southPassageType": "a heavy wooden door",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
@@ -477,6 +477,42 @@
       "playerInfo": {},
       "endType": "win",
       "id": 27
+    },
+    {
+      "curLocation": [
+        "000101",
+        "00010"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 28
+    },
+    {
+      "curLocation": [
+        "000101",
+        "00010"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 29
+    },
+    {
+      "curLocation": [
+        "000101",
+        "00010"
+      ],
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "endType": "win",
+      "id": 30
     }
   ],
   "items": [],
