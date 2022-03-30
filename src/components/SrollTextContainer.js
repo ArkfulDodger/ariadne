@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
 
 function SrollTextContainer (props) {
+
+    const [hasScrolled, setHasScrolled] = useState(false)
+    
     function handleScroll(){
-        console.log("scrolling")
+        if (!hasScrolled){
+            (console.log("scroll")) //find some way to wait til after 1st paragraph, then offer a shorter version that renders onbutton click?
+        }
+        setHasScrolled(true)
     }
 
     return (

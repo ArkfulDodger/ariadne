@@ -108,11 +108,11 @@ function Game ({ isCurGame, setIsCurGame }) {
             goalPath: goalPath,
             map: map
         }
-        fetch(`http://localhost:3001/current-game`, {
+        fetch(`http://localhost:3001/current-game/1`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
-                Accept: "application/json"
+                "Accept": "application/json"
             },
             body: JSON.stringify({
                 patchGameObj 
@@ -176,6 +176,7 @@ function Game ({ isCurGame, setIsCurGame }) {
 
         console.log("generating map", mapRooms);
         setMap(mapRooms)
+        patchCurGameStatus()
 
         function addRoomsTo(fromRoom) {
         if (fromRoom.leftPassageType) {

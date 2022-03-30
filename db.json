@@ -1,244 +1,468 @@
 {
-    "current-game": [
-
-    ],
-    "memories": [
-
-    ],
-    "items": [
-
-    ],
-    "chambers": [
-        {
-            "id": 1,
-            "type": "storeroom",
-            "default-visibility": false,
-            "descriptions": {
-                "initial": {
-                    "dark": "what appears to be some manner or storeroom, with lumpy shapes towering on every side in the stillness",
-                    "lit": "a cluttered storeroom, with large sacks and barrels stacked to every corner"
-                },
-                "return": {
-                    "dark": "the darkened storeroom",
-                    "lit": "the cluttered storeroom"
-                }
-            }
+  "current-game": [
+    {
+      "id": 1,
+      "isCurGame": false,
+      "patchGameObj": {
+        "curLocation": [
+          "0",
+          "prevRoom"
+        ],
+        "curRoom": {
+          "path": "0",
+          "type": "entrance",
+          "returnPassageType": "exit",
+          "onGoalPath": true
+        },
+        "stringPath": "0",
+        "minoLocation": "00",
+        "itemsArray": [],
+        "playerInfo": {
+          "hasTheseus": false,
+          "statusEffects": {}
+        },
+        "goalPath": "011110",
+        "map": [
+          {
+            "path": "0",
+            "type": "entrance",
+            "returnPassageType": "exit",
+            "onGoalPath": true
+          }
+        ]
+      }
+    }
+  ],
+  "memories": [],
+  "items": [],
+  "chambers": [
+    {
+      "id": 1,
+      "type": "storeroom",
+      "default-visibility": false,
+      "descriptions": {
+        "initial": {
+          "dark": "what appears to be some manner or storeroom, with lumpy shapes towering on every side in the stillness",
+          "lit": "a cluttered storeroom, with large sacks and barrels stacked to every corner"
+        },
+        "return": {
+          "dark": "the darkened storeroom",
+          "lit": "the cluttered storeroom"
         }
-    ],
-    "actions": [
-        {
-            "id": 1,
-            "text": "Search the room",
-            "result": "find-room-item",
-            "chambers": [
-                "storeroom"
-            ],
-            "conditions": {
-
-            }
-        }
-    ],
-    "results": [
-        {
-            "id": 1,
-            "action-taken": "Search the room"
-        }
-    ],
-    "passages": [
-        {
-            "id": 1,
-            "nav-text": "a torchlit path",
-            "narration-text": "torchlit path",
-            "initial-travel-text": [1, 3, 4, 5],
-            "return-travel-text": [1, 2, 3, 4, 5]
-        },
-        {
-            "id": 2,
-            "nav-text": "a dark stairwell",
-            "narration-text": "dark stairwell",
-            "initial-travel-text": [1, 2, 3, 4, 5, 8],
-            "return-travel-text": [1, 2, 3, 5]
-        },
-        {
-            "id": 3,
-            "nav-text": "a dusty hallway",
-            "narration-text": "dusty hallway",
-            "initial-travel-text": [1, 2, 3, 4, 5],
-            "return-travel-text": [1, 2, 3, 4, 5]
-        },
-        {
-            "id": 4,
-            "nav-text": "a heavy wooden door",
-            "narration-text": "heavy door",
-            "return-narration-text": "open doorway",
-            "initial-travel-text": [6, 7],
-            "return-travel-text": [1, 5]
-        },
-        {
-            "id": 5,
-            "nav-text": "a smooth stone cavern",
-            "narration-text": "cavern tunnel",
-            "initial-travel-text": [1, 2, 3, 4, 5],
-            "return-travel-text": [1, 2, 3, 4, 5]
-        },
-        {
-            "id": 6,
-            "nav-text": "a winding corridor",
-            "narration-text": "winding corridor",
-            "initial-travel-text": [1, 2, 3, 4, 5],
-            "return-travel-text": [1, 2, 3, 4, 5]
-        },
-        {
-            "id": 7,
-            "nav-text": "a mossy, but climbable wall",
-            "narration-text": "mossy wall",
-            "initial-travel-text": [9, 10, 11],
-            "return-travel-text": [8, 9, 10]
-        },
-        {
-            "id": 8,
-            "nav-text": "a precarious ladder",
-            "narration-text": "ladder",
-            "initial-travel-text": [9, 11],
-            "return-travel-text": [8, 9]
-        },
-        {
-            "id": 9,
-            "nav-text": "a rickety bridge over a pit",
-            "narration-text": "bridge",
-            "initial-travel-text": [],
-            "return-travel-text": []
-        },
-        {
-            "id": 10,
-            "nav-text": "a misty path",
-            "narration-text": "misty path",
-            "initial-travel-text": [],
-            "return-travel-text": []
-        }
-    ],
-    "travel-text-initial": [
-        {
-            "id": 1,
-            "text": ["Slowly, you follow the"],
-            "passages": [1, 2, 3, 5, 6]
-        },
-        {
-            "id": 2,
-            "text": ["Cautiously, you make your way through the"],
-            "passages": [2, 3, 5, 6]
-        },
-        {
-            "id": 3,
-            "text": ["Stepping quietly, you pass along the"],
-            "passages": [1, 2, 3, 5, 6]
-        },
-        {
-            "id": 4,
-            "text": ["You follow the"],
-            "passages": [1, 2, 3, 5, 6]
-        },
-        {
-            "id": 5,
-            "text": ["You walk along the"],
-            "passages": [1, 2, 3, 5, 6]
-        },
-        {
-            "id": 6,
-            "text": ["Slowly, you push open the"],
-            "passages": [4]
-        },
-        {
-            "id": 7,
-            "text": ["With a momentary struggle and an angry creak, you are soon past the"],
-            "passages": [4]
-        },
-        {
-            "id": 8,
-            "text": [
-                "Steading yourself, you descend the",
-                "Steading yourself, you ascend the"],
-            "passages": [2]
-        },        {
-            "id": 9,
-            "text": [
-                "With great care, you climb up and past the", 
-                "With great care, you climb to the bottom of the"],
-            "passages": [7, 8]
-        },
-        {
-            "id": 10,
-            "text": [
-                "Dirt, digging its way into your fingernails, you clamber atop the", 
-                "Dirt, digging its way into your fingernails, you clamber down the"],
-            "passages": [7]
-        },
-        {
-            "id": 11,
-            "text": [
-                "You set yourself, and climb hand-over-hand to the top of the",
-                "You set yourself, and climb hand-over-hand to the bottom of the"],
-            "passages": [7, 8]
-        }
-    ],
-    "travel-text-return": [
-        {
-            "id": 1,
-            "text": ["You return through the"],
-            "passages": [1, 2, 3, 4, 5, 6]
-        },
-        {
-            "id": 2,
-            "text": ["You double back along the"],
-            "passages": [1, 2, 3, 5, 6]
-        },
-        {
-            "id": 3,
-            "text": ["Once again, you make your way along the"],
-            "passages": [1, 2, 3, 5, 6]
-        },
-        {
-            "id": 4,
-            "text": ["You again tread the"],
-            "passages": [1, 3, 5, 6]
-        },
-        {
-            "id": 5,
-            "text": ["You tavel again along the"],
-            "passages": [1, 2, 3, 5, 6]
-        },
-        {
-            "id": 6,
-            "text": ["You cross back over the threshhold of the"],
-            "passages": [4]
-        },
-        {
-            "id": 7,
-            "text": [
-                "You again descend the", 
-                "You again ascend the"],
-            "passages": [2]
-        },
-        {
-            "id": 8,
-            "text": [
-                "You again make your way up the", 
-                "You again make your way down the"],
-            "passages": [7, 8]
-        },
-        {
-            "id": 9,
-            "text": [
-                "Once again, you climb the", 
-                "Once again, you climb down the"],
-            "passages": [7, 8]
-        },
-        {
-            "id": 10,
-            "text": [
-                "With a bit more ease, you climb back up the", 
-                "Finding the same holds as before, you climb back down the"],
-            "passages": [7]
-        }
-    ]
+      }
+    }
+  ],
+  "actions": [
+    {
+      "id": 1,
+      "text": "Search the room",
+      "result": "find-room-item",
+      "chambers": [
+        "storeroom"
+      ],
+      "conditions": {}
+    }
+  ],
+  "results": [
+    {
+      "id": 1,
+      "action-taken": "Search the room"
+    }
+  ],
+  "passages": [
+    {
+      "id": 1,
+      "nav-text": "a torchlit path",
+      "narration-text": "torchlit path",
+      "initial-travel-text": [
+        1,
+        3,
+        4,
+        5
+      ],
+      "return-travel-text": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id": 2,
+      "nav-text": "a dark stairwell",
+      "narration-text": "dark stairwell",
+      "initial-travel-text": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8
+      ],
+      "return-travel-text": [
+        1,
+        2,
+        3,
+        5
+      ]
+    },
+    {
+      "id": 3,
+      "nav-text": "a dusty hallway",
+      "narration-text": "dusty hallway",
+      "initial-travel-text": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "return-travel-text": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id": 4,
+      "nav-text": "a heavy wooden door",
+      "narration-text": "heavy door",
+      "return-narration-text": "open doorway",
+      "initial-travel-text": [
+        6,
+        7
+      ],
+      "return-travel-text": [
+        1,
+        5
+      ]
+    },
+    {
+      "id": 5,
+      "nav-text": "a smooth stone cavern",
+      "narration-text": "cavern tunnel",
+      "initial-travel-text": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "return-travel-text": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id": 6,
+      "nav-text": "a winding corridor",
+      "narration-text": "winding corridor",
+      "initial-travel-text": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "return-travel-text": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id": 7,
+      "nav-text": "a mossy, but climbable wall",
+      "narration-text": "mossy wall",
+      "initial-travel-text": [
+        9,
+        10,
+        11
+      ],
+      "return-travel-text": [
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "id": 8,
+      "nav-text": "a precarious ladder",
+      "narration-text": "ladder",
+      "initial-travel-text": [
+        9,
+        11
+      ],
+      "return-travel-text": [
+        8,
+        9
+      ]
+    },
+    {
+      "id": 9,
+      "nav-text": "a rickety bridge over a pit",
+      "narration-text": "bridge",
+      "initial-travel-text": [],
+      "return-travel-text": []
+    },
+    {
+      "id": 10,
+      "nav-text": "a misty path",
+      "narration-text": "misty path",
+      "initial-travel-text": [],
+      "return-travel-text": []
+    }
+  ],
+  "travel-text-initial": [
+    {
+      "id": 1,
+      "text": [
+        "Slowly, you follow the"
+      ],
+      "passages": [
+        1,
+        2,
+        3,
+        5,
+        6
+      ]
+    },
+    {
+      "id": 2,
+      "text": [
+        "Cautiously, you make your way through the"
+      ],
+      "passages": [
+        2,
+        3,
+        5,
+        6
+      ]
+    },
+    {
+      "id": 3,
+      "text": [
+        "Stepping quietly, you pass along the"
+      ],
+      "passages": [
+        1,
+        2,
+        3,
+        5,
+        6
+      ]
+    },
+    {
+      "id": 4,
+      "text": [
+        "You follow the"
+      ],
+      "passages": [
+        1,
+        2,
+        3,
+        5,
+        6
+      ]
+    },
+    {
+      "id": 5,
+      "text": [
+        "You walk along the"
+      ],
+      "passages": [
+        1,
+        2,
+        3,
+        5,
+        6
+      ]
+    },
+    {
+      "id": 6,
+      "text": [
+        "Slowly, you push open the"
+      ],
+      "passages": [
+        4
+      ]
+    },
+    {
+      "id": 7,
+      "text": [
+        "With a momentary struggle and an angry creak, you are soon past the"
+      ],
+      "passages": [
+        4
+      ]
+    },
+    {
+      "id": 8,
+      "text": [
+        "Steading yourself, you descend the",
+        "Steading yourself, you ascend the"
+      ],
+      "passages": [
+        2
+      ]
+    },
+    {
+      "id": 9,
+      "text": [
+        "With great care, you climb up and past the",
+        "With great care, you climb to the bottom of the"
+      ],
+      "passages": [
+        7,
+        8
+      ]
+    },
+    {
+      "id": 10,
+      "text": [
+        "Dirt, digging its way into your fingernails, you clamber atop the",
+        "Dirt, digging its way into your fingernails, you clamber down the"
+      ],
+      "passages": [
+        7
+      ]
+    },
+    {
+      "id": 11,
+      "text": [
+        "You set yourself, and climb hand-over-hand to the top of the",
+        "You set yourself, and climb hand-over-hand to the bottom of the"
+      ],
+      "passages": [
+        7,
+        8
+      ]
+    }
+  ],
+  "travel-text-return": [
+    {
+      "id": 1,
+      "text": [
+        "You return through the"
+      ],
+      "passages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "id": 2,
+      "text": [
+        "You double back along the"
+      ],
+      "passages": [
+        1,
+        2,
+        3,
+        5,
+        6
+      ]
+    },
+    {
+      "id": 3,
+      "text": [
+        "Once again, you make your way along the"
+      ],
+      "passages": [
+        1,
+        2,
+        3,
+        5,
+        6
+      ]
+    },
+    {
+      "id": 4,
+      "text": [
+        "You again tread the"
+      ],
+      "passages": [
+        1,
+        3,
+        5,
+        6
+      ]
+    },
+    {
+      "id": 5,
+      "text": [
+        "You tavel again along the"
+      ],
+      "passages": [
+        1,
+        2,
+        3,
+        5,
+        6
+      ]
+    },
+    {
+      "id": 6,
+      "text": [
+        "You cross back over the threshhold of the"
+      ],
+      "passages": [
+        4
+      ]
+    },
+    {
+      "id": 7,
+      "text": [
+        "You again descend the",
+        "You again ascend the"
+      ],
+      "passages": [
+        2
+      ]
+    },
+    {
+      "id": 8,
+      "text": [
+        "You again make your way up the",
+        "You again make your way down the"
+      ],
+      "passages": [
+        7,
+        8
+      ]
+    },
+    {
+      "id": 9,
+      "text": [
+        "Once again, you climb the",
+        "Once again, you climb down the"
+      ],
+      "passages": [
+        7,
+        8
+      ]
+    },
+    {
+      "id": 10,
+      "text": [
+        "With a bit more ease, you climb back up the",
+        "Finding the same holds as before, you climb back down the"
+      ],
+      "passages": [
+        7
+      ]
+    }
+  ]
 }
