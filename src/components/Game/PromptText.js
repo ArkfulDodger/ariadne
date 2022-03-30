@@ -5,7 +5,7 @@ const URL ='http://localhost:3001'
 
 function PromptText({ map, curGameInfo }) {
 
-    const {curLocation, minoLocation, itemsArray, playerInfo} = curGameInfo;
+    const {curLocation, entryDirection, minoLocation, itemsArray, playerInfo} = curGameInfo;
 
     // TODO: comment back in when ready to integrate db.json/state
     //#region fetching data from db.json
@@ -222,15 +222,19 @@ function PromptText({ map, curGameInfo }) {
 
 
     const curRoom = map.find(room => room.path === curLocation[0])
+    // console.log(curRoom);
 
-    // TODO: derive from currentGame state
     // conditions from currentGame
-    const isRoomVisited = curLocation.roomVisited;
-    const isPassageVisited = false;
-    const isForwardTravel = true;
-    const isVisibility = true;
-    const hasTorch = false;
-    const hasHorn = true;
+    const isRoomVisited = curRoom.roomVisited;
+    const isPassageVisited = getIsPassageVisited();
+    const isForwardTravel = curLocation[0].length > curLocation[1].length;
+    const isVisibility = true; // TODO: connect to Game state
+    const hasTorch = false; // TODO: connect to Game state
+    const hasHorn = true; // TODO: connect to Game state
+
+    // console.log('isRoomVisited', isRoomVisited);
+    // console.log('isPassageVisited', isPassageVisited);
+    // console.log('isForwardTravel', isForwardTravel);
 
     // passage info
     const passageId = 2;
@@ -273,7 +277,20 @@ function PromptText({ map, curGameInfo }) {
     function randomFromArray(array) {
         return array[Math.floor(Math.random()*array.length)]
     }
-    
+
+    function getIsPassageVisited() {
+        switch (entryDirection) {
+            case 'south':
+                return curRoom.southPassageVisited;
+            case 'west':
+                return curRoom.westPassageVisited;
+            case 'east':
+                return curRoom.eastPassageVisited;
+            
+            default:
+                return false
+        }
+    }
     
     //#endregion
 

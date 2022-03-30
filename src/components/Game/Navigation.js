@@ -20,6 +20,7 @@ function Navigation({curGameInfo, map, updateCurRoom, patchCurGameStatus}) {
     ]
 
     function updateRoomByPath(newRoomPath){
+        
         const newRoom = map.find(room => {
             return room.path === newRoomPath
         })
@@ -29,6 +30,7 @@ function Navigation({curGameInfo, map, updateCurRoom, patchCurGameStatus}) {
     //with the consolelogged path
 
     function handleClick(event){
+        
         switch (event.target.innerText) {
             case "go left": updateRoomByPath(curRoom.path + "0");
                 break;

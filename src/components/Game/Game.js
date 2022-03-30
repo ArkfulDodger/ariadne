@@ -44,7 +44,7 @@ import PromptText from "./PromptText";
     // travel orientation/direction (persist to game object)
 
 const defaultGameInfo = {
-    curLocation: ["0", "prevRoom"],
+    curLocation: ["0", ""],
     entryDirection: 'south',
     stringPath: '0',
     minoLocation: '',
@@ -56,7 +56,7 @@ const defaultMap = [
     {
         path: '0',
         type: 'entrance',
-        roomVisited: true,
+        roomVisited: false,
         westPassageType: "",
         eastPassageType: "",
         southPassageType: "exit",
@@ -158,7 +158,7 @@ function Game ({ isCurGame, setIsCurGame }) {
         const entranceRoom = {
             path: '0',
             type: 'entrance',
-            roomVisited: true,
+            roomVisited: false,
             westPassageType: getRandomPassageType(),
             eastPassageType: getRandomPassageType(),
             southPassageType: "exit",
@@ -318,17 +318,26 @@ function Game ({ isCurGame, setIsCurGame }) {
     }
 
     function updateCurRoom(newRoom){
+        console.log("------------update room called-----------");
+
         // update path visited status in origin and destination rooms in map state
         // if travelling northerly
+
+        
         if (newRoom.path.length > curLocation[0].length) {
             setMap(map => map
-                .map( room => room.path === newRoom.path ? {...room, southPassageVisited: true} : room)
+                // .map( room => room.path === newRoom.path ? {...room, southPassageVisited: room.southPassageVisited + 1} : room)
                 .map( room => room.path === curLocation[0]
                     ? newRoom.path.endsWith("0") ? {...room, westPassageVisited: true} : {...room, eastPassageVisited: true}
                     : room));
         // if travelling southily
         } else {
+            setMap(map => map
+                .map(room => room.path === curLocation[0]
+                    ? {...room, southPassageVisited: true}
+                    : room))
             // TODO: fix bug here once non-linear progression is possible
+            // TODO: will need to rework to increment instead of setting to true
             // setMap(map => map
             //     .map( room => 
             //         { console.log('map test:', map)
@@ -341,8 +350,10 @@ function Game ({ isCurGame, setIsCurGame }) {
             //     .map( room => room.path === curLocation[0] ? {...room, southPassageVisited: true} : room);
         }
         
+        
+
         // set destination room to visited in state
-        setMap(mapInState => mapInState.map(room => room.path === newRoom.path ? {...room, roomVisited: true} : room))
+        setMap(mapInState => mapInState.map(room => room.path === curLocation[0] ? {...room, roomVisited: true} : room))
         
 
         // const updatedNewRoom = {...newRoom, roomVisited: true};
