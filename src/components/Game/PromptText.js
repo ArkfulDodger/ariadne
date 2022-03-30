@@ -16,6 +16,28 @@ const defaultTTextData = {
     passages: []
 }
 
+const defaultChamberData = {
+    "type": "entrance",
+    "default-visibility": true,
+    "descriptions": {
+        "initial": {
+            "dark": "where you are immediately presented with a choice of two branching paths",
+            "lit": "where you are immediately presented with a choice of two branching paths"
+        },
+        "return": {
+            "dark": "the entrance to the labyrinth",
+            "lit": "the entrance to the labyrinth"
+        }
+    }
+}
+
+const defaultConText = [
+    {
+        "id": 1,
+        "text": "and see"
+    }
+]
+
 function PromptText({ map, curGameInfo, passages }) {
 
     const {curLocation, entryDirection, minoLocation, itemsArray, playerInfo} = curGameInfo;
@@ -24,16 +46,28 @@ function PromptText({ map, curGameInfo, passages }) {
     //#region fetching data from db.json
     const [travelTextInitial, setTravelTextInitial] = useState([]);
     const [travelTextReturn, setTravelTextReturn] = useState([]);
+    const [chambers, setChambers] = useState([]);
+    const [conText, setConText] = useState([]);
 
     useEffect(() => {
         fetch(`${URL}/travel-text-initial`)
             .then( res => res.json())
-            .then( passages => setTravelTextInitial(passages))
+            .then( tTextInitial => setTravelTextInitial(tTextInitial))
             .catch( error => alert(error.message));
 
         fetch(`${URL}/travel-text-return`)
             .then( res => res.json())
-            .then( passages => setTravelTextReturn(passages))
+            .then( tTextReturn => setTravelTextReturn(tTextReturn))
+            .catch( error => alert(error.message));
+            
+        fetch(`${URL}/chambers`)
+            .then( res => res.json())
+            .then( passages => setChambers(passages))
+            .catch( error => alert(error.message));
+
+        fetch(`${URL}/connecting-text`)
+            .then( res => res.json())
+            .then( conText => setConText(conText))
             .catch( error => alert(error.message));
     }, [])
 
@@ -235,15 +269,16 @@ function PromptText({ map, curGameInfo, passages }) {
 
 
     const curRoom = map.find(room => room.path === curLocation[0])
-    const { type: roomType, roomVisited, onGoalPath } = curRoom;
+    const { type: chamberType, roomVisited, onGoalPath } = curRoom;
+    const chamberData = chambers.length > 1 ? chambers.find(chamber => chamber.type === chamberType) : defaultChamberData;
     // console.log(curRoom);
 
     // conditions from currentGame
     const isPassageVisited = getIsPassageVisited();
     const isForwardTravel = curLocation[0].length > curLocation[1].length;
-    const isVisibility = true; // TODO: connect to Game state
     const hasTorch = false; // TODO: connect to Game state
     const hasHorn = true; // TODO: connect to Game state
+    const isVisibility = getVisibility(); // TODO: connect to Game state
 
     // console.log('roomVisited', roomVisited);
     // console.log('isPassageVisited', isPassageVisited);
@@ -278,18 +313,20 @@ function PromptText({ map, curGameInfo, passages }) {
     // console.log('tText:', travelText);
     
 
+
+
     // text options
 
 
     // assemble narrative text
     const entryText = `${travelText} ${passageText}`;
     // console.log(entryText);
-    const lowlightText = isVisibility ? "until you reach" : "where you can barely make out";
-    const chamberText = "what appears to be some manner of storeroom, lumpy shapes looming on every side in the stillness"
+    const connectingText = getConnectingText();
+    const chamberText = getChamberText();
     // const clueText = "Placing the listening horn to your ear, you believe you can faintly hear the heavy plodding of hooves from the passage beyond to the right."
-    const clueText = "";
+    const clueText = "{{visibility: " + isVisibility + "}}";
 
-    const narrationText = `${entryText} ${lowlightText} ${chamberText}. ${clueText}`
+    const narrationText = `${entryText} ${connectingText} ${chamberText}. ${clueText}`
     // console.log(narrationText);
 
 
@@ -324,6 +361,31 @@ function PromptText({ map, curGameInfo, passages }) {
             default:
                 return false
         }
+    }
+
+    function getConnectingText() {
+        // console.log('getting connecting text');
+        if (conText.length < 2) {
+            return defaultConText;
+        }
+
+        if (!roomVisited && (chamberType === "thesus" || chamberType === "entrance")) {
+            return "";
+        }
+
+        return isVisibility ? randomFromArray(conText.filter(cText => cText.visibility)).text : randomFromArray(conText.filter(cText => !cText.visibility)).text;
+    }
+
+    function getChamberText() {
+        if (roomVisited) {
+            return isVisibility ? chamberData.descriptions.return.lit : chamberData.descriptions.return.dark;
+        } else {
+            return isVisibility ? chamberData.descriptions.initial.lit : chamberData.descriptions.initial.dark;
+        }
+    }
+
+    function getVisibility() {
+        return chamberData['default-visibility'] || hasTorch
     }
     
     //#endregion

@@ -244,7 +244,12 @@ function Game ({ isCurGame, setIsCurGame }) {
         }
         
         function getRandomPassageType() {
-            const passageType = passageTypeArray[Math.floor(Math.random()*passageTypeArray.length)]
+            let passageType = passageTypeArray[Math.floor(Math.random()*passageTypeArray.length)];
+            if (passageType === "exit") {
+                // console.log('----passage was an exit');
+                passageType = getRandomPassageType();
+                // console.log('----passage was changed to', passageType);
+            }
             return passageType
         }
     }
