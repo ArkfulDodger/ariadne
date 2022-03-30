@@ -420,12 +420,13 @@ function Game ({ isCurGame, setIsCurGame }) {
                 curGameInfo={curGameInfo} 
                 map={map}
                 setEndType={setEndType}
-            /></>
-        }
+            />
             <div className="game-buttons">
                 <Menu menuOpen={menuOpen} handleToggleMenu={handleToggleMenu}/>
                 <ItemsWindow itemsOpen={itemsOpen} handleToggleItems={handleToggleItems} />
             </div>
+            </>
+            }
         </div>
     );
 }

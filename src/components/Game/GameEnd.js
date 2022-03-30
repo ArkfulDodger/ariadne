@@ -12,7 +12,7 @@ function GameEnd({endType}) {
     }
     
     return (
-        <div>
+        <div className="gameEnd">
             <h2>{endGameMessage}</h2>
             <Link to="/home">Return to Main Menu</Link>  
             <Link to="/play">Go to a new Labyrinth</Link>
