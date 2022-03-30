@@ -6,15 +6,15 @@ function Navigation({curGameInfo, map, updateCurRoom, patchCurGameStatus}) {
     const curRoomNavOptions= [
         {
             choiceText : "go left",
-            flavorText : curRoom.leftPassageType
+            flavorText : curRoom.westPassageType
         },
         {
             choiceText: "go right",
-            flavorText: curRoom.rightPassageType
+            flavorText: curRoom.eastPassageType
         },
         {
             choiceText: "go back to last room",
-            flavorText: curRoom.returnPassageType + "🧶"
+            flavorText: curRoom.southPassageType + "🧶"
         }
     ]
 
@@ -38,7 +38,7 @@ function Navigation({curGameInfo, map, updateCurRoom, patchCurGameStatus}) {
             else {updateRoomByPath(curRoom.path.slice(0, curRoom.path.length - 1))}
             break;
         }
-        patchCurGameStatus() //always one room behind
+        // patchCurGameStatus() //always one room behind
     }
 
     let roomFlavor = ''
