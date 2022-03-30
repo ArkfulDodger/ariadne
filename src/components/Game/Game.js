@@ -93,64 +93,6 @@ function Game ({ isCurGame, setIsCurGame }) {
         setIsCurGame(true);
         //TODO: put logic here for starting a new game
     }
-
-    function handleToggleMenu(){
-        setMenuOpen(!menuOpen)
-    }
-    function handleToggleItems(){
-        setItemsOpen(!itemsOpen)
-    }
-
-    function patchCurGameStatus(){
-        const patchGameObj = {
-            ...curGameInfo,
-            goalPath: goalPath,
-            map: map
-        }
-        fetch(`http://localhost:3001/current-game`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json"
-            },
-            body: JSON.stringify({
-                patchGameObj 
-            })
-        })
-        .then( res => res.json())
-        .then( data => console.log(data))
-        .catch( error => console.log(error.message));
-    }
-
-    function updateGameInfo(newInfoObj){
-        setCurGameInfo({
-            ...curGameInfo,
-            [newInfoObj.key] : newInfoObj.value
-        })
-    }
-
-    function generateGoalPath() {
-        let path = "0";
-        for (let i = 0; i < goalPathLength; i++) {
-            path += Math.round(Math.random());
-        }
-
-        // const goalPathObj ={
-        //     key: "goalPath",
-        //     value: "0101" //path
-        // }
-        console.log(path)
-        setGoalPath(path)
-    }
-
-    function printAsTurns(binaryPath) {
-        let turnPath = "entrance";
-        for (let i = 1; i < binaryPath.length; i++) {
-        console.log(binaryPath[i]);
-        turnPath += binaryPath[i] === '0' ? " left" : " right";
-        }
-        return turnPath;
-    }    
     
     function handleToggleMenu(){
         setMenuOpen(!menuOpen)
