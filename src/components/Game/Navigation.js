@@ -1,6 +1,6 @@
 import OptionBox from "./OptionBox"
 
-function Navigation({curGameInfo, map, updateCurRoom}) {
+function Navigation({curGameInfo, map, updateCurRoom, patchCurGameStatus}) {
 
     const {curRoom, curLocation, stringPath} = curGameInfo
     const curRoomNavOptions= [
@@ -38,6 +38,7 @@ function Navigation({curGameInfo, map, updateCurRoom}) {
             else {updateRoomByPath(curRoom.path.slice(0, curRoom.path.length - 1))}
             break;
         }
+        patchCurGameStatus() //always one room behind
     }
 
     let roomFlavor = ''

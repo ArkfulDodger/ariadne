@@ -36,7 +36,7 @@ function Game ({ isCurGame, setIsCurGame }) {
         if (!isCurGame) {
             startNewGame()
         }
-    })
+    }, [])
     
 
     //#region State and Variable Declarations
@@ -76,83 +76,42 @@ function Game ({ isCurGame, setIsCurGame }) {
             setPassageTypeArray(data.map(passObj => passObj['nav-text']));
         })
         .then ( () => {
-            generateGoalPath()})
+            if(!isCurGame){generateGoalPath()}})
     }, [])
 
     useEffect (() => {
         generateMap(goalPath);
+        //patchCurGameStatus()
+
     }, [goalPath])
     
     //#endregion
 
 
-    //#region Helper Functions
+    //#region New Game Functions 
     
     function startNewGame() {
         console.log("New Game Started!");
         setIsCurGame(true);
+        // generateGoalPath();
+        // generateMap();
         //TODO: put logic here for starting a new game
     }
+
+    function loadCurGame(){
+        console.log("loading old game!")
+    }
     
-    function handleToggleMenu(){
-        setMenuOpen(!menuOpen)
-    }
-
-    function handleToggleItems(){
-        setItemsOpen(!itemsOpen)
-    }
-
-    function patchCurGameStatus(){
-        const patchGameObj = {
-            ...curGameInfo,
-            goalPath: goalPath,
-            map: map
-        }
-        fetch(`http://localhost:3001/current-game/1`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify({
-                patchGameObj 
-            })
-        })
-        .then( res => res.json())
-        .then( data => console.log(data))
-        .catch( error => console.log(error.message));
-    }
-
-    function updateGameInfo(newInfoObj){
-        setCurGameInfo({
-            ...curGameInfo,
-            [newInfoObj.key] : newInfoObj.value
-        })
-    }
-
     function generateGoalPath() {
         let path = "0";
         for (let i = 0; i < goalPathLength; i++) {
             path += Math.round(Math.random());
         }
 
-        // const goalPathObj ={
-        //     key: "goalPath",
-        //     value: "0101" //path
-        // }
         console.log(path)
         setGoalPath(path)
     }
 
-    function printAsTurns(binaryPath) {
-        let turnPath = "entrance";
-        for (let i = 1; i < binaryPath.length; i++) {
-        console.log(binaryPath[i]);
-        turnPath += binaryPath[i] === '0' ? " left" : " right";
-        }
-        return turnPath;
-    }
-    
     function generateMap() {
 
         const mapRooms = [];
@@ -176,7 +135,6 @@ function Game ({ isCurGame, setIsCurGame }) {
 
         console.log("generating map", mapRooms);
         setMap(mapRooms)
-        patchCurGameStatus()
 
         function addRoomsTo(fromRoom) {
         if (fromRoom.leftPassageType) {
@@ -219,7 +177,7 @@ function Game ({ isCurGame, setIsCurGame }) {
         }
 
         function isOnGoalPath(path) {
-        return goalPath.startsWith(path);
+            return goalPath.startsWith(path);
         }
 
         function getPassageType(currentPath, destinationPath) {
@@ -233,14 +191,61 @@ function Game ({ isCurGame, setIsCurGame }) {
                 }
             }
         }
-
         
         function getRandomPassageType() {
-        const passageType = passageTypeArray[Math.floor(Math.random()*passageTypeArray.length)]
-        return passageType
+            const passageType = passageTypeArray[Math.floor(Math.random()*passageTypeArray.length)]
+            return passageType
         }
-
     }
+    //#end region
+
+    //#region Helper Functions
+
+    function handleToggleMenu(){
+        setMenuOpen(!menuOpen)
+    }
+    
+    function handleToggleItems(){
+        setItemsOpen(!itemsOpen)
+    }
+
+    function patchCurGameStatus(){
+        const patchGameObj = {
+            ...curGameInfo,
+            goalPath: goalPath,
+            map: map
+        }
+        console.log("game update!", patchGameObj)
+        fetch(`http://localhost:3001/current-game/1`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify( patchGameObj  )
+        })
+        .then( res => res.json())
+        .then( data => console.log(data))
+        .catch( error => console.log(error.message));
+    }
+
+    function updateGameInfo(newInfoObj){
+        setCurGameInfo({
+            ...curGameInfo,
+            [newInfoObj.key] : newInfoObj.value
+        })
+    }
+
+
+    function printAsTurns(binaryPath) {
+        let turnPath = "entrance";
+        for (let i = 1; i < binaryPath.length; i++) {
+        console.log(binaryPath[i]);
+        turnPath += binaryPath[i] === '0' ? " left" : " right";
+        }
+        return turnPath;
+    }
+    
 
     function updateCurRoom(newRoom){
         setCurGameInfo({
@@ -265,7 +270,12 @@ function Game ({ isCurGame, setIsCurGame }) {
             <PromptText passages={passages}/>
             {/* <Minotaur />
             <Actions /> */}
-            <Navigation updateCurRoom={updateCurRoom} curGameInfo={curGameInfo} map={map}/>
+            <Navigation 
+                patchCurGameStatus={patchCurGameStatus}
+                updateCurRoom={updateCurRoom} 
+                curGameInfo={curGameInfo} 
+                map={map}
+            />
             <div className="buttons">
                 <Menu menuOpen={menuOpen} handleToggleMenu={handleToggleMenu}/>
                 <ItemsWindow itemsOpen={itemsOpen} handleToggleItems={handleToggleItems} />

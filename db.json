@@ -3,34 +3,116 @@
     {
       "id": 1,
       "isCurGame": false,
-      "patchGameObj": {
-        "curLocation": [
-          "0",
-          "prevRoom"
-        ],
-        "curRoom": {
+      "curLocation": [
+        "0110",
+        "prevRoom"
+      ],
+      "curRoom": {
+        "path": "0110",
+        "type": "random",
+        "leftPassageType": "a dark stairwell",
+        "rightPassageType": "a precarious ladder",
+        "returnPassageType": "a torchlit path",
+        "onGoalPath": true
+      },
+      "stringPath": "0",
+      "minoLocation": "00",
+      "itemsArray": [],
+      "playerInfo": {
+        "hasTheseus": false,
+        "statusEffects": {}
+      },
+      "goalPath": "011011",
+      "map": [
+        {
           "path": "0",
           "type": "entrance",
+          "leftPassageType": "a mossy, but climbable wall",
+          "rightPassageType": "a dusty hallway",
           "returnPassageType": "exit",
           "onGoalPath": true
         },
-        "stringPath": "0",
-        "minoLocation": "00",
-        "itemsArray": [],
-        "playerInfo": {
-          "hasTheseus": false,
-          "statusEffects": {}
+        {
+          "path": "00",
+          "type": "random",
+          "leftPassageType": "",
+          "rightPassageType": "",
+          "returnPassageType": "a mossy, but climbable wall",
+          "onGoalPath": false
         },
-        "goalPath": "011110",
-        "map": [
-          {
-            "path": "0",
-            "type": "entrance",
-            "returnPassageType": "exit",
-            "onGoalPath": true
-          }
-        ]
-      }
+        {
+          "path": "01",
+          "type": "random",
+          "leftPassageType": "a precarious ladder",
+          "rightPassageType": "a dark stairwell",
+          "returnPassageType": "a dusty hallway",
+          "onGoalPath": true
+        },
+        {
+          "path": "010",
+          "type": "random",
+          "leftPassageType": "",
+          "rightPassageType": "",
+          "returnPassageType": "a precarious ladder",
+          "onGoalPath": false
+        },
+        {
+          "path": "011",
+          "type": "random",
+          "leftPassageType": "a torchlit path",
+          "rightPassageType": "a winding corridor",
+          "returnPassageType": "a dark stairwell",
+          "onGoalPath": true
+        },
+        {
+          "path": "0110",
+          "type": "random",
+          "leftPassageType": "a dark stairwell",
+          "rightPassageType": "a precarious ladder",
+          "returnPassageType": "a torchlit path",
+          "onGoalPath": true
+        },
+        {
+          "path": "01100",
+          "type": "random",
+          "leftPassageType": "",
+          "rightPassageType": "",
+          "returnPassageType": "a dark stairwell",
+          "onGoalPath": false
+        },
+        {
+          "path": "01101",
+          "type": "random",
+          "leftPassageType": "a misty path",
+          "rightPassageType": "a heavy wooden door",
+          "returnPassageType": "a precarious ladder",
+          "onGoalPath": true
+        },
+        {
+          "path": "011010",
+          "type": "random",
+          "leftPassageType": "",
+          "rightPassageType": "",
+          "returnPassageType": "a misty path",
+          "onGoalPath": false
+        },
+        {
+          "path": "011011",
+          "type": "theseus",
+          "leftPassageType": null,
+          "rightPassageType": null,
+          "returnPassageType": "a heavy wooden door",
+          "onGoalPath": true
+        },
+        {
+          "path": "0111",
+          "type": "random",
+          "leftPassageType": "",
+          "rightPassageType": "",
+          "returnPassageType": "a winding corridor",
+          "onGoalPath": false
+        }
+      ]
     }
   ],
   "memories": [],
