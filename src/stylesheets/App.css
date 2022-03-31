@@ -55,7 +55,7 @@ h1{
   padding-top: 1em;
 }
 
-.prompText {
+.prompText, .theseus {
   width: 80%;
   margin: auto;
   background-color: rgb(172, 147, 99);
@@ -129,6 +129,7 @@ div div div div div div div {
   border: 6px solid rgb(255, 174, 0);
   border-radius: 4px;
   border-style: ridge;
+  width: 50%;
 }
 
 

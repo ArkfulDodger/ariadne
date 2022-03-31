@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import MemoryDetail from "./MemoryDetail";
 
 function MemoryListItem ({memory}) {
-    //state for if displaying all info or short
+
     const [detailOpen, setDetailOpen] = useState(false)
     function toggleDetail(){
         setDetailOpen(!detailOpen)

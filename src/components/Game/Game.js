@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Minotaur from "./Minotaur";
+import Theseus from "../Theseus";
 import Actions from "./Actions";
 import Navigation from "./Navigation";
 import Menu from "./Menu/Menu";
@@ -159,6 +160,7 @@ function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCu
                     <>
                     {/* <Minotaur /> */}
                     {/* <Actions /> */}
+                    {/* <Theseus /> */}
                     <Navigation 
                         // patchCurGameStatus={patchCurGameStatus}
                         endGame = {endGame}

@@ -18,7 +18,8 @@ function OptionBox({options, handleClick}) {
     let roomFlavor = ''
 
     if (renderCount === 1) {roomFlavor = 'You have reached a dead end'}
-    else {roomFlavor = `You see ${renderCount} ways to leave the room:`}
+    //else {roomFlavor = `You see ${renderCount} ways to leave the room:`}
+    //need to change this to accomodate mino etc
 
     return (
         <div className="optionBox">

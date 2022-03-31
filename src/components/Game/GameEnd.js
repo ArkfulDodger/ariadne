@@ -8,10 +8,9 @@ function GameEnd({endType}) {
     let endImgSrc = ''
 
     switch (endType) {
-        case 'win' : 
-        endGameMessage = "YOU FOUND YOUR HIMBO, good job"
-        endImgSrc = "http://www.maicar.com/GML/000Images/tim/theseus0819.jpg"
-        break;
+        case 'win' :
+            endGameMessage = "You rescued Theseus and escape the Labyrinth together"
+            endImgSrc = "https://ak.picdn.net/shutterstock/videos/1052179024/thumb/1.jpg?ip=x480"
         case 'slay' : 
         endGameMessage = "You defeated the mighty Minotaur"
         endImgSrc = "https://tripanthropologist.com/wp-content/uploads/2021/02/mosaic-of-theseus-and-minotaur.jpg"
