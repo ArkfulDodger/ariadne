@@ -18,8 +18,8 @@ const Minotaur = ({setMinoIsHere, minoIsEnabled, updateCurGameInfo, setMinoIsEna
             flavorText: "Stand your ground and face the monster"
         },
         {
-            choiceText: "speak",
-            flavorText: "try to reach with your half-brother"
+            choiceText: "SPEAK",
+            flavorText: "try to reason with your half-brother"
         }
     ]
     
