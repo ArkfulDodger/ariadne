@@ -36,8 +36,9 @@ function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCu
     const [menuOpen, setMenuOpen] = useState(false)
     const [itemsOpen, setItemsOpen] = useState(false)
     const [endType, setEndType] = useState('');
+    const [foundTheseus, setFoundTheseus] = useState(false)
     
-    const {curLocation, goalPath} = curGame
+    const {curLocation, goalPath, playerInfo} = curGame
     
 
     useEffect(() =>{
@@ -155,12 +156,14 @@ function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCu
             </h1>
             {contentLoaded ?
             <>
-                {endType ? null : <PromptText map={map} curGameInfo={curGameInfo} passages={passages}/>}
+                {/* {endType ? null : } */}
                 {endType ? <GameEnd endType={endType}/> : 
                     <>
-                    {/* <Minotaur /> */}
                     {/* <Actions /> */}
-                    {/* <Theseus /> */}
+                    {/* <Minotaur /> */}
+                    {foundTheseus ? <Theseus setFoundTheseus={setFoundTheseus}/> : 
+                    <>
+                    <PromptText map={map} curGameInfo={curGameInfo} passages={passages}/>
                     <Navigation 
                         // patchCurGameStatus={patchCurGameStatus}
                         endGame = {endGame}
@@ -168,11 +171,14 @@ function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCu
                         curGameInfo={curGameInfo} 
                         map={map}
                         setEndType={setEndType}
+                        playerInfo={playerInfo}
+                        setFoundTheseus={setFoundTheseus}
                     />
                     <div className="game-buttons">
                         <Menu menuOpen={menuOpen} handleToggleMenu={handleToggleMenu} startNewGame={restartGame}/>
                         <ItemsWindow itemsOpen={itemsOpen} handleToggleItems={handleToggleItems} />
                     </div>
+                    </>}
                     </>
                 }
             </>

@@ -1,6 +1,6 @@
 import OptionBox from "./OptionBox"
 
-function Navigation({curGameInfo, map, updateCurRoom, setEndType}) {
+function Navigation({curGameInfo, map, updateCurRoom, setEndType, playerInfo, setFoundTheseus}) {
     const {curLocation, stringPath} = curGameInfo
     const curRoom = map.find(room => room.path === curLocation[0]);
     const curRoomNavOptions= [
@@ -35,9 +35,11 @@ function Navigation({curGameInfo, map, updateCurRoom, setEndType}) {
             case "go right": updateRoomByPath(curRoom.path + "1");
                 break;
             case "go back to last room": 
-                if (curRoom.path === "0"){ //add language to check if htesues is with us
+                if (curRoom.path === "0" && !playerInfo.hasTheseus){ //add language to check if htesues is with us
                     setEndType("leave")
                     //updateRoomByPath("0")
+                } else if (curRoom.path === "0" && playerInfo.hasTheseus){
+                    setEndType("win")
                 }
                 else {updateRoomByPath(curLocation[1])}
                 // else {updateRoomByPath(curRoom.path.slice(0, curRoom.path.length - 1))}
@@ -48,7 +50,7 @@ function Navigation({curGameInfo, map, updateCurRoom, setEndType}) {
     let roomFlavor = ''
     if (curRoom.type === 'theseus') {
         roomFlavor = 'You found Theseus!'
-        setEndType('win')
+        setFoundTheseus(true)
         //set found theseus to true, update player obj to hasT true
         //which should render theseus and then still present the return object
     }

@@ -1,10 +1,11 @@
 import {useState} from "react"
 
-function Theseus(props) {
+function Theseus({setFoundTheseus}) {
     const [isOpen, setIsOpen] = useState(true)
 
     function closeTheseus(event){
         setIsOpen(false)
+        setFoundTheseus(false)
     }
         const imgSrc = "http://www.maicar.com/GML/000Images/tim/theseus0819.jpg"
     return (

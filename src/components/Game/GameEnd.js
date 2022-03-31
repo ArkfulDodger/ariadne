@@ -19,6 +19,10 @@ function GameEnd({endType}) {
         endGameMessage = "You left Theseus to fend for himself, and escaped the maze"
         endImgSrc = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Theseus_and_the_Minotaur.gif/170px-Theseus_and_the_Minotaur.gif"
         break;
+        case 'die' :
+            endGameMessage = "you died"
+            endImgSrc="https://i.kym-cdn.com/entries/icons/facebook/000/029/198/Dark_Souls_You_Died_Screen_-_Completely_Black_Screen_0-2_screenshot.jpg"
+            break;
         default: endGameMessage = "ok how did you get here?" 
     }
     

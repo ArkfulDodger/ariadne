@@ -2,7 +2,11 @@
   font-family: 'Cinzel';
 }
 
-.scroll-box, .prompText p::first-letter {
+.scroll-box p::first-letter {
+  font-size: x-large;
+}
+
+.prompText p::first-letter{
   font-size: x-large;
 }
 

@@ -17,14 +17,14 @@
       "minoLocation": "",
       "itemsArray": [],
       "playerInfo": {},
-      "goalPath": "001010",
+      "goalPath": "011101",
       "map": [
         {
           "path": "0",
           "type": "entrance",
           "roomVisited": false,
-          "westPassageType": "a dark stairwell",
-          "eastPassageType": "a misty path",
+          "westPassageType": "a precarious ladder",
+          "eastPassageType": "a dusty hallway",
           "southPassageType": "exit",
           "westPassageVisited": false,
           "eastPassageVisited": false,
@@ -35,105 +35,9 @@
           "path": "00",
           "type": "random",
           "roomVisited": false,
-          "westPassageType": "a smooth stone cavern",
-          "eastPassageType": "a gently sloping walkway",
-          "southPassageType": "a dark stairwell",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": true
-        },
-        {
-          "path": "000",
-          "type": "random",
-          "roomVisited": false,
           "westPassageType": "",
           "eastPassageType": "",
-          "southPassageType": "a smooth stone cavern",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": false
-        },
-        {
-          "path": "001",
-          "type": "random",
-          "roomVisited": false,
-          "westPassageType": "a torchlit path",
-          "eastPassageType": "a misty path",
-          "southPassageType": "a gently sloping walkway",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": true
-        },
-        {
-          "path": "0010",
-          "type": "random",
-          "roomVisited": false,
-          "westPassageType": "a mossy, but climbable wall",
-          "eastPassageType": "a dark stairwell",
-          "southPassageType": "a torchlit path",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": true
-        },
-        {
-          "path": "00100",
-          "type": "random",
-          "roomVisited": false,
-          "westPassageType": "",
-          "eastPassageType": "",
-          "southPassageType": "a mossy, but climbable wall",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": false
-        },
-        {
-          "path": "00101",
-          "type": "random",
-          "roomVisited": false,
-          "westPassageType": "a smooth stone cavern",
-          "eastPassageType": "a dusty hallway",
-          "southPassageType": "a dark stairwell",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": true
-        },
-        {
-          "path": "001010",
-          "type": "theseus",
-          "roomVisited": false,
-          "westPassageType": null,
-          "eastPassageType": null,
-          "southPassageType": "a smooth stone cavern",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": true
-        },
-        {
-          "path": "001011",
-          "type": "random",
-          "roomVisited": false,
-          "westPassageType": "",
-          "eastPassageType": "",
-          "southPassageType": "a dusty hallway",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": false
-        },
-        {
-          "path": "0011",
-          "type": "random",
-          "roomVisited": false,
-          "westPassageType": "",
-          "eastPassageType": "",
-          "southPassageType": "a misty path",
+          "southPassageType": "a precarious ladder",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
@@ -143,9 +47,105 @@
           "path": "01",
           "type": "random",
           "roomVisited": false,
+          "westPassageType": "a heavy wooden door",
+          "eastPassageType": "a torchlit path",
+          "southPassageType": "a dusty hallway",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": true
+        },
+        {
+          "path": "010",
+          "type": "random",
+          "roomVisited": false,
           "westPassageType": "",
           "eastPassageType": "",
+          "southPassageType": "a heavy wooden door",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": false
+        },
+        {
+          "path": "011",
+          "type": "random",
+          "roomVisited": false,
+          "westPassageType": "a precarious ladder",
+          "eastPassageType": "a winding corridor",
+          "southPassageType": "a torchlit path",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": true
+        },
+        {
+          "path": "0110",
+          "type": "random",
+          "roomVisited": false,
+          "westPassageType": "",
+          "eastPassageType": "",
+          "southPassageType": "a precarious ladder",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": false
+        },
+        {
+          "path": "0111",
+          "type": "random",
+          "roomVisited": false,
+          "westPassageType": "a gently sloping walkway",
+          "eastPassageType": "a heavy wooden door",
+          "southPassageType": "a winding corridor",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": true
+        },
+        {
+          "path": "01110",
+          "type": "random",
+          "roomVisited": false,
+          "westPassageType": "a winding corridor",
+          "eastPassageType": "a misty path",
+          "southPassageType": "a gently sloping walkway",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": true
+        },
+        {
+          "path": "011100",
+          "type": "random",
+          "roomVisited": false,
+          "westPassageType": "",
+          "eastPassageType": "",
+          "southPassageType": "a winding corridor",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": false
+        },
+        {
+          "path": "011101",
+          "type": "theseus",
+          "roomVisited": false,
+          "westPassageType": null,
+          "eastPassageType": null,
           "southPassageType": "a misty path",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": true
+        },
+        {
+          "path": "01111",
+          "type": "random",
+          "roomVisited": false,
+          "westPassageType": "",
+          "eastPassageType": "",
+          "southPassageType": "a heavy wooden door",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
@@ -965,6 +965,162 @@
       "goalPath": "001010",
       "endType": "leave",
       "id": 66
+    },
+    {
+      "curLocation": [
+        "0",
+        ""
+      ],
+      "entryDirection": "south",
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "goalPath": "001010",
+      "endType": "leave",
+      "id": 67
+    },
+    {
+      "curLocation": [
+        "0",
+        ""
+      ],
+      "entryDirection": "south",
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "010100",
+      "endType": "leave",
+      "id": 68
+    },
+    {
+      "curLocation": [
+        "0",
+        "01"
+      ],
+      "entryDirection": "east",
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "goalPath": "010000",
+      "endType": "leave",
+      "id": 69
+    },
+    {
+      "curLocation": [
+        "0",
+        "01"
+      ],
+      "entryDirection": "east",
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "goalPath": "010000",
+      "endType": "leave",
+      "id": 70
+    },
+    {
+      "curLocation": [
+        "0",
+        "01"
+      ],
+      "entryDirection": "east",
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "goalPath": "010000",
+      "endType": "leave",
+      "id": 71
+    },
+    {
+      "curLocation": [
+        "0",
+        "01"
+      ],
+      "entryDirection": "east",
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "goalPath": "010000",
+      "endType": "leave",
+      "id": 72
+    },
+    {
+      "curLocation": [
+        "0",
+        "01"
+      ],
+      "entryDirection": "east",
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "goalPath": "010000",
+      "endType": "leave",
+      "id": 73
+    },
+    {
+      "curLocation": [
+        "0",
+        "01"
+      ],
+      "entryDirection": "east",
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "goalPath": "010000",
+      "endType": "leave",
+      "id": 74
+    },
+    {
+      "curLocation": [
+        "0",
+        "01"
+      ],
+      "entryDirection": "east",
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "goalPath": "010000",
+      "endType": "leave",
+      "id": 75
+    },
+    {
+      "curLocation": [
+        "0",
+        "01"
+      ],
+      "entryDirection": "east",
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "goalPath": "010000",
+      "endType": "leave",
+      "id": 76
+    },
+    {
+      "curLocation": [
+        "0",
+        ""
+      ],
+      "entryDirection": "south",
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "goalPath": "011101",
+      "endType": "leave",
+      "id": 77
     }
   ],
   "items": [
