@@ -5,7 +5,7 @@ import ItemDetail from "./ItemDetail";
 
 function ItemsWindow ({itemsOpen, handleToggleItems}) {
     return (
-        <div>
+        <div className="items">
             {/* <h2>Items Window!</h2> */}
             <button onClick={handleToggleItems}>🎒</button>
             {itemsOpen ? 

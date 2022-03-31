@@ -446,8 +446,8 @@ function Game ({ isCurGame, updateIsCurGameInDb }) {
                 : null}
             {endType ? <GameEnd endType={endType}/> : 
             <>
-            {/* <Minotaur />
-            <Actions /> */}
+            {/* <Minotaur /> */}
+            {/* <Actions /> */}
             <Navigation 
                 patchCurGameStatus={patchCurGameStatus}
                 endGame = {endGame}
