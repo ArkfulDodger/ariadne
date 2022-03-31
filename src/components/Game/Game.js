@@ -37,8 +37,8 @@ function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCu
     const [itemsOpen, setItemsOpen] = useState(false)
     const [endType, setEndType] = useState('');
     const [minoIsHere, setMinoIsHere] = useState(false)
-    
-    const {curLocation, goalPath, playerInfo, foundTheseus} = curGame
+
+    const {curLocation, goalPath, minoIsEnabled, playerInfo, foundTheseus} = curGame
     
 
     useEffect(() =>{
@@ -171,7 +171,7 @@ function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCu
                         <Theseus curLocation={curLocation} updateCurGameInfo={updateCurGameInfo} curGameInfo={curGameInfo}/> 
                         : <> 
                         {minoIsHere ? 
-                            <Minotaur setEndType={setEndType} setMinoIsHere={setMinoIsHere} /> 
+                            <Minotaur minoIsHere={minoIsHere} setEndType={setEndType} updateCurGameInfo={updateCurGameInfo} /> 
                             :
                             <>
                                 <PromptText map={map} curGameInfo={curGameInfo} passages={passages}/>
@@ -184,6 +184,8 @@ function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCu
                                     setEndType={setEndType}
                                     playerInfo={playerInfo}
                                     findTheseus={findTheseus}
+                                    setMinoIsHere={setMinoIsHere}
+                                    minoIsEnabled={minoIsEnabled}
                                 />
                                 <div className="game-buttons">
                                     <Menu menuOpen={menuOpen} handleToggleMenu={handleToggleMenu} startNewGame={restartGame}/>

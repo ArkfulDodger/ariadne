@@ -12,7 +12,8 @@ const defaultGameInfo = {
   curLocation: ["0", ""],
   entryDirection: 'south',
   stringPath: '0',
-  minoLocation: '',
+  minoLocation: '00',
+  minoIsEnabled: true,
   itemsArray: [],
   foundTheseus: false,
   playerInfo: {

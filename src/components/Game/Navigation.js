@@ -1,6 +1,6 @@
 import OptionBox from "./OptionBox"
 
-function Navigation({findTheseus, curGameInfo, map, updateCurRoom, setEndType, playerInfo}) {
+function Navigation({findTheseus, minoIsEnabled, setMinoIsHere, curGameInfo, map, updateCurRoom, setEndType, playerInfo}) {
     const {curLocation, stringPath, entryDirection} = curGameInfo
     const curRoom = map.find(room => room.path === curLocation[0]);
 
@@ -97,6 +97,9 @@ function Navigation({findTheseus, curGameInfo, map, updateCurRoom, setEndType, p
         findTheseus()
         //set found theseus to true, update player obj to hasT true
         //which should render theseus and then still present the return object
+    }
+    else if (curRoom.path === curGameInfo.minoLocation && minoIsEnabled) {
+        setMinoIsHere(true)
     }
     // else {roomFlavor = `You find yourself in room ${curLocation[0]}`}
     else {roomFlavor = curRoomNavOptions.length > 1 ? `How do you proceed?` : 'You have reached a dead end'}
