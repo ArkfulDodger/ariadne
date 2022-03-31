@@ -1,7 +1,6 @@
 import OptionBox from "./OptionBox"
 
 function Navigation({curGameInfo, map, updateCurRoom, setEndType}) {
-
     const {curLocation, stringPath} = curGameInfo
     const curRoom = map.find(room => room.path === curLocation[0]);
     const curRoomNavOptions= [

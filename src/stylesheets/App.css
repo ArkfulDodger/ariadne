@@ -145,7 +145,7 @@ div div div div div div div {
 }
 
 
-a {
+a, .linklike {
   background-color: rgb(173, 115, 27);
   color:  #282c34;
   border: 4px solid rgb(46, 32, 126);
@@ -159,7 +159,8 @@ a {
   border-style: ridge;
 }
 
-a:hover{
+a:hover, .linklike:hover {
+  cursor: pointer;
   background-color: rgb(219, 176, 112);
 }
 .game-buttons {
