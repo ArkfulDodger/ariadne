@@ -201,7 +201,6 @@ function App() {
 
     newMap.push(entranceRoom);
     addRoomsTo(entranceRoom);
-    console.log(newMap)
     return newMap;
 
     function addRoomsTo(fromRoom) {
@@ -283,6 +282,7 @@ function App() {
 
     const newGoalPath = generateGoalPath();
     const newMap = generateMap(newGoalPath);
+    console.log("newly generated map", newMap)
     const mapWithItems = addItemsToMap(newMap)
     
     updateIsCurGame(true);
@@ -298,25 +298,28 @@ function App() {
     })
   }
 
-  function addItemsToMap(map){
-    
-    let randomPath = chooseARandomPath()
+  function addItemsToMap(inputMap){
+
+    let randomPath = chooseARandomPath(inputMap)
     while (goalPath.includes(randomPath)){
       randomPath = chooseARandomPath()
     }
-    map.map(room => {
-      if (room.path === randomPath && (room.itemInRoom.length < 1)){
+
+    console.log("room with Item! ", randomPath)
+    const mapWithItems = inputMap.map(room => {
+      console.log(room.path)
+      if (room.path === randomPath ){ //&& (room.itemInRoom.length < 1)
         console.log("adding item!", room.path)
-        room.itemInRoom = items[Math.floor(Math.random()*items.length)]
-        return room
+        const newItem = items[Math.floor(Math.random()*items.length)]
+        return {...room, itemInRoom : newItem }
       }
       return room
     })
-    return map
+    return mapWithItems
   }
 
-  function chooseARandomPath(){
-    const randomRoom = map[Math.floor(Math.random()*map.length)]
+  function chooseARandomPath(inputMap){
+    const randomRoom = inputMap[Math.floor(Math.random()*inputMap.length)]
     return randomRoom.path
   }
   
