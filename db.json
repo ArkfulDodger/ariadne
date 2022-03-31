@@ -2,7 +2,7 @@
   "loadStatus": [
     {
       "id": 1,
-      "isCurGame": true
+      "isCurGame": false
     }
   ],
   "current-game": [
@@ -923,6 +923,48 @@
       "goalPath": "010001",
       "endType": "leave",
       "id": 63
+    },
+    {
+      "curLocation": [
+        "0",
+        ""
+      ],
+      "entryDirection": "south",
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "goalPath": "001010",
+      "endType": "leave",
+      "id": 64
+    },
+    {
+      "curLocation": [
+        "0",
+        ""
+      ],
+      "entryDirection": "south",
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "goalPath": "001010",
+      "endType": "leave",
+      "id": 65
+    },
+    {
+      "curLocation": [
+        "0",
+        ""
+      ],
+      "entryDirection": "south",
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "playerInfo": {},
+      "goalPath": "001010",
+      "endType": "leave",
+      "id": 66
     }
   ],
   "items": [

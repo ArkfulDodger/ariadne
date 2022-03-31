@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-function MemoryDetail ({memoryURL}) {
+function MemoryDetail ({memoryURL, memoryDetailNote}) {
     return (
         <div>
             <img src={memoryURL}/>
-            <h5>More detail</h5>
+            <h5>{memoryDetailNote}</h5>
         </div>
     );
 }

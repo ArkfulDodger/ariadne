@@ -35,7 +35,7 @@ function Navigation({curGameInfo, map, updateCurRoom, setEndType}) {
             case "go right": updateRoomByPath(curRoom.path + "1");
                 break;
             case "go back to last room": 
-                if (curRoom.path === "0"){
+                if (curRoom.path === "0"){ //add language to check if htesues is with us
                     setEndType("leave")
                     //updateRoomByPath("0")
                 }
@@ -49,11 +49,14 @@ function Navigation({curGameInfo, map, updateCurRoom, setEndType}) {
     if (curRoom.type === 'theseus') {
         roomFlavor = 'You found Theseus!'
         setEndType('win')
+        //set found theseus to true, update player obj to hasT true
+        //which should render theseus and then still present the return object
     }
     else {roomFlavor = `You find yourself in room ${curLocation[0]}`}
     return (
         <div className="navigation">
             <h2>{roomFlavor}</h2>
+            <h3>You must choose where to go next</h3>
             <OptionBox handleClick={handleClick} options={curRoomNavOptions}/>
         </div>
     )

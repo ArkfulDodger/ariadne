@@ -10,14 +10,17 @@ function MemoryListItem ({memory}) {
 
     let memoryResult =''
     let memoryURL =''
+    let memoryDetailNote =''
     switch (memory.endType) {
         
         case 'win': 
         memoryResult = "You rescued Theseus from the Labyrinth"
         memoryURL = "http://www.maicar.com/GML/000Images/tim/theseus0819.jpg"
+        memoryDetailNote = "good job"
         break;
         case 'leave' : 
         memoryResult = "You left Theseus to his fate."
+        memoryDetailNote = "fair enough, he was pretty dumb"
         memoryURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Theseus_and_the_Minotaur.gif/170px-Theseus_and_the_Minotaur.gif"
         break;
     }
@@ -25,7 +28,7 @@ function MemoryListItem ({memory}) {
         <div className="memoryItem">
             <h3 onClick={toggleDetail}>Journey {memory.id}</h3>
             <h4>{memoryResult}</h4>
-            {detailOpen ? <MemoryDetail memoryURL={memoryURL}/> : null}
+            {detailOpen ? <MemoryDetail memoryURL={memoryURL} memoryDetailNote={memoryDetailNote}/> : null}
         </div>
     );
 }
