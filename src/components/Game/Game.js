@@ -30,19 +30,22 @@ import GameEnd from "./GameEnd";
 //     }
 // ]
 
-function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCurGameInfo, updateMap, passages, restartGame, contentLoaded, displayMessagePopup }) {
+function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCurGameInfo, updateMap, passages, restartGame, contentLoaded, displayMessagePopup, endType, setEndType }) {
     //#region CONFIRMED
 
     const [menuOpen, setMenuOpen] = useState(false)
     const [itemsOpen, setItemsOpen] = useState(false)
-    const [endType, setEndType] = useState('');
+    //const [endType, setEndType] = useState('');
     const [minoIsHere, setMinoIsHere] = useState(false)
 
     const {curLocation, goalPath, minoIsEnabled, playerInfo, foundTheseus} = curGame
     
 
     useEffect(() =>{
-        if(endType){endGame()}
+        console.log('in endType Use effect', endType)
+        if(endType){
+            endGame()
+        }
     }, [endType])
 
     function findTheseus(){
@@ -164,7 +167,7 @@ function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCu
             </h1>
             {contentLoaded ?
             <>
-                {endType ? <GameEnd endType={endType}/> : 
+                {endType && endType !=="restart" ? <GameEnd endType={endType}/> : 
                     <>
                     {/* <Actions /> */}
                     {foundTheseus ? 
@@ -187,16 +190,16 @@ function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCu
                                     setMinoIsHere={setMinoIsHere}
                                     minoIsEnabled={minoIsEnabled}
                                 />
-                                <div className="game-buttons">
-                                    <Menu menuOpen={menuOpen} handleToggleMenu={handleToggleMenu} startNewGame={restartGame}/>
-                                    <ItemsWindow itemsOpen={itemsOpen} handleToggleItems={handleToggleItems} />
-                                </div>
                             </>
                         }
                         </>
                     }
                     </>
                 }
+                <div className="game-buttons">
+                    <Menu menuOpen={menuOpen} handleToggleMenu={handleToggleMenu} startNewGame={restartGame}/>
+                    <ItemsWindow itemsOpen={itemsOpen} handleToggleItems={handleToggleItems} />
+                </div>
             </>
             : <h1>Loading...</h1>
             }

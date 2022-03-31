@@ -24,6 +24,9 @@ function GameEnd({endType}) {
             endGameMessage = `You are gored to death by the minotaur... It's not all bad - Hermes showed up to take you to the underworld`
             endImgSrc="https://serenademagazine.com/wp-content/uploads/2021/07/Orpheus_and_Eurydice-header-1200x799.png"
             break;
+        case 'restart' :
+            endGameMessage = "You abandoned all hope"
+            endImgSrc = ''
         default: endGameMessage = "ok how did you get here?" 
     }
     

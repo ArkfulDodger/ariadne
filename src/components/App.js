@@ -50,6 +50,8 @@ const goalPathLength = 5;
 
 function App() {
   const navigate = useNavigate();
+  const [endType, setEndType] = useState('');
+
 
   //#region state declarations & CRUD functions
 
@@ -290,6 +292,7 @@ function App() {
   
   function restartGame() {
     console.log("----RESTART GAME----");
+    setEndType('restart')
     // TODO: pass info to memories, wait for response, then...
     startNewGame();
   }
@@ -339,6 +342,8 @@ function App() {
             restartGame={restartGame}
             contentLoaded={contentLoaded}
             displayMessagePopup={displayMessagePopup}
+            endType={endType}
+            setEndType={setEndType}
           />
         )}/>
         <Route path="/memories" element={<Memories isCurGame={isCurGame} resumeGame={resumeGame} startNewGame={startNewGame} />}/>

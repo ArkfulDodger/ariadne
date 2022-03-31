@@ -30,7 +30,7 @@ function MemoryListItem ({memory}) {
             break;
         case 'restart' :
             memoryResult = "You gave up"
-            memoryDetailNote = "you got lost and abandoned hope"
+            memoryDetailNote = "you got lost and abandoned all hope"
             memoryURL = "https://www.ancient-origins.net/sites/default/files/field/image/The-Descent-of-Ariadne.jpg"
         
     }
