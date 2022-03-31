@@ -13,7 +13,7 @@
 }
 
 body{
-  background-color: gold;
+  background-color: rgb(220, 162, 27);
 }
 
 img {
@@ -46,7 +46,7 @@ img {
 }
 
 .game {
-  background-color: rgb(161, 30, 30);
+  background-color: rgb(100, 15, 15);
   text-align: center;
 }
 
@@ -58,7 +58,7 @@ h1{
 .prompText {
   width: 80%;
   margin: auto;
-  background-color: wheat;
+  background-color: rgb(172, 147, 99);
   border: 2px solid ;
 }
 
@@ -95,8 +95,8 @@ div div div div div div div {
 .option{
   width: 50%;
   margin: .5em;
-  background-color: rgb(173, 115, 27);
-  color:#282c34;
+  background-color: rgb(118, 79, 20);
+  color:#161a21;
   border: 4px solid darkslategrey;
   border-style: groove;
   /* float: left; */
@@ -110,7 +110,7 @@ div div div div div div div {
   width: 80%;
   margin: auto;
   display: flex;
-  background-color: rgb(46, 32, 126);
+  background-color: rgb(31, 23, 75);
   color: wheat;
   border: 3px solid #0b0e13;
 }
@@ -141,6 +141,14 @@ div div div div div div div {
 .memoryPage{
   background-color: rgb(161, 30, 30);
   height: auto;
+}
+
+.memoryPage a{
+  width: 20%;
+  font-size: small;
+  padding: .5em;
+  margin-left: 3em;
+  margin-right: 3em;
 }
 
 .memoryItem{
@@ -175,7 +183,7 @@ div div div div div div div {
 }
 
 
-a, .linklike {
+a, .linklike, .restartButton {
   background-color: rgb(173, 115, 27);
   color:  #282c34;
   border: 4px solid rgb(46, 32, 126);
@@ -189,7 +197,7 @@ a, .linklike {
   border-style: ridge;
 }
 
-a:hover, .linklike:hover {
+a:hover, .linklike:hover, .restartButton:hover {
   cursor: pointer;
   background-color: rgb(219, 176, 112);
 }
@@ -207,9 +215,9 @@ a:hover, .linklike:hover {
   /* background-color: #6a707c; */
 }
 
-.items{
+/* .items{
   background-color: #282c34;
-}
+} */
 
 button {
   background-color: #282c34;
@@ -227,6 +235,7 @@ button:hover{
   margin: 1em;
   border: 3px solid ;
 }
+
 
 h1, h2 {
   font-family: 'Cinzel';

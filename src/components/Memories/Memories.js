@@ -21,9 +21,9 @@ function Memories ({isCurGame}) {
     return (
         <div className="memoryPage">
             <h1>Memories!!!</h1>
-            <MemoryList memories={memories}/>
             <Link to="/play">{isCurGame ? "Return to the Labyrinth" : "Enter the Labyrinth"}</Link>             
             <Link to="/">Return to Main Menu</Link>  
+            <MemoryList memories={memories}/>
         </div>
     );
 }

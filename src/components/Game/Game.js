@@ -11,8 +11,6 @@ import GameEnd from "./GameEnd";
 //TODO: 
 //fix backwards in game navigation - kind of working: can go back but turn direction not dynamic
 // styling - an ongoing process
-// game should load from game object if it exists
-    // implement new game (resets game obj)
 // have narration pull from game obj
 // persist narration to game obj
 
@@ -48,14 +46,14 @@ function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCu
 
     function endGame(){
 
-        let endGameMessage = ''
+        // let endGameMessage = ''
 
-        switch (endType) {
-            case 'win' : endGameMessage = "YOU FOUND YOUR HIMBO, good job"
-            break;
-            default: endGameMessage = "ok how did you get here?" 
-        }
-        console.log(endGameMessage)
+        // switch (endType) {
+        //     case 'win' : endGameMessage = "YOU FOUND YOUR HIMBO, good job"
+        //     break;
+        //     default: endGameMessage = "ok how did you get here?" 
+        // }
+        //console.log(endGameMessage)
         //render a new endGame
         //(endGameMessage)
 
@@ -156,11 +154,11 @@ function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCu
             </h1>
             {contentLoaded ?
             <>
-                <PromptText map={map} curGameInfo={curGameInfo} passages={passages}/>
+                {endType ? null : <PromptText map={map} curGameInfo={curGameInfo} passages={passages}/>}
                 {endType ? <GameEnd endType={endType}/> : 
                     <>
-                    {/* <Minotaur />
-                    <Actions /> */}
+                    {/* <Minotaur /> */}
+                    {/* <Actions /> */}
                     <Navigation 
                         // patchCurGameStatus={patchCurGameStatus}
                         endGame = {endGame}

@@ -25,8 +25,7 @@ function Navigation({curGameInfo, map, updateCurRoom, setEndType}) {
         })
         updateCurRoom(newRoom)
     }
-    //so now, we need to update the current room to the room
-    //with the consolelogged path
+
 
     function handleClick(event){
         
@@ -36,7 +35,10 @@ function Navigation({curGameInfo, map, updateCurRoom, setEndType}) {
             case "go right": updateRoomByPath(curRoom.path + "1");
                 break;
             case "go back to last room": 
-                if (curRoom.path === "0"){updateRoomByPath("0")}
+                if (curRoom.path === "0"){
+                    setEndType("leave")
+                    //updateRoomByPath("0")
+                }
                 else {updateRoomByPath(curLocation[1])}
                 // else {updateRoomByPath(curRoom.path.slice(0, curRoom.path.length - 1))}
                 break;
