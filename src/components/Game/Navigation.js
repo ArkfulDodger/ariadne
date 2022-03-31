@@ -19,6 +19,11 @@ function Navigation({curGameInfo, map, updateCurRoom, setEndType, playerInfo, se
     ]
 
     function updateRoomByPath(newRoomPath){
+        if (!newRoomPath && !playerInfo.hasTheseus){ //add language to check if htesues is with us
+            setEndType("leave")
+        } else if (!newRoomPath && playerInfo.hasTheseus){
+            setEndType("win")
+        }
         
         const newRoom = map.find(room => {
             return room.path === newRoomPath
@@ -34,14 +39,7 @@ function Navigation({curGameInfo, map, updateCurRoom, setEndType, playerInfo, se
                 break;
             case "go right": updateRoomByPath(curRoom.path + "1");
                 break;
-            case "go back to last room": 
-                if (curRoom.path === "0" && !playerInfo.hasTheseus){ //add language to check if htesues is with us
-                    setEndType("leave")
-                    //updateRoomByPath("0")
-                } else if (curRoom.path === "0" && playerInfo.hasTheseus){
-                    setEndType("win")
-                }
-                else {updateRoomByPath(curLocation[1])}
+            case "go back to last room": updateRoomByPath(curLocation[1])
                 // else {updateRoomByPath(curRoom.path.slice(0, curRoom.path.length - 1))}
                 break;
         }
