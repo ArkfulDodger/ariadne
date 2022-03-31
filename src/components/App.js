@@ -30,7 +30,9 @@ function App() {
         })
     })
     .then( res => res.json())
-    .then( data => console.log("patched iscurgame", data))
+    .then( data => {
+      console.log("patched iscurgame", data)
+      setIsCurGame(data.isCurGame)})
     .catch( error => console.log(error.message));
   }
 

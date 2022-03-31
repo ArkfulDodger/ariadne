@@ -382,12 +382,8 @@ function Game ({ isCurGame, updateIsCurGameInDb }) {
     }
 
     function updateCurRoom(newRoom){
-        console.log("------------update room called-----------");
-
         // update path visited status in origin and destination rooms in map state
         // if travelling northerly
-
-        
         if (newRoom.path.length > curLocation[0].length) {
             setMap(map => map
                 // .map( room => room.path === newRoom.path ? {...room, southPassageVisited: room.southPassageVisited + 1} : room)
@@ -440,13 +436,14 @@ function Game ({ isCurGame, updateIsCurGameInDb }) {
     //#endregion
 
 
-
     return (
         <div className="game">
             <h1>
                 Ariadne
             </h1>
-            <PromptText map={map} curGameInfo={curGameInfo} passages={passages}/>
+            {(map.length > 1 && passages.length > 1)
+                ? <PromptText map={map} curGameInfo={curGameInfo} passages={passages}/>
+                : null}
             {endType ? <GameEnd endType={endType}/> : 
             <>
             {/* <Minotaur />
