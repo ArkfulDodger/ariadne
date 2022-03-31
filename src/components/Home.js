@@ -22,9 +22,7 @@ function Home ({isCurGame, updateIsCurGameInDb }) {
         <div className="home">
             <h1>Ariadne</h1>
             <ScrollTextContainer />
-            <img src="https://t4.ftcdn.net/jpg/00/59/78/51/240_F_59785107_UlYF1ot0wghZM62hYeKHT9Kuh1uE78zS.jpg" alt="minoan mosiac" />
-
-            {/* <img src="https://www.3ammagazine.com/3am/wp-content/uploads/2020/12/Minotaur-mosaic-e1607071119551.jpg" alt="minoan mosiac" /> */}
+            <img src="https://t4.ftcdn.net/jpg/00/59/78/51/240_F_59785107_UlYF1ot0wghZM62hYeKHT9Kuh1uE78zS.jpg" alt="ariadne at the labyrinth entrance" />
             <div>
                 {isCurGame
                     ? <Link to="/play" >Return to the Labyrinth</Link>  
