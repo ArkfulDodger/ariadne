@@ -30,7 +30,7 @@ import GameEnd from "./GameEnd";
 //     }
 // ]
 
-function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCurGameInfo, updateMap, passages, restartGame, contentLoaded }) {
+function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCurGameInfo, updateMap, passages, restartGame, contentLoaded, displayMessagePopup }) {
     //#region CONFIRMED
 
     const [menuOpen, setMenuOpen] = useState(false)
@@ -168,7 +168,7 @@ function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCu
                     <>
                     {/* <Actions /> */}
                     {foundTheseus ? 
-                        <Theseus curLocation={curLocation} updateCurGameInfo={updateCurGameInfo} curGameInfo={curGameInfo}/> 
+                        <Theseus curLocation={curLocation} updateCurGameInfo={updateCurGameInfo} curGameInfo={curGameInfo} displayMessagePopup={displayMessagePopup}/> 
                         : <> 
                         {minoIsHere ? 
                             <Minotaur minoIsHere={minoIsHere} setEndType={setEndType} updateCurGameInfo={updateCurGameInfo} /> 

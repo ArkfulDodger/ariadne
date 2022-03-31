@@ -1,6 +1,6 @@
 import {useState} from "react"
 
-function Theseus({updateCurGameInfo, curLocation, curGameInfo}) {
+function Theseus({updateCurGameInfo, curLocation, curGameInfo, displayMessagePopup}) {
     const [isOpen, setIsOpen] = useState(true)
 
     function closeTheseus(event){
@@ -8,6 +8,7 @@ function Theseus({updateCurGameInfo, curLocation, curGameInfo}) {
         updateCurGameInfo({
             foundTheseus: false
         })
+        displayMessagePopup('broken-string')
     }
 
     //const returnPassageType = curGameInfo.map.find(room => room.path === curLocation[0]).southPassageType

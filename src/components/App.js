@@ -4,6 +4,7 @@ import Memories from './Memories/Memories';
 import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import MessagePopup from './Game/MessagePopup';
 
 
 //#region default and constant values
@@ -54,11 +55,15 @@ function App() {
 
   // state declarataions
   const [contentLoaded, setContentLoaded] = useState(false);
+  const [isMessageUp, setIsMessageUp] = useState(false);
+  const [messagePopupContent, setMessagePopupContent] = useState({});
+
   const [isCurGame, setIsCurGame] = useState(false);
   const [curGameInfo, setcurGameInfo] = useState(defaultGameInfo);
   const [map, setMap] = useState(defaultMap);
   const [curGame, setCurGame] = useState(defaultGameObject);
   const [passages, setPassages] = useState([]);
+  const [messages, setMessages] = useState([]);
 
   const { goalPath } = curGame;
   const passageTypeArray = passages.length > 0 ? passages.map(passObj => passObj['nav-text']) : ["a torchlit path"];
@@ -68,9 +73,10 @@ function App() {
   const p0IsCurGame = fetch('http://localhost:3001/loadStatus/1');
   const p1CurGame = fetch(`http://localhost:3001/current-game/1`);
   const p2Passages = fetch('http://localhost:3001/passages');
+  const p3Messages = fetch('http://localhost:3001/messages')
 
   // set all states once data retrieved
-  Promise.all([p0IsCurGame, p1CurGame, p2Passages])
+  Promise.all([p0IsCurGame, p1CurGame, p2Passages, p3Messages])
     .then(respArr => Promise.all(respArr.map(resp => resp.json())))
     .then(data => {
       console.log(data);
@@ -79,6 +85,7 @@ function App() {
       setcurGameInfo(getGameInfoFromGameObj(data[1]));
       setMap(data[1].map);
       setPassages(data[2]);
+      setMessages(data[3]);
       setContentLoaded(true);
     })
     .catch(() => alert('inital game fetch could not complete'))
@@ -276,7 +283,8 @@ function App() {
     .then(() => updateMap(newMap))
     .then(() => {
       console.log('navigating to play');
-      setTimeout(navigate('/play'), 1000)
+      navigate('/play')
+      displayMessagePopup('string')
     })
   }
   
@@ -289,6 +297,19 @@ function App() {
   function resumeGame() {
     console.log("----RESUME GAME----");
     navigate('/play')
+  }
+
+  function displayMessagePopup (calledMessage) {
+    if (!contentLoaded) {return}
+
+    const messageContent = messages.find(message => message.type === calledMessage)
+    setMessagePopupContent(messageContent);
+    setIsMessageUp(true);
+  }
+
+  function closeMessagePopup() {
+    setMessagePopupContent({});
+    setIsMessageUp(false);
   }
 
   //#endregion
@@ -317,12 +338,18 @@ function App() {
             passages={passages}
             restartGame={restartGame}
             contentLoaded={contentLoaded}
+            displayMessagePopup={displayMessagePopup}
           />
         )}/>
         <Route path="/memories" element={<Memories isCurGame={isCurGame} />}/>
         {/* <Route path="*" element={<Home isCurGame={isCurGame} />} /> */}
       </Routes>
-      
+      {isMessageUp &&
+        <MessagePopup
+          messagePopupContent={messagePopupContent}
+          closeMessagePopup={closeMessagePopup}
+        />
+      }
     </div>
   );
 }

@@ -303,8 +303,8 @@
       "default-visibility": true,
       "descriptions": {
         "initial": {
-          "dark": "where you are immediately presented with a choice of two branching paths",
-          "lit": "where you are immediately presented with a choice of two branching paths"
+          "dark": "where you are immediately presented with a choice of two branching paths.",
+          "lit": "where you are immediately presented with a choice of two branching paths."
         },
         "return": {
           "dark": "the entrance to the labyrinth",
@@ -913,6 +913,22 @@
       "id": 6,
       "text": "and, peering through the darkness, see",
       "visibility": false
+    }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "type": "string",
+      "image": "https://www.kindpng.com/picc/m/22-223715_transparent-white-string-png-ball-of-yarn-outline.png",
+      "header": "You hold in your hand a ball of string",
+      "body": "Unwind it as you walk to leave a trail leading back safety. You can always follow the 🧶 to return to the entrance."
+    },
+    {
+      "id": 2,
+      "type": "broken-string",
+      "image": "https://thumbs.dreamstime.com/b/broken-rope-failure-break-concept-broken-rope-failure-break-concept-image-contain-motion-blur-stroboscopic-220384775.jpg",
+      "header": "Your string has been broken!",
+      "body": "You are unsure when or how, but your tether to the entrance has been broken. Now, you must rely on your memory to make your escape before the minotaur finds you."
     }
   ]
 }
