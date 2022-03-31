@@ -127,7 +127,7 @@ function Game ({ isCurGame, updateIsCurGameInDb }) {
     function startNewGame() {
         console.log("New Game Started!");
         clearCurrentGameInDb()
-        .then(() => generateGoalPath())
+            .then(() => generateGoalPath())
         updateIsCurGameInDb(true);
         setPatchAllowed(true)
         //TODO: put logic here for starting a new game
@@ -460,7 +460,7 @@ function Game ({ isCurGame, updateIsCurGameInDb }) {
                 setEndType={setEndType}
             />
             <div className="game-buttons">
-                <Menu menuOpen={menuOpen} handleToggleMenu={handleToggleMenu}/>
+                <Menu menuOpen={menuOpen} handleToggleMenu={handleToggleMenu} startNewGame={startNewGame}/>
                 <ItemsWindow itemsOpen={itemsOpen} handleToggleItems={handleToggleItems} />
             </div>
             </>

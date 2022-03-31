@@ -284,7 +284,7 @@ function PromptText({ map, curGameInfo, passages }) {
     const curRoom = map.length > 1 ? map.find(room => room.path === curLocation[0]) : defaultRoom;
     const { type: chamberType, roomVisited, onGoalPath } = curRoom;
     const chamberData = chambers.length > 1 ? chambers.find(chamber => chamber.type === chamberType) : defaultChamberData;
-    console.log('curRoom',curRoom);
+    // console.log('curRoom',curRoom);
 
     // conditions from currentGame
     const isPassageVisited = getIsPassageVisited();
@@ -300,7 +300,7 @@ function PromptText({ map, curGameInfo, passages }) {
     // passage info
     const passageType = getPassageType();
     // console.log('passages', passages);
-    console.log('passageType', passageType);
+    // console.log('passageType', passageType);
     const passageData = passages.length > 1 ? passages.filter(passage => passage['nav-text'] === passageType)[0] : defaultPassage;
     // console.log('passageData:', passageData);
     const passageText = isPassageVisited
@@ -363,7 +363,7 @@ function PromptText({ map, curGameInfo, passages }) {
     }
 
     function getPassageType() {
-        console.log('entryDirection', entryDirection);
+        // console.log('entryDirection', entryDirection);
         switch (entryDirection || 'south') {
             case 'south':
                 return curRoom.southPassageType;
