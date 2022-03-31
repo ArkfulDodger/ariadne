@@ -81,6 +81,111 @@ function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCu
 
     //#endregion
 
+
+    function handleToggleMenu(){
+        setMenuOpen(!menuOpen)
+    }
+    
+    function handleToggleItems(){
+        setItemsOpen(!itemsOpen)
+    }
+
+    function printAsTurns(binaryPath) {
+        let turnPath = "entrance";
+        for (let i = 1; i < binaryPath.length; i++) {
+        console.log(binaryPath[i]);
+        turnPath += binaryPath[i] === '0' ? " left" : " right";
+        }
+        return turnPath;
+    }
+    
+    function findRoomByPath(path) {
+        return map.find(room => {
+            return room.path === path
+        })
+    }
+
+    function getEntryDirection(curLocation) {
+        if (curLocation[0].length > curLocation[1].length) {
+            return 'south';
+        } else if (curLocation[1].endsWith('0')) {
+            return 'west';
+        } else {
+            return 'east';
+        }
+    }
+
+    function updateCurRoom(newRoom){
+        // update path visited status in origin and destination rooms in map state
+        // if travelling northerly
+        if (newRoom.path.length > curLocation[0].length) {
+            updateMap(map
+                // .map( room => room.path === newRoom.path ? {...room, southPassageVisited: room.southPassageVisited + 1} : room)
+                .map( room => room.path === curLocation[0]
+                    ? newRoom.path.endsWith("0") ? {...room, westPassageVisited: true} : {...room, eastPassageVisited: true}
+                    : room));
+        // if travelling southily
+        } else {
+            updateMap(map
+                .map(room => room.path === curLocation[0]
+                    ? {...room, southPassageVisited: true}
+                    : room))
+        }
+        
+        // set destination room to visited in state
+        updateMap(map.map(room => room.path === curLocation[0] ? {...room, roomVisited: true} : room))
+
+        const newLocation = [
+            newRoom.path,
+            curLocation[0]
+        ]
+
+        const newEntryDirection = getEntryDirection(newLocation);
+
+        updateCurGameInfo({
+            ...curGameInfo,
+            curLocation : newLocation,
+            entryDirection : newEntryDirection
+        })
+    }
+
+    return (
+        <div className="game">
+            <h1>
+                Ariadne
+            </h1>
+            {contentLoaded ?
+            <>
+                <PromptText map={map} curGameInfo={curGameInfo} passages={passages}/>
+                {endType ? <GameEnd endType={endType}/> : 
+                    <>
+                    {/* <Minotaur />
+                    <Actions /> */}
+                    <Navigation 
+                        // patchCurGameStatus={patchCurGameStatus}
+                        endGame = {endGame}
+                        updateCurRoom={updateCurRoom} 
+                        curGameInfo={curGameInfo} 
+                        map={map}
+                        setEndType={setEndType}
+                    />
+                    <div className="game-buttons">
+                        <Menu menuOpen={menuOpen} handleToggleMenu={handleToggleMenu} startNewGame={restartGame}/>
+                        <ItemsWindow itemsOpen={itemsOpen} handleToggleItems={handleToggleItems} />
+                    </div>
+                    </>
+                }
+            </>
+            : <h1>Loading...</h1>
+            }
+        </div>
+    );
+}
+
+export default Game;
+
+
+
     //#region HIDE
 
 
@@ -310,106 +415,3 @@ function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCu
     //#endregion
 
     //#endregion
-
-
-    function handleToggleMenu(){
-        setMenuOpen(!menuOpen)
-    }
-    
-    function handleToggleItems(){
-        setItemsOpen(!itemsOpen)
-    }
-
-    function printAsTurns(binaryPath) {
-        let turnPath = "entrance";
-        for (let i = 1; i < binaryPath.length; i++) {
-        console.log(binaryPath[i]);
-        turnPath += binaryPath[i] === '0' ? " left" : " right";
-        }
-        return turnPath;
-    }
-    
-    function findRoomByPath(path) {
-        return map.find(room => {
-            return room.path === path
-        })
-    }
-
-    function getEntryDirection(curLocation) {
-        if (curLocation[0].length > curLocation[1].length) {
-            return 'south';
-        } else if (curLocation[1].endsWith('0')) {
-            return 'west';
-        } else {
-            return 'east';
-        }
-    }
-
-    function updateCurRoom(newRoom){
-        // update path visited status in origin and destination rooms in map state
-        // if travelling northerly
-        if (newRoom.path.length > curLocation[0].length) {
-            updateMap(map
-                // .map( room => room.path === newRoom.path ? {...room, southPassageVisited: room.southPassageVisited + 1} : room)
-                .map( room => room.path === curLocation[0]
-                    ? newRoom.path.endsWith("0") ? {...room, westPassageVisited: true} : {...room, eastPassageVisited: true}
-                    : room));
-        // if travelling southily
-        } else {
-            updateMap(map
-                .map(room => room.path === curLocation[0]
-                    ? {...room, southPassageVisited: true}
-                    : room))
-        }
-        
-        // set destination room to visited in state
-        updateMap(map.map(room => room.path === curLocation[0] ? {...room, roomVisited: true} : room))
-
-        const newLocation = [
-            newRoom.path,
-            curLocation[0]
-        ]
-
-        const newEntryDirection = getEntryDirection(newLocation);
-
-        updateCurGameInfo({
-            ...curGameInfo,
-            curLocation : newLocation,
-            entryDirection : newEntryDirection
-        })
-    }
-
-    return (
-        <div className="game">
-            <h1>
-                Ariadne
-            </h1>
-            {contentLoaded ?
-            <>
-                <PromptText map={map} curGameInfo={curGameInfo} passages={passages}/>
-                {endType ? <GameEnd endType={endType}/> : 
-                    <>
-                    {/* <Minotaur />
-                    <Actions /> */}
-                    <Navigation 
-                        // patchCurGameStatus={patchCurGameStatus}
-                        endGame = {endGame}
-                        updateCurRoom={updateCurRoom} 
-                        curGameInfo={curGameInfo} 
-                        map={map}
-                        setEndType={setEndType}
-                    />
-                    <div className="game-buttons">
-                        <Menu menuOpen={menuOpen} handleToggleMenu={handleToggleMenu} startNewGame={restartGame}/>
-                        <ItemsWindow itemsOpen={itemsOpen} handleToggleItems={handleToggleItems} />
-                    </div>
-                    </>
-                }
-            </>
-            : <h1>Loading...</h1>
-            }
-        </div>
-    );
-}
-
-export default Game;

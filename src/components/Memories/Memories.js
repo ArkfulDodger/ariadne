@@ -23,7 +23,7 @@ function Memories ({isCurGame}) {
             <h1>Memories!!!</h1>
             <MemoryList memories={memories}/>
             <Link to="/play">{isCurGame ? "Return to the Labyrinth" : "Enter the Labyrinth"}</Link>             
-            <Link to="/home">Return to Main Menu</Link>  
+            <Link to="/">Return to Main Menu</Link>  
         </div>
     );
 }

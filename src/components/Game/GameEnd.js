@@ -19,7 +19,7 @@ function GameEnd({endType}) {
         <div className="gameEnd">
             <h2>{endGameMessage}</h2>
             <img src= {endImgSrc} />
-            <Link to="/home">Return to Main Menu</Link>  
+            <Link to="/">Return to Main Menu</Link>  
             {/* <Link to="/play">Go to a new Labyrinth</Link> */}
             <Link to="/memories">Reflect on your Journey</Link>  
         </div>
