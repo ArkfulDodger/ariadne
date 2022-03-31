@@ -2,7 +2,7 @@
   "loadStatus": [
     {
       "id": 1,
-      "isCurGame": true
+      "isCurGame": false
     }
   ],
   "current-game": [
@@ -10,24 +10,24 @@
       "id": 1,
       "curLocation": [
         "0",
-        ""
+        "00"
       ],
-      "entryDirection": "south",
+      "entryDirection": "west",
       "stringPath": "0",
       "minoLocation": "",
       "itemsArray": [],
       "foundTheseus": false,
       "playerInfo": {
-        "hasTheseus": false
+        "hasTheseus": true
       },
-      "goalPath": "001000",
+      "goalPath": "000100",
       "map": [
         {
           "path": "0",
           "type": "entrance",
-          "roomVisited": false,
-          "westPassageType": "a mossy, but climbable wall",
-          "eastPassageType": "a gently sloping walkway",
+          "roomVisited": true,
+          "westPassageType": "a torchlit path",
+          "eastPassageType": "a misty path",
           "southPassageType": "exit",
           "westPassageVisited": false,
           "eastPassageVisited": false,
@@ -37,10 +37,10 @@
         {
           "path": "00",
           "type": "random",
-          "roomVisited": false,
-          "westPassageType": "a smooth stone cavern",
-          "eastPassageType": "a heavy wooden door",
-          "southPassageType": "a mossy, but climbable wall",
+          "roomVisited": true,
+          "westPassageType": "a winding corridor",
+          "eastPassageType": "a dusty hallway",
+          "southPassageType": "a torchlit path",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
@@ -49,10 +49,82 @@
         {
           "path": "000",
           "type": "random",
+          "roomVisited": true,
+          "westPassageType": "a heavy wooden door",
+          "eastPassageType": "a smooth stone cavern",
+          "southPassageType": "a winding corridor",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": true
+        },
+        {
+          "path": "0000",
+          "type": "random",
           "roomVisited": false,
           "westPassageType": "",
           "eastPassageType": "",
+          "southPassageType": "a heavy wooden door",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": false
+        },
+        {
+          "path": "0001",
+          "type": "random",
+          "roomVisited": true,
+          "westPassageType": "a dark stairwell",
+          "eastPassageType": "a mossy, but climbable wall",
           "southPassageType": "a smooth stone cavern",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": true
+        },
+        {
+          "path": "00010",
+          "type": "random",
+          "roomVisited": true,
+          "westPassageType": "a winding corridor",
+          "eastPassageType": "a misty path",
+          "southPassageType": "a dark stairwell",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": true
+        },
+        {
+          "path": "000100",
+          "type": "theseus",
+          "roomVisited": true,
+          "westPassageType": null,
+          "eastPassageType": null,
+          "southPassageType": "a winding corridor",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": true
+        },
+        {
+          "path": "000101",
+          "type": "random",
+          "roomVisited": false,
+          "westPassageType": "",
+          "eastPassageType": "",
+          "southPassageType": "a misty path",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": false
+        },
+        {
+          "path": "00011",
+          "type": "random",
+          "roomVisited": false,
+          "westPassageType": "",
+          "eastPassageType": "",
+          "southPassageType": "a mossy, but climbable wall",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
@@ -62,81 +134,9 @@
           "path": "001",
           "type": "random",
           "roomVisited": false,
-          "westPassageType": "a dusty hallway",
-          "eastPassageType": "a rickety bridge over a pit",
-          "southPassageType": "a heavy wooden door",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": true
-        },
-        {
-          "path": "0010",
-          "type": "random",
-          "roomVisited": false,
-          "westPassageType": "a misty path",
-          "eastPassageType": "a gently sloping walkway",
-          "southPassageType": "a dusty hallway",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": true
-        },
-        {
-          "path": "00100",
-          "type": "random",
-          "roomVisited": false,
-          "westPassageType": "a heavy wooden door",
-          "eastPassageType": "a dusty hallway",
-          "southPassageType": "a misty path",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": true
-        },
-        {
-          "path": "001000",
-          "type": "theseus",
-          "roomVisited": false,
-          "westPassageType": null,
-          "eastPassageType": null,
-          "southPassageType": "a heavy wooden door",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": true
-        },
-        {
-          "path": "001001",
-          "type": "random",
-          "roomVisited": false,
           "westPassageType": "",
           "eastPassageType": "",
           "southPassageType": "a dusty hallway",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": false
-        },
-        {
-          "path": "00101",
-          "type": "random",
-          "roomVisited": false,
-          "westPassageType": "",
-          "eastPassageType": "",
-          "southPassageType": "a gently sloping walkway",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": false
-        },
-        {
-          "path": "0011",
-          "type": "random",
-          "roomVisited": false,
-          "westPassageType": "",
-          "eastPassageType": "",
-          "southPassageType": "a rickety bridge over a pit",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
@@ -148,7 +148,7 @@
           "roomVisited": false,
           "westPassageType": "",
           "eastPassageType": "",
-          "southPassageType": "a gently sloping walkway",
+          "southPassageType": "a misty path",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
@@ -158,1041 +158,7 @@
     }
   ],
   "memories": [
-    {
-      "curLocation": [
-        "010100",
-        "01010"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 1
-    },
-    {
-      "curLocation": [
-        "000111",
-        "00011"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 2
-    },
-    {
-      "curLocation": [
-        "010001",
-        "01000"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 3
-    },
-    {
-      "curLocation": [
-        "010011",
-        "01001"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 4
-    },
-    {
-      "curLocation": [
-        "001111",
-        "00111"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 5
-    },
-    {
-      "curLocation": [
-        "001110",
-        "00111"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 6
-    },
-    {
-      "curLocation": [
-        "001110",
-        "00111"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 7
-    },
-    {
-      "curLocation": [
-        "001110",
-        "00111"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 8
-    },
-    {
-      "curLocation": [
-        "001110",
-        "00111"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 9
-    },
-    {
-      "curLocation": [
-        "001110",
-        "00111"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 10
-    },
-    {
-      "curLocation": [
-        "001110",
-        "00111"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 11
-    },
-    {
-      "curLocation": [
-        "000101",
-        "00010"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 12
-    },
-    {
-      "curLocation": [
-        "000000",
-        "00000"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 13
-    },
-    {
-      "curLocation": [
-        "001100",
-        "00110"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 14
-    },
-    {
-      "curLocation": [
-        "010010",
-        "01001"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 15
-    },
-    {
-      "curLocation": [
-        "011011",
-        "01101"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 16
-    },
-    {
-      "curLocation": [
-        "011011",
-        "01101"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 17
-    },
-    {
-      "curLocation": [
-        "011011",
-        "01101"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 18
-    },
-    {
-      "curLocation": [
-        "010100",
-        "01010"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 19
-    },
-    {
-      "curLocation": [
-        "011101",
-        "01110"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 20
-    },
-    {
-      "curLocation": [
-        "011101",
-        "01110"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 21
-    },
-    {
-      "curLocation": [
-        "011101",
-        "01110"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 22
-    },
-    {
-      "curLocation": [
-        "000001",
-        "00000"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 23
-    },
-    {
-      "curLocation": [
-        "001010",
-        "00101"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 24
-    },
-    {
-      "curLocation": [
-        "010111",
-        "01011"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 25
-    },
-    {
-      "curLocation": [
-        "010111",
-        "01011"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 26
-    },
-    {
-      "curLocation": [
-        "010111",
-        "01011"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 27
-    },
-    {
-      "curLocation": [
-        "000101",
-        "00010"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 28
-    },
-    {
-      "curLocation": [
-        "000101",
-        "00010"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 29
-    },
-    {
-      "curLocation": [
-        "000101",
-        "00010"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 30
-    },
-    {
-      "curLocation": [
-        "000111",
-        "00011"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 31
-    },
-    {
-      "curLocation": [
-        "000111",
-        "00011"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 32
-    },
-    {
-      "curLocation": [
-        "000111",
-        "00011"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 33
-    },
-    {
-      "curLocation": [
-        "010011",
-        "01001"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 34
-    },
-    {
-      "curLocation": [
-        "010110",
-        "01011"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 35
-    },
-    {
-      "curLocation": [
-        "000100",
-        "00010"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 36
-    },
-    {
-      "curLocation": [
-        "000100",
-        "00010"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 37
-    },
-    {
-      "curLocation": [
-        "000100",
-        "00010"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 38
-    },
-    {
-      "curLocation": [
-        "000100",
-        "00010"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 39
-    },
-    {
-      "curLocation": [
-        "000100",
-        "00010"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 40
-    },
-    {
-      "curLocation": [
-        "000100",
-        "00010"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 41
-    },
-    {
-      "curLocation": [
-        "000100",
-        "00010"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 42
-    },
-    {
-      "curLocation": [
-        "000100",
-        "00010"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 43
-    },
-    {
-      "curLocation": [
-        "000100",
-        "00010"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 44
-    },
-    {
-      "curLocation": [
-        "000100",
-        "00010"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 45
-    },
-    {
-      "curLocation": [
-        "000100",
-        "00010"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 46
-    },
-    {
-      "curLocation": [
-        "000100",
-        "00010"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 47
-    },
-    {
-      "curLocation": [
-        "000100",
-        "00010"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 48
-    },
-    {
-      "curLocation": [
-        "000100",
-        "00010"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 49
-    },
-    {
-      "curLocation": [
-        "000100",
-        "00010"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 50
-    },
-    {
-      "curLocation": [
-        "000100",
-        "00010"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 51
-    },
-    {
-      "curLocation": [
-        "000100",
-        "00010"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 52
-    },
-    {
-      "curLocation": [
-        "000100",
-        "00010"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 53
-    },
-    {
-      "curLocation": [
-        "000100",
-        "00010"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 54
-    },
-    {
-      "curLocation": [
-        "011101",
-        "01110"
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 55
-    },
-    {
-      "curLocation": [
-        "010101",
-        "01010"
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 56
-    },
-    {
-      "curLocation": [
-        "010100",
-        "01010"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "entryDirection": "south",
-      "endType": "win",
-      "id": 57
-    },
-    {
-      "curLocation": [
-        "010100",
-        "01010"
-      ],
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "endType": "win",
-      "id": 58
-    },
-    {
-      "curLocation": [
-        "010001",
-        "01000"
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "goalPath": "010001",
-      "endType": "win",
-      "id": 59
-    },
-    {
-      "curLocation": [
-        "0",
-        ""
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "goalPath": "000110",
-      "endType": "leave",
-      "id": 60
-    },
-    {
-      "curLocation": [
-        "0",
-        ""
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "goalPath": "001000",
-      "endType": "leave",
-      "id": 61
-    },
-    {
-      "curLocation": [
-        "0",
-        ""
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "goalPath": "001000",
-      "endType": "leave",
-      "id": 62
-    },
-    {
-      "curLocation": [
-        "0",
-        "00"
-      ],
-      "entryDirection": "west",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "goalPath": "010001",
-      "endType": "leave",
-      "id": 63
-    },
-    {
-      "curLocation": [
-        "0",
-        ""
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "goalPath": "001010",
-      "endType": "leave",
-      "id": 64
-    },
-    {
-      "curLocation": [
-        "0",
-        ""
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "goalPath": "001010",
-      "endType": "leave",
-      "id": 65
-    },
-    {
-      "curLocation": [
-        "0",
-        ""
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "goalPath": "001010",
-      "endType": "leave",
-      "id": 66
-    },
-    {
-      "curLocation": [
-        "0",
-        ""
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "goalPath": "001010",
-      "endType": "leave",
-      "id": 67
-    },
-    {
-      "curLocation": [
-        "0",
-        ""
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "010100",
-      "endType": "leave",
-      "id": 68
-    },
-    {
-      "curLocation": [
-        "0",
-        "01"
-      ],
-      "entryDirection": "east",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "goalPath": "010000",
-      "endType": "leave",
-      "id": 69
-    },
-    {
-      "curLocation": [
-        "0",
-        "01"
-      ],
-      "entryDirection": "east",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "goalPath": "010000",
-      "endType": "leave",
-      "id": 70
-    },
-    {
-      "curLocation": [
-        "0",
-        "01"
-      ],
-      "entryDirection": "east",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "goalPath": "010000",
-      "endType": "leave",
-      "id": 71
-    },
-    {
-      "curLocation": [
-        "0",
-        "01"
-      ],
-      "entryDirection": "east",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "goalPath": "010000",
-      "endType": "leave",
-      "id": 72
-    },
-    {
-      "curLocation": [
-        "0",
-        "01"
-      ],
-      "entryDirection": "east",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "goalPath": "010000",
-      "endType": "leave",
-      "id": 73
-    },
-    {
-      "curLocation": [
-        "0",
-        "01"
-      ],
-      "entryDirection": "east",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "goalPath": "010000",
-      "endType": "leave",
-      "id": 74
-    },
-    {
-      "curLocation": [
-        "0",
-        "01"
-      ],
-      "entryDirection": "east",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "goalPath": "010000",
-      "endType": "leave",
-      "id": 75
-    },
-    {
-      "curLocation": [
-        "0",
-        "01"
-      ],
-      "entryDirection": "east",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "goalPath": "010000",
-      "endType": "leave",
-      "id": 76
-    },
-    {
-      "curLocation": [
-        "0",
-        ""
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "goalPath": "011101",
-      "endType": "leave",
-      "id": 77
-    },
-    {
-      "curLocation": [
-        "0",
-        ""
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "001000",
-      "foundTheseus": false,
-      "endType": "leave",
-      "id": 78
-    },
-    {
-      "curLocation": [
-        "0",
-        ""
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {
-        "hasTheseus": true
-      },
-      "goalPath": "000101",
-      "foundTheseus": false,
-      "endType": "win",
-      "id": 79
-    },
-    {
-      "curLocation": [
-        "0",
-        ""
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {
-        "hasTheseus": true
-      },
-      "goalPath": "000101",
-      "foundTheseus": false,
-      "endType": "win",
-      "id": 80
-    },
-    {
-      "curLocation": [
-        "0",
-        ""
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {
-        "hasTheseus": true
-      },
-      "goalPath": "000101",
-      "foundTheseus": false,
-      "endType": "win",
-      "id": 81
-    }
+    
   ],
   "items": [
     {
