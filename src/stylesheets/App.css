@@ -125,10 +125,16 @@ div div div div div div div {
   background-color: rgb(31, 23, 75);
   color: wheat;
   border: 3px solid #0b0e13;
+  flex-wrap:wrap;
+  justify-content: center;
 }
 
 .optionBox h3 {
   display: block;
+}
+
+.optionBox div {
+  width:45%;
 }
 
 .home{

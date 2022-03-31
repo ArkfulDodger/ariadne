@@ -169,6 +169,7 @@ function App() {
   function generateMap(goalPath) {
 
     const newMap = [];
+    const usedPassageTypes = [];
 
     const entranceRoom = {
         path: '0',
@@ -240,16 +241,21 @@ function App() {
         return "";
       }
     }
+
+    function getRandomPassageType() {
+        let passageType = passageTypeArray[Math.floor(Math.random()*passageTypeArray.length)];
+        if (passageType === "exit" || usedPassageTypes.includes(passageType)) {
+            passageType = getRandomPassageType();
+        }
+        usedPassageTypes.push(passageType);
+        if (usedPassageTypes.length >= passageTypeArray.length - 1) {
+          usedPassageTypes.length = 0;
+        }
+        return passageType
+    }
   }
 
 
-  function getRandomPassageType() {
-      let passageType = passageTypeArray[Math.floor(Math.random()*passageTypeArray.length)];
-      if (passageType === "exit") {
-          passageType = getRandomPassageType();
-      }
-      return passageType
-  }
 
   //#endregion
 

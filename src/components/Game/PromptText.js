@@ -337,7 +337,8 @@ function PromptText({ map, curGameInfo, passages }) {
     const connectingText = getConnectingText();
     const chamberText = getChamberText();
     // const clueText = "Placing the listening horn to your ear, you believe you can faintly hear the heavy plodding of hooves from the passage beyond to the right."
-    const clueText = "{{visibility: " + isVisibility + "}}";
+    // const clueText = "{{visibility: " + isVisibility + "}}";
+    const clueText = "";
 
     const narrationText = `${entryText} ${connectingText} ${chamberText}. ${clueText}`
     // console.log(narrationText);
