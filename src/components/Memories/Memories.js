@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import MemoryList from "./MemoryList";
 import { Link } from "react-router-dom";
 
-function Memories ({isCurGame}) {
+function Memories ({isCurGame, resumeGame, startNewGame}) {
 
     const [memories, setMemories] = useState([])
 
@@ -15,7 +15,7 @@ function Memories ({isCurGame}) {
     return (
         <div className="memoryPage">
             <h1>Memories!!!</h1>
-            <Link to="/play">{isCurGame ? "Return to the Labyrinth" : "Enter the Labyrinth"}</Link>             
+            <button className="linklike" onClick={isCurGame ? resumeGame : startNewGame}>{isCurGame ? "Return to the Labyrinth" : "Enter the Labyrinth"}</button>             
             <Link to="/">Return to Main Menu</Link>  
             <MemoryList memories={memories}/>
         </div>

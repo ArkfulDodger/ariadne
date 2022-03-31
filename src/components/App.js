@@ -341,7 +341,7 @@ function App() {
             displayMessagePopup={displayMessagePopup}
           />
         )}/>
-        <Route path="/memories" element={<Memories isCurGame={isCurGame} />}/>
+        <Route path="/memories" element={<Memories isCurGame={isCurGame} resumeGame={resumeGame} startNewGame={startNewGame} />}/>
         {/* <Route path="*" element={<Home isCurGame={isCurGame} />} /> */}
       </Routes>
       {isMessageUp &&

@@ -178,7 +178,7 @@ div div div div div div div {
   height: auto;
 }
 
-.memoryPage a{
+.memoryPage a, .memoryPage .linklike{
   width: 20%;
   font-size: small;
   padding: .5em;

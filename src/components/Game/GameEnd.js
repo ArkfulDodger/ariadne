@@ -21,7 +21,7 @@ function GameEnd({endType}) {
         endImgSrc = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Theseus_and_the_Minotaur.gif/170px-Theseus_and_the_Minotaur.gif"
         break;
         case 'die' :
-            endGameMessage = `You are gored to death by the minotaur... It's not all bad - Herems showed up to take you to the underworld`
+            endGameMessage = `You are gored to death by the minotaur... It's not all bad - Hermes showed up to take you to the underworld`
             endImgSrc="https://serenademagazine.com/wp-content/uploads/2021/07/Orpheus_and_Eurydice-header-1200x799.png"
             break;
         default: endGameMessage = "ok how did you get here?" 
