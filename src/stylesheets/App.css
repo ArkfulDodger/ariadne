@@ -2,6 +2,10 @@
   font-family: 'Cinzel';
 }
 
+.scroll-box p::first-letter {
+  font-size: x-large;
+}
+
 body{
   background-color: gold;
 }
@@ -42,7 +46,9 @@ img {
 
 h1{
   text-shadow: 2px 2px 2px wheat ;
+  padding-top: 1em;
 }
+
 .prompText {
   width: 80%;
   margin: auto;
@@ -110,6 +116,7 @@ div div div div div div div {
 .home{
   background-color: rgb(161, 30, 30);
   height: auto;
+  border-image: url(public/borderImg.jpg) 30;
 }
 
 .memoryPage{
