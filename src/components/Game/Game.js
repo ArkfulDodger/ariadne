@@ -36,6 +36,7 @@ function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCu
     const [menuOpen, setMenuOpen] = useState(false)
     const [itemsOpen, setItemsOpen] = useState(false)
     const [endType, setEndType] = useState('');
+    const [minoIsHere, setMinoIsHere] = useState(false)
     
     const {curLocation, goalPath, playerInfo, foundTheseus} = curGame
     
@@ -163,29 +164,35 @@ function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCu
             </h1>
             {contentLoaded ?
             <>
-                {/* {endType ? null : } */}
                 {endType ? <GameEnd endType={endType}/> : 
                     <>
                     {/* <Actions /> */}
-                    {/* <Minotaur /> */}
-                    {foundTheseus ? <Theseus curLocation={curLocation} updateCurGameInfo={updateCurGameInfo} curGameInfo={curGameInfo}/> : 
-                    <>
-                    <PromptText map={map} curGameInfo={curGameInfo} passages={passages}/>
-                    <Navigation 
-                        // patchCurGameStatus={patchCurGameStatus}
-                        endGame = {endGame}
-                        updateCurRoom={updateCurRoom} 
-                        curGameInfo={curGameInfo} 
-                        map={map}
-                        setEndType={setEndType}
-                        playerInfo={playerInfo}
-                        findTheseus={findTheseus}
-                    />
-                    <div className="game-buttons">
-                        <Menu menuOpen={menuOpen} handleToggleMenu={handleToggleMenu} startNewGame={restartGame}/>
-                        <ItemsWindow itemsOpen={itemsOpen} handleToggleItems={handleToggleItems} />
-                    </div>
-                    </>}
+                    {foundTheseus ? 
+                        <Theseus curLocation={curLocation} updateCurGameInfo={updateCurGameInfo} curGameInfo={curGameInfo}/> 
+                        : <> 
+                        {minoIsHere ? 
+                            <Minotaur setEndType={setEndType} setMinoIsHere={setMinoIsHere} /> 
+                            :
+                            <>
+                                <PromptText map={map} curGameInfo={curGameInfo} passages={passages}/>
+                                <Navigation 
+                                    // patchCurGameStatus={patchCurGameStatus}
+                                    endGame = {endGame}
+                                    updateCurRoom={updateCurRoom} 
+                                    curGameInfo={curGameInfo} 
+                                    map={map}
+                                    setEndType={setEndType}
+                                    playerInfo={playerInfo}
+                                    findTheseus={findTheseus}
+                                />
+                                <div className="game-buttons">
+                                    <Menu menuOpen={menuOpen} handleToggleMenu={handleToggleMenu} startNewGame={restartGame}/>
+                                    <ItemsWindow itemsOpen={itemsOpen} handleToggleItems={handleToggleItems} />
+                                </div>
+                            </>
+                        }
+                        </>
+                    }
                     </>
                 }
             </>

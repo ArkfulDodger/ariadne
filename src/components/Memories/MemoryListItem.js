@@ -23,6 +23,16 @@ function MemoryListItem ({memory}) {
         memoryDetailNote = "fair enough, he was pretty dumb"
         memoryURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Theseus_and_the_Minotaur.gif/170px-Theseus_and_the_Minotaur.gif"
         break;
+        case 'die' :
+            memoryResult = 'You were killed by the Minotaur'
+            memoryDetailNote = "alas, you were met by Hermes, who took you to the underworld"
+            memoryURL = "https://serenademagazine.com/wp-content/uploads/2021/07/Orpheus_and_Eurydice-header-1200x799.png"
+            break;
+        case 'restart' :
+            memoryResult = "You gave up"
+            memoryDetailNote = "you got lost and abandoned hope"
+            memoryURL = "https://www.ancient-origins.net/sites/default/files/field/image/The-Descent-of-Ariadne.jpg"
+        
     }
     return (
         <div className="memoryItem">

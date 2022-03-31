@@ -2,6 +2,11 @@
   font-family: 'Cinzel';
 }
 
+.minotaur img {
+  min-width: 250px;
+  width: 70%;
+}
+
 .scroll-box p::first-letter {
   font-size: x-large;
 }

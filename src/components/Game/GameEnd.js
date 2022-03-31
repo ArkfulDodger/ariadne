@@ -21,8 +21,8 @@ function GameEnd({endType}) {
         endImgSrc = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Theseus_and_the_Minotaur.gif/170px-Theseus_and_the_Minotaur.gif"
         break;
         case 'die' :
-            endGameMessage = "you died"
-            endImgSrc="https://i.kym-cdn.com/entries/icons/facebook/000/029/198/Dark_Souls_You_Died_Screen_-_Completely_Black_Screen_0-2_screenshot.jpg"
+            endGameMessage = `You are gored to death by the minotaur... It's not all bad - Herems showed up to take you to the underworld`
+            endImgSrc="https://serenademagazine.com/wp-content/uploads/2021/07/Orpheus_and_Eurydice-header-1200x799.png"
             break;
         default: endGameMessage = "ok how did you get here?" 
     }
