@@ -116,7 +116,12 @@ div div div div div div div {
 .home{
   background-color: rgb(161, 30, 30);
   height: auto;
-  border-image: url(public/borderImg.jpg) 30;
+  /* border-image-source: url(borderImg.jpg) 30; */
+}
+
+.home, .game, .memoryPage {
+  border: 6px solid rgb(85, 86, 182);
+  border-style: groove
 }
 
 .memoryPage{
