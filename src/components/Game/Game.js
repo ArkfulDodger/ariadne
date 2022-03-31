@@ -36,15 +36,23 @@ function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCu
     const [menuOpen, setMenuOpen] = useState(false)
     const [itemsOpen, setItemsOpen] = useState(false)
     const [endType, setEndType] = useState('');
-    const [foundTheseus, setFoundTheseus] = useState(false)
+    //const [foundTheseus, setFoundTheseus] = useState(false)
     
-    const {curLocation, goalPath, playerInfo} = curGame
+    const {curLocation, goalPath, playerInfo, foundTheseus} = curGame
     
 
     useEffect(() =>{
         if(endType){endGame()}
     }, [endType])
 
+    function findTheseus(){
+        updateCurGameInfo({
+            playerInfo : {
+                hasTheseus: true
+            },
+            foundTheseus : true
+        })
+    }
 
     function endGame(){
 
@@ -161,7 +169,7 @@ function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCu
                     <>
                     {/* <Actions /> */}
                     {/* <Minotaur /> */}
-                    {foundTheseus ? <Theseus setFoundTheseus={setFoundTheseus}/> : 
+                    {foundTheseus ? <Theseus updateCurGameInfo={updateCurGameInfo}/> : 
                     <>
                     <PromptText map={map} curGameInfo={curGameInfo} passages={passages}/>
                     <Navigation 
@@ -172,7 +180,7 @@ function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCu
                         map={map}
                         setEndType={setEndType}
                         playerInfo={playerInfo}
-                        setFoundTheseus={setFoundTheseus}
+                        findTheseus={findTheseus}
                     />
                     <div className="game-buttons">
                         <Menu menuOpen={menuOpen} handleToggleMenu={handleToggleMenu} startNewGame={restartGame}/>

@@ -11,6 +11,7 @@ function GameEnd({endType}) {
         case 'win' :
             endGameMessage = "You rescued Theseus and escape the Labyrinth together"
             endImgSrc = "https://ak.picdn.net/shutterstock/videos/1052179024/thumb/1.jpg?ip=x480"
+            break;
         case 'slay' : 
         endGameMessage = "You defeated the mighty Minotaur"
         endImgSrc = "https://tripanthropologist.com/wp-content/uploads/2021/02/mosaic-of-theseus-and-minotaur.jpg"
@@ -29,10 +30,12 @@ function GameEnd({endType}) {
     return (
         <div className="gameEnd">
             <h2>{endGameMessage}</h2>
-            <Link to="/">Return to Main Menu</Link>  
             <img src= {endImgSrc} />
-            {/* <Link to="/play">Go to a new Labyrinth</Link> */}
-            <Link to="/memories">Reflect on your Journey</Link>  
+            <div className="gameEndButtons">
+                <Link to="/">Return to Main Menu</Link>  
+                {/* <Link to="/play">Go to a new Labyrinth</Link> */}
+                <Link to="/memories">Reflect on your Journey</Link>  
+            </div>
         </div>
     )
 }

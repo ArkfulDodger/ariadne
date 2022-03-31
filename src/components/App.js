@@ -14,6 +14,7 @@ const defaultGameInfo = {
   stringPath: '0',
   minoLocation: '',
   itemsArray: [],
+  foundTheseus: false,
   playerInfo: {
     hasTheseus: false
   },
