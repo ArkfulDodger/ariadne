@@ -30,7 +30,7 @@ import GameEnd from "./GameEnd";
 //     }
 // ]
 
-function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCurGameInfo, updateMap, passages, restartGame, contentLoaded }) {
+function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCurGameInfo, updateMap, passages, restartGame, contentLoaded, displayMessagePopup }) {
     //#region CONFIRMED
 
     const [menuOpen, setMenuOpen] = useState(false)
@@ -169,7 +169,7 @@ function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCu
                     <>
                     {/* <Actions /> */}
                     {/* <Minotaur /> */}
-                    {foundTheseus ? <Theseus updateCurGameInfo={updateCurGameInfo}/> : 
+                    {foundTheseus ? <Theseus updateCurGameInfo={updateCurGameInfo} displayMessagePopup={displayMessagePopup}/> : 
                     <>
                     <PromptText map={map} curGameInfo={curGameInfo} passages={passages}/>
                     <Navigation 

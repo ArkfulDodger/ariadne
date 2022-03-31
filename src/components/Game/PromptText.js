@@ -340,7 +340,11 @@ function PromptText({ map, curGameInfo, passages }) {
     // const clueText = "{{visibility: " + isVisibility + "}}";
     const clueText = "";
 
-    const narrationText = `${entryText} ${connectingText} ${chamberText}. ${clueText}`
+    // console.log(curRoom);
+
+    const narrationText = curRoom.type === 'theseus' && !curRoom.roomVisited
+        ? `${chamberText}`
+        : `${entryText} ${connectingText} ${chamberText}. ${clueText}`
     // console.log(narrationText);
 
 

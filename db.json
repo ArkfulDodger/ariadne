@@ -2,15 +2,15 @@
   "loadStatus": [
     {
       "id": 1,
-      "isCurGame": false
+      "isCurGame": true
     }
   ],
   "current-game": [
     {
       "id": 1,
       "curLocation": [
-        "0",
-        "00"
+        "00110",
+        "001100"
       ],
       "entryDirection": "west",
       "stringPath": "0",
@@ -20,14 +20,14 @@
       "playerInfo": {
         "hasTheseus": true
       },
-      "goalPath": "000100",
+      "goalPath": "001100",
       "map": [
         {
           "path": "0",
           "type": "entrance",
           "roomVisited": true,
-          "westPassageType": "a torchlit path",
-          "eastPassageType": "a misty path",
+          "westPassageType": "a winding corridor",
+          "eastPassageType": "a rickety bridge over a pit",
           "southPassageType": "exit",
           "westPassageVisited": false,
           "eastPassageVisited": false,
@@ -38,9 +38,9 @@
           "path": "00",
           "type": "random",
           "roomVisited": true,
-          "westPassageType": "a winding corridor",
+          "westPassageType": "a precarious ladder",
           "eastPassageType": "a dusty hallway",
-          "southPassageType": "a torchlit path",
+          "southPassageType": "a winding corridor",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
@@ -49,82 +49,10 @@
         {
           "path": "000",
           "type": "random",
-          "roomVisited": true,
-          "westPassageType": "a heavy wooden door",
-          "eastPassageType": "a smooth stone cavern",
-          "southPassageType": "a winding corridor",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": true
-        },
-        {
-          "path": "0000",
-          "type": "random",
           "roomVisited": false,
           "westPassageType": "",
           "eastPassageType": "",
-          "southPassageType": "a heavy wooden door",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": false
-        },
-        {
-          "path": "0001",
-          "type": "random",
-          "roomVisited": true,
-          "westPassageType": "a dark stairwell",
-          "eastPassageType": "a mossy, but climbable wall",
-          "southPassageType": "a smooth stone cavern",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": true
-        },
-        {
-          "path": "00010",
-          "type": "random",
-          "roomVisited": true,
-          "westPassageType": "a winding corridor",
-          "eastPassageType": "a misty path",
-          "southPassageType": "a dark stairwell",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": true
-        },
-        {
-          "path": "000100",
-          "type": "theseus",
-          "roomVisited": true,
-          "westPassageType": null,
-          "eastPassageType": null,
-          "southPassageType": "a winding corridor",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": true
-        },
-        {
-          "path": "000101",
-          "type": "random",
-          "roomVisited": false,
-          "westPassageType": "",
-          "eastPassageType": "",
-          "southPassageType": "a misty path",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": false
-        },
-        {
-          "path": "00011",
-          "type": "random",
-          "roomVisited": false,
-          "westPassageType": "",
-          "eastPassageType": "",
-          "southPassageType": "a mossy, but climbable wall",
+          "southPassageType": "a precarious ladder",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
@@ -133,10 +61,82 @@
         {
           "path": "001",
           "type": "random",
+          "roomVisited": true,
+          "westPassageType": "a gently sloping walkway",
+          "eastPassageType": "a torchlit path",
+          "southPassageType": "a dusty hallway",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": true
+        },
+        {
+          "path": "0010",
+          "type": "random",
           "roomVisited": false,
           "westPassageType": "",
           "eastPassageType": "",
-          "southPassageType": "a dusty hallway",
+          "southPassageType": "a gently sloping walkway",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": false
+        },
+        {
+          "path": "0011",
+          "type": "random",
+          "roomVisited": true,
+          "westPassageType": "a heavy wooden door",
+          "eastPassageType": "a gently sloping walkway",
+          "southPassageType": "a torchlit path",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": true
+        },
+        {
+          "path": "00110",
+          "type": "random",
+          "roomVisited": true,
+          "westPassageType": "a smooth stone cavern",
+          "eastPassageType": "a torchlit path",
+          "southPassageType": "a heavy wooden door",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": true
+        },
+        {
+          "path": "001100",
+          "type": "theseus",
+          "roomVisited": true,
+          "westPassageType": null,
+          "eastPassageType": null,
+          "southPassageType": "a smooth stone cavern",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": true
+        },
+        {
+          "path": "001101",
+          "type": "random",
+          "roomVisited": false,
+          "westPassageType": "",
+          "eastPassageType": "",
+          "southPassageType": "a torchlit path",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": false
+        },
+        {
+          "path": "00111",
+          "type": "random",
+          "roomVisited": false,
+          "westPassageType": "",
+          "eastPassageType": "",
+          "southPassageType": "a gently sloping walkway",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
@@ -148,7 +148,7 @@
           "roomVisited": false,
           "westPassageType": "",
           "eastPassageType": "",
-          "southPassageType": "a misty path",
+          "southPassageType": "a rickety bridge over a pit",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
@@ -158,7 +158,74 @@
     }
   ],
   "memories": [
-    
+    {
+      "curLocation": [
+        "0",
+        ""
+      ],
+      "entryDirection": "south",
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "010000",
+      "endType": "leave",
+      "id": 1
+    },
+    {
+      "curLocation": [
+        "0",
+        "01"
+      ],
+      "entryDirection": "east",
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": true
+      },
+      "goalPath": "010000",
+      "endType": "win",
+      "id": 2
+    },
+    {
+      "curLocation": [
+        "0",
+        "01"
+      ],
+      "entryDirection": "east",
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": true
+      },
+      "goalPath": "010000",
+      "endType": "win",
+      "id": 3
+    },
+    {
+      "curLocation": [
+        "0",
+        "00"
+      ],
+      "entryDirection": "west",
+      "stringPath": "0",
+      "minoLocation": "",
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "001110",
+      "endType": "leave",
+      "id": 4
+    }
   ],
   "items": [
     {
@@ -184,8 +251,8 @@
       "default-visibility": true,
       "descriptions": {
         "initial": {
-          "dark": "where you are immediately presented with a choice of two branching paths",
-          "lit": "where you are immediately presented with a choice of two branching paths"
+          "dark": "where you are immediately presented with a choice of two branching paths.",
+          "lit": "where you are immediately presented with a choice of two branching paths."
         },
         "return": {
           "dark": "the entrance to the labyrinth",
@@ -794,6 +861,22 @@
       "id": 6,
       "text": "and, peering through the darkness, see",
       "visibility": false
+    }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "type": "string",
+      "image": "https://www.kindpng.com/picc/m/22-223715_transparent-white-string-png-ball-of-yarn-outline.png",
+      "header": "You hold in your hand a ball of string",
+      "body": "Unwind it as you walk to leave a trail leading back safety. You can always follow the 🧶 to return to the entrance."
+    },
+    {
+      "id": 2,
+      "type": "broken-string",
+      "image": "https://thumbs.dreamstime.com/b/broken-rope-failure-break-concept-broken-rope-failure-break-concept-image-contain-motion-blur-stroboscopic-220384775.jpg",
+      "header": "Your string has been broken!",
+      "body": "You are unsure when or how, but your tether to the entrance has been broken. Now, you must rely on your memory to make your escape before the minotaur finds you."
     }
   ]
 }

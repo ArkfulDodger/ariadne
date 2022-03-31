@@ -1,6 +1,6 @@
 import {useState} from "react"
 
-function Theseus({updateCurGameInfo}) {
+function Theseus({updateCurGameInfo, displayMessagePopup}) {
     const [isOpen, setIsOpen] = useState(true)
 
     function closeTheseus(event){
@@ -8,6 +8,7 @@ function Theseus({updateCurGameInfo}) {
         updateCurGameInfo({
             foundTheseus: false
         })
+        displayMessagePopup('broken-string')
     }
         const imgSrc = "http://www.maicar.com/GML/000Images/tim/theseus0819.jpg"
     return (
