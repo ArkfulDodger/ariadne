@@ -2,7 +2,7 @@
   "loadStatus": [
     {
       "id": 1,
-      "isCurGame": false
+      "isCurGame": true
     }
   ],
   "current-game": [
@@ -12,7 +12,7 @@
         "010001",
         "01000"
       ],
-      "entryDirection": "south",
+      "entryDirection": "west",
       "stringPath": "0",
       "minoLocation": "",
       "itemsArray": [],
@@ -93,6 +93,18 @@
         },
         {
           "path": "010000",
+          "type": "random",
+          "roomVisited": false,
+          "westPassageType": "a gently sloping walkway",
+          "eastPassageType": "a misty path",
+          "southPassageType": "a winding corridor",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": true
+        },
+        {
+          "path": "01000",
           "type": "random",
           "roomVisited": false,
           "westPassageType": "",
@@ -847,73 +859,31 @@
         "010100",
         "01010"
       ],
-      "entryDirection": "south",
       "stringPath": "0",
       "minoLocation": "",
       "itemsArray": [],
       "playerInfo": {},
-      "goalPath": "010100",
       "endType": "win",
       "id": 58
-    },
-    {
-      "curLocation": [
-        "011010",
-        "01101"
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "goalPath": "011010",
-      "endType": "win",
-      "id": 59
-    },
-    {
-      "curLocation": [
-        "001011",
-        "00101"
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "goalPath": "001011",
-      "endType": "win",
-      "id": 60
-    },
-    {
-      "curLocation": [
-        "000011",
-        "00001"
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "goalPath": "000011",
-      "endType": "win",
-      "id": 61
-    },
-    {
-      "curLocation": [
-        "010001",
-        "01000"
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "playerInfo": {},
-      "goalPath": "010001",
-      "endType": "win",
-      "id": 62
     }
   ],
-  "items": [],
+  "items": [
+    {
+      "id": 1,
+      "type": "torch",
+      "description": " a sturdy torch, you are able to light it from one of the sconces on the wall"
+    },
+    {
+      "id": 2,
+      "type": "sword",
+      "description": "a short sword with a Gladius blade"
+    },
+    {
+      "id": 3,
+      "type": "lyre",
+      "description": "an old, but still playable lyre"
+    }
+  ],
   "chambers": [
     {
       "id": 1,
@@ -972,6 +942,21 @@
         "return": {
           "dark": "the darkened storeroom",
           "lit": "the cluttered storeroom"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "type": "fountain",
+      "default-visibility": false,
+      "descriptions": {
+        "initial": {
+          "dark": "a small room with a murmuring fountain in the corner",
+          "lit": "a small room with a murmuring fountain in the corner, you see a wooden cup beneath it"
+        },
+        "return": {
+          "dark": "the room with a fountain",
+          "lit": "the room with a fountain"
         }
       }
     }
@@ -1175,6 +1160,24 @@
       "return-travel-text": [
         11
       ]
+    },
+    {
+      "id": 12,
+      "nav-text": "a gently sloping walkway",
+      "narration-text": "sloping walkway",
+      "initial-travel-text": [
+        1,
+        4,
+        5,
+        8
+      ],
+      "return-travel-text": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
     }
   ],
   "travel-text-initial": [
@@ -1189,7 +1192,8 @@
         3,
         5,
         6,
-        10
+        10,
+        12
       ]
     },
     {
@@ -1231,7 +1235,8 @@
         3,
         5,
         6,
-        10
+        10,
+        12
       ]
     },
     {
@@ -1246,7 +1251,8 @@
         5,
         6,
         9,
-        10
+        10,
+        12
       ]
     },
     {
@@ -1274,7 +1280,8 @@
         "Steading yourself, you ascend the"
       ],
       "passages": [
-        2
+        2,
+        12
       ]
     },
     {

@@ -9,7 +9,7 @@ function MenuPopup ({ startNewGame }) {
         <div>
             {/* <h4>I'm a lil menu popup!</h4> */}
             <Link to="/">Return to Main Menu</Link>
-            <button onClick={handleClick} >Restart Game</button>
+            <button className="restartButton" onClick={handleClick} >Restart Game</button>
             <Link to="/memories">Reflect on your Memories</Link>  
             {/*link to refresh*/}
 

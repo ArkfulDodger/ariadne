@@ -2,6 +2,20 @@
   font-family: 'Cinzel';
 }
 
+.scroll-box p::first-letter {
+  font-size: x-large;
+}
+
+.scroll-box img{
+  float: right;
+  margin: 1em;
+  border: 2px solid wheat;
+}
+
+body{
+  background-color: gold;
+}
+
 img {
   width: 35%;
   margin: auto;
@@ -37,8 +51,10 @@ img {
 }
 
 h1{
-  text-shadow: 2px 1px wheat ;
+  text-shadow: 2px 2px 2px wheat ;
+  padding-top: 1em;
 }
+
 .prompText {
   width: 80%;
   margin: auto;
@@ -106,6 +122,20 @@ div div div div div div div {
 .home{
   background-color: rgb(161, 30, 30);
   height: auto;
+  /* border-image-source: url(borderImg.jpg) 30; */
+}
+
+.home img{
+  border: 6px solid rgb(255, 174, 0);
+  border-radius: 4px;
+  border-style: ridge;
+}
+
+
+
+.home, .game, .memoryPage {
+  border: 6px solid rgb(85, 86, 182);
+  border-style: groove
 }
 
 .memoryPage{
@@ -174,6 +204,11 @@ a:hover, .linklike:hover {
 .menu {
   width: 25%;
   display: flex;
+  /* background-color: #6a707c; */
+}
+
+.items{
+  background-color: #282c34;
 }
 
 button {
@@ -186,7 +221,7 @@ button {
 button:hover{
   background-color: #6a707c;
 }
-.menu a {
+.menu a, .restartButton {
   font-size: small;
   padding: 5px;
   margin: 1em;
@@ -196,6 +231,8 @@ button:hover{
 h1, h2 {
   font-family: 'Cinzel';
 }
+
+
 
 .App {
   text-align: center;
