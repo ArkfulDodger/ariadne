@@ -1,6 +1,6 @@
 import {useState} from "react"
 
-function Theseus({updateCurGameInfo}) {
+function Theseus({updateCurGameInfo, curLocation, curGameInfo}) {
     const [isOpen, setIsOpen] = useState(true)
 
     function closeTheseus(event){
@@ -9,6 +9,8 @@ function Theseus({updateCurGameInfo}) {
             foundTheseus: false
         })
     }
+
+    //const returnPassageType = curGameInfo.map.find(room => room.path === curLocation[0]).southPassageType
         const imgSrc = "http://www.maicar.com/GML/000Images/tim/theseus0819.jpg"
     //cur game state, current chamber - entry direction, grab passage type
         return (
@@ -18,7 +20,7 @@ function Theseus({updateCurGameInfo}) {
                 <div className="theseus">
                     <h3>YOU FOUND YOUR HIMBO!</h3>
                     <img src={imgSrc} alt="a statue of Theseus and Ariadne" />
-                    <p>As you move beyond the (southern passage type), you come into a dark chamber.</p>
+                    <p>You make your way into a dark chamber.</p>
                     <p>It takes a moment for your eyes to adjust, but even before you can take a look around, you hear a something incredible.</p>
                     <p>"ARIADNE", Theseus cries, "I'm so glad to see you."</p>
                     <p>He tells you how he lost his way in the maze, after the string you gave him somehow became tangled and then torn, how he lost is sword in a tussle with the Minotaur, and has been hiding in the passageways ever since.</p>

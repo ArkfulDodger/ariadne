@@ -36,7 +36,6 @@ function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCu
     const [menuOpen, setMenuOpen] = useState(false)
     const [itemsOpen, setItemsOpen] = useState(false)
     const [endType, setEndType] = useState('');
-    //const [foundTheseus, setFoundTheseus] = useState(false)
     
     const {curLocation, goalPath, playerInfo, foundTheseus} = curGame
     
@@ -169,7 +168,7 @@ function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCu
                     <>
                     {/* <Actions /> */}
                     {/* <Minotaur /> */}
-                    {foundTheseus ? <Theseus updateCurGameInfo={updateCurGameInfo}/> : 
+                    {foundTheseus ? <Theseus curLocation={curLocation} updateCurGameInfo={updateCurGameInfo} curGameInfo={curGameInfo}/> : 
                     <>
                     <PromptText map={map} curGameInfo={curGameInfo} passages={passages}/>
                     <Navigation 
