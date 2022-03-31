@@ -4,6 +4,7 @@ function Navigation({findTheseus, curGameInfo, map, updateCurRoom, setEndType, p
     const {curLocation, stringPath, entryDirection} = curGameInfo
     const curRoom = map.find(room => room.path === curLocation[0]);
 
+    //for future: create a const for passageIcons, interpolate into each after testing player conditions etc
     // get passages and directions
     const westNav = curRoom.westPassageType
         ? {
@@ -17,11 +18,14 @@ function Navigation({findTheseus, curGameInfo, map, updateCurRoom, setEndType, p
         path: curRoom.path + '1'
     }
     : {}
+    
     const southNav = curRoom.southPassageType
-    ? {
-        flavorText: curRoom.southPassageType + '🧶',
-        path: curRoom.path.slice(0,-1)
-    }
+    ? !playerInfo.hasTheseus
+        ? {flavorText: curRoom.southPassageType + '🧶',
+            path: curRoom.path.slice(0,-1)}
+        : {flavorText: curRoom.southPassageType,
+            path: curRoom.path.slice(0,-1)}
+            
     : {}
 
     // // create nav options
