@@ -64,7 +64,7 @@ img {
 }
 
 .game {
-  background-color: rgb(100, 15, 15);
+  background-color: rgb(149, 21, 21);
   text-align: center;
 }
 
@@ -118,7 +118,7 @@ div div div div div div div {
 .option{
   width: 50%;
   margin: .5em;
-  background-color: rgb(118, 79, 20);
+  background-color: rgb(164, 114, 40);
   color:#161a21;
   border: 4px solid darkslategrey;
   border-style: groove;
@@ -133,7 +133,7 @@ div div div div div div div {
   width: 80%;
   margin: auto;
   display: flex;
-  background-color: rgb(31, 23, 75);
+  background-color: rgb(34, 25, 88);
   color: wheat;
   border: 3px solid #0b0e13;
   flex-wrap:wrap;
