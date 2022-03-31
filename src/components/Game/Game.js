@@ -10,32 +10,18 @@ import PromptText from "./PromptText";
 import GameEnd from "./GameEnd";
 
 //TODO: 
-//fix backwards in game navigation - kind of working: can go back but turn direction not dynamic
 // styling - an ongoing process
-// have narration pull from game obj
-// persist narration to game obj
+
 
  // TODO: STRETCH'
     // non-goal path lengths greater than 1
     // stringPath
-    // travel orientation/direction (persist to game object)
 
-// const defaultPassages = [
-//     {
-//         "id": 1,
-//         "nav-text": "a torchlit path",
-//         "narration-text": "torchlit path",
-//         "initial-travel-text": [1, 3, 4, 5],
-//         "return-travel-text": [1, 2, 3, 4, 5]
-//     }
-// ]
 
-function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCurGameInfo, updateMap, passages, restartGame, contentLoaded, displayMessagePopup, endType, setEndType }) {
+function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCurGameInfo, updateMap, passages, restartGame, contentLoaded, displayMessagePopup, endType, setEndType, items }) {
     //#region CONFIRMED
-
     const [menuOpen, setMenuOpen] = useState(false)
     const [itemsOpen, setItemsOpen] = useState(false)
-    //const [endType, setEndType] = useState('');
     const [minoIsHere, setMinoIsHere] = useState(false)
 
     const {curLocation, goalPath, minoIsEnabled, playerInfo, foundTheseus} = curGame
@@ -59,19 +45,7 @@ function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCu
 
     function endGame(){
 
-        // let endGameMessage = ''
-
-        // switch (endType) {
-        //     case 'win' : endGameMessage = "YOU FOUND YOUR HIMBO, good job"
-        //     break;
-        //     default: endGameMessage = "ok how did you get here?" 
-        // }
-        //console.log(endGameMessage)
-        //render a new endGame
-        //(endGameMessage)
-
         if (endType){
-            //setIsGameEnd(true)
 
             fetch(`http://localhost:3001/memories`, {
                 method: "POST",
@@ -189,6 +163,7 @@ function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCu
                                     findTheseus={findTheseus}
                                     setMinoIsHere={setMinoIsHere}
                                     minoIsEnabled={minoIsEnabled}
+                                    items={items}
                                 />
                             </>
                         }

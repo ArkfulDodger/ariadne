@@ -34,7 +34,8 @@ const defaultMap = [
     westPassageVisited: false,
     eastPassageVisited: false,
     southPassageVisited: true,
-    onGoalPath: true
+    onGoalPath: true,
+    itemInRoom: []
   }
 ]
 
@@ -66,6 +67,7 @@ function App() {
   const [curGame, setCurGame] = useState(defaultGameObject);
   const [passages, setPassages] = useState([]);
   const [messages, setMessages] = useState([]);
+  const [items, setItems] = useState([])
 
   const { goalPath } = curGame;
   const passageTypeArray = passages.length > 0 ? passages.map(passObj => passObj['nav-text']) : ["a torchlit path"];
@@ -76,9 +78,10 @@ function App() {
   const p1CurGame = fetch(`http://localhost:3001/current-game/1`);
   const p2Passages = fetch('http://localhost:3001/passages');
   const p3Messages = fetch('http://localhost:3001/messages')
+  const p4Items = fetch('http://localhost:3001/items')
 
   // set all states once data retrieved
-  Promise.all([p0IsCurGame, p1CurGame, p2Passages, p3Messages])
+  Promise.all([p0IsCurGame, p1CurGame, p2Passages, p3Messages, p4Items])
     .then(respArr => Promise.all(respArr.map(resp => resp.json())))
     .then(data => {
       console.log(data);
@@ -88,6 +91,7 @@ function App() {
       setMap(data[1].map);
       setPassages(data[2]);
       setMessages(data[3]);
+      setItems(data[4]);
       setContentLoaded(true);
     })
     .catch(() => alert('inital game fetch could not complete'))
@@ -191,11 +195,13 @@ function App() {
         westPassageVisited: false,
         eastPassageVisited: false,
         southPassageVisited: false,
-        onGoalPath: true
+        onGoalPath: true,
+        itemInRoom: []
     }
 
     newMap.push(entranceRoom);
     addRoomsTo(entranceRoom);
+    console.log(newMap)
     return newMap;
 
     function addRoomsTo(fromRoom) {
@@ -232,7 +238,8 @@ function App() {
         westPassageVisited: false,
         eastPassageVisited: false,
         southPassageVisited: false,
-        onGoalPath: isOnGoalPath(path)
+        onGoalPath: isOnGoalPath(path),
+        itemInRoom: []
         }
 
         newMap.push(newRoom);
@@ -276,24 +283,46 @@ function App() {
 
     const newGoalPath = generateGoalPath();
     const newMap = generateMap(newGoalPath);
+    const mapWithItems = addItemsToMap(newMap)
     
     updateIsCurGame(true);
     updateCurGameInfo({
       ...defaultGameInfo,
       goalPath: newGoalPath
     })
-    .then(() => updateMap(newMap))
+    .then(() => updateMap(mapWithItems))
     .then(() => {
       console.log('navigating to play');
       navigate('/play')
       displayMessagePopup('string')
     })
   }
+
+  function addItemsToMap(map){
+    
+    let randomPath = chooseARandomPath()
+    while (goalPath.includes(randomPath)){
+      randomPath = chooseARandomPath()
+    }
+    map.map(room => {
+      if (room.path === randomPath && (room.itemInRoom.length < 1)){
+        console.log("adding item!", room.path)
+        room.itemInRoom = items[Math.floor(Math.random()*items.length)]
+        return room
+      }
+      return room
+    })
+    return map
+  }
+
+  function chooseARandomPath(){
+    const randomRoom = map[Math.floor(Math.random()*map.length)]
+    return randomRoom.path
+  }
   
   function restartGame() {
     console.log("----RESTART GAME----");
     setEndType('restart')
-    // TODO: pass info to memories, wait for response, then...
     startNewGame();
   }
 
@@ -340,6 +369,7 @@ function App() {
             updateMap={updateMap}
             passages={passages}
             restartGame={restartGame}
+            items={items}
             contentLoaded={contentLoaded}
             displayMessagePopup={displayMessagePopup}
             endType={endType}

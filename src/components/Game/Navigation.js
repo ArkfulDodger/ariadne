@@ -1,7 +1,8 @@
 import OptionBox from "./OptionBox"
 
-function Navigation({findTheseus, minoIsEnabled, setMinoIsHere, curGameInfo, map, updateCurRoom, setEndType, playerInfo}) {
-    const {curLocation, stringPath, entryDirection} = curGameInfo
+function Navigation({findTheseus, minoIsEnabled, setMinoIsHere, curGameInfo, map, updateCurRoom, setEndType, playerInfo, items}) {
+
+    const {curLocation, stringPath, entryDirection, itemsArray} = curGameInfo
     const curRoom = map.find(room => room.path === curLocation[0]);
 
     //for future: create a const for passageIcons, interpolate into each after testing player conditions etc
@@ -95,13 +96,10 @@ function Navigation({findTheseus, minoIsEnabled, setMinoIsHere, curGameInfo, map
     let roomFlavor = "";
     if (curRoom.type === 'theseus' && !playerInfo.hasTheseus) {
         findTheseus()
-        //set found theseus to true, update player obj to hasT true
-        //which should render theseus and then still present the return object
     }
     else if (curRoom.path === curGameInfo.minoLocation && minoIsEnabled) {
         setMinoIsHere(true)
     }
-    // else {roomFlavor = `You find yourself in room ${curLocation[0]}`}
     else {roomFlavor = curRoomNavOptions.length > 1 ? `How do you proceed?` : 'You have reached a dead end'}
 
 
