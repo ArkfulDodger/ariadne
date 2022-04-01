@@ -1,7 +1,7 @@
 import OptionBox from "./OptionBox"
 
-function Navigation({findTheseus, minoIsEnabled, setMinoEngaged, curGameInfo, map, updateCurRoom, setEndType, playerInfo, getIsWithMinotaur}) {
-    const {curLocation, stringPath, entryDirection, minoCalmed} = curGameInfo
+function Navigation({findTheseus, minoIsEnabled, setMinoEngaged, curGameInfo, map, updateCurRoom, setEndType, playerInfo, getIsWithMinotaur, items, displayMessagePopup}) {
+    const {curLocation, stringPath, entryDirection, minoCalmed, itemsArray} = curGameInfo
     const curRoom = map.find(room => room.path === curLocation[0]);
 
     //for future: create a const for passageIcons, interpolate into each after testing player conditions etc
@@ -92,16 +92,27 @@ function Navigation({findTheseus, minoIsEnabled, setMinoEngaged, curGameInfo, ma
         }
     }
 
+    function checkForItem(){
+        console.log("checking for item", curRoom.itemInRoom)
+        if (curRoom.itemInRoom.length > 0){
+            const item = curRoom.itemInRoom[0]
+            console.log("ITEM from nav", curRoom.itemInRoom)
+            //displayMessagePopup(item.type)
+            //updateCurGameInfo({
+                //itemsArray : itemsArray.push(item)
+            //})
+        }
+    }
+
+    checkForItem()
+
     let roomFlavor = "";
     if (curRoom.type === 'theseus' && !playerInfo.hasTheseus) {
         findTheseus()
-        //set found theseus to true, update player obj to hasT true
-        //which should render theseus and then still present the return object
     }
     else if (getIsWithMinotaur() && minoIsEnabled) {
         // setMinoIsHere(true)
     }
-    // else {roomFlavor = `You find yourself in room ${curLocation[0]}`}
     else {roomFlavor = curRoomNavOptions.length > 1 ? `How do you proceed?` : 'You have reached a dead end'}
 
 

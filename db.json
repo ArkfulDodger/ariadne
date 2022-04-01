@@ -40,7 +40,8 @@
           "westPassageVisited": false,
           "eastPassageVisited": true,
           "southPassageVisited": false,
-          "onGoalPath": true
+          "onGoalPath": true,
+          "itemInRoom": []
         },
         {
           "path": "00",
@@ -48,11 +49,12 @@
           "roomVisited": false,
           "westPassageType": "",
           "eastPassageType": "",
-          "southPassageType": "a torchlit path",
+          "southPassageType": "a mossy, but climbable wall",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
-          "onGoalPath": false
+          "onGoalPath": false,
+          "itemInRoom": []
         },
         {
           "path": "01",
@@ -64,7 +66,8 @@
           "westPassageVisited": true,
           "eastPassageVisited": false,
           "southPassageVisited": false,
-          "onGoalPath": true
+          "onGoalPath": true,
+          "itemInRoom": []
         },
         {
           "path": "010",
@@ -160,7 +163,21 @@
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
-          "onGoalPath": false
+          "onGoalPath": false,
+          "itemInRoom": []
+        },
+        {
+          "path": "01",
+          "type": "random",
+          "roomVisited": false,
+          "westPassageType": "",
+          "eastPassageType": "",
+          "southPassageType": "a winding corridor",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": false,
+          "itemInRoom": []
         }
       ]
     }
@@ -1318,13 +1335,57 @@
         4,
         5
       ]
+    },
+    {
+      "id": 13,
+      "nav-text": "a gloomy hall",
+      "narration-text": "gloomy hall",
+      "initial-travel-text": [
+        2
+      ],
+      "return-travel-text": [
+        1,
+        4
+      ]
+    },
+    {
+      "id": 14,
+      "nav-text": "a cobweb-filled tunnel",
+      "narration-text": "tunnel",
+      "initial-travel-text": [
+        2,
+        4
+      ],
+      "return-travel-text": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": 15,
+      "nav-text": "a dusty walkway",
+      "narration-text": "walkway",
+      "initial-travel-text": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "return-travel-text": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
     }
   ],
   "travel-text-initial": [
     {
       "id": 1,
       "text": [
-        "Slowly, you follow the"
+        "You slowly follow the"
       ],
       "passages": [
         1,
@@ -1398,7 +1459,7 @@
     {
       "id": 6,
       "text": [
-        "Slowly, you push open the"
+        "With a hard shove, you push open the"
       ],
       "passages": [
         4
@@ -1407,7 +1468,7 @@
     {
       "id": 7,
       "text": [
-        "With a momentary struggle and an angry creak, you are soon past the"
+        "The bridge lets out an angry creak, but you are soon past the"
       ],
       "passages": [
         4
@@ -1438,8 +1499,8 @@
     {
       "id": 10,
       "text": [
-        "Dirt, digging its way into your fingernails, you clamber atop the",
-        "Dirt, digging its way into your fingernails, you clamber down the"
+        "Dirt digging its way into your fingernails, you clamber atop the",
+        "Dirt digging its way into your fingernails, you clamber down the"
       ],
       "passages": [
         7
@@ -1667,7 +1728,28 @@
       "type": "broken-string",
       "image": "https://thumbs.dreamstime.com/b/broken-rope-failure-break-concept-broken-rope-failure-break-concept-image-contain-motion-blur-stroboscopic-220384775.jpg",
       "header": "Your string has been broken!",
-      "body": "You are unsure when or how, but your tether to the entrance has been severed. Now, you must rely on your memory to make your escape before the minotaur finds you."
+      "body": "As you turn back to find your way out of the Labyrinth, you pull on your trusty string to guide you to the entrance. You are horrified to feel the line gone slack - you are unsure when or how, but your tether to the entrance has been broken. Now, you must rely on your memory to make your escape before the minotaur finds you."
+    },
+    {
+      "id": 3,
+      "type": "torch",
+      "image": "https://s3.envato.com/files/50126567/Ancient%20Torch%20in%20Cave.jpg",
+      "header": "You found a torch!",
+      "body": "As you walk forward, you nearly trip over a sturdy torch, lying on the ground beside a flint. You quickly light the torch, relieved to have a bit of light in the dark tunnels."
+    },
+    {
+      "id": 4,
+      "type": "sword",
+      "image": "https://sbg-sword-store.sword-buyers-guide.com/media/kingdomofarms/ss_size1/Maintz-Gladius-1.jpg",
+      "header": "You found a sword!",
+      "body": "Hidden in the corner of a dead end pathway, you find a fine-looking sword. While your are pleased to have some form of protection for yourself, you are alarmed to note that the scabbard looks just like the one you saw on Theseus' hip as he entered the maze."
+    },
+    {
+      "id": 5,
+      "type": "lyre",
+      "image": "https://blendswap.com/static/blendImages/2017/08/06/Blend/89136/9a88900243406f5ef85b84b159fdff74.jpg",
+      "header": "You found a lyre!",
+      "body": "You stumble upon a lyre, leaning against a wall. You are perplexed as to how it came to be here, and not sure what use it would be in the tunnels, but you decide to take it with you nonetheless."
     }
   ]
 }

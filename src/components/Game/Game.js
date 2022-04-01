@@ -10,29 +10,16 @@ import PromptText from "./PromptText";
 import GameEnd from "./GameEnd";
 
 //TODO: 
-//fix backwards in game navigation - kind of working: can go back but turn direction not dynamic
 // styling - an ongoing process
-// have narration pull from game obj
-// persist narration to game obj
+
 
  // TODO: STRETCH'
     // non-goal path lengths greater than 1
     // stringPath
-    // travel orientation/direction (persist to game object)
 
-// const defaultPassages = [
-//     {
-//         "id": 1,
-//         "nav-text": "a torchlit path",
-//         "narration-text": "torchlit path",
-//         "initial-travel-text": [1, 3, 4, 5],
-//         "return-travel-text": [1, 2, 3, 4, 5]
-//     }
-// ]
 
-function Game ({ isCurGame, updateIsCurGame, curGameInfo, map, updateCurGameInfo, updateMap, passages, restartGame, contentLoaded, displayMessagePopup }) {
+function Game ({ isCurGame, updateIsCurGame, curGameInfo, map, updateCurGameInfo, updateMap, passages, restartGame, contentLoaded, displayMessagePopup, endType, setEndType, items }) {
     //#region CONFIRMED
-
     const [menuOpen, setMenuOpen] = useState(false)
     const [itemsOpen, setItemsOpen] = useState(false)
     const [endType, setEndType] = useState('');
@@ -41,7 +28,10 @@ function Game ({ isCurGame, updateIsCurGame, curGameInfo, map, updateCurGameInfo
     const {curLocation, goalPath, minoLocation, minoThreat, playerInfo, foundTheseus, minoThreatMax, minoCalmed, minoCooldown} = curGameInfo
 
     useEffect(() =>{
-        if(endType){endGame()}
+        console.log('in endType Use effect', endType)
+        if(endType){
+            endGame()
+        }
     }, [endType])
 
     function findTheseus(){
@@ -61,7 +51,6 @@ function Game ({ isCurGame, updateIsCurGame, curGameInfo, map, updateCurGameInfo
     function endGame(){
 
         if (endType){
-            //setIsGameEnd(true)
 
             fetch(`http://localhost:3001/memories`, {
                 method: "POST",
@@ -265,7 +254,7 @@ function Game ({ isCurGame, updateIsCurGame, curGameInfo, map, updateCurGameInfo
                             : <>
                                 <PromptText map={map} curGameInfo={curGameInfo} passages={passages} getIsWithMinotaur={getIsWithMinotaur} />
                                 {/* <Actions /> */}
-                                <Navigation endGame = {endGame} updateCurRoom={updateCurRoom} curGameInfo={curGameInfo} map={map} setEndType={setEndType} playerInfo={playerInfo} findTheseus={findTheseus} setMinoEngaged={setMinoEngaged} getIsWithMinotaur={getIsWithMinotaur} />
+                                <Navigation endGame = {endGame} updateCurRoom={updateCurRoom} curGameInfo={curGameInfo} map={map} setEndType={setEndType} playerInfo={playerInfo} findTheseus={findTheseus} setMinoEngaged={setMinoEngaged} getIsWithMinotaur={getIsWithMinotaur}  items={items} displayMessagePopup={displayMessagePopup} />
                             </>}
                             <div className="game-buttons">
                                 <Menu menuOpen={menuOpen} handleToggleMenu={handleToggleMenu} startNewGame={restartGame}/>

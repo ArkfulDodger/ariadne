@@ -30,9 +30,13 @@ function MemoryListItem ({memory}) {
             break;
         case 'restart' :
             memoryResult = "You gave up"
-            memoryDetailNote = "you got lost and abandoned hope"
+            memoryDetailNote = "you got lost and abandoned all hope"
             memoryURL = "https://www.ancient-origins.net/sites/default/files/field/image/The-Descent-of-Ariadne.jpg"
-        
+        break;
+        case 'diplomacy' :
+            memoryResult = "You tried to reason with the Minotaur"
+            memoryDetailNote = "but you died. At least you got taken to the underworld by Hermes? He laughed at you."
+            memoryURL = "https://serenademagazine.com/wp-content/uploads/2021/07/Orpheus_and_Eurydice-header-1200x799.png"
     }
     return (
         <div className="memoryItem">

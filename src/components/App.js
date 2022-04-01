@@ -38,7 +38,8 @@ const defaultMap = [
     westPassageVisited: false,
     eastPassageVisited: false,
     southPassageVisited: true,
-    onGoalPath: true
+    onGoalPath: true,
+    itemInRoom: []
   }
 ]
 
@@ -54,6 +55,8 @@ const goalPathLength = 5;
 
 function App() {
   const navigate = useNavigate();
+  const [endType, setEndType] = useState('');
+
 
   //#region state declarations & CRUD functions
 
@@ -68,6 +71,7 @@ function App() {
   const [curGame, setCurGame] = useState(defaultGameObject);
   const [passages, setPassages] = useState([]);
   const [messages, setMessages] = useState([]);
+  const [items, setItems] = useState([])
 
   const { goalPath } = curGame;
   const passageTypeArray = passages.length > 0 ? passages.map(passObj => passObj['nav-text']) : ["a torchlit path"];
@@ -78,9 +82,10 @@ function App() {
   const p1CurGame = fetch(`http://localhost:3001/current-game/1`);
   const p2Passages = fetch('http://localhost:3001/passages');
   const p3Messages = fetch('http://localhost:3001/messages')
+  const p4Items = fetch('http://localhost:3001/items')
 
   // set all states once data retrieved
-  Promise.all([p0IsCurGame, p1CurGame, p2Passages, p3Messages])
+  Promise.all([p0IsCurGame, p1CurGame, p2Passages, p3Messages, p4Items])
     .then(respArr => Promise.all(respArr.map(resp => resp.json())))
     .then(data => {
       // console.log(data);
@@ -90,6 +95,7 @@ function App() {
       setMap(data[1].map);
       setPassages(data[2]);
       setMessages(data[3]);
+      setItems(data[4]);
       setContentLoaded(true);
     })
     .catch(() => alert('inital game fetch could not complete'))
@@ -193,7 +199,8 @@ function App() {
         westPassageVisited: false,
         eastPassageVisited: false,
         southPassageVisited: false,
-        onGoalPath: true
+        onGoalPath: true,
+        itemInRoom: []
     }
 
     newMap.push(entranceRoom);
@@ -238,7 +245,8 @@ function App() {
         westPassageVisited: false,
         eastPassageVisited: false,
         southPassageVisited: false,
-        onGoalPath: isOnGoalPath(path)
+        onGoalPath: isOnGoalPath(path),
+        itemInRoom: []
         }
 
         newMap.push(newRoom);
@@ -250,13 +258,26 @@ function App() {
       return goalPath.startsWith(path);
     }
 
+    // function getPassageType(currentPath, destinationPath) {
+    //   if (isOnGoalPath(destinationPath) || isOnGoalPath(currentPath)) {
+    //     return getRandomPassageType();
+    //   } else {
+    //     return "";
+    //   }
+    // }
+
     function getPassageType(currentPath, destinationPath) {
       if (isOnGoalPath(destinationPath) || isOnGoalPath(currentPath)) {
         return getRandomPassageType();
-      } else {
-        return "";
+      } else if (isOnGoalPath(currentPath.slice(0, currentPath.length -1))){
+        const random = Math.random()
+        if (random > .6){
+          return getRandomPassageType();
+        }
+      } else { return "";
       }
     }
+
 
     function getRandomPassageType() {
         let passageType = passageTypeArray[Math.floor(Math.random()*passageTypeArray.length)];
@@ -286,6 +307,9 @@ function App() {
     const newGoalPath = generateGoalPath();
     const newMap = generateMap(newGoalPath);
     const newMinoLocation = getStartingMinotaurLocation(newGoalPath);
+    console.log("newly generated map", newMap)
+    const mapWithItems = addItemsToMap(newMap, newGoalPath)
+
     
     updateIsCurGame(true);
     updateCurGameInfo({
@@ -293,7 +317,7 @@ function App() {
       goalPath: newGoalPath,
       minoLocation: newMinoLocation
     })
-    .then(() => updateMap(newMap))
+    .then(() => updateMap(mapWithItems))
     .then(() => {
       // console.log('navigating to play');
       setTimeout(() => {
@@ -302,10 +326,43 @@ function App() {
       }, 500);
     })
   }
+
+  function addItemsToMap(inputMap, inputGoalPath){
+
+    let mapWithItems = [...inputMap]
+    
+    for (let i = 0; i < items.length; i ++){
+
+    let randomPath = chooseARandomPath(inputMap)
+    
+    while (inputGoalPath.includes(randomPath)){
+      randomPath = chooseARandomPath(inputMap)
+    }
+    //console.log("room with Item! ", randomPath)
+    mapWithItems = mapWithItems.map(room => {
+      //console.log(room.path)
+      if (room.path === randomPath && (room.itemInRoom.length < 1)){ 
+        console.log("adding item!", room.path)
+        const newItem = items[Math.floor(Math.random()*items.length)]
+        return {...room, itemInRoom : [
+          newItem
+        ] }
+      }
+      return room
+    })}
+    console.log(mapWithItems)
+    return mapWithItems
+  }
+  
+  function chooseARandomPath(inputMap){
+    console.log(inputMap)
+    const randomRoom = inputMap[Math.floor(Math.random()*inputMap.length)]
+    return randomRoom.path
+  }
   
   function restartGame() {
     console.log("----RESTART GAME----");
-    // TODO: pass info to memories, wait for response, then...
+    setEndType('restart')
     startNewGame();
   }
 
@@ -363,8 +420,11 @@ function App() {
             updateMap={updateMap}
             passages={passages}
             restartGame={restartGame}
+            items={items}
             contentLoaded={contentLoaded}
             displayMessagePopup={displayMessagePopup}
+            endType={endType}
+            setEndType={setEndType}
           />
         )}/>
         <Route path="/memories" element={<Memories isCurGame={isCurGame} resumeGame={resumeGame} startNewGame={startNewGame} />}/>
