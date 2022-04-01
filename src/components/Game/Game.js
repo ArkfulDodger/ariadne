@@ -164,6 +164,7 @@ function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCu
                                     setMinoIsHere={setMinoIsHere}
                                     minoIsEnabled={minoIsEnabled}
                                     items={items}
+                                    displayMessagePopup={displayMessagePopup}
                                 />
                             </>
                         }

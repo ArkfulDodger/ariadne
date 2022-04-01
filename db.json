@@ -9,26 +9,26 @@
     {
       "id": 1,
       "curLocation": [
-        "0",
-        ""
+        "0001",
+        "00011"
       ],
-      "entryDirection": "south",
+      "entryDirection": "east",
       "stringPath": "0",
-      "minoLocation": "00",
+      "minoLocation": "100",
       "minoIsEnabled": true,
       "itemsArray": [],
       "foundTheseus": false,
       "playerInfo": {
         "hasTheseus": false
       },
-      "goalPath": "001101",
+      "goalPath": "000111",
       "map": [
         {
           "path": "0",
           "type": "entrance",
-          "roomVisited": false,
-          "westPassageType": "a mossy, but climbable wall",
-          "eastPassageType": "a torchlit path",
+          "roomVisited": true,
+          "westPassageType": "a rickety bridge over a pit",
+          "eastPassageType": "a dark stairwell",
           "southPassageType": "exit",
           "westPassageVisited": false,
           "eastPassageVisited": false,
@@ -39,10 +39,10 @@
         {
           "path": "00",
           "type": "random",
-          "roomVisited": false,
-          "westPassageType": "a dusty hallway",
+          "roomVisited": true,
+          "westPassageType": "a winding corridor",
           "eastPassageType": "a precarious ladder",
-          "southPassageType": "a mossy, but climbable wall",
+          "southPassageType": "a rickety bridge over a pit",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
@@ -52,23 +52,10 @@
         {
           "path": "000",
           "type": "random",
-          "roomVisited": false,
-          "westPassageType": "",
-          "eastPassageType": "",
-          "southPassageType": "a dusty hallway",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": false,
-          "itemInRoom": []
-        },
-        {
-          "path": "001",
-          "type": "random",
-          "roomVisited": false,
+          "roomVisited": true,
           "westPassageType": "a misty path",
-          "eastPassageType": "a rickety bridge over a pit",
-          "southPassageType": "a precarious ladder",
+          "eastPassageType": "a gently sloping walkway",
+          "southPassageType": "a winding corridor",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
@@ -76,7 +63,7 @@
           "itemInRoom": []
         },
         {
-          "path": "0010",
+          "path": "0000",
           "type": "random",
           "roomVisited": false,
           "westPassageType": "",
@@ -86,32 +73,15 @@
           "eastPassageVisited": false,
           "southPassageVisited": false,
           "onGoalPath": false,
-          "itemInRoom": {
-            "id": 2,
-            "type": "sword",
-            "description": "a short sword with a Gladius blade"
-          }
-        },
-        {
-          "path": "0011",
-          "type": "random",
-          "roomVisited": false,
-          "westPassageType": "a heavy wooden door",
-          "eastPassageType": "a gently sloping walkway",
-          "southPassageType": "a rickety bridge over a pit",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": true,
           "itemInRoom": []
         },
         {
-          "path": "00110",
+          "path": "0001",
           "type": "random",
-          "roomVisited": false,
-          "westPassageType": "a winding corridor",
+          "roomVisited": true,
+          "westPassageType": "a dusty hallway",
           "eastPassageType": "a dark stairwell",
-          "southPassageType": "a heavy wooden door",
+          "southPassageType": "a gently sloping walkway",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
@@ -119,12 +89,42 @@
           "itemInRoom": []
         },
         {
-          "path": "001100",
+          "path": "00010",
           "type": "random",
           "roomVisited": false,
           "westPassageType": "",
           "eastPassageType": "",
-          "southPassageType": "a winding corridor",
+          "southPassageType": "a dusty hallway",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": false,
+          "itemInRoom": {
+            "id": 3,
+            "type": "lyre",
+            "description": "an old, but still playable lyre"
+          }
+        },
+        {
+          "path": "00011",
+          "type": "random",
+          "roomVisited": true,
+          "westPassageType": "a smooth stone cavern",
+          "eastPassageType": "a torchlit path",
+          "southPassageType": "a dark stairwell",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": true,
+          "onGoalPath": true,
+          "itemInRoom": []
+        },
+        {
+          "path": "000110",
+          "type": "random",
+          "roomVisited": false,
+          "westPassageType": "",
+          "eastPassageType": "",
+          "southPassageType": "a smooth stone cavern",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
@@ -132,12 +132,12 @@
           "itemInRoom": []
         },
         {
-          "path": "001101",
+          "path": "000111",
           "type": "theseus",
           "roomVisited": false,
           "westPassageType": null,
           "eastPassageType": null,
-          "southPassageType": "a dark stairwell",
+          "southPassageType": "a torchlit path",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
@@ -145,12 +145,12 @@
           "itemInRoom": []
         },
         {
-          "path": "00111",
+          "path": "001",
           "type": "random",
           "roomVisited": false,
           "westPassageType": "",
           "eastPassageType": "",
-          "southPassageType": "a gently sloping walkway",
+          "southPassageType": "a precarious ladder",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
@@ -163,7 +163,7 @@
           "roomVisited": false,
           "westPassageType": "",
           "eastPassageType": "",
-          "southPassageType": "a torchlit path",
+          "southPassageType": "a dark stairwell",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
@@ -886,6 +886,186 @@
       "goalPath": "010011",
       "endType": "restart",
       "id": 40
+    },
+    {
+      "curLocation": [
+        "0",
+        ""
+      ],
+      "entryDirection": "south",
+      "stringPath": "0",
+      "minoLocation": "00",
+      "minoIsEnabled": true,
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "001101",
+      "endType": "restart",
+      "id": 41
+    },
+    {
+      "curLocation": [
+        "0",
+        ""
+      ],
+      "entryDirection": "south",
+      "stringPath": "0",
+      "minoLocation": "00",
+      "minoIsEnabled": true,
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "001101",
+      "endType": "restart",
+      "id": 42
+    },
+    {
+      "curLocation": [
+        "0",
+        ""
+      ],
+      "entryDirection": "south",
+      "stringPath": "0",
+      "minoLocation": "00",
+      "minoIsEnabled": true,
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "001101",
+      "endType": "restart",
+      "id": 43
+    },
+    {
+      "curLocation": [
+        "0",
+        ""
+      ],
+      "entryDirection": "south",
+      "stringPath": "0",
+      "minoLocation": "00",
+      "minoIsEnabled": true,
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "000010",
+      "endType": "restart",
+      "id": 44
+    },
+    {
+      "curLocation": [
+        "00",
+        "0"
+      ],
+      "entryDirection": "south",
+      "stringPath": "0",
+      "minoLocation": "00",
+      "minoIsEnabled": true,
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "001101",
+      "endType": "die",
+      "id": 45
+    },
+    {
+      "curLocation": [
+        "0",
+        ""
+      ],
+      "entryDirection": "south",
+      "stringPath": "0",
+      "minoLocation": "00",
+      "minoIsEnabled": true,
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "001000",
+      "endType": "die",
+      "id": 46
+    },
+    {
+      "curLocation": [
+        "0",
+        ""
+      ],
+      "entryDirection": "south",
+      "stringPath": "0",
+      "minoLocation": "00",
+      "minoIsEnabled": true,
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "001000",
+      "endType": "restart",
+      "id": 47
+    },
+    {
+      "curLocation": [
+        "00",
+        "0"
+      ],
+      "entryDirection": "south",
+      "stringPath": "0",
+      "minoLocation": "00",
+      "minoIsEnabled": true,
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "001011",
+      "endType": "restart",
+      "id": 48
+    },
+    {
+      "curLocation": [
+        "0",
+        ""
+      ],
+      "entryDirection": "south",
+      "stringPath": "0",
+      "minoLocation": "100",
+      "minoIsEnabled": true,
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "001101",
+      "endType": "restart",
+      "id": 49
+    },
+    {
+      "curLocation": [
+        "00110",
+        "0011"
+      ],
+      "entryDirection": "south",
+      "stringPath": "0",
+      "minoLocation": "100",
+      "minoIsEnabled": true,
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "001101",
+      "endType": "restart",
+      "id": 50
     }
   ],
   "items": [
@@ -1537,7 +1717,28 @@
       "type": "broken-string",
       "image": "https://thumbs.dreamstime.com/b/broken-rope-failure-break-concept-broken-rope-failure-break-concept-image-contain-motion-blur-stroboscopic-220384775.jpg",
       "header": "Your string has been broken!",
-      "body": "You are unsure when or how, but your tether to the entrance has been broken. Now, you must rely on your memory to make your escape before the minotaur finds you."
+      "body": "As you turn back to find your way out of the Labyrinth, you pull on your trusty string to guide you to the entrance. You are horrified to feel the line gone slack - you are unsure when or how, but your tether to the entrance has been broken. Now, you must rely on your memory to make your escape before the minotaur finds you."
+    },
+    {
+      "id": 3,
+      "type": "torch",
+      "image": "https://s3.envato.com/files/50126567/Ancient%20Torch%20in%20Cave.jpg",
+      "header": "You found a torch!",
+      "body": "As you walk forward, you nearly trip over a sturdy torch, lying on the ground beside a flint. You quickly light the torch, relieved to have a bit of light in the dark tunnels."
+    },
+    {
+      "id": 4,
+      "type": "sword",
+      "image": "https://sbg-sword-store.sword-buyers-guide.com/media/kingdomofarms/ss_size1/Maintz-Gladius-1.jpg",
+      "header": "You found a sword!",
+      "body": "Hidden in the corner of a dead end pathway, you find a fine-looking sword. While your are pleased to have some form of protection for yourself, you are alarmed to note that the scabbard looks just like the one you saw on Theseus' hip as he entered the maze."
+    },
+    {
+      "id": 5,
+      "type": "lyre",
+      "image": "https://blendswap.com/static/blendImages/2017/08/06/Blend/89136/9a88900243406f5ef85b84b159fdff74.jpg",
+      "header": "You found a lyre!",
+      "body": "You stumble upon a lyre, leaning against a wall. You are perplexed as to how it came to be here, and not sure what use it would be in the tunnels, but you decide to take it with you nonetheless."
     }
   ]
 }

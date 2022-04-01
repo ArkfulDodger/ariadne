@@ -13,7 +13,7 @@ const defaultGameInfo = {
   curLocation: ["0", ""],
   entryDirection: 'south',
   stringPath: '0',
-  minoLocation: '00',
+  minoLocation: '100',
   minoIsEnabled: true,
   itemsArray: [],
   foundTheseus: false,
@@ -283,7 +283,7 @@ function App() {
     const newGoalPath = generateGoalPath();
     const newMap = generateMap(newGoalPath);
     console.log("newly generated map", newMap)
-    const mapWithItems = addItemsToMap(newMap)
+    const mapWithItems = addItemsToMap(newMap, newGoalPath)
     
     updateIsCurGame(true);
     updateCurGameInfo({
@@ -298,16 +298,14 @@ function App() {
     })
   }
 
-  function addItemsToMap(inputMap){
-
+  function addItemsToMap(inputMap, inputGoalPath){
     let randomPath = chooseARandomPath(inputMap)
-    while (goalPath.includes(randomPath)){
-      randomPath = chooseARandomPath()
+    while (inputGoalPath.includes(randomPath)){
+      randomPath = chooseARandomPath(inputMap)
     }
-
-    console.log("room with Item! ", randomPath)
+    //console.log("room with Item! ", randomPath)
     const mapWithItems = inputMap.map(room => {
-      console.log(room.path)
+      //console.log(room.path)
       if (room.path === randomPath ){ //&& (room.itemInRoom.length < 1)
         console.log("adding item!", room.path)
         const newItem = items[Math.floor(Math.random()*items.length)]
@@ -315,10 +313,12 @@ function App() {
       }
       return room
     })
+    console.log(mapWithItems)
     return mapWithItems
   }
-
+  
   function chooseARandomPath(inputMap){
+    console.log(inputMap)
     const randomRoom = inputMap[Math.floor(Math.random()*inputMap.length)]
     return randomRoom.path
   }
