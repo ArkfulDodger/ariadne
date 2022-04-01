@@ -75,7 +75,7 @@ function PromptText({ map, curGameInfo, passages, getIsWithMinotaur }) {
             
         fetch(`${URL}/chambers`)
             .then( res => res.json())
-            .then( passages => setChambers(passages))
+            .then( chambers => setChambers(chambers))
             .catch( error => alert(error.message));
 
         fetch(`${URL}/connecting-text`)
@@ -97,7 +97,7 @@ function PromptText({ map, curGameInfo, passages, getIsWithMinotaur }) {
     // conditions from currentGame
     const isPassageVisited = getIsPassageVisited();
     const isForwardTravel = curLocation[0].length > curLocation[1].length;
-    const hasTorch = itemsArray.includes('torch');
+    const hasTorch = itemsArray.find(item => item.type === 'torch');
     const hasHorn = true; // TODO: connect to Game state
     const isVisibility = getVisibility();
 
