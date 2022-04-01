@@ -23,13 +23,7 @@
       "minoCooldown": 4,
       "minoCooldownMax": 4,
       "minoThreatMax": 4,
-      "itemsArray": [
-        {
-          "id": 3,
-          "type": "lyre",
-          "description": "an old, but still playable lyre"
-        }
-      ],
+      "itemsArray": [],
       "foundTheseus": false,
       "playerInfo": {
         "hasTheseus": false
@@ -43,8 +37,8 @@
           "westPassageType": "a mossy, but climbable wall",
           "eastPassageType": "a cobweb-filled tunnel",
           "southPassageType": "exit",
-          "westPassageVisited": true,
-          "eastPassageVisited": false,
+          "westPassageVisited": false,
+          "eastPassageVisited": true,
           "southPassageVisited": false,
           "onGoalPath": true,
           "itemInRoom": []
@@ -59,7 +53,7 @@
           "westPassageVisited": true,
           "eastPassageVisited": false,
           "southPassageVisited": false,
-          "onGoalPath": true,
+          "onGoalPath": false,
           "itemInRoom": []
         },
         {
@@ -72,12 +66,18 @@
           "westPassageVisited": true,
           "eastPassageVisited": false,
           "southPassageVisited": false,
-          "onGoalPath": true,
-          "itemInRoom": []
+          "onGoalPath": false,
+          "itemInRoom": [
+            {
+              "id": 2,
+              "type": "sword",
+              "description": "a short sword with a Gladius blade"
+            }
+          ]
         },
         {
-          "path": "0000",
-          "type": "default",
+          "path": "01",
+          "type": "fork",
           "roomVisited": true,
           "westPassageType": "a rickety bridge over a pit",
           "southPassageType": "a torchlit path",
@@ -88,8 +88,8 @@
           "itemInRoom": []
         },
         {
-          "path": "00000",
-          "type": "deadend",
+          "path": "010",
+          "type": "bend",
           "roomVisited": false,
           "westPassageType": "",
           "eastPassageType": "",
@@ -147,7 +147,7 @@
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
-          "onGoalPath": false,
+          "onGoalPath": true,
           "itemInRoom": []
         },
         {
@@ -156,6 +156,19 @@
           "roomVisited": false,
           "eastPassageType": "a dusty hallway",
           "southPassageType": "a gently sloping walkway",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": true,
+          "itemInRoom": []
+        },
+        {
+          "path": "01100",
+          "type": "bend",
+          "roomVisited": false,
+          "westPassageType": "",
+          "eastPassageType": "a gently sloping walkway",
+          "southPassageType": "a misty path",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
@@ -213,8 +226,8 @@
           ]
         },
         {
-          "path": "01",
-          "type": "default",
+          "path": "011010",
+          "type": "theseus",
           "roomVisited": false,
           "westPassageType": "a rickety bridge over a pit",
           "eastPassageType": "a torchlit path",
@@ -222,11 +235,11 @@
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
-          "onGoalPath": false,
+          "onGoalPath": true,
           "itemInRoom": []
         },
         {
-          "path": "010",
+          "path": "011011",
           "type": "deadend",
           "roomVisited": false,
           "westPassageType": "",
@@ -236,10 +249,16 @@
           "eastPassageVisited": false,
           "southPassageVisited": false,
           "onGoalPath": false,
-          "itemInRoom": []
+          "itemInRoom": [
+            {
+              "id": 3,
+              "type": "lyre",
+              "description": "an old, but still playable lyre"
+            }
+          ]
         },
         {
-          "path": "011",
+          "path": "0111",
           "type": "deadend",
           "roomVisited": false,
           "westPassageType": "",
@@ -1079,6 +1098,56 @@
       "goalPath": "010111",
       "endType": "caught",
       "id": 38
+    },
+    {
+      "curLocation": [
+        "001",
+        "0011"
+      ],
+      "entryDirection": "east",
+      "stringPath": "0",
+      "minoLocation": [
+        "001",
+        "0011"
+      ],
+      "minoThreat": 4,
+      "minoCalmed": false,
+      "minoCooldown": 4,
+      "minoCooldownMax": 4,
+      "minoThreatMax": 4,
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "001010",
+      "endType": "caught",
+      "id": 39
+    },
+    {
+      "curLocation": [
+        "0",
+        ""
+      ],
+      "entryDirection": "south",
+      "stringPath": "0",
+      "minoLocation": [
+        "01111",
+        "011111"
+      ],
+      "minoThreat": 0,
+      "minoCalmed": false,
+      "minoCooldown": 4,
+      "minoCooldownMax": 4,
+      "minoThreatMax": 4,
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "011111",
+      "endType": "caught",
+      "id": 40
     }
   ],
   "items": [
@@ -1131,7 +1200,7 @@
     },
     {
       "id": 3,
-      "type": "default",
+      "type": "fork",
       "default-visibility": false,
       "descriptions": {
         "initial": {
@@ -1186,6 +1255,21 @@
         "return": {
           "dark": "what seems to be a familiar dead end",
           "lit": "the dead end you enountered before"
+        }
+      }
+    },
+    {
+      "id": 6,
+      "type": "bend",
+      "default-visibility": false,
+      "descriptions": {
+        "initial": {
+          "dark": "a sudden turn in the maze",
+          "lit": "a sharp turn in the maze"
+        },
+        "return": {
+          "dark": "the path ahead",
+          "lit": "the path ahead"
         }
       }
     }

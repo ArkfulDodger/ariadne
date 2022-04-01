@@ -226,12 +226,15 @@ function App() {
           westPassage = null
           eastPassage = null
         } else {
+          // [westPassage, eastPassage] = getPassageTypes(path);
           westPassage = getPassageType(path, path+'0');
           eastPassage = getPassageType(path, path+'1');
           if (!westPassage && !eastPassage) {
             roomType="deadend" // TODO: set to random chamber type
+          } else if ((!westPassage && eastPassage) || (westPassage && !eastPassage)) {
+            roomType="bend" // TODO: set to random chamber type
           } else {
-            roomType="default" // TODO: set to random chamber type
+            roomType="fork" // TODO: set to random chamber type
           }
         }
 
@@ -269,14 +272,30 @@ function App() {
     function getPassageType(currentPath, destinationPath) {
       if (isOnGoalPath(destinationPath) || isOnGoalPath(currentPath)) {
         return getRandomPassageType();
-      } else if (isOnGoalPath(currentPath.slice(0, currentPath.length -1))){
-        const random = Math.random()
-        if (random > .6){
-          return getRandomPassageType();
-        }
-      } else { return "";
+
+      } else if (isOnGoalPath(currentPath.slice(0, -1))) {
+        return Math.random() > 0.6 ? getRandomPassageType() : "";
+
+      } else {
+        return "";
       }
     }
+
+    // function getPassageTypes(currentPath) {
+    //   if (isOnGoalPath(currentPath)) {
+    //     return [getRandomPassageType(), getRandomPassageType()];
+
+    //   } else if (isOnGoalPath(currentPath.slice(0, -1))){
+    //     if (Math.random() > 0.6){
+    //       return [getRandomPassageType(), getRandomPassageType()];
+    //     } else {
+    //       return ["", ""];
+    //     }
+
+    //   } else {
+    //     return ["",""];
+    //   }
+    // }
 
 
     function getRandomPassageType() {
@@ -296,6 +315,53 @@ function App() {
     return [goalPath.slice(0,-1), goalPath]
   }
 
+  function addItemsToMap(inputMap, inputGoalPath){
+
+    let mapWithItems = [...inputMap]
+    
+    items.forEach(item => {
+      // get random dead end, not theseus, not with an item already
+      let randomPath = chooseARandomPath(inputMap)
+      while (!getIsPathDeadEnd(randomPath, inputMap)
+        || randomPath === inputGoalPath
+        || mapWithItems.find(room => room.path === randomPath).itemInRoom.length > 0
+      ){
+        randomPath = chooseARandomPath(inputMap)
+      }
+      //console.log("room with Item! ", randomPath)
+
+      // update mapWithItems to reflect item in selected room
+      mapWithItems = mapWithItems.map(room => {
+        //console.log(room.path)
+        if (room.path === randomPath) { 
+          console.log(`adding ${item.type} to`, room.path)
+          // const newItem = items[Math.floor(Math.random()*items.length)]
+          return {...room, itemInRoom : [item] }
+        } else {
+          return room
+        }
+      })
+    })
+
+    for (let i = 0; i < items.length; i ++){
+
+
+    }
+    // console.log(mapWithItems)
+    return mapWithItems
+  }
+  
+  function getIsPathDeadEnd (path, map) {
+    const room = map.find(room => room.path === path);
+    const isDeadEnd = !room.westPassageType && !room.eastPassageType;
+    return isDeadEnd;
+  }
+
+  function chooseARandomPath(inputMap){
+    // console.log(inputMap)
+    const randomRoom = inputMap[Math.floor(Math.random()*inputMap.length)]
+    return randomRoom.path
+  }
 
   //#endregion
 
@@ -306,12 +372,12 @@ function App() {
 
     const newGoalPath = generateGoalPath();
     const newMap = generateMap(newGoalPath);
+    console.log("newMap:", newMap);
     const newMinoLocation = getStartingMinotaurLocation(newGoalPath);
-    console.log("newly generated map", newMap)
+    // console.log("newly generated map", newMap)
     const mapWithItems = addItemsToMap(newMap, newGoalPath)
+    // console.log('itemsMap:', mapWithItems);
 
-    
-    updateIsCurGame(true);
     updateCurGameInfo({
       ...defaultGameInfo,
       goalPath: newGoalPath,
@@ -321,45 +387,13 @@ function App() {
     .then(() => {
       // console.log('navigating to play');
       setTimeout(() => {
+        updateIsCurGame(true);
         navigate('/play')
         displayMessagePopup('string')
       }, 500);
     })
   }
 
-  function addItemsToMap(inputMap, inputGoalPath){
-
-    let mapWithItems = [...inputMap]
-    
-    for (let i = 0; i < items.length; i ++){
-
-    let randomPath = chooseARandomPath(inputMap)
-    
-    while (inputGoalPath.includes(randomPath)){
-      randomPath = chooseARandomPath(inputMap)
-    }
-    //console.log("room with Item! ", randomPath)
-    mapWithItems = mapWithItems.map(room => {
-      //console.log(room.path)
-      if (room.path === randomPath && (room.itemInRoom.length < 1)){ 
-        console.log("adding item!", room.path)
-        const newItem = items[Math.floor(Math.random()*items.length)]
-        return {...room, itemInRoom : [
-          newItem
-        ] }
-      }
-      return room
-    })}
-    console.log(mapWithItems)
-    return mapWithItems
-  }
-  
-  function chooseARandomPath(inputMap){
-    console.log(inputMap)
-    const randomRoom = inputMap[Math.floor(Math.random()*inputMap.length)]
-    return randomRoom.path
-  }
-  
   function restartGame() {
     console.log("----RESTART GAME----");
     setEndType('restart')

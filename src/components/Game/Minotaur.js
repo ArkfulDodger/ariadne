@@ -4,9 +4,9 @@ import {useState} from 'react';
 const Minotaur = ({ curGameInfo, minoEngaged, setMinoEngaged, updateCurGameInfo, setEndType, sootheMino }) => {
     const {playerInfo: { hasTheseus }, itemsArray, minoCooldown} = curGameInfo;
 
-    const hasSword = itemsArray.includes('sword');
-    const hasLyre = itemsArray.includes('lyre');
-    const hasTorch = itemsArray.includes('torch');
+    const hasSword = itemsArray.find(item => item.type === 'sword');
+    const hasLyre = itemsArray.find(item => item.type === 'lyre');
+    const hasTorch = itemsArray.find(item => item.type === 'torch');
 
     const minoResponseOptions= [
         {
