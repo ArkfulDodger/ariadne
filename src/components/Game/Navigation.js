@@ -97,8 +97,8 @@ function Navigation({findTheseus, minoIsEnabled, setMinoIsHere, curGameInfo, map
         console.log("checking for item", curRoom.itemInRoom)
         if (curRoom.itemInRoom.length > 0){
             const item = curRoom.itemInRoom[0]
-            console.log("ITEM from nav")
-            displayMessagePopup(item.type)
+            console.log("ITEM from nav", curRoom.itemInRoom)
+            //displayMessagePopup(item.type)
             //updateCurGameInfo({
                 //itemsArray : itemsArray.push(item)
             //})

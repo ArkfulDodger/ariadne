@@ -18,12 +18,12 @@
 .scroll-box img{
   float: right;
   margin: 1em;
-  border: 2px solid wheat;
+  border: 1px solid wheat;
   max-width: 380px;
 }
 
 body{
-  background-color: rgb(220, 162, 27);
+  background: linear-gradient(180deg, #edc800, #e3b600, #f3cf00, #ffe800);
   margin-top: 1vh;
   margin-bottom: 1vh;
   margin-left: 1vh;
@@ -154,17 +154,24 @@ div div div div div div div {
 }
 
 .home{
-  background-color: rgb(161, 30, 30);
+  /* background-color: rgb(161, 30, 30); */
+  background-image: linear-gradient(rgb(168, 44, 44), rgb(124, 29, 29), rgb(73, 16, 16));
+  /* background-image: url("https://t3.ftcdn.net/jpg/02/58/64/88/360_F_258648835_rqhfnkSJzpL9byS3vA4l2yXuufFHpcTW.jpg")  ; */
   height: auto;
-  /* border-image-source: url(borderImg.jpg) 30; */
 }
 
 .home img{
-  border: 6px solid rgb(255, 174, 0);
+  border: 4px solid rgb(206, 203, 197);
   border-radius: 4px;
-  border-style: ridge;
+  border-style: outset;
   width: 50%;
+  /* transition: 2s; */
+  /* border-image: url('borderImg.jpg') 12 stretch; */
 }
+/* 
+.home img:hover {
+  width: 70%
+} */
 
 
 
@@ -203,7 +210,8 @@ div div div div div div div {
 .scroll-box {
   width: 80%;
   height: 250px;
-  background-color: #282c34;
+  /* background-color: #282c34; */
+  background-image: linear-gradient( #818faa, #3a414f, #282c34);
   color:rgb(255, 255, 205);
   font-family: 'Gabriela';
   text-align: left;
@@ -214,14 +222,15 @@ div div div div div div div {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1em;
-  border: 3px solid black
+  border: 3px solid rgb(106, 105, 105);
+  border-style: outset;
 }
 
 
 a, .linklike, .restartButton {
-  background-color: rgb(173, 115, 27);
+  /* background-color: rgb(173, 115, 27); */
   color:  #282c34;
-  border: 4px solid rgb(46, 32, 126);
+  border: 2px solid rgb(165, 163, 177);
   border-radius: 6px;
   text-decoration: none;
   margin: 1em;
@@ -229,12 +238,13 @@ a, .linklike, .restartButton {
   padding: 14px;
   font-size: 25px;
   font-family: 'Genos';
-  border-style: ridge;
+  border-style: outset;
+  background: linear-gradient(180deg, #edc800, #e3b600, #f3cf00, #ffe800)
 }
 
 a:hover, .linklike:hover, .restartButton:hover {
   cursor: pointer;
-  background-color: rgb(219, 176, 112);
+  background-color: rgb(184, 179, 170);
 }
 .game-buttons {
   display: flex;

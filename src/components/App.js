@@ -250,13 +250,26 @@ function App() {
       return goalPath.startsWith(path);
     }
 
+    // function getPassageType(currentPath, destinationPath) {
+    //   if (isOnGoalPath(destinationPath) || isOnGoalPath(currentPath)) {
+    //     return getRandomPassageType();
+    //   } else {
+    //     return "";
+    //   }
+    // }
+
     function getPassageType(currentPath, destinationPath) {
       if (isOnGoalPath(destinationPath) || isOnGoalPath(currentPath)) {
         return getRandomPassageType();
-      } else {
-        return "";
+      } else if (isOnGoalPath(currentPath.slice(0, currentPath.length -1))){
+        const random = Math.random()
+        if (random > .6){
+          return getRandomPassageType();
+        }
+      } else { return "";
       }
     }
+
 
     function getRandomPassageType() {
         let passageType = passageTypeArray[Math.floor(Math.random()*passageTypeArray.length)];
@@ -309,7 +322,9 @@ function App() {
       if (room.path === randomPath ){ //&& (room.itemInRoom.length < 1)
         console.log("adding item!", room.path)
         const newItem = items[Math.floor(Math.random()*items.length)]
-        return {...room, itemInRoom : newItem }
+        return {...room, itemInRoom : [
+          
+        ] }
       }
       return room
     })
