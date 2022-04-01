@@ -22,7 +22,7 @@ function Game ({ isCurGame, updateIsCurGame, curGameInfo, map, updateCurGameInfo
     //#region CONFIRMED
     const [menuOpen, setMenuOpen] = useState(false)
     const [itemsOpen, setItemsOpen] = useState(false)
-    const [endType, setEndType] = useState('');
+    //const [endType, setEndType] = useState('');
     const [minoEngaged, setMinoEngaged] = useState(false)
 
     const {curLocation, goalPath, minoLocation, minoThreat, playerInfo, foundTheseus, minoThreatMax, minoCalmed, minoCooldown} = curGameInfo
