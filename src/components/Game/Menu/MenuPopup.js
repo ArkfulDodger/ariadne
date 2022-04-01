@@ -5,6 +5,7 @@ function MenuPopup ({ startNewGame }) {
     function handleClick(e) {
         startNewGame();
     }
+
     return (
         <div>
             {/* <h4>I'm a lil menu popup!</h4> */}

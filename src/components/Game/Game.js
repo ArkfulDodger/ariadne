@@ -258,7 +258,7 @@ function Game ({ isCurGame, updateIsCurGame, curGameInfo, map, updateCurGameInfo
                             </>}
                             <div className="game-buttons">
                                 <Menu menuOpen={menuOpen} handleToggleMenu={handleToggleMenu} startNewGame={restartGame}/>
-                                <ItemsWindow itemsOpen={itemsOpen} handleToggleItems={handleToggleItems} />
+                                {/* <ItemsWindow itemsOpen={itemsOpen} handleToggleItems={handleToggleItems} /> */}
                             </div>
                         </>
             }
