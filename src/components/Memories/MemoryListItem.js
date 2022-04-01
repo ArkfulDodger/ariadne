@@ -20,11 +20,11 @@ function MemoryListItem ({memory}) {
         break;
         case 'leave' : 
         memoryResult = "You left Theseus to his fate."
-        memoryDetailNote = "fair enough, he was pretty dumb"
+        memoryDetailNote = "You decided to leave the maze without Theseus. Fair enough, he was pretty dumb"
         memoryURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Theseus_and_the_Minotaur.gif/170px-Theseus_and_the_Minotaur.gif"
         break;
         case 'die' :
-            memoryResult = 'You were killed by the Minotaur'
+            memoryResult = 'You were gored by the Minotaur'
             memoryDetailNote = "Alas! You were met by Hermes, who took you to the underworld"
             memoryURL = "https://serenademagazine.com/wp-content/uploads/2021/07/Orpheus_and_Eurydice-header-1200x799.png"
             break;
@@ -46,12 +46,12 @@ function MemoryListItem ({memory}) {
         case 'survival' :
             memoryResult = "You fed Theseus to the Minotaur"
             memoryDetailNote="You did what you had to do to survive, dropped the whole man, and escaped"
-            memoryURL="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Theseus_and_the_Minotaur.gif/170px-Theseus_and_the_Minotaur.gif"
+            memoryURL="https://mir-s3-cdn-cf.behance.net/project_modules/fs/d70eef17796593.56225cb5ecf35.jpg"
             break;
         case 'bothdie' :
             memoryResult ="You and Theseus both died"
-            memoryDetailNote="You both fought valiently, but in the beast got you in the end. At lease you're in Hades together?"
-            memoryURL="https://serenademagazine.com/wp-content/uploads/2021/07/Orpheus_and_Eurydice-header-1200x799.png"
+            memoryDetailNote="You both fought valiently, but in the beast got you in the end. At least you're in Hades together?"
+            memoryURL="https://i.ytimg.com/vi/ltewSdCdAjM/hqdefault.jpg"
             break;
         case 'caught' :
             memoryResult="The Minotaur caught up with you"
@@ -61,8 +61,14 @@ function MemoryListItem ({memory}) {
         case 'musicfail':
             memoryResult="Your music stopped working"
             memoryDetailNote="You kept playing soothing music for the Minotaur, but he didn't stay soothed. Hermes laughs at you as he guides you to the underworld"
-            memoryURL="https://serenademagazine.com/wp-content/uploads/2021/07/Orpheus_and_Eurydice-header-1200x799.png"
+            memoryURL="http://blogs.getty.edu/iris/files/2016/11/orpheus.jpg?x45884"
             break;
+        case "swordfail":
+            memoryResult = "You slew the Minotaur"
+            memoryDetailNote = "Sword in hand, you were able to defeat the beast and escape the maze"
+            memoryURL = "https://tripanthropologist.com/wp-content/uploads/2021/02/mosaic-of-theseus-and-minotaur.jpg"
+        break;
+
 
     }
     return (

@@ -190,6 +190,11 @@ div div div div div div div {
   height: auto;
 }
 
+.memoryPage{
+  background-image: linear-gradient(rgb(138, 81, 81), rgb(168, 44, 44), rgb(134, 34, 34),rgb(124, 29, 29),  rgb(124, 29, 29), rgb(103, 36, 36), rgb(73, 16, 16));
+
+}
+
 .home img{
   border: 4px solid rgb(206, 203, 197);
   border-radius: 4px;
@@ -211,7 +216,7 @@ div div div div div div div {
 }
 
 .memoryPage{
-  background-color: rgb(161, 30, 30);
+  /* background-color: rgb(161, 30, 30); */
   height: auto;
 }
 
@@ -221,6 +226,8 @@ div div div div div div div {
   padding: .5em;
   margin-left: 3em;
   margin-right: 3em;
+  background: linear-gradient(180deg, #b49a05d6, #e3b600ca, #f3cf00bc, #ffea00ae)
+
 }
 
 .memoryItem{

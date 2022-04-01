@@ -14,7 +14,7 @@ function Memories ({isCurGame, resumeGame, startNewGame}) {
 
     return (
         <div className="memoryPage">
-            <h1>Memories!!!</h1>
+            <h1>Memories of the Past</h1>
             <button className="linklike" onClick={isCurGame ? resumeGame : startNewGame}>{isCurGame ? "Return to the Labyrinth" : "Enter the Labyrinth"}</button>             
             <Link to="/">Return to Main Menu</Link>  
             <MemoryList memories={memories}/>
