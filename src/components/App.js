@@ -19,7 +19,7 @@ const defaultGameInfo = {
   minoCooldown: 4,
   minoCooldownMax: 4,
   minoThreatMax: 4,
-  itemsArray: ['sword', 'lyre'],
+  itemsArray: [],
   foundTheseus: false,
   playerInfo: {
     hasTheseus: false

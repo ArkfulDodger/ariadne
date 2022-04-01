@@ -13,15 +13,27 @@ function GameEnd({endType}) {
             endImgSrc = "https://ak.picdn.net/shutterstock/videos/1052179024/thumb/1.jpg?ip=x480"
             break;
         case 'slay' : 
-            endGameMessage = "You defeated the mighty Minotaur"
+            endGameMessage = "With Theseus wielding the sword, you  defeat the mighty Minotaur and make your escape!"
             endImgSrc = "https://tripanthropologist.com/wp-content/uploads/2021/02/mosaic-of-theseus-and-minotaur.jpg"
             break;
         case 'leave' :
             endGameMessage = "You left Theseus to fend for himself, and escaped the maze"
             endImgSrc = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Theseus_and_the_Minotaur.gif/170px-Theseus_and_the_Minotaur.gif"
             break;
+        case 'survival' :
+            endGameMessage = "You push Theseus toward the Minotaur and make your escape, his screams echoing through the labyrinth as he is brutally killed... but you got out okay, so this is technically a win?"
+            endImgSrc = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Theseus_and_the_Minotaur.gif/170px-Theseus_and_the_Minotaur.gif"
+            break;
+        case 'sacrifice' :
+            endGameMessage = `You throw yourself between your love and the Minotaur and yell for him to run. He doesn't. He's not smart. And you both very much die. But at least you're together in the afterlife?`
+            endImgSrc="https://serenademagazine.com/wp-content/uploads/2021/07/Orpheus_and_Eurydice-header-1200x799.png"
+            break;
         case 'die' :
             endGameMessage = `You are quickly overpowered and gored to death by the minotaur... It's not all bad - Hermes showed up to take you to the underworld`
+            endImgSrc="https://serenademagazine.com/wp-content/uploads/2021/07/Orpheus_and_Eurydice-header-1200x799.png"
+            break;
+        case 'bothdie' :
+            endGameMessage = `You and Theseus valiantly put up a fight... and are gored to death by the minotaur... It's not all bad - Hermes showed up to take you both to the underworld`
             endImgSrc="https://serenademagazine.com/wp-content/uploads/2021/07/Orpheus_and_Eurydice-header-1200x799.png"
             break;
         case 'diplomacy' :
@@ -33,7 +45,7 @@ function GameEnd({endType}) {
             endImgSrc="https://serenademagazine.com/wp-content/uploads/2021/07/Orpheus_and_Eurydice-header-1200x799.png"
             break;
         case 'swordfail' :
-            endGameMessage = `You raise up your blade... and are gored to death by the minotaur... Turns out its better to do that with training, like Theseus has... Hermes shows up to take you to the underworld`
+            endGameMessage = `You raise up your blade... and are gored to death by the minotaur... Turns out it's better to do that with training... like Theseus has... Anyway, Hermes shows up to take you to the underworld`
             endImgSrc="https://serenademagazine.com/wp-content/uploads/2021/07/Orpheus_and_Eurydice-header-1200x799.png"
             break;
         case 'musicfail' :

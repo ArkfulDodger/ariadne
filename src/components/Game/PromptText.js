@@ -53,7 +53,7 @@ const defaultRoom = {
 
 function PromptText({ map, curGameInfo, passages, getIsWithMinotaur }) {
 
-    const {curLocation = ["0", ""], entryDirection = "south", minoLocation, minoCalmed, minoCooldownMax, minoCooldown, minoThreat, itemsArray, playerInfo, minoThreatMax} = curGameInfo;
+    const {curLocation = ["0", ""], entryDirection = "south", minoLocation, minoCalmed, minoCooldownMax, minoCooldown, minoThreat, itemsArray, playerInfo: {hasTheseus}, minoThreatMax} = curGameInfo;
 
     // TODO: comment back in when ready to integrate db.json/state
     //#region fetching data from db.json
@@ -97,9 +97,9 @@ function PromptText({ map, curGameInfo, passages, getIsWithMinotaur }) {
     // conditions from currentGame
     const isPassageVisited = getIsPassageVisited();
     const isForwardTravel = curLocation[0].length > curLocation[1].length;
-    const hasTorch = itemsArray.torch; // TODO: connect to Game state
+    const hasTorch = itemsArray.includes('torch');
     const hasHorn = true; // TODO: connect to Game state
-    const isVisibility = getVisibility(); // TODO: connect to Game state
+    const isVisibility = getVisibility();
 
     // console.log('roomVisited', roomVisited);
     // console.log('isPassageVisited', isPassageVisited);
@@ -140,7 +140,7 @@ function PromptText({ map, curGameInfo, passages, getIsWithMinotaur }) {
 
 
     // assemble narrative text
-    const entryText = `${getIsWithMinotaur() && !minoCalmed ? "You flee from the minotaur via the": travelText} ${passageText}`;
+    const entryText = `${getIsWithMinotaur() && !minoCalmed ? `You ${hasTheseus ? 'and Theseus ' : ''}flee from the minotaur via the` : travelText} ${passageText}`;
     // console.log(entryText);
     const connectingText = getConnectingText();
     const chamberText = getChamberText();
@@ -149,9 +149,9 @@ function PromptText({ map, curGameInfo, passages, getIsWithMinotaur }) {
     const clueTextArray = []
     
     if(minoThreat > 0 && minoThreat < minoThreatMax) {
-        clueTextArray.push('The beast still pursues you.')
+        clueTextArray.push(`The beast still pursues you${hasTheseus ? ' both' : ""}.`)
     } else if (minoThreat >= minoThreatMax) {
-        clueTextArray.push('The beast is now nearly upon you!')
+        clueTextArray.push(`The beast is now nearly upon you!${hasTheseus ? ' Theseus demands you stand and engage the monster!' : ''}`)
     }
 
     const clueText = clueTextArray.join(" ") || "";
@@ -163,7 +163,7 @@ function PromptText({ map, curGameInfo, passages, getIsWithMinotaur }) {
         : `${entryText} ${connectingText} ${chamberText}. ${clueText}`
     // console.log(narrationText);
 
-    const firstMinoText = `The beast towers over you, as you look for an escape. You wonder how long you can outrun him.`
+    const firstMinoText = `The beast towers over you${hasTheseus ? ' and your beloved' : ''} as you look for an escape. You wonder how long you ${hasTheseus ? 'two ' : ''}can outrun him.`
     const calmedMinoText = 'Remarkably, your playing seems to have lulled the beast into a nap. Best to continue onward before he wakes!'
 
     function getRenderedText() {
