@@ -1,7 +1,7 @@
 import OptionBox from "./OptionBox"
 
 function Navigation({findTheseus, minoIsEnabled, setMinoEngaged, curGameInfo, map, updateCurRoom, setEndType, playerInfo, getIsWithMinotaur}) {
-    const {curLocation, stringPath, entryDirection} = curGameInfo
+    const {curLocation, stringPath, entryDirection, minoCalmed} = curGameInfo
     const curRoom = map.find(room => room.path === curLocation[0]);
 
     //for future: create a const for passageIcons, interpolate into each after testing player conditions etc
@@ -108,7 +108,8 @@ function Navigation({findTheseus, minoIsEnabled, setMinoEngaged, curGameInfo, ma
     return (
         <div className="navigation">
             <h2>{roomFlavor}</h2>
-            <h3>Room: {curRoom.path}</h3>
+            {/* <h3>Room: {curRoom.path}</h3> */}
+            {(getIsWithMinotaur() && !minoCalmed) && <button className="linklike" onClick={() => setMinoEngaged(true)}>Engage the Minataur?</button>}
             <OptionBox handleClick={handleClick} options={curRoomNavOptions}/>
         </div>
     )

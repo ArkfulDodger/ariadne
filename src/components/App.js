@@ -15,7 +15,11 @@ const defaultGameInfo = {
   stringPath: '0',
   minoLocation: ['',''],
   minoThreat: 0,
-  itemsArray: [],
+  minoCalmed: false,
+  minoCooldown: 4,
+  minoCooldownMax: 4,
+  minoThreatMax: 4,
+  itemsArray: ['sword', 'lyre'],
   foundTheseus: false,
   playerInfo: {
     hasTheseus: false

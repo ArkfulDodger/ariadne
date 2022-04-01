@@ -51,9 +51,9 @@ const defaultRoom = {
     "onGoalPath": true
     }
 
-function PromptText({ map, curGameInfo, passages }) {
+function PromptText({ map, curGameInfo, passages, getIsWithMinotaur }) {
 
-    const {curLocation = ["0", ""], entryDirection = "south", minoLocation, minoThreat, itemsArray, playerInfo} = curGameInfo;
+    const {curLocation = ["0", ""], entryDirection = "south", minoLocation, minoCalmed, minoCooldownMax, minoCooldown, minoThreat, itemsArray, playerInfo, minoThreatMax} = curGameInfo;
 
     // TODO: comment back in when ready to integrate db.json/state
     //#region fetching data from db.json
@@ -97,7 +97,7 @@ function PromptText({ map, curGameInfo, passages }) {
     // conditions from currentGame
     const isPassageVisited = getIsPassageVisited();
     const isForwardTravel = curLocation[0].length > curLocation[1].length;
-    const hasTorch = false; // TODO: connect to Game state
+    const hasTorch = itemsArray.torch; // TODO: connect to Game state
     const hasHorn = true; // TODO: connect to Game state
     const isVisibility = getVisibility(); // TODO: connect to Game state
 
@@ -140,13 +140,21 @@ function PromptText({ map, curGameInfo, passages }) {
 
 
     // assemble narrative text
-    const entryText = `${travelText} ${passageText}`;
+    const entryText = `${getIsWithMinotaur() && !minoCalmed ? "You flee from the minotaur via the": travelText} ${passageText}`;
     // console.log(entryText);
     const connectingText = getConnectingText();
     const chamberText = getChamberText();
     // const clueText = "Placing the listening horn to your ear, you believe you can faintly hear the heavy plodding of hooves from the passage beyond to the right."
     // const clueText = "{{visibility: " + isVisibility + "}}";
-    const clueText = "";
+    const clueTextArray = []
+    
+    if(minoThreat > 0 && minoThreat < minoThreatMax) {
+        clueTextArray.push('The beast still pursues you.')
+    } else if (minoThreat >= minoThreatMax) {
+        clueTextArray.push('The beast is now nearly upon you!')
+    }
+
+    const clueText = clueTextArray.join(" ") || "";
 
     // console.log(curRoom);
 
@@ -155,6 +163,20 @@ function PromptText({ map, curGameInfo, passages }) {
         : `${entryText} ${connectingText} ${chamberText}. ${clueText}`
     // console.log(narrationText);
 
+    const firstMinoText = `The beast towers over you, as you look for an escape. You wonder how long you can outrun him.`
+    const calmedMinoText = 'Remarkably, your playing seems to have lulled the beast into a nap. Best to continue onward before he wakes!'
+
+    function getRenderedText() {
+        if (getIsWithMinotaur() && minoCalmed && minoCooldown === minoCooldownMax) {
+            return calmedMinoText;
+        } else if (getIsWithMinotaur() && minoThreat === 0) {
+            return firstMinoText;
+        } else {
+            return narrationText;
+        }
+    }
+
+    const renderedText = getRenderedText();
 
     //#region HELPER FUNCTIONS
     function randomFromArray(array) {
@@ -190,13 +212,13 @@ function PromptText({ map, curGameInfo, passages }) {
         }
     }
 
-    function getIsDeadEnd() {
-        // get current room
-        const curRoom = map.find(room => room.path === curLocation[0]);
+    // function getIsDeadEnd() {
+    //     // get current room
+    //     const curRoom = map.find(room => room.path === curLocation[0]);
 
-        // if east and west are blank, return true
-        return !curRoom.westPassageType && !curRoom.eastPassageType;
-    }
+    //     // if east and west are blank, return true
+    //     return !curRoom.westPassageType && !curRoom.eastPassageType;
+    // }
 
     function getConnectingText() {
         // console.log('getting connecting text');
@@ -223,12 +245,28 @@ function PromptText({ map, curGameInfo, passages }) {
         return chamberData['default-visibility'] || hasTorch
     }
     
+    // function getMinotaurText() {
+    //     switch (minoThreat) {
+    //         case 0:
+    //             return 'The minotaur stands before you, as you look for a way to escape.';
+    //         case 1:
+    //             return 'The minotaur stands before you, as you look for a way to escape.';
+    //         case 0:
+    //             return 'The minotaur stands before you, as you look for a way to escape.';
+
+    //             break;
+        
+    //         default:
+    //             break;
+    //     }
+    // }
+
     //#endregion
 
 
     return (
         <div className="prompText">
-            <p>{narrationText}</p>
+            <p>{renderedText}</p>
         </div>
     )
 }

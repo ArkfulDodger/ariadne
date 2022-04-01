@@ -2,145 +2,56 @@
   "loadStatus": [
     {
       "id": 1,
-      "isCurGame": true
+      "isCurGame": false
     }
   ],
   "current-game": [
     {
       "id": 1,
       "curLocation": [
-        "0",
-        ""
+        "0110",
+        "01101"
       ],
-      "entryDirection": "south",
+      "entryDirection": "east",
       "stringPath": "0",
       "minoLocation": [
-        "00001",
-        "000011"
+        "0110",
+        "01100"
       ],
       "minoThreat": 0,
-      "itemsArray": [],
+      "minoCalmed": false,
+      "minoCooldown": 0,
+      "minoCooldownMax": 4,
+      "minoThreatMax": 4,
+      "itemsArray": [
+        "sword",
+        "lyre"
+      ],
       "foundTheseus": false,
       "playerInfo": {
         "hasTheseus": false
       },
-      "goalPath": "000011",
+      "goalPath": "011001",
       "map": [
         {
           "path": "0",
           "type": "entrance",
-          "roomVisited": false,
-          "westPassageType": "a mossy, but climbable wall",
-          "eastPassageType": "a winding corridor",
+          "roomVisited": true,
+          "westPassageType": "a dark stairwell",
+          "eastPassageType": "a misty path",
           "southPassageType": "exit",
           "westPassageVisited": false,
-          "eastPassageVisited": false,
+          "eastPassageVisited": true,
           "southPassageVisited": false,
           "onGoalPath": true
         },
         {
           "path": "00",
-          "type": "default",
-          "roomVisited": false,
-          "westPassageType": "a misty path",
-          "eastPassageType": "a rickety bridge over a pit",
-          "southPassageType": "a mossy, but climbable wall",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": true
-        },
-        {
-          "path": "000",
-          "type": "default",
-          "roomVisited": false,
-          "westPassageType": "a torchlit path",
-          "eastPassageType": "a gently sloping walkway",
-          "southPassageType": "a misty path",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": true
-        },
-        {
-          "path": "0000",
-          "type": "default",
-          "roomVisited": false,
-          "westPassageType": "a mossy, but climbable wall",
-          "eastPassageType": "a torchlit path",
-          "southPassageType": "a torchlit path",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": true
-        },
-        {
-          "path": "00000",
           "type": "deadend",
           "roomVisited": false,
           "westPassageType": "",
           "eastPassageType": "",
-          "southPassageType": "a mossy, but climbable wall",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": false
-        },
-        {
-          "path": "00001",
-          "type": "default",
-          "roomVisited": false,
-          "westPassageType": "a rickety bridge over a pit",
-          "eastPassageType": "a dusty hallway",
-          "southPassageType": "a torchlit path",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": true
-        },
-        {
-          "path": "000010",
-          "type": "deadend",
-          "roomVisited": false,
-          "westPassageType": "",
-          "eastPassageType": "",
-          "southPassageType": "a rickety bridge over a pit",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": false
-        },
-        {
-          "path": "000011",
-          "type": "theseus",
-          "roomVisited": false,
-          "westPassageType": null,
-          "eastPassageType": null,
-          "southPassageType": "a dusty hallway",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": true
-        },
-        {
-          "path": "0001",
-          "type": "deadend",
-          "roomVisited": false,
-          "westPassageType": "",
-          "eastPassageType": "",
-          "southPassageType": "a gently sloping walkway",
-          "westPassageVisited": false,
-          "eastPassageVisited": false,
-          "southPassageVisited": false,
-          "onGoalPath": false
-        },
-        {
-          "path": "001",
-          "type": "deadend",
-          "roomVisited": false,
-          "westPassageType": "",
-          "eastPassageType": "",
-          "southPassageType": "a rickety bridge over a pit",
+          "southPassageType": "a dark stairwell",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
@@ -148,18 +59,113 @@
         },
         {
           "path": "01",
+          "type": "default",
+          "roomVisited": true,
+          "westPassageType": "a heavy wooden door",
+          "eastPassageType": "a precarious ladder",
+          "southPassageType": "a misty path",
+          "westPassageVisited": false,
+          "eastPassageVisited": true,
+          "southPassageVisited": false,
+          "onGoalPath": true
+        },
+        {
+          "path": "010",
           "type": "deadend",
           "roomVisited": false,
           "westPassageType": "",
           "eastPassageType": "",
+          "southPassageType": "a heavy wooden door",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": false
+        },
+        {
+          "path": "011",
+          "type": "default",
+          "roomVisited": true,
+          "westPassageType": "a winding corridor",
+          "eastPassageType": "a dusty hallway",
+          "southPassageType": "a precarious ladder",
+          "westPassageVisited": true,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": true
+        },
+        {
+          "path": "0110",
+          "type": "default",
+          "roomVisited": true,
+          "westPassageType": "a gently sloping walkway",
+          "eastPassageType": "a smooth stone cavern",
           "southPassageType": "a winding corridor",
+          "westPassageVisited": true,
+          "eastPassageVisited": true,
+          "southPassageVisited": false,
+          "onGoalPath": true
+        },
+        {
+          "path": "01100",
+          "type": "default",
+          "roomVisited": true,
+          "westPassageType": "a rickety bridge over a pit",
+          "eastPassageType": "a dark stairwell",
+          "southPassageType": "a gently sloping walkway",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": true,
+          "onGoalPath": true
+        },
+        {
+          "path": "011000",
+          "type": "deadend",
+          "roomVisited": false,
+          "westPassageType": "",
+          "eastPassageType": "",
+          "southPassageType": "a rickety bridge over a pit",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": false
+        },
+        {
+          "path": "011001",
+          "type": "theseus",
+          "roomVisited": false,
+          "westPassageType": null,
+          "eastPassageType": null,
+          "southPassageType": "a dark stairwell",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": true
+        },
+        {
+          "path": "01101",
+          "type": "deadend",
+          "roomVisited": true,
+          "westPassageType": "",
+          "eastPassageType": "",
+          "southPassageType": "a smooth stone cavern",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": true,
+          "onGoalPath": false
+        },
+        {
+          "path": "0111",
+          "type": "deadend",
+          "roomVisited": false,
+          "westPassageType": "",
+          "eastPassageType": "",
+          "southPassageType": "a dusty hallway",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": false,
           "onGoalPath": false
         }
-      ],
-      "minoIsEnabled": false
+      ]
     }
   ],
   "memories": [
@@ -415,6 +421,366 @@
       "minoIsEnabled": false,
       "endType": "die",
       "id": 14
+    },
+    {
+      "curLocation": [
+        "0",
+        "00"
+      ],
+      "entryDirection": "west",
+      "stringPath": "0",
+      "minoLocation": [
+        "01110",
+        "011101"
+      ],
+      "minoThreat": 0,
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "011100",
+      "endType": "leave",
+      "id": 15
+    },
+    {
+      "curLocation": [
+        "0011",
+        "001"
+      ],
+      "entryDirection": "south",
+      "stringPath": "0",
+      "minoLocation": [
+        "0011",
+        "00110"
+      ],
+      "minoThreat": 0,
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "001100",
+      "endType": "diplomacy",
+      "id": 16
+    },
+    {
+      "curLocation": [
+        "0",
+        "01"
+      ],
+      "entryDirection": "east",
+      "stringPath": "0",
+      "minoLocation": [
+        "00010",
+        "0001"
+      ],
+      "minoThreat": 0,
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "000101",
+      "endType": "leave",
+      "id": 17
+    },
+    {
+      "curLocation": [
+        "00",
+        "000"
+      ],
+      "entryDirection": "west",
+      "stringPath": "0",
+      "minoLocation": [
+        "00",
+        "000"
+      ],
+      "minoThreat": 2,
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "001010",
+      "endType": "caught",
+      "id": 18
+    },
+    {
+      "curLocation": [
+        "00111",
+        "001110"
+      ],
+      "entryDirection": "west",
+      "stringPath": "0",
+      "minoLocation": [
+        "00111",
+        "001110"
+      ],
+      "minoThreat": 2,
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "001111",
+      "endType": "caught",
+      "id": 19
+    },
+    {
+      "curLocation": [
+        "011100",
+        "01110"
+      ],
+      "entryDirection": "south",
+      "stringPath": "0",
+      "minoLocation": [
+        "011100",
+        "01110"
+      ],
+      "minoThreat": 2,
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": true
+      },
+      "goalPath": "011100",
+      "endType": "caught",
+      "id": 20
+    },
+    {
+      "curLocation": [
+        "001",
+        "0011"
+      ],
+      "entryDirection": "east",
+      "stringPath": "0",
+      "minoLocation": [
+        "001",
+        "0011"
+      ],
+      "minoThreat": 2,
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "001110",
+      "endType": "caught",
+      "id": 21
+    },
+    {
+      "curLocation": [
+        "00",
+        "001"
+      ],
+      "entryDirection": "east",
+      "stringPath": "0",
+      "minoLocation": [
+        "001",
+        "0011"
+      ],
+      "minoThreat": 3,
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "001110",
+      "endType": "caught",
+      "id": 22
+    },
+    {
+      "curLocation": [
+        "0000",
+        "00000"
+      ],
+      "entryDirection": "west",
+      "stringPath": "0",
+      "minoLocation": [
+        "0000",
+        "00000"
+      ],
+      "minoThreat": 2,
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "000010",
+      "endType": "caught",
+      "id": 23
+    },
+    {
+      "curLocation": [
+        "0000",
+        "00000"
+      ],
+      "entryDirection": "west",
+      "stringPath": "0",
+      "minoLocation": [
+        "0000",
+        "00000"
+      ],
+      "minoThreat": 2,
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "000011",
+      "endType": "die",
+      "id": 24
+    },
+    {
+      "curLocation": [
+        "010000",
+        "01000"
+      ],
+      "entryDirection": "south",
+      "stringPath": "0",
+      "minoLocation": [
+        "010000",
+        "01000"
+      ],
+      "minoThreat": 4,
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "010001",
+      "minoThreatMax": 4,
+      "endType": "caught",
+      "id": 25
+    },
+    {
+      "curLocation": [
+        "011",
+        "0111"
+      ],
+      "entryDirection": "east",
+      "stringPath": "0",
+      "minoLocation": [
+        "011",
+        "0111"
+      ],
+      "minoThreat": 4,
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": true
+      },
+      "goalPath": "011101",
+      "minoThreatMax": 4,
+      "endType": "caught",
+      "id": 26
+    },
+    {
+      "curLocation": [
+        "01",
+        "011"
+      ],
+      "entryDirection": "east",
+      "stringPath": "0",
+      "minoLocation": [
+        "011",
+        "0111"
+      ],
+      "minoThreat": 5,
+      "itemsArray": [],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": true
+      },
+      "goalPath": "011101",
+      "minoThreatMax": 4,
+      "endType": "caught",
+      "id": 27
+    },
+    {
+      "curLocation": [
+        "000",
+        "0001"
+      ],
+      "entryDirection": "east",
+      "stringPath": "0",
+      "minoLocation": [
+        "000",
+        "0001"
+      ],
+      "minoThreat": 0,
+      "itemsArray": [
+        "sword",
+        "lyre"
+      ],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "000100",
+      "minoThreatMax": 4,
+      "minoCalmed": false,
+      "minoCooldown": 0,
+      "minoCooldownMax": 4,
+      "endType": "musicfail",
+      "id": 28
+    },
+    {
+      "curLocation": [
+        "000",
+        "0001"
+      ],
+      "entryDirection": "east",
+      "stringPath": "0",
+      "minoLocation": [
+        "000",
+        "0001"
+      ],
+      "minoThreat": 0,
+      "itemsArray": [
+        "sword",
+        "lyre"
+      ],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "000100",
+      "minoThreatMax": 4,
+      "minoCalmed": false,
+      "minoCooldown": 0,
+      "minoCooldownMax": 4,
+      "endType": "musicfail",
+      "id": 29
+    },
+    {
+      "curLocation": [
+        "0110",
+        "01101"
+      ],
+      "entryDirection": "east",
+      "stringPath": "0",
+      "minoLocation": [
+        "0110",
+        "01100"
+      ],
+      "minoThreat": 0,
+      "minoCalmed": false,
+      "minoCooldown": 0,
+      "minoCooldownMax": 4,
+      "minoThreatMax": 4,
+      "itemsArray": [
+        "sword",
+        "lyre"
+      ],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "011001",
+      "endType": "musicfail",
+      "id": 30
     }
   ],
   "items": [
@@ -611,7 +977,7 @@
       ],
       "return-travel-text": [
         1,
-        5
+        6
       ]
     },
     {
@@ -1033,6 +1399,17 @@
       ],
       "passages": [
         11
+      ]
+    },
+    {
+      "id": 12,
+      "text": [
+        "You climb the",
+        "You climb down the"
+      ],
+      "passages": [
+        7,
+        8
       ]
     }
   ],

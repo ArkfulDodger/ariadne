@@ -38,7 +38,7 @@ function Game ({ isCurGame, updateIsCurGame, curGameInfo, map, updateCurGameInfo
     const [endType, setEndType] = useState('');
     const [minoEngaged, setMinoEngaged] = useState(false)
 
-    const {curLocation, goalPath, minoLocation, minoThreat, playerInfo, foundTheseus} = curGameInfo
+    const {curLocation, goalPath, minoLocation, minoThreat, playerInfo, foundTheseus, minoThreatMax, minoCalmed, minoCooldown} = curGameInfo
 
     useEffect(() =>{
         if(endType){endGame()}
@@ -119,22 +119,29 @@ function Game ({ isCurGame, updateIsCurGame, curGameInfo, map, updateCurGameInfo
     function updateCurRoom(newRoom){
         // update path visited status in origin and destination rooms in map state
         // if travelling northerly
+        let updatedMap = [];
+
         if (newRoom.path.length > curLocation[0].length) {
-            updateMap(map
-                // .map( room => room.path === newRoom.path ? {...room, southPassageVisited: room.southPassageVisited + 1} : room)
+            console.log('update path northward');
+            updatedMap = map
                 .map( room => room.path === curLocation[0]
                     ? newRoom.path.endsWith("0") ? {...room, westPassageVisited: true} : {...room, eastPassageVisited: true}
-                    : room));
+                    : room);
         // if travelling southily
         } else {
-            updateMap(map
+            console.log('update path southward');
+            updatedMap = map
                 .map(room => room.path === curLocation[0]
                     ? {...room, southPassageVisited: true}
-                    : room))
+                    : room)
         }
+        console.log(updatedMap);
         
         // set destination room to visited in state
-        updateMap(map.map(room => room.path === curLocation[0] ? {...room, roomVisited: true} : room))
+        updatedMap = updatedMap.map(room => room.path === curLocation[0] ? {...room, roomVisited: true} : room)
+
+        // update map
+        updateMap(updatedMap);
 
         const newLocation = [
             newRoom.path,
@@ -143,72 +150,103 @@ function Game ({ isCurGame, updateIsCurGame, curGameInfo, map, updateCurGameInfo
 
         const newEntryDirection = getEntryDirection(newLocation);
 
+        let newMinoCalmed = minoCalmed;
+        let newMinoCooldown = minoCooldown;
+        let newMinoThreat = minoThreat;
+        let newMinoLocation = minoLocation;
+
+        // if minotaur is calmed decrement cooldown
+        if (minoCalmed) {
+            newMinoCooldown --;
+            newMinoCalmed = newMinoCooldown > 0 ? true : false;
+
+        } 
+
+        // otherwise, handle movement/encounters
+        if (!newMinoCalmed) {
+            // if in room with Minotaur:
+            if (getIsWithMinotaur(curLocation[0])) {
+                // if entering room with Theseus for first time
+                if (newLocation[0] === goalPath && !playerInfo.hasTheseus) {
+                    // threat level resets, and minotaur does not follow you in
+                    newMinoThreat = 0;
+                } else {
+                    // increment mino threat
+                    newMinoThreat = minoThreat + 1
+                    // updateCurGameInfo({minoThreat: newMinoThreat})
+        
+                    // if threat level is 3 or greater
+                    if (newMinoThreat > minoThreatMax) {
+                        // Y: you die
+                        setEndType("caught")
+                    } else {
+                        // N: minotaur follows you & ENGAGE
+                        newMinoLocation = newLocation;
+                        // updateCurGameInfo({minoLocation: newLocation})
+                        console.log('set minoLocation to:', newLocation);
+                        // setMinoEngaged(true);
+                    }
+                }
+            
+            // if moving to room with Minotaur
+            } else if (getIsWithMinotaur(newLocation[0])) {
+                // ENGAGE
+                setMinoEngaged(true);
+                console.log('minotaur engaged because moving to his location at:', newLocation[0]);
+    
+                // else
+            } else {
+                // minotaur moves
+                newMinoLocation = getNextMinoLocation();
+                // updateCurGameInfo({minoLocation: newMinoLocation})
+    
+                // if movement puts him in room with you
+                if (newLocation[0] === newMinoLocation[0]) {
+                    // Y: ENGAGE
+                    setMinoEngaged(true);
+                    console.log('minotaur engaged because both moving to new location at:', newLocation[0]);
+                }
+            }
+        }
+
+
+
         updateCurGameInfo({
             ...curGameInfo,
             curLocation : newLocation,
-            entryDirection : newEntryDirection
+            entryDirection : newEntryDirection,
+            minoThreat: newMinoThreat,
+            minoLocation: newMinoLocation,
+            minoCalmed: newMinoCalmed,
+            minoCooldown: newMinoCooldown
         })
+    }
 
-        // if in room with Minotaur:
-        if (getIsWithMinotaur(curLocation[0])) {
-            // increment mino threat
-            const newMinoThreat = minoThreat + 1
-            updateCurGameInfo({minoThreat: newMinoThreat})
-
-            // if threat level is 3 or greater
-            if (newMinoThreat >= 3) {
-                // Y: you die
-                alert('The minotaur caught and killed you!');
-            } else {
-                // N: minotaur follows you & ENGAGE
-                updateCurGameInfo({minoLocation: newLocation})
-                setMinoEngaged(true);
-            }
-        
-        // if moving to room with Minotaur
-        } else if (getIsWithMinotaur(newLocation)) {
-            // ENGAGE
-            setMinoEngaged(true);
-
-            // else
-        } else {
-            // minotaur moves
-            console.log("get next Minotaur location");
-            const newMinoLocation = getNextMinoLocation();
-            updateCurGameInfo({minoLocation: newMinoLocation})
-
-            // if movement puts him in room with you
-            if (newLocation[0] === newMinoLocation[0]) {
-                // Y: ENGAGE
-                setMinoEngaged(true);
-            }
-        }
+    function sootheMino() {
+        setMinoEngaged(false);
+        updateCurGameInfo({
+            ...curGameInfo,
+            minoThreat: 0,
+            minoCalmed: true
+        })
     }
 
     function getNextMinoLocation() {
-        console.log('----Getting New Mino Location----');
-        console.log('minoLocation:', minoLocation);
-
         // get minoLocation room
         const currentMinoRoom = map.find(room => room.path === minoLocation[0]);
-        console.log('minoRoom:', currentMinoRoom);
 
         // get array of existing paths (unless goal path)
         const availablePaths = [];
         currentMinoRoom.westPassageType && availablePaths.push(currentMinoRoom.path + '0');
         currentMinoRoom.eastPassageType && availablePaths.push(currentMinoRoom.path + '1');
         currentMinoRoom.southPassageType && availablePaths.push(currentMinoRoom.path.slice(0, -1));
-        console.log('availPaths:', availablePaths);
 
         const validPaths = availablePaths.filter(path => path !== goalPath);
-        console.log('validPaths:', validPaths);
 
         // pick/return random path from available
         const nextMinoPath = validPaths[Math.floor(Math.random()*validPaths.length)];
-        console.log('nextMinoPath:', nextMinoPath);
 
         const newMinoLocation = [nextMinoPath, minoLocation[0]];
-        console.log('newMinoLocation:', newMinoLocation);
 
         return newMinoLocation;
     }
@@ -223,9 +261,9 @@ function Game ({ isCurGame, updateIsCurGame, curGameInfo, map, updateCurGameInfo
                     : foundTheseus
                         ? <Theseus curLocation={curLocation} updateCurGameInfo={updateCurGameInfo} curGameInfo={curGameInfo} displayMessagePopup={displayMessagePopup}/> 
                         : <>{minoEngaged
-                            ? <Minotaur minoEngaged={minoEngaged} setEndType={setEndType} updateCurGameInfo={updateCurGameInfo} /> 
+                            ? <Minotaur curGameInfo={curGameInfo} minoEngaged={minoEngaged} setMinoEngaged={setMinoEngaged} setEndType={setEndType} updateCurGameInfo={updateCurGameInfo} sootheMino={sootheMino} /> 
                             : <>
-                                <PromptText map={map} curGameInfo={curGameInfo} passages={passages}/>
+                                <PromptText map={map} curGameInfo={curGameInfo} passages={passages} getIsWithMinotaur={getIsWithMinotaur} />
                                 {/* <Actions /> */}
                                 <Navigation endGame = {endGame} updateCurRoom={updateCurRoom} curGameInfo={curGameInfo} map={map} setEndType={setEndType} playerInfo={playerInfo} findTheseus={findTheseus} setMinoEngaged={setMinoEngaged} getIsWithMinotaur={getIsWithMinotaur} />
                             </>}
