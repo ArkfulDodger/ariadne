@@ -373,7 +373,7 @@ function App() {
 
     const newGoalPath = generateGoalPath();
     const newMap = generateMap(newGoalPath);
-    console.log("newMap:", newMap);
+    // console.log("newMap:", newMap);
     const newMinoLocation = getStartingMinotaurLocation(newGoalPath);
     // console.log("newly generated map", newMap)
     const mapWithItems = addItemsToMap(newMap, newGoalPath)
@@ -471,7 +471,7 @@ function App() {
           closeMessagePopup={closeMessagePopup}
         />
       }
-      <button onClick={devReset}>Dev: Hard Reset</button>
+      {/* <button onClick={devReset}>Dev: Hard Reset</button> */}
     </div>
   );
 }

@@ -62,7 +62,7 @@ const Minotaur = ({ curGameInfo, minoEngaged, setMinoEngaged, updateCurGameInfo,
         } else {
             switch (event.target.innerText) {
                 case "FIGHT" :
-                    hasSword ? setEndType("swordfail") : setEndType("die");
+                    hasSword ? setEndType("swordwin") : setEndType("die");
                     break;
                 case "SPEAK" : setEndType("diplomacy")
                     break;

@@ -47,10 +47,10 @@ function GameEnd({isCurGame, updateIsCurGame, endType, setEndType}) {
             endGameMessage = `You are finally caught and gored to death by the minotaur... It's not all bad - Hermes showed up to take you to the underworld`
             endImgSrc="https://serenademagazine.com/wp-content/uploads/2021/07/Orpheus_and_Eurydice-header-1200x799.png"
             break;
-        // case 'swordfail' :
-        //     endGameMessage = `You raise up your blade... and are gored to death by the minotaur... Turns out it's better to do that with training... like Theseus has... Anyway, Hermes shows up to take you to the underworld`
-        //     endImgSrc="https://serenademagazine.com/wp-content/uploads/2021/07/Orpheus_and_Eurydice-header-1200x799.png"
-        //     break;
+        case 'swordwin' :
+            endGameMessage = "Wielding the sword, you defeat the mighty Minotaur. The halls less dangerous, you eventually find Theseus and make your escape!"
+            endImgSrc = "https://tripanthropologist.com/wp-content/uploads/2021/02/mosaic-of-theseus-and-minotaur.jpg"
+            break;
         case 'musicfail' :
             endGameMessage = `You begin to play your calming music yet again... and are gored to death by the minotaur... Seems like second time isn't the charm... Hermes shows up to take you to the underworld`
             endImgSrc="https://serenademagazine.com/wp-content/uploads/2021/07/Orpheus_and_Eurydice-header-1200x799.png"

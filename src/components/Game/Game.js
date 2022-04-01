@@ -178,7 +178,7 @@ function Game ({ isCurGame, updateIsCurGame, curGameInfo, map, updateCurGameInfo
             } else if (getIsWithMinotaur(newLocation[0])) {
                 // ENGAGE
                 setMinoEngaged(true);
-                console.log('minotaur engaged because moving to his location at:', newLocation[0]);
+                // console.log('minotaur engaged because moving to his location at:', newLocation[0]);
     
                 // else
             } else {
@@ -190,7 +190,7 @@ function Game ({ isCurGame, updateIsCurGame, curGameInfo, map, updateCurGameInfo
                 if (newLocation[0] === newMinoLocation[0]) {
                     // Y: ENGAGE
                     setMinoEngaged(true);
-                    console.log('minotaur engaged because both moving to new location at:', newLocation[0]);
+                    // console.log('minotaur engaged because both moving to new location at:', newLocation[0]);
                 }
             }
 
@@ -247,7 +247,7 @@ function Game ({ isCurGame, updateIsCurGame, curGameInfo, map, updateCurGameInfo
         currentMinoRoom.eastPassageType && availablePaths.push(currentMinoRoom.path + '1');
         currentMinoRoom.southPassageType && availablePaths.push(currentMinoRoom.path.slice(0, -1));
 
-        const validPaths = availablePaths.filter(path => path !== goalPath);
+        const validPaths = availablePaths.filter(path => path && path !== goalPath);
 
         // pick/return random path from available
         const nextMinoPath = validPaths[Math.floor(Math.random()*validPaths.length)];

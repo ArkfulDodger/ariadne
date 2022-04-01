@@ -63,7 +63,7 @@ function MemoryListItem ({memory}) {
             memoryDetailNote="You kept playing soothing music for the Minotaur, but he didn't stay soothed. Hermes laughs at you as he guides you to the underworld"
             memoryURL="http://blogs.getty.edu/iris/files/2016/11/orpheus.jpg?x45884"
             break;
-        case "swordfail":
+        case "swordwin":
             memoryResult = "You slew the Minotaur"
             memoryDetailNote = "Sword in hand, you were able to defeat the beast and escape the maze"
             memoryURL = "https://tripanthropologist.com/wp-content/uploads/2021/02/mosaic-of-theseus-and-minotaur.jpg"

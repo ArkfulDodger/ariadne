@@ -33,15 +33,222 @@
         {
           "path": "0",
           "type": "entrance",
+          "roomVisited": true,
+          "westPassageType": "a torchlit path",
+          "eastPassageType": "a mossy, but climbable wall",
+          "southPassageType": "exit",
+          "westPassageVisited": true,
+          "eastPassageVisited": true,
+          "southPassageVisited": false,
+          "onGoalPath": true,
+          "itemInRoom": []
+        },
+        {
+          "path": "00",
+          "type": "deadend",
+          "roomVisited": true,
+          "westPassageType": "",
+          "eastPassageType": "",
+          "southPassageType": "a torchlit path",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": true,
+          "onGoalPath": false,
+          "itemInRoom": []
+        },
+        {
+          "path": "01",
+          "type": "fork",
+          "roomVisited": true,
+          "westPassageType": "a rickety bridge over a pit",
+          "eastPassageType": "a winding corridor",
+          "southPassageType": "a mossy, but climbable wall",
+          "westPassageVisited": true,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": true,
+          "itemInRoom": []
+        },
+        {
+          "path": "010",
+          "type": "fork",
+          "roomVisited": true,
+          "westPassageType": "a gloomy hall",
+          "eastPassageType": "a gently sloping walkway",
+          "southPassageType": "a rickety bridge over a pit",
+          "westPassageVisited": true,
+          "eastPassageVisited": true,
+          "southPassageVisited": false,
+          "onGoalPath": true,
+          "itemInRoom": []
+        },
+        {
+          "path": "0100",
+          "type": "fork",
+          "roomVisited": true,
+          "westPassageType": "a dusty walkway",
+          "eastPassageType": "a smooth stone cavern",
+          "southPassageType": "a gloomy hall",
+          "westPassageVisited": true,
+          "eastPassageVisited": false,
+          "southPassageVisited": true,
+          "onGoalPath": false,
+          "itemInRoom": []
+        },
+        {
+          "path": "01000",
+          "type": "deadend",
+          "roomVisited": true,
+          "westPassageType": "",
+          "eastPassageType": "",
+          "southPassageType": "a dusty walkway",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": true,
+          "onGoalPath": false,
+          "itemInRoom": []
+        },
+        {
+          "path": "01001",
+          "type": "deadend",
           "roomVisited": false,
           "westPassageType": "",
           "eastPassageType": "",
-          "southPassageType": "exit",
+          "southPassageType": "a smooth stone cavern",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": false,
+          "itemInRoom": [
+            {
+              "id": 3,
+              "type": "lyre",
+              "description": "an old, but still playable lyre"
+            }
+          ]
+        },
+        {
+          "path": "0101",
+          "type": "fork",
+          "roomVisited": true,
+          "westPassageType": "a cobweb-filled tunnel",
+          "eastPassageType": "a heavy wooden door",
+          "southPassageType": "a gently sloping walkway",
+          "westPassageVisited": true,
+          "eastPassageVisited": true,
+          "southPassageVisited": true,
+          "onGoalPath": true,
+          "itemInRoom": []
+        },
+        {
+          "path": "01010",
+          "type": "bend",
+          "roomVisited": true,
+          "westPassageType": "a gloomy hall",
+          "eastPassageType": "",
+          "southPassageType": "a cobweb-filled tunnel",
+          "westPassageVisited": true,
+          "eastPassageVisited": false,
+          "southPassageVisited": true,
+          "onGoalPath": false,
+          "itemInRoom": []
+        },
+        {
+          "path": "010100",
+          "type": "deadend",
+          "roomVisited": true,
+          "westPassageType": "",
+          "eastPassageType": "",
+          "southPassageType": "a gloomy hall",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": true,
+          "onGoalPath": false,
+          "itemInRoom": []
+        },
+        {
+          "path": "01011",
+          "type": "fork",
+          "roomVisited": true,
+          "westPassageType": "a dark stairwell",
+          "eastPassageType": "a torchlit path",
+          "southPassageType": "a heavy wooden door",
           "westPassageVisited": false,
           "eastPassageVisited": false,
           "southPassageVisited": true,
           "onGoalPath": true,
           "itemInRoom": []
+        },
+        {
+          "path": "010110",
+          "type": "fork",
+          "roomVisited": false,
+          "westPassageType": "a gently sloping walkway",
+          "eastPassageType": "a dusty hallway",
+          "southPassageType": "a dark stairwell",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": false,
+          "itemInRoom": []
+        },
+        {
+          "path": "0101100",
+          "type": "deadend",
+          "roomVisited": false,
+          "westPassageType": "",
+          "eastPassageType": "",
+          "southPassageType": "a gently sloping walkway",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": false,
+          "itemInRoom": []
+        },
+        {
+          "path": "0101101",
+          "type": "deadend",
+          "roomVisited": false,
+          "westPassageType": "",
+          "eastPassageType": "",
+          "southPassageType": "a dusty hallway",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": false,
+          "itemInRoom": []
+        },
+        {
+          "path": "010111",
+          "type": "theseus",
+          "roomVisited": false,
+          "westPassageType": null,
+          "eastPassageType": null,
+          "southPassageType": "a torchlit path",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": true,
+          "itemInRoom": []
+        },
+        {
+          "path": "011",
+          "type": "deadend",
+          "roomVisited": false,
+          "westPassageType": "",
+          "eastPassageType": "",
+          "southPassageType": "a winding corridor",
+          "westPassageVisited": false,
+          "eastPassageVisited": false,
+          "southPassageVisited": false,
+          "onGoalPath": false,
+          "itemInRoom": [
+            {
+              "id": 2,
+              "type": "sword",
+              "description": "a short sword with a Gladius blade"
+            }
+          ]
         }
       ]
     }
@@ -49,1039 +256,14 @@
   "memories": [
     {
       "curLocation": [
-        "0",
-        ""
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "010111",
-      "endType": "leave",
-      "id": 1
-    },
-    {
-      "curLocation": [
-        "0",
-        ""
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "010111",
-      "endType": "leave",
-      "id": 2
-    },
-    {
-      "curLocation": [
-        "0",
-        ""
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "000111",
-      "endType": "leave",
-      "id": 3
-    },
-    {
-      "curLocation": [
-        "0",
-        ""
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "000111",
-      "endType": "die",
-      "id": 4
-    },
-    {
-      "curLocation": [
-        "0",
-        ""
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "",
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "000111",
-      "endType": "die",
-      "id": 5
-    },
-    {
-      "curLocation": [
-        "00",
-        "0"
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "00",
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "011101",
-      "endType": "die",
-      "id": 6
-    },
-    {
-      "curLocation": [
-        "00",
-        "0"
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "00",
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "011101",
-      "endType": "die",
-      "id": 7
-    },
-    {
-      "curLocation": [
-        "00",
-        "0"
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "00",
-      "minoIsEnabled": true,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "010100",
-      "endType": "die",
-      "id": 8
-    },
-    {
-      "curLocation": [
-        "0",
-        "01"
-      ],
-      "entryDirection": "east",
-      "stringPath": "0",
-      "minoLocation": "00",
-      "minoIsEnabled": true,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "000010",
-      "endType": "leave",
-      "id": 9
-    },
-    {
-      "curLocation": [
-        "0",
-        "01"
-      ],
-      "entryDirection": "east",
-      "stringPath": "0",
-      "minoLocation": "00",
-      "minoIsEnabled": true,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "000010",
-      "endType": "leave",
-      "id": 10
-    },
-    {
-      "curLocation": [
-        "0",
-        "01"
-      ],
-      "entryDirection": "east",
-      "stringPath": "0",
-      "minoLocation": "00",
-      "minoIsEnabled": true,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "000010",
-      "endType": "leave",
-      "id": 11
-    },
-    {
-      "curLocation": [
-        "00",
-        "0"
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": "00",
-      "minoIsEnabled": true,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "001000",
-      "endType": "die",
-      "id": 12
-    },
-    {
-      "curLocation": [
-        "01011",
-        "0101"
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": [
-        "01011",
-        "010110"
-      ],
-      "minoThreat": 0,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "010111",
-      "minoIsEnabled": false,
-      "endType": "die",
-      "id": 13
-    },
-    {
-      "curLocation": [
-        "010",
-        "01"
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": [
-        "010",
-        "0100"
-      ],
-      "minoThreat": 0,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "010000",
-      "minoIsEnabled": false,
-      "endType": "die",
-      "id": 14
-    },
-    {
-      "curLocation": [
-        "0",
-        "00"
-      ],
-      "entryDirection": "west",
-      "stringPath": "0",
-      "minoLocation": [
-        "01110",
-        "011101"
-      ],
-      "minoThreat": 0,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "011100",
-      "endType": "leave",
-      "id": 15
-    },
-    {
-      "curLocation": [
-        "0011",
-        "001"
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": [
-        "0011",
-        "00110"
-      ],
-      "minoThreat": 0,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "001100",
-      "endType": "diplomacy",
-      "id": 16
-    },
-    {
-      "curLocation": [
-        "0",
-        "01"
-      ],
-      "entryDirection": "east",
-      "stringPath": "0",
-      "minoLocation": [
-        "00010",
-        "0001"
-      ],
-      "minoThreat": 0,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "000101",
-      "endType": "leave",
-      "id": 17
-    },
-    {
-      "curLocation": [
-        "00",
-        "000"
-      ],
-      "entryDirection": "west",
-      "stringPath": "0",
-      "minoLocation": [
-        "00",
-        "000"
-      ],
-      "minoThreat": 2,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "001010",
-      "endType": "caught",
-      "id": 18
-    },
-    {
-      "curLocation": [
-        "00111",
-        "001110"
-      ],
-      "entryDirection": "west",
-      "stringPath": "0",
-      "minoLocation": [
-        "00111",
-        "001110"
-      ],
-      "minoThreat": 2,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "001111",
-      "endType": "caught",
-      "id": 19
-    },
-    {
-      "curLocation": [
-        "011100",
-        "01110"
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": [
-        "011100",
-        "01110"
-      ],
-      "minoThreat": 2,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": true
-      },
-      "goalPath": "011100",
-      "endType": "caught",
-      "id": 20
-    },
-    {
-      "curLocation": [
-        "001",
-        "0011"
-      ],
-      "entryDirection": "east",
-      "stringPath": "0",
-      "minoLocation": [
-        "001",
-        "0011"
-      ],
-      "minoThreat": 2,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "001110",
-      "endType": "caught",
-      "id": 21
-    },
-    {
-      "curLocation": [
-        "00",
-        "001"
-      ],
-      "entryDirection": "east",
-      "stringPath": "0",
-      "minoLocation": [
-        "001",
-        "0011"
-      ],
-      "minoThreat": 3,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "001110",
-      "endType": "caught",
-      "id": 22
-    },
-    {
-      "curLocation": [
-        "0000",
-        "00000"
-      ],
-      "entryDirection": "west",
-      "stringPath": "0",
-      "minoLocation": [
-        "0000",
-        "00000"
-      ],
-      "minoThreat": 2,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "000010",
-      "endType": "caught",
-      "id": 23
-    },
-    {
-      "curLocation": [
-        "0000",
-        "00000"
-      ],
-      "entryDirection": "west",
-      "stringPath": "0",
-      "minoLocation": [
-        "0000",
-        "00000"
-      ],
-      "minoThreat": 2,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "000011",
-      "endType": "die",
-      "id": 24
-    },
-    {
-      "curLocation": [
-        "010000",
-        "01000"
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": [
-        "010000",
-        "01000"
-      ],
-      "minoThreat": 4,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "010001",
-      "minoThreatMax": 4,
-      "endType": "caught",
-      "id": 25
-    },
-    {
-      "curLocation": [
-        "011",
-        "0111"
-      ],
-      "entryDirection": "east",
-      "stringPath": "0",
-      "minoLocation": [
-        "011",
-        "0111"
-      ],
-      "minoThreat": 4,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": true
-      },
-      "goalPath": "011101",
-      "minoThreatMax": 4,
-      "endType": "caught",
-      "id": 26
-    },
-    {
-      "curLocation": [
-        "01",
-        "011"
-      ],
-      "entryDirection": "east",
-      "stringPath": "0",
-      "minoLocation": [
-        "011",
-        "0111"
-      ],
-      "minoThreat": 5,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": true
-      },
-      "goalPath": "011101",
-      "minoThreatMax": 4,
-      "endType": "caught",
-      "id": 27
-    },
-    {
-      "curLocation": [
-        "000",
-        "0001"
-      ],
-      "entryDirection": "east",
-      "stringPath": "0",
-      "minoLocation": [
-        "000",
-        "0001"
-      ],
-      "minoThreat": 0,
-      "itemsArray": [
-        "sword",
-        "lyre"
-      ],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "000100",
-      "minoThreatMax": 4,
-      "minoCalmed": false,
-      "minoCooldown": 0,
-      "minoCooldownMax": 4,
-      "endType": "musicfail",
-      "id": 28
-    },
-    {
-      "curLocation": [
-        "000",
-        "0001"
-      ],
-      "entryDirection": "east",
-      "stringPath": "0",
-      "minoLocation": [
-        "000",
-        "0001"
-      ],
-      "minoThreat": 0,
-      "itemsArray": [
-        "sword",
-        "lyre"
-      ],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "000100",
-      "minoThreatMax": 4,
-      "minoCalmed": false,
-      "minoCooldown": 0,
-      "minoCooldownMax": 4,
-      "endType": "musicfail",
-      "id": 29
-    },
-    {
-      "curLocation": [
-        "0110",
-        "01101"
-      ],
-      "entryDirection": "east",
-      "stringPath": "0",
-      "minoLocation": [
-        "0110",
-        "01100"
-      ],
-      "minoThreat": 0,
-      "minoCalmed": false,
-      "minoCooldown": 0,
-      "minoCooldownMax": 4,
-      "minoThreatMax": 4,
-      "itemsArray": [
-        "sword",
-        "lyre"
-      ],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "011001",
-      "endType": "musicfail",
-      "id": 30
-    },
-    {
-      "curLocation": [
-        "0110",
-        "011"
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": [
-        "0110",
-        "01101"
-      ],
-      "minoThreat": 0,
-      "minoCalmed": false,
-      "minoCooldown": 4,
-      "minoCooldownMax": 4,
-      "minoThreatMax": 4,
-      "itemsArray": [
-        "sword",
-        "lyre"
-      ],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "011011",
-      "endType": "swordfail",
-      "id": 31
-    },
-    {
-      "curLocation": [
-        "0101",
-        "01011"
-      ],
-      "entryDirection": "east",
-      "stringPath": "0",
-      "minoLocation": [
-        "0101",
-        "01011"
-      ],
-      "minoThreat": 0,
-      "minoCalmed": false,
-      "minoCooldown": 0,
-      "minoCooldownMax": 4,
-      "minoThreatMax": 4,
-      "itemsArray": [
-        "sword",
-        "lyre"
-      ],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": true
-      },
-      "goalPath": "010111",
-      "endType": "slay",
-      "id": 32
-    },
-    {
-      "curLocation": [
-        "01000",
-        "010001"
-      ],
-      "entryDirection": "east",
-      "stringPath": "0",
-      "minoLocation": [
-        "01000",
-        "010001"
-      ],
-      "minoThreat": 4,
-      "minoCalmed": false,
-      "minoCooldown": 4,
-      "minoCooldownMax": 4,
-      "minoThreatMax": 4,
-      "itemsArray": [
-        "sword",
-        "lyre"
-      ],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": true
-      },
-      "goalPath": "010001",
-      "endType": "sacrifice",
-      "id": 33
-    },
-    {
-      "curLocation": [
-        "01100",
-        "0110"
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": [
-        "01100",
-        "0110"
-      ],
-      "minoThreat": 0,
-      "minoCalmed": false,
-      "minoCooldown": 0,
-      "minoCooldownMax": 4,
-      "minoThreatMax": 4,
-      "itemsArray": [
-        "sword",
-        "lyre"
-      ],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": true
-      },
-      "goalPath": "011000",
-      "endType": "survival",
-      "id": 34
-    },
-    {
-      "curLocation": [
-        "0101",
+        "0100",
         "010"
       ],
       "entryDirection": "south",
       "stringPath": "0",
       "minoLocation": [
-        "0101",
-        "01010"
-      ],
-      "minoThreat": 0,
-      "minoCalmed": false,
-      "minoCooldown": 4,
-      "minoCooldownMax": 4,
-      "minoThreatMax": 4,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "010110",
-      "endType": "die",
-      "id": 35
-    },
-    {
-      "curLocation": [
-        "000",
-        "0000"
-      ],
-      "entryDirection": "west",
-      "stringPath": "0",
-      "minoLocation": [
-        "000",
-        "0001"
-      ],
-      "minoThreat": 0,
-      "minoCalmed": false,
-      "minoCooldown": 4,
-      "minoCooldownMax": 4,
-      "minoThreatMax": 4,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "000101",
-      "endType": "diplomacy",
-      "id": 36
-    },
-    {
-      "curLocation": [
-        "0001",
-        "00010"
-      ],
-      "entryDirection": "west",
-      "stringPath": "0",
-      "minoLocation": [
-        "0001",
-        "00010"
-      ],
-      "minoThreat": 1,
-      "minoCalmed": false,
-      "minoCooldown": 4,
-      "minoCooldownMax": 4,
-      "minoThreatMax": 4,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": true
-      },
-      "goalPath": "000101",
-      "endType": "bothdie",
-      "id": 37
-    },
-    {
-      "curLocation": [
-        "01011",
-        "0101"
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": [
-        "01011",
-        "0101"
-      ],
-      "minoThreat": 4,
-      "minoCalmed": false,
-      "minoCooldown": 4,
-      "minoCooldownMax": 4,
-      "minoThreatMax": 4,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": true
-      },
-      "goalPath": "010111",
-      "endType": "caught",
-      "id": 38
-    },
-    {
-      "curLocation": [
-        "001",
-        "0011"
-      ],
-      "entryDirection": "east",
-      "stringPath": "0",
-      "minoLocation": [
-        "001",
-        "0011"
-      ],
-      "minoThreat": 4,
-      "minoCalmed": false,
-      "minoCooldown": 4,
-      "minoCooldownMax": 4,
-      "minoThreatMax": 4,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "001010",
-      "endType": "caught",
-      "id": 39
-    },
-    {
-      "curLocation": [
-        "0",
-        ""
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": [
-        "01111",
-        "011111"
-      ],
-      "minoThreat": 0,
-      "minoCalmed": false,
-      "minoCooldown": 4,
-      "minoCooldownMax": 4,
-      "minoThreatMax": 4,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "011111",
-      "endType": "caught",
-      "id": 40
-    },
-    {
-      "curLocation": [
-        "011",
-        "01"
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": [
-        "011",
-        "0111"
-      ],
-      "minoThreat": 0,
-      "minoCalmed": false,
-      "minoCooldown": 4,
-      "minoCooldownMax": 4,
-      "minoThreatMax": 4,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "011110",
-      "endType": "die",
-      "id": 41
-    },
-    {
-      "curLocation": [
-        "0",
-        ""
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": [
-        "00110",
-        "001101"
-      ],
-      "minoThreat": 0,
-      "minoCalmed": false,
-      "minoCooldown": 4,
-      "minoCooldownMax": 4,
-      "minoThreatMax": 4,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "001101",
-      "endType": "die",
-      "id": 42
-    },
-    {
-      "curLocation": [
-        "0",
-        ""
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": [
-        "00110",
-        "001101"
-      ],
-      "minoThreat": 0,
-      "minoCalmed": false,
-      "minoCooldown": 4,
-      "minoCooldownMax": 4,
-      "minoThreatMax": 4,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "001101",
-      "endType": "die",
-      "id": 43
-    },
-    {
-      "curLocation": [
-        "0",
-        ""
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": [
-        "00110",
-        "001101"
-      ],
-      "minoThreat": 0,
-      "minoCalmed": false,
-      "minoCooldown": 4,
-      "minoCooldownMax": 4,
-      "minoThreatMax": 4,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "001101",
-      "endType": "die",
-      "id": 44
-    },
-    {
-      "curLocation": [
-        "0",
-        ""
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": [
-        "00110",
-        "001101"
-      ],
-      "minoThreat": 0,
-      "minoCalmed": false,
-      "minoCooldown": 4,
-      "minoCooldownMax": 4,
-      "minoThreatMax": 4,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "001101",
-      "endType": "die",
-      "id": 45
-    },
-    {
-      "curLocation": [
-        "0",
-        ""
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": [
-        "00111",
-        "001110"
-      ],
-      "minoThreat": 0,
-      "minoCalmed": false,
-      "minoCooldown": 4,
-      "minoCooldownMax": 4,
-      "minoThreatMax": 4,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "001110",
-      "endType": "die",
-      "id": 46
-    },
-    {
-      "curLocation": [
-        "0",
-        "00"
-      ],
-      "entryDirection": "west",
-      "stringPath": "0",
-      "minoLocation": [
-        "01100",
-        "0110"
+        "0100",
+        "01001"
       ],
       "minoThreat": 0,
       "minoCalmed": false,
@@ -1089,6 +271,150 @@
       "minoCooldownMax": 4,
       "minoThreatMax": 4,
       "itemsArray": [
+        {
+          "id": 1,
+          "type": "torch",
+          "description": " a sturdy torch, you are able to light it from one of the sconces on the wall"
+        }
+      ],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "010010",
+      "endType": "diplomacy",
+      "id": 1
+    },
+    {
+      "curLocation": [
+        "00010",
+        "0001"
+      ],
+      "entryDirection": "south",
+      "stringPath": "0",
+      "minoLocation": [
+        "00010",
+        "000101"
+      ],
+      "minoThreat": 0,
+      "minoCalmed": false,
+      "minoCooldown": 4,
+      "minoCooldownMax": 4,
+      "minoThreatMax": 4,
+      "itemsArray": [
+        {
+          "id": 1,
+          "type": "torch",
+          "description": " a sturdy torch, you are able to light it from one of the sconces on the wall"
+        }
+      ],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "000100",
+      "endType": "die",
+      "id": 2
+    },
+    {
+      "curLocation": [
+        "010010",
+        "01001"
+      ],
+      "entryDirection": "south",
+      "stringPath": "0",
+      "minoLocation": [
+        "010010",
+        "0100100"
+      ],
+      "minoThreat": 0,
+      "minoCalmed": false,
+      "minoCooldown": 0,
+      "minoCooldownMax": 4,
+      "minoThreatMax": 4,
+      "itemsArray": [
+        {
+          "id": 3,
+          "type": "lyre",
+          "description": "an old, but still playable lyre"
+        },
+        {
+          "id": 2,
+          "type": "sword",
+          "description": "a short sword with a Gladius blade"
+        },
+        {
+          "id": 1,
+          "type": "torch",
+          "description": " a sturdy torch, you are able to light it from one of the sconces on the wall"
+        }
+      ],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": false
+      },
+      "goalPath": "010011",
+      "endType": "swordfail",
+      "id": 3
+    },
+    {
+      "curLocation": [
+        "01011",
+        "010110"
+      ],
+      "entryDirection": "west",
+      "stringPath": "0",
+      "minoLocation": [
+        "01011",
+        "0101"
+      ],
+      "minoThreat": 0,
+      "minoCalmed": false,
+      "minoCooldown": 4,
+      "minoCooldownMax": 4,
+      "minoThreatMax": 4,
+      "itemsArray": [
+        {
+          "id": 1,
+          "type": "torch",
+          "description": " a sturdy torch, you are able to light it from one of the sconces on the wall"
+        },
+        {
+          "id": 3,
+          "type": "lyre",
+          "description": "an old, but still playable lyre"
+        }
+      ],
+      "foundTheseus": false,
+      "playerInfo": {
+        "hasTheseus": true
+      },
+      "goalPath": "010110",
+      "endType": "survival",
+      "id": 4
+    },
+    {
+      "curLocation": [
+        "0100",
+        "01001"
+      ],
+      "entryDirection": "east",
+      "stringPath": "0",
+      "minoLocation": [
+        "0100",
+        "01000"
+      ],
+      "minoThreat": 0,
+      "minoCalmed": false,
+      "minoCooldown": 4,
+      "minoCooldownMax": 4,
+      "minoThreatMax": 4,
+      "itemsArray": [
+        {
+          "id": 3,
+          "type": "lyre",
+          "description": "an old, but still playable lyre"
+        },
         {
           "id": 2,
           "type": "sword",
@@ -1099,20 +425,20 @@
       "playerInfo": {
         "hasTheseus": false
       },
-      "goalPath": "011001",
-      "endType": "leave",
-      "id": 47
+      "goalPath": "010000",
+      "endType": "swordwin",
+      "id": 5
     },
     {
       "curLocation": [
-        "0",
-        ""
+        "01010",
+        "010100"
       ],
-      "entryDirection": "south",
+      "entryDirection": "west",
       "stringPath": "0",
       "minoLocation": [
-        "01000",
-        "010001"
+        "01010",
+        "010101"
       ],
       "minoThreat": 0,
       "minoCalmed": false,
@@ -1122,161 +448,42 @@
       "itemsArray": [],
       "foundTheseus": false,
       "playerInfo": {
-        "hasTheseus": false
+        "hasTheseus": true
       },
-      "goalPath": "010001",
-      "endType": "leave",
-      "id": 48
+      "goalPath": "010100",
+      "endType": "sacrifice",
+      "id": 6
     },
     {
       "curLocation": [
-        "0",
-        ""
+        "0101",
+        "010"
       ],
       "entryDirection": "south",
       "stringPath": "0",
       "minoLocation": [
-        "00011",
-        "000110"
+        "0101",
+        "010"
       ],
-      "minoThreat": 0,
+      "minoThreat": 4,
       "minoCalmed": false,
       "minoCooldown": 4,
       "minoCooldownMax": 4,
       "minoThreatMax": 4,
-      "itemsArray": [],
+      "itemsArray": [
+        {
+          "id": 1,
+          "type": "torch",
+          "description": " a sturdy torch, you are able to light it from one of the sconces on the wall"
+        }
+      ],
       "foundTheseus": false,
       "playerInfo": {
         "hasTheseus": false
       },
-      "goalPath": "000110",
-      "endType": "leave",
-      "id": 49
-    },
-    {
-      "curLocation": [
-        "0",
-        ""
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": [
-        "00111",
-        "001111"
-      ],
-      "minoThreat": 0,
-      "minoCalmed": false,
-      "minoCooldown": 4,
-      "minoCooldownMax": 4,
-      "minoThreatMax": 4,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "001111",
-      "endType": "leave",
-      "id": 50
-    },
-    {
-      "curLocation": [
-        "0",
-        ""
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": [
-        "00111",
-        "001111"
-      ],
-      "minoThreat": 0,
-      "minoCalmed": false,
-      "minoCooldown": 4,
-      "minoCooldownMax": 4,
-      "minoThreatMax": 4,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "001111",
-      "endType": "leave",
-      "id": 51
-    },
-    {
-      "curLocation": [
-        "0",
-        ""
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": [
-        "00101",
-        "001010"
-      ],
-      "minoThreat": 0,
-      "minoCalmed": false,
-      "minoCooldown": 4,
-      "minoCooldownMax": 4,
-      "minoThreatMax": 4,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "001010",
-      "endType": "leave",
-      "id": 52
-    },
-    {
-      "curLocation": [
-        "0",
-        ""
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": [
-        "01001",
-        "010011"
-      ],
-      "minoThreat": 0,
-      "minoCalmed": false,
-      "minoCooldown": 4,
-      "minoCooldownMax": 4,
-      "minoThreatMax": 4,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "010011",
-      "endType": "leave",
-      "id": 53
-    },
-    {
-      "curLocation": [
-        "0000",
-        "000"
-      ],
-      "entryDirection": "south",
-      "stringPath": "0",
-      "minoLocation": [
-        "0000",
-        "00001"
-      ],
-      "minoThreat": 0,
-      "minoCalmed": false,
-      "minoCooldown": 4,
-      "minoCooldownMax": 4,
-      "minoThreatMax": 4,
-      "itemsArray": [],
-      "foundTheseus": false,
-      "playerInfo": {
-        "hasTheseus": false
-      },
-      "goalPath": "000011",
-      "endType": "diplomacy",
-      "id": 54
+      "goalPath": "010111",
+      "endType": "caught",
+      "id": 7
     }
   ],
   "items": [
