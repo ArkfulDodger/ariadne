@@ -92,25 +92,25 @@ function Navigation({findTheseus, updateMap, updateCurGameInfo, minoIsEnabled, s
         }
     }
 
-    function checkForItem(){
-        if (curRoom.itemInRoom.length > 0){
-            const item = curRoom.itemInRoom[0]
-            console.log("ITEM from nav", curRoom.itemInRoom)
-            displayMessagePopup(item.type)
-            console.log(itemsArray)
-            // const tempItemsArray = itemsArray.push(item)
-            //console.log(tempItemsArray)
+    // function checkForItem(){
+    //     if (curRoom.itemInRoom.length > 0){
+    //         const item = curRoom.itemInRoom[0]
+    //         console.log("ITEM from nav", curRoom.itemInRoom)
+    //         displayMessagePopup(item.type)
+    //         console.log(itemsArray)
+    //         // const tempItemsArray = itemsArray.push(item)
+    //         //console.log(tempItemsArray)
 
-            updateMap(map.map(room => room.path === curRoom.path ? {...room, itemInRoom: []} : room))
-            .then(data => 
-                updateCurGameInfo({
-                    itemsArray : [...itemsArray, item]
-                })
-            )
-        }
-    }
+    //         updateMap(map.map(room => room.path === curRoom.path ? {...room, itemInRoom: []} : room))
+    //         .then(data => 
+    //             updateCurGameInfo({
+    //                 itemsArray : [...itemsArray, item]
+    //             })
+    //         )
+    //     }
+    // }
 
-    checkForItem()
+    // checkForItem()
 
     let roomFlavor = "";
     if (curRoom.type === 'theseus' && !playerInfo.hasTheseus) {

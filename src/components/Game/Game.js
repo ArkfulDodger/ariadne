@@ -25,7 +25,7 @@ function Game ({ isCurGame, updateIsCurGame, curGameInfo, map, updateCurGameInfo
     //const [endType, setEndType] = useState('');
     const [minoEngaged, setMinoEngaged] = useState(false)
 
-    const {curLocation, goalPath, minoLocation, minoThreat, playerInfo, foundTheseus, minoThreatMax, minoCalmed, minoCooldown} = curGameInfo
+    const {curLocation, goalPath, minoLocation, minoThreat, playerInfo, foundTheseus, minoThreatMax, minoCalmed, minoCooldown, itemsArray} = curGameInfo
 
     useEffect(() =>{
         console.log('in endType Use effect', endType)
@@ -129,9 +129,6 @@ function Game ({ isCurGame, updateIsCurGame, curGameInfo, map, updateCurGameInfo
         // set destination room to visited in state
         updatedMap = updatedMap.map(room => room.path === curLocation[0] ? {...room, roomVisited: true} : room)
 
-        // update map
-        updateMap(updatedMap);
-
         const newLocation = [
             newRoom.path,
             curLocation[0]
@@ -198,17 +195,34 @@ function Game ({ isCurGame, updateIsCurGame, curGameInfo, map, updateCurGameInfo
             }
         }
 
+        let updatedItemsArray = itemsArray;
 
+        if (newRoom.itemInRoom.length > 0){
+            const item = newRoom.itemInRoom[0]
+            console.log("ITEM from nav", newRoom.itemInRoom)
+            displayMessagePopup(item.type)
+            console.log(itemsArray)
+            // const tempItemsArray = itemsArray.push(item)
+            //console.log(tempItemsArray)
 
-        updateCurGameInfo({
-            ...curGameInfo,
-            curLocation : newLocation,
-            entryDirection : newEntryDirection,
-            minoThreat: newMinoThreat,
-            minoLocation: newMinoLocation,
-            minoCalmed: newMinoCalmed,
-            minoCooldown: newMinoCooldown
-        })
+            updatedMap = updatedMap.map(room => room.path === newRoom.path ? {...room, itemInRoom: []} : room);
+            updatedItemsArray = [...updatedItemsArray, item];
+        }
+
+        // update map - then curGameInfo
+        updateMap(updatedMap)
+            .then (
+                updateCurGameInfo({
+                    ...curGameInfo,
+                    curLocation : newLocation,
+                    entryDirection : newEntryDirection,
+                    minoThreat: newMinoThreat,
+                    minoLocation: newMinoLocation,
+                    minoCalmed: newMinoCalmed,
+                    minoCooldown: newMinoCooldown,
+                    itemsArray: updatedItemsArray
+                })
+            )
     }
 
     function sootheMino() {

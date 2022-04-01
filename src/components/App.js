@@ -307,7 +307,7 @@ function App() {
     const newGoalPath = generateGoalPath();
     const newMap = generateMap(newGoalPath);
     const newMinoLocation = getStartingMinotaurLocation(newGoalPath);
-    console.log("newly generated map", newMap)
+    // console.log("newly generated map", newMap)
     const mapWithItems = addItemsToMap(newMap, newGoalPath)
 
     
@@ -355,7 +355,7 @@ function App() {
   }
   
   function chooseARandomPath(inputMap){
-    console.log(inputMap)
+    // console.log(inputMap)
     const randomRoom = inputMap[Math.floor(Math.random()*inputMap.length)]
     return randomRoom.path
   }
