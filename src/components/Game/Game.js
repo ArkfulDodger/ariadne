@@ -49,24 +49,24 @@ function Game ({ isCurGame, updateIsCurGame, curGameInfo, map, updateCurGameInfo
     }
 
     function endGame(){
-
-        if (endType){
-
-            fetch(`http://localhost:3001/memories`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Accept: "application/json"
-                },
-                body: JSON.stringify({
-                    ...curGameInfo,
-                    endType: endType
-                })
-            })
-            .catch( error => console.log(error.message));
-        }
-        
         updateIsCurGame(false)
+        .then(() => {
+            if (endType) {
+    
+                fetch(`http://localhost:3001/memories`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Accept: "application/json"
+                    },
+                    body: JSON.stringify({
+                        ...curGameInfo,
+                        endType: endType
+                    })
+                })
+                .catch( error => console.log(error.message));
+            }
+        })
     }
 
     //#endregion
@@ -202,9 +202,9 @@ function Game ({ isCurGame, updateIsCurGame, curGameInfo, map, updateCurGameInfo
 
         if (newRoom.itemInRoom.length > 0){
             const item = newRoom.itemInRoom[0]
-            console.log("ITEM from nav", newRoom.itemInRoom)
+            // console.log("ITEM from nav", newRoom.itemInRoom)
             displayMessagePopup(item.type)
-            console.log(itemsArray)
+            // console.log(itemsArray)
             // const tempItemsArray = itemsArray.push(item)
             //console.log(tempItemsArray)
 
@@ -263,7 +263,7 @@ function Game ({ isCurGame, updateIsCurGame, curGameInfo, map, updateCurGameInfo
             {!contentLoaded
                 ? <h1>Loading...</h1>
                 : endType
-                    ? <GameEnd endType={endType}/>
+                    ? <GameEnd isCurGame={isCurGame} updateIsCurGame={updateIsCurGame} endType={endType} setEndType={setEndType}/>
                     : foundTheseus
                         ? <Theseus curLocation={curLocation} updateCurGameInfo={updateCurGameInfo} curGameInfo={curGameInfo} displayMessagePopup={displayMessagePopup}/> 
                         : <>{minoEngaged

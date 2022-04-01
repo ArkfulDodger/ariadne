@@ -369,6 +369,7 @@ function App() {
   
   function startNewGame() {
     console.log("----START NEW GAME----");
+    setEndType('');
 
     const newGoalPath = generateGoalPath();
     const newMap = generateMap(newGoalPath);

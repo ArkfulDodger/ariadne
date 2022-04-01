@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 
-function GameEnd({endType}) {
+function GameEnd({isCurGame, updateIsCurGame, endType, setEndType}) {
+    if (isCurGame) {
+        updateIsCurGame(false);
+    }
 
     console.log("in GameEnd", endType)
 
