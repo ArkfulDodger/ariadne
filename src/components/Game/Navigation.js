@@ -97,7 +97,7 @@ function Navigation({findTheseus, updateMap, updateCurGameInfo, minoIsEnabled, s
             const item = curRoom.itemInRoom[0]
             console.log("ITEM from nav", curRoom.itemInRoom)
             displayMessagePopup(item.type)
-            console.log(itemsArray)
+            //console.log(itemsArray)
             // const tempItemsArray = itemsArray.push(item)
             //console.log(tempItemsArray)
 

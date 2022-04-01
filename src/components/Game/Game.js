@@ -124,7 +124,7 @@ function Game ({ isCurGame, updateIsCurGame, curGameInfo, map, updateCurGameInfo
                     ? {...room, southPassageVisited: true}
                     : room)
         }
-        console.log(updatedMap);
+        //console.log(updatedMap);
         
         // set destination room to visited in state
         updatedMap = updatedMap.map(room => room.path === curLocation[0] ? {...room, roomVisited: true} : room)
