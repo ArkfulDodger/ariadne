@@ -200,6 +200,10 @@ div div div div div div div {
   /* background-image: url("https://t3.ftcdn.net/jpg/02/58/64/88/360_F_258648835_rqhfnkSJzpL9byS3vA4l2yXuufFHpcTW.jpg")  ; */
   height: auto;
 }
+/* 
+.home a, .home .linklike{
+  background-color: #0b0e13;
+} */
 
 .memoryPage{
   background-image: linear-gradient(rgb(138, 81, 81), rgb(168, 44, 44), rgb(134, 34, 34),rgb(124, 29, 29),  rgb(124, 29, 29), rgb(103, 36, 36), rgb(73, 16, 16));

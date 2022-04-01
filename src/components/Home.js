@@ -8,7 +8,7 @@ function Home ({ isCurGame, startNewGame, restartGame, resumeGame }) {
             <h1>Ariadne</h1>
             <ScrollTextContainer />
             <img src="https://t4.ftcdn.net/jpg/00/59/78/51/240_F_59785107_UlYF1ot0wghZM62hYeKHT9Kuh1uE78zS.jpg" alt="ariadne at the labyrinth entrance" />
-            <div>
+            <div className="homeButtons">
                 {isCurGame
                     ? (<>
                         <button className="linklike" onClick={resumeGame}>Return to the Labyrinth</button>
