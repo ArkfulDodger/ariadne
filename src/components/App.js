@@ -13,8 +13,8 @@ const defaultGameInfo = {
   curLocation: ["0", ""],
   entryDirection: 'south',
   stringPath: '0',
-  minoLocation: '00',
-  minoIsEnabled: true,
+  minoLocation: ['',''],
+  minoThreat: 0,
   itemsArray: [],
   foundTheseus: false,
   playerInfo: {
@@ -79,7 +79,7 @@ function App() {
   Promise.all([p0IsCurGame, p1CurGame, p2Passages, p3Messages])
     .then(respArr => Promise.all(respArr.map(resp => resp.json())))
     .then(data => {
-      console.log(data);
+      // console.log(data);
       setIsCurGame(data[0].isCurGame);
       setCurGame(data[1]);
       setcurGameInfo(getGameInfoFromGameObj(data[1]));
@@ -105,7 +105,7 @@ function App() {
     })
     .then( res => res.json())
     .then( data => {
-      console.log("set isCurGame to", data.isCurGame)
+      // console.log("set isCurGame to", data.isCurGame)
       setIsCurGame(data.isCurGame)})
     .catch( error => console.log(error.message));
   }
@@ -122,7 +122,7 @@ function App() {
     })
       .then( res => res.json())
       .then( updatedCurGame => {
-        console.log('persisted curGameInfo update');
+        // console.log('persisted curGameInfo update');
         setCurGame(updatedCurGame);
         setcurGameInfo(getGameInfoFromGameObj(updatedCurGame))
       })
@@ -141,7 +141,7 @@ function App() {
     })
       .then( res => res.json())
       .then( updatedCurGame => {
-        console.log('persisted map update');
+        // console.log('persisted map update');
         setCurGame(updatedCurGame)
         setMap(updatedCurGame.map);
       })
@@ -215,9 +215,13 @@ function App() {
           westPassage = null
           eastPassage = null
         } else {
-          roomType="random" // TODO: set to random chamber type
           westPassage = getPassageType(path, path+'0');
           eastPassage = getPassageType(path, path+'1');
+          if (!westPassage && !eastPassage) {
+            roomType="deadend" // TODO: set to random chamber type
+          } else {
+            roomType="default" // TODO: set to random chamber type
+          }
         }
 
         const newRoom = {
@@ -263,6 +267,9 @@ function App() {
     }
   }
 
+  function getStartingMinotaurLocation(goalPath) {
+    return [goalPath.slice(0,-1), goalPath]
+  }
 
 
   //#endregion
@@ -274,17 +281,21 @@ function App() {
 
     const newGoalPath = generateGoalPath();
     const newMap = generateMap(newGoalPath);
+    const newMinoLocation = getStartingMinotaurLocation(newGoalPath);
     
     updateIsCurGame(true);
     updateCurGameInfo({
       ...defaultGameInfo,
-      goalPath: newGoalPath
+      goalPath: newGoalPath,
+      minoLocation: newMinoLocation
     })
     .then(() => updateMap(newMap))
     .then(() => {
-      console.log('navigating to play');
-      navigate('/play')
-      displayMessagePopup('string')
+      // console.log('navigating to play');
+      setTimeout(() => {
+        navigate('/play')
+        displayMessagePopup('string')
+      }, 500);
     })
   }
   
@@ -310,6 +321,17 @@ function App() {
   function closeMessagePopup() {
     setMessagePopupContent({});
     setIsMessageUp(false);
+  }
+
+  function devReset() {
+    updateCurGameInfo(defaultGameInfo)
+    .then (() => {
+      updateMap(defaultMap)
+      .then (() => {
+        updateIsCurGame(false)
+        .then(navigate('/'))
+      })
+    })
   }
 
   //#endregion
@@ -350,6 +372,7 @@ function App() {
           closeMessagePopup={closeMessagePopup}
         />
       }
+      <button onClick={devReset}>Dev: Hard Reset</button>
     </div>
   );
 }

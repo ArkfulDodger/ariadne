@@ -308,6 +308,11 @@ h1, h2 {
   /* height: 300px; */
 }
 
+.icon {
+  height: 1em;
+  width: auto;
+  display: inline-block
+}
 
 .App {
   text-align: center;

@@ -30,16 +30,15 @@ import GameEnd from "./GameEnd";
 //     }
 // ]
 
-function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCurGameInfo, updateMap, passages, restartGame, contentLoaded, displayMessagePopup }) {
+function Game ({ isCurGame, updateIsCurGame, curGameInfo, map, updateCurGameInfo, updateMap, passages, restartGame, contentLoaded, displayMessagePopup }) {
     //#region CONFIRMED
 
     const [menuOpen, setMenuOpen] = useState(false)
     const [itemsOpen, setItemsOpen] = useState(false)
     const [endType, setEndType] = useState('');
-    const [minoIsHere, setMinoIsHere] = useState(false)
+    const [minoEngaged, setMinoEngaged] = useState(false)
 
-    const {curLocation, goalPath, minoIsEnabled, playerInfo, foundTheseus} = curGame
-    
+    const {curLocation, goalPath, minoLocation, minoThreat, playerInfo, foundTheseus} = curGameInfo
 
     useEffect(() =>{
         if(endType){endGame()}
@@ -54,18 +53,12 @@ function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCu
         })
     }
 
+    function getIsWithMinotaur(path) {
+        const location = path || curLocation[0];
+        return minoLocation[0] === location;
+    }
+
     function endGame(){
-
-        // let endGameMessage = ''
-
-        // switch (endType) {
-        //     case 'win' : endGameMessage = "YOU FOUND YOUR HIMBO, good job"
-        //     break;
-        //     default: endGameMessage = "ok how did you get here?" 
-        // }
-        //console.log(endGameMessage)
-        //render a new endGame
-        //(endGameMessage)
 
         if (endType){
             //setIsGameEnd(true)
@@ -155,50 +148,92 @@ function Game ({ isCurGame, updateIsCurGame, curGame, curGameInfo, map, updateCu
             curLocation : newLocation,
             entryDirection : newEntryDirection
         })
+
+        // if in room with Minotaur:
+        if (getIsWithMinotaur(curLocation[0])) {
+            // increment mino threat
+            const newMinoThreat = minoThreat + 1
+            updateCurGameInfo({minoThreat: newMinoThreat})
+
+            // if threat level is 3 or greater
+            if (newMinoThreat >= 3) {
+                // Y: you die
+                alert('The minotaur caught and killed you!');
+            } else {
+                // N: minotaur follows you & ENGAGE
+                updateCurGameInfo({minoLocation: newLocation})
+                setMinoEngaged(true);
+            }
+        
+        // if moving to room with Minotaur
+        } else if (getIsWithMinotaur(newLocation)) {
+            // ENGAGE
+            setMinoEngaged(true);
+
+            // else
+        } else {
+            // minotaur moves
+            console.log("get next Minotaur location");
+            const newMinoLocation = getNextMinoLocation();
+            updateCurGameInfo({minoLocation: newMinoLocation})
+
+            // if movement puts him in room with you
+            if (newLocation[0] === newMinoLocation[0]) {
+                // Y: ENGAGE
+                setMinoEngaged(true);
+            }
+        }
+    }
+
+    function getNextMinoLocation() {
+        console.log('----Getting New Mino Location----');
+        console.log('minoLocation:', minoLocation);
+
+        // get minoLocation room
+        const currentMinoRoom = map.find(room => room.path === minoLocation[0]);
+        console.log('minoRoom:', currentMinoRoom);
+
+        // get array of existing paths (unless goal path)
+        const availablePaths = [];
+        currentMinoRoom.westPassageType && availablePaths.push(currentMinoRoom.path + '0');
+        currentMinoRoom.eastPassageType && availablePaths.push(currentMinoRoom.path + '1');
+        currentMinoRoom.southPassageType && availablePaths.push(currentMinoRoom.path.slice(0, -1));
+        console.log('availPaths:', availablePaths);
+
+        const validPaths = availablePaths.filter(path => path !== goalPath);
+        console.log('validPaths:', validPaths);
+
+        // pick/return random path from available
+        const nextMinoPath = validPaths[Math.floor(Math.random()*validPaths.length)];
+        console.log('nextMinoPath:', nextMinoPath);
+
+        const newMinoLocation = [nextMinoPath, minoLocation[0]];
+        console.log('newMinoLocation:', newMinoLocation);
+
+        return newMinoLocation;
     }
 
     return (
         <div className="game">
-            <h1>
-                Ariadne
-            </h1>
-            {contentLoaded ?
-            <>
-                {endType ? <GameEnd endType={endType}/> : 
-                    <>
-                    {/* <Actions /> */}
-                    {foundTheseus ? 
-                        <Theseus curLocation={curLocation} updateCurGameInfo={updateCurGameInfo} curGameInfo={curGameInfo} displayMessagePopup={displayMessagePopup}/> 
-                        : <> 
-                        {minoIsHere ? 
-                            <Minotaur minoIsHere={minoIsHere} setEndType={setEndType} updateCurGameInfo={updateCurGameInfo} /> 
-                            :
-                            <>
+            <h1>Ariadne</h1>
+            {!contentLoaded
+                ? <h1>Loading...</h1>
+                : endType
+                    ? <GameEnd endType={endType}/>
+                    : foundTheseus
+                        ? <Theseus curLocation={curLocation} updateCurGameInfo={updateCurGameInfo} curGameInfo={curGameInfo} displayMessagePopup={displayMessagePopup}/> 
+                        : <>{minoEngaged
+                            ? <Minotaur minoEngaged={minoEngaged} setEndType={setEndType} updateCurGameInfo={updateCurGameInfo} /> 
+                            : <>
                                 <PromptText map={map} curGameInfo={curGameInfo} passages={passages}/>
-                                <Navigation 
-                                    // patchCurGameStatus={patchCurGameStatus}
-                                    endGame = {endGame}
-                                    updateCurRoom={updateCurRoom} 
-                                    curGameInfo={curGameInfo} 
-                                    map={map}
-                                    setEndType={setEndType}
-                                    playerInfo={playerInfo}
-                                    findTheseus={findTheseus}
-                                    setMinoIsHere={setMinoIsHere}
-                                    minoIsEnabled={minoIsEnabled}
-                                />
-                                <div className="game-buttons">
-                                    <Menu menuOpen={menuOpen} handleToggleMenu={handleToggleMenu} startNewGame={restartGame}/>
-                                    <ItemsWindow itemsOpen={itemsOpen} handleToggleItems={handleToggleItems} />
-                                </div>
-                            </>
-                        }
+                                {/* <Actions /> */}
+                                <Navigation endGame = {endGame} updateCurRoom={updateCurRoom} curGameInfo={curGameInfo} map={map} setEndType={setEndType} playerInfo={playerInfo} findTheseus={findTheseus} setMinoEngaged={setMinoEngaged} getIsWithMinotaur={getIsWithMinotaur} />
+                            </>}
+                            <div className="game-buttons">
+                                <Menu menuOpen={menuOpen} handleToggleMenu={handleToggleMenu} startNewGame={restartGame}/>
+                                <ItemsWindow itemsOpen={itemsOpen} handleToggleItems={handleToggleItems} />
+                            </div>
                         </>
-                    }
-                    </>
-                }
-            </>
-            : <h1>Loading...</h1>
             }
         </div>
     );
