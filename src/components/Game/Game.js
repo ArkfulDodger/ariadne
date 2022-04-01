@@ -28,7 +28,7 @@ function Game ({ isCurGame, updateIsCurGame, curGameInfo, map, updateCurGameInfo
     const {curLocation, goalPath, minoLocation, minoThreat, playerInfo, foundTheseus, minoThreatMax, minoCalmed, minoCooldown, itemsArray} = curGameInfo
 
     useEffect(() =>{
-        console.log('in endType Use effect', endType)
+        // console.log('in endType Use effect', endType)
         if(endType){
             endGame()
         }
@@ -111,20 +111,20 @@ function Game ({ isCurGame, updateIsCurGame, curGameInfo, map, updateCurGameInfo
         let updatedMap = [];
 
         if (newRoom.path.length > curLocation[0].length) {
-            console.log('update path northward');
+            // console.log('update path northward');
             updatedMap = map
                 .map( room => room.path === curLocation[0]
                     ? newRoom.path.endsWith("0") ? {...room, westPassageVisited: true} : {...room, eastPassageVisited: true}
                     : room);
         // if travelling southily
         } else {
-            console.log('update path southward');
+            // console.log('update path southward');
             updatedMap = map
                 .map(room => room.path === curLocation[0]
                     ? {...room, southPassageVisited: true}
                     : room)
         }
-        console.log(updatedMap);
+        // console.log(updatedMap);
         
         // set destination room to visited in state
         updatedMap = updatedMap.map(room => room.path === curLocation[0] ? {...room, roomVisited: true} : room)
@@ -193,6 +193,9 @@ function Game ({ isCurGame, updateIsCurGame, curGameInfo, map, updateCurGameInfo
                     console.log('minotaur engaged because both moving to new location at:', newLocation[0]);
                 }
             }
+
+            console.log(`you: ${newEntryDirection.toUpperCase()} side of "${newLocation[0]}"`);
+            console.log(`minotaur: ${newMinoLocation[0]}`);
         }
 
         let updatedItemsArray = itemsArray;
