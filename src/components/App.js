@@ -312,22 +312,25 @@ function App() {
   }
 
   function addItemsToMap(inputMap, inputGoalPath){
+    for (let i = 0; i < items.length; i ++){
+
     let randomPath = chooseARandomPath(inputMap)
+    
     while (inputGoalPath.includes(randomPath)){
       randomPath = chooseARandomPath(inputMap)
     }
     //console.log("room with Item! ", randomPath)
     const mapWithItems = inputMap.map(room => {
       //console.log(room.path)
-      if (room.path === randomPath ){ //&& (room.itemInRoom.length < 1)
+      if (room.path === randomPath && (room.itemInRoom.length < 1)){ 
         console.log("adding item!", room.path)
         const newItem = items[Math.floor(Math.random()*items.length)]
         return {...room, itemInRoom : [
-          
+          item
         ] }
       }
       return room
-    })
+    })}
     console.log(mapWithItems)
     return mapWithItems
   }
