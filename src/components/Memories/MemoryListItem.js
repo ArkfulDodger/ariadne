@@ -68,6 +68,12 @@ function MemoryListItem ({memory}) {
             memoryDetailNote = "Sword in hand, you were able to defeat the beast and escape the maze"
             memoryURL = "https://tripanthropologist.com/wp-content/uploads/2021/02/mosaic-of-theseus-and-minotaur.jpg"
         break;
+        case "sacrifice":
+            memoryResult="You sacrificed yourself for a dumb man"
+            memoryDetailNote="How's that working out for you?"
+            memoryURL="https://serenademagazine.com/wp-content/uploads/2021/07/Orpheus_and_Eurydice-header-1200x799.png"
+            break;
+        default : memoryResult="The Game ended"
 
 
     }

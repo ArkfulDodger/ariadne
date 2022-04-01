@@ -37,12 +37,13 @@ body{
 }
 
 img {
-  width: 35%;
+  width: 40%;
   margin: auto;
 }
 
 .gameEnd {
   background-color: wheat;
+  color: #1e232c;
   width: 80%;
   margin: auto;
   border: 2px solid #282c34;
@@ -73,7 +74,8 @@ img {
 }
 
 .game {
-  background-color: rgb(18, 9, 51);
+  background-color: rgb(24, 12, 66);
+  /* background-image: linear-gradient(rgb(94, 84, 192), rgb(67, 67, 155), rgb(80, 66, 202), rgb(71, 42, 156), rgb(8, 8, 79)); */
   color: wheat;
   text-align: center;
   height: 97vh;
@@ -100,7 +102,7 @@ h1{
   color: #1e232c;
   border: 4px solid #818faa;
   border-style: outset;
-  background-image: linear-gradient(rgb(93, 90, 90), rgb(135, 127, 112), rgb(192, 189, 164), rgb(235, 235, 203), rgb(192, 189, 164), rgb(135, 127, 112), rgb(93, 90, 90));
+  background-image: linear-gradient(rgb(118, 114, 114), rgb(167, 157, 138), rgb(214, 211, 186), rgb(254, 254, 225), rgb(222, 219, 189), rgb(191, 179, 157), rgb(118, 113, 113));
 }
 
 .prompText {
@@ -153,7 +155,7 @@ div div div div div div div {
 .option{
   width: 35%;
   margin: .5em;
-  background-image: linear-gradient(rgb(108, 96, 63), rgb(49, 39, 17));
+  background-image: linear-gradient(rgba(151, 134, 87, 0.996), rgb(91, 73, 33));
   color:#141312;
   border: 4px solid darkslategrey;
   border-style: inset;
@@ -169,7 +171,7 @@ div div div div div div div {
 }
 
 .navigation {
-  color: rgb(109, 96, 71);
+  color: rgb(176, 159, 128);
 }
 
 .optionBox {
@@ -200,14 +202,17 @@ div div div div div div div {
   /* background-image: url("https://t3.ftcdn.net/jpg/02/58/64/88/360_F_258648835_rqhfnkSJzpL9byS3vA4l2yXuufFHpcTW.jpg")  ; */
   height: auto;
 }
-/* 
-.home a, .home .linklike{
-  background-color: #0b0e13;
-} */
 
+.homeButtons a, .homeButtons .linklike{
+  margin-bottom: 1em;
+}
 .memoryPage{
   background-image: linear-gradient(rgb(138, 81, 81), rgb(168, 44, 44), rgb(134, 34, 34),rgb(124, 29, 29),  rgb(124, 29, 29), rgb(103, 36, 36), rgb(73, 16, 16));
+  
+}
 
+.memoryPage p, .memoryItem h3, .memoryItem h4, .memoryItem h5{
+  font-family: 'Cinzel';
 }
 
 .home img{
@@ -254,6 +259,10 @@ div div div div div div div {
   margin-top: 1em;
 }
 
+.memoryItem img {
+  min-width: 14em;
+}
+
 .memoryItem h3 {
   font-style: italic;
   cursor: pointer;
@@ -286,11 +295,12 @@ a, .linklike, .restartButton {
   border-radius: 6px;
   text-decoration: none;
   margin: 1em;
-  display: inline-block;
-  padding: 14px;
+  display: inline;
+  padding: .4em;
   font-size: 25px;
   font-family: 'Genos';
   border-style: outset;
+  white-space: nowrap;
   background: linear-gradient(180deg, #edc800, #e3b600, #f3cf00, #ffe800)
 }
 
