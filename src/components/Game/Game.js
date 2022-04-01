@@ -254,7 +254,7 @@ function Game ({ isCurGame, updateIsCurGame, curGameInfo, map, updateCurGameInfo
                             : <>
                                 <PromptText map={map} curGameInfo={curGameInfo} passages={passages} getIsWithMinotaur={getIsWithMinotaur} />
                                 {/* <Actions /> */}
-                                <Navigation endGame = {endGame} updateCurRoom={updateCurRoom} curGameInfo={curGameInfo} map={map} setEndType={setEndType} playerInfo={playerInfo} findTheseus={findTheseus} setMinoEngaged={setMinoEngaged} getIsWithMinotaur={getIsWithMinotaur}  items={items} displayMessagePopup={displayMessagePopup} />
+                                <Navigation updateMap={updateMap} updateCurGameInfo = {updateCurGameInfo}endGame = {endGame} updateCurRoom={updateCurRoom} curGameInfo={curGameInfo} map={map} setEndType={setEndType} playerInfo={playerInfo} findTheseus={findTheseus} setMinoEngaged={setMinoEngaged} getIsWithMinotaur={getIsWithMinotaur}  items={items} displayMessagePopup={displayMessagePopup} />
                             </>}
                             <div className="game-buttons">
                                 <Menu menuOpen={menuOpen} handleToggleMenu={handleToggleMenu} startNewGame={restartGame}/>

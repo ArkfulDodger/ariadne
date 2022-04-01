@@ -1,6 +1,6 @@
 import OptionBox from "./OptionBox"
 
-function Navigation({findTheseus, minoIsEnabled, setMinoEngaged, curGameInfo, map, updateCurRoom, setEndType, playerInfo, getIsWithMinotaur, items, displayMessagePopup}) {
+function Navigation({findTheseus, updateMap, updateCurGameInfo, minoIsEnabled, setMinoEngaged, curGameInfo, map, updateCurRoom, setEndType, playerInfo, getIsWithMinotaur, items, displayMessagePopup}) {
     const {curLocation, stringPath, entryDirection, minoCalmed, itemsArray} = curGameInfo
     const curRoom = map.find(room => room.path === curLocation[0]);
 
@@ -93,14 +93,20 @@ function Navigation({findTheseus, minoIsEnabled, setMinoEngaged, curGameInfo, ma
     }
 
     function checkForItem(){
-        console.log("checking for item", curRoom.itemInRoom)
         if (curRoom.itemInRoom.length > 0){
             const item = curRoom.itemInRoom[0]
             console.log("ITEM from nav", curRoom.itemInRoom)
-            //displayMessagePopup(item.type)
-            //updateCurGameInfo({
-                //itemsArray : itemsArray.push(item)
-            //})
+            displayMessagePopup(item.type)
+            console.log(itemsArray)
+            // const tempItemsArray = itemsArray.push(item)
+            //console.log(tempItemsArray)
+
+            updateMap(map.map(room => room.path === curRoom.path ? {...room, itemInRoom: []} : room))
+            .then(data => 
+                updateCurGameInfo({
+                    itemsArray : [...itemsArray, item]
+                })
+            )
         }
     }
 
